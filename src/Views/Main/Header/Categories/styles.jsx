@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     align-items: flex-start;
     // border: 1px solid green;
     position: relative;
+    border-bottom: 1px solid black;
 
     .firstTime {
         position: absolute;

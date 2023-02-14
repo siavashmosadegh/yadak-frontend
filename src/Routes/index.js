@@ -8,6 +8,7 @@ import Main from '../Pages/Main';
 import Login from '../Pages/Login';
 import Header from '../Views/Main/Header';
 import routePaths from './NameSpace';
+import Product from '../Pages/Product';
 
 const RoutesList = () => {
     
@@ -26,6 +27,12 @@ const RoutesList = () => {
                     exact
                     path={routePaths.login}
                     element={ <Login />}
+                />
+
+                <Route
+                    exact
+                    path={routePaths.product}
+                    element={ <Product /> }
                 />
 
                 {/* <Route
