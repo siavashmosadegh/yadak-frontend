@@ -7,6 +7,7 @@ export const RoutingSection = styled.div`
     justify-content: flex-start;
     padding-top: 5px;
     padding-right: 10px;
+    padding-bottom: 5px;
 `;
 
 export const RoutingItem = styled.div`
@@ -26,5 +27,24 @@ export const RoutingItem = styled.div`
 `;
 
 export const FirstSectionWrapper = styled.div`
-    
+    display: flex;
+`;
+
+export const PictureDiv = styled.div`
+    width: 30%;
+    border: 1px solid red;
+`;
+
+export const LeftDiv = styled.div`
+    width: 70%;
+    border: 1px solid blue;
+
+    h3 {
+        text-align: right;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: row-reverse;
+    }
 `;
