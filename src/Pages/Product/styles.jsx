@@ -28,11 +28,63 @@ export const RoutingItem = styled.div`
 
 export const FirstSectionWrapper = styled.div`
     display: flex;
+
+    @media (max-width: 1100px) {
+        flex-direction: column-reverse;
+    }
 `;
 
-export const PictureDiv = styled.div`
+export const RightDiv = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
     width: 30%;
     border: 1px solid red;
+
+    .icons {
+        width: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        svg {
+            margin-bottom: 8px;
+        }
+    }
+
+    .picture {
+        width: calc(100% - 40px);
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        width: 100%;
+        flex-direction: column;
+
+        .icons {
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+    
+            svg {
+                margin-right: 8px;
+            }
+        }
+    
+        .picture {
+            width: 100%;
+    
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 `;
 
 export const LeftDiv = styled.div`
@@ -46,5 +98,9 @@ export const LeftDiv = styled.div`
     .description {
         display: flex;
         flex-direction: row-reverse;
+    }
+
+    @media (max-width: 1100px) {
+        width: 100%;
     }
 `;

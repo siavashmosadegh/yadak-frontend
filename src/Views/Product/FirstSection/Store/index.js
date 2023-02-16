@@ -3,12 +3,13 @@ import AvailableInStoreIcon from '../../../../Icons/ProductIcons/AvailableInStor
 import EuroPriceIcon from '../../../../Icons/ProductIcons/EuroPriceIcon';
 import UnavailableInStoreIcon from '../../../../Icons/ProductIcons/UnavailableInStoreIcon';
 import VerifiedIcon from '../../../../Icons/ProductIcons/VerifiedIcon';
-import { Line, Wrapper } from './styles';
+import { Button, Line, Wrapper } from './styles';
 
 const Store = (props) => {
 
     const {
-        available
+        available,
+        price
     } = props;
 
     return (
@@ -41,9 +42,23 @@ const Store = (props) => {
             <Line />
 
             <div className="price">
-                <EuroPriceIcon />
+                <div className="innerDiv">
+                    <EuroPriceIcon />
 
-                <p>171000</p>
+                    <p>قیمت</p>
+                </div>
+
+                <div className="innerDiv">
+                    <p className="number">{price.toLocaleString()}</p>
+
+                    <p>تومان</p>
+                </div>
+            </div>
+
+            <div className="buttonDiv">
+                <Button>
+                    افزودن به سبد
+                </Button>
             </div>
         </Wrapper>
     );

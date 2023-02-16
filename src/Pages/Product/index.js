@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import AddToListIcon from '../../Icons/ProductIcons/AddToListIcon';
+import BellAlertIcon from '../../Icons/ProductIcons/BellAlertIcon';
+import CompareIcon from '../../Icons/ProductIcons/CompareIcon';
+import EmptyHeartIcon from '../../Icons/ProductIcons/EmptyHeartIcon';
+import ShareIcon from '../../Icons/ProductIcons/ShareIcon';
 import Layout from '../../Views/Layout/index';
 import Description from '../../Views/Product/FirstSection/Description';
 import Store from '../../Views/Product/FirstSection/Store';
 import {
     FirstSectionWrapper,
     LeftDiv,
-    PictureDiv,
+    RightDiv,
     RoutingItem,
     RoutingSection
 } from './styles';
@@ -26,7 +31,8 @@ const Product = () => {
             {id: 2,title: "نوع رادیاتور",explanation: "بدون رادیاتور"},
             {id: 3,title: "نوع چراغ",explanation: "لامپ رشته ای"}
         ],
-        available: false
+        available: false,
+        price: 171000
     });
 
     const [routingItems, setRoutingItems] = useState([
@@ -65,7 +71,7 @@ const Product = () => {
             <FirstSectionWrapper>
                 {leftDivContent()}
 
-                {pictureDivContent()}
+                {rightDivContent()}
             </FirstSectionWrapper>
         );
     }
@@ -87,17 +93,32 @@ const Product = () => {
 
                     <Store 
                         available={item.available}
+                        price={item.price}
                     />
                 </div>
             </LeftDiv>
         );
     }
 
-    const pictureDivContent = () => {
+    const rightDivContent = () => {
         return (
-            <PictureDiv>
-                picture
-            </PictureDiv>
+            <RightDiv>
+                <div className="icons">
+                    <EmptyHeartIcon />
+
+                    <ShareIcon />
+
+                    <BellAlertIcon />
+
+                    <CompareIcon />
+
+                    <AddToListIcon />
+                </div>
+
+                <div className="picture">
+                    <img src="/Assets/images/1.jpg"/>
+                </div>
+            </RightDiv>
         );
     }
 
