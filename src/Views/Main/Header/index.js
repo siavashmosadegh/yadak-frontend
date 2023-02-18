@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HeaderInputForm from '../Forms/HeaderInputForm';
 import BasketAndRegisterLogin from './BasketAndRegisterLogin';
 import Categories from './Categories';
@@ -15,8 +16,11 @@ const Header = () => {
                 <div className="formAndLogo">
                     <HeaderInputForm />
 
+
                     <div className="logoText">
-                        سیاوش یدک
+                        <Link to="/">   
+                            سیاوش یدک
+                        </Link>
                     </div>
                 </div>
             </div>

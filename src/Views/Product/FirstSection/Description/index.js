@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Features,
     QuestionOpitionStar,
     UserSuggest,
     Wrapper
@@ -8,6 +7,7 @@ import {
 import StarIcon from '../../../../Icons/ProductIcons/StarIcon';
 import DotIcon from '../../../../Icons/ProductIcons/DotIcon';
 import LikeIcon from '../../../../Icons/ProductIcons/LikeIcon';
+import Features from '../Features';
 
 const Description = (props) => {
 
@@ -20,25 +20,25 @@ const Description = (props) => {
         features
     } = props;
 
-    const featuresCreator = () => {
-        if (features !== null && features.length !== 0) {
-            return (
-                features.map(item => {
-                    return (
-                        <div className="featureItem">
-                            <DotIcon />
+    // const featuresCreator = () => {
+    //     if (features !== null && features.length !== 0) {
+    //         return (
+    //             features.map(item => {
+    //                 return (
+    //                     <div className="featureItem">
+    //                         <DotIcon />
 
-                            <p>{item.title}</p>
+    //                         <p>{item.title}</p>
 
-                            <p>:</p>
+    //                         <p>:</p>
 
-                            <p>{item.explanation}</p>    
-                        </div>
-                    );
-                })
-            );
-        }
-    }
+    //                         <p>{item.explanation}</p>    
+    //                     </div>
+    //                 );
+    //             })
+    //         );
+    //     }
+    // }
 
     return (
         <Wrapper>
@@ -82,11 +82,15 @@ const Description = (props) => {
                 <p>از خریداران این کالا را پیشنهاد کردند</p>
             </UserSuggest> 
 
+            <Features 
+                features={features}
+            />
+{/* 
             <Features>
                 <h3>ویژگی ها</h3>
 
                 {featuresCreator()}
-            </Features>           
+            </Features>            */}
         </Wrapper>
     );
 }

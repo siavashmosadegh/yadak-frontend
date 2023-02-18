@@ -7,9 +7,12 @@ import ShareIcon from '../../Icons/ProductIcons/ShareIcon';
 import Layout from '../../Views/Layout/index';
 import Description from '../../Views/Product/FirstSection/Description';
 import Store from '../../Views/Product/FirstSection/Store';
+import Slogan from '../../Views/Slogan';
 import {
+    FirstSectionResponsiveWrapper,
     FirstSectionWrapper,
     LeftDiv,
+    ProductWrapper,
     RightDiv,
     RoutingItem,
     RoutingSection
@@ -122,11 +125,42 @@ const Product = () => {
         );
     }
 
+    const firstSectionResponsive = () => {
+        return (
+            <FirstSectionResponsiveWrapper>
+                {rightDivContent()}
+
+                <h3>{item.title}</h3>
+
+                <Description 
+                    numOfQuestions={item.question}
+                    numOfOpinions={item.opinion}
+                    star={item.star}
+                    userSuggestNumber={item.userSuggestNumber}
+                    userSuggestPercent={item.userSuggestPercent}
+                    features={item.features}
+                />           
+            </FirstSectionResponsiveWrapper>
+        );
+    }
+
+    // const belowPictureResponsive = () => {
+    //     return (
+
+    //     );
+    // }
+
     return (
         <Layout>
-            {routingItemsContent()}
+            <ProductWrapper>
+                {routingItemsContent()}
 
-            {firstSection()}
+                {firstSection()}
+
+                {firstSectionResponsive()}
+
+                <Slogan />
+            </ProductWrapper>
         </Layout>
     );
 }

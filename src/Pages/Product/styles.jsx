@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const ProductWrapper = styled.div`
+    padding: 20px;
+`;
+
 export const RoutingSection = styled.div`
     display: flex;
     align-items: center;
@@ -30,7 +34,7 @@ export const FirstSectionWrapper = styled.div`
     display: flex;
 
     @media (max-width: 1100px) {
-        flex-direction: column-reverse;
+        display: none;
     }
 `;
 
@@ -38,7 +42,7 @@ export const RightDiv = styled.div`
     display: flex;
     flex-direction: row-reverse;
     width: 30%;
-    border: 1px solid red;
+    // border: 1px solid red;
 
     .icons {
         width: 40px;
@@ -102,5 +106,13 @@ export const LeftDiv = styled.div`
 
     @media (max-width: 1100px) {
         width: 100%;
+    }
+`;
+
+export const FirstSectionResponsiveWrapper = styled.div`
+    display: none;
+
+    @media (max-width: 1100px) {
+        display: initial;
     }
 `;
