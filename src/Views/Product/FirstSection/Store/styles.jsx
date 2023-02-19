@@ -39,6 +39,25 @@ export const Wrapper = styled.div`
     .buttonDiv {
         width: 100%;
     }
+
+    @media (max-width: 1100px) {
+        width: 100%;
+        background-color: white;
+        border-radius: none;
+        padding: 0px;
+
+        .lowerLine {
+            display: none;
+        }
+
+        .price {
+            display: none;
+        }
+
+        .buttonDiv {
+            display: none;
+        }
+    }
 `;
 
 export const Line = styled.div`

@@ -39,7 +39,7 @@ const Store = (props) => {
                 }
             </div>
 
-            <Line />
+            <Line className="lowerLine"/>
 
             <div className="price">
                 <div className="innerDiv">

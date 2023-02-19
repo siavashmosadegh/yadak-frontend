@@ -93,7 +93,7 @@ export const RightDiv = styled.div`
 
 export const LeftDiv = styled.div`
     width: 70%;
-    border: 1px solid blue;
+    // border: 1px solid blue;
 
     h3 {
         text-align: right;
@@ -111,6 +111,10 @@ export const LeftDiv = styled.div`
 
 export const FirstSectionResponsiveWrapper = styled.div`
     display: none;
+
+    h3 {
+        text-align: right;
+    }
 
     @media (max-width: 1100px) {
         display: initial;

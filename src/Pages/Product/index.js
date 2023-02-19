@@ -6,7 +6,11 @@ import EmptyHeartIcon from '../../Icons/ProductIcons/EmptyHeartIcon';
 import ShareIcon from '../../Icons/ProductIcons/ShareIcon';
 import Layout from '../../Views/Layout/index';
 import Description from '../../Views/Product/FirstSection/Description';
+import QuestionOpitionStar from '../../Views/Product/FirstSection/Description/QuestionOpitionStar';
+import UserSuggest from '../../Views/Product/FirstSection/Description/UserSuggest';
+import Features from '../../Views/Product/FirstSection/Features';
 import Store from '../../Views/Product/FirstSection/Store';
+import PricingProcess from '../../Views/Product/PricingProcess';
 import Slogan from '../../Views/Slogan';
 import {
     FirstSectionResponsiveWrapper,
@@ -34,7 +38,7 @@ const Product = () => {
             {id: 2,title: "نوع رادیاتور",explanation: "بدون رادیاتور"},
             {id: 3,title: "نوع چراغ",explanation: "لامپ رشته ای"}
         ],
-        available: false,
+        available: true,
         price: 171000
     });
 
@@ -99,6 +103,8 @@ const Product = () => {
                         price={item.price}
                     />
                 </div>
+
+                {/* <PricingProcess /> */}
             </LeftDiv>
         );
     }
@@ -132,23 +138,36 @@ const Product = () => {
 
                 <h3>{item.title}</h3>
 
-                <Description 
-                    numOfQuestions={item.question}
-                    numOfOpinions={item.opinion}
+                <QuestionOpitionStar 
                     star={item.star}
+                    numOfOpinions={item.opinion}
+                    numOfQuestions={item.question}
+                />
+
+                <UserSuggest 
                     userSuggestNumber={item.userSuggestNumber}
                     userSuggestPercent={item.userSuggestPercent}
-                    features={item.features}
-                />           
+                />            
+
+                <Store
+                    available={item.available}
+                    price={item.price}
+                />
+
+                {
+                    (item.features === null) || (item.features.length === 0)
+                        ?
+                        null
+                        :
+                        <Features 
+                            features={item.features}
+                        />
+                }
+
+                {/* <PricingProcess /> */}
             </FirstSectionResponsiveWrapper>
         );
     }
-
-    // const belowPictureResponsive = () => {
-    //     return (
-
-    //     );
-    // }
 
     return (
         <Layout>

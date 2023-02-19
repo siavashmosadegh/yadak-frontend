@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     width: 60%;
     border-top: 1px solid gray;
+
+    @media (max-width: 1100px) {
+        width: 100%;
+    }
 `;
 
 export const QuestionOpitionStar = styled.div`
