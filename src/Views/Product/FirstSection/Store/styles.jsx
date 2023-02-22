@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    width: 40%;
+    // width: 40%;
+    width: 100%;
     height: auto;
-    padding: 20px;
+    // padding: 20px;
     background-color: rgb(247,247,247);
     border-radius: 15px;
 

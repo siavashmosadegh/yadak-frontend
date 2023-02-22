@@ -7,9 +7,10 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     border-radius: 10px;
     flex-direction: row-reverse;
-    padding-left: 10px;
-    padding-right: 10px;
+    // padding-left: 10px;
+    // padding-right: 10px;
     width: 100%;
+    margin-bottom: 10px;
 
     p {
         font-size: 12px;

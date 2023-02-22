@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const FeaturesWrapper = styled.div`
+
+    width: 100%;
     h3 {
         text-align: right;
     }

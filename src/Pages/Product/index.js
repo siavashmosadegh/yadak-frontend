@@ -11,6 +11,7 @@ import UserSuggest from '../../Views/Product/FirstSection/Description/UserSugges
 import Features from '../../Views/Product/FirstSection/Features';
 import Store from '../../Views/Product/FirstSection/Store';
 import PricingProcess from '../../Views/Product/PricingProcess';
+import Questions from '../../Views/Questions';
 import Slogan from '../../Views/Slogan';
 import {
     FirstSectionResponsiveWrapper,
@@ -39,7 +40,24 @@ const Product = () => {
             {id: 3,title: "نوع چراغ",explanation: "لامپ رشته ای"}
         ],
         available: true,
-        price: 171000
+        price: 171000,
+        questions: [
+            {
+                id: 0,
+                question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",
+                answers: [
+                    {id: 0,answer: "درود بر شما که بهترین هستید هر دو را میتوانید انجام بدهید به شرطی که کناف شما راویز کاری شده باشد اصولی تر میشود ولی ادر کل تحمل میکنه و ما تو مغازه ها و نمایندگی هامون حتی پشت کارو یدونه برگ سوراخ میکنیم تا بتونیم مدلها رو تغیر بدیم هر ماه و شما اگه اینجا بودید میدیدید که هیچ پیچ و مهره ای در کار نیست ولی اصولی نمیشه"},
+                    {id: 1,answer: "درود بر شما که بهترین هستید هر دو را میتوانید انجام بدهید به شرطی که کناف شما راویز کاری شده باشد اصولی تر میشود ولی ادر کل تحمل میکنه و ما تو مغازه ها و نمایندگی هامون حتی پشت کارو یدونه برگ سوراخ میکنیم تا بتونیم مدلها رو تغیر بدیم هر ماه و شما اگه اینجا بودید میدیدید که هیچ پیچ و مهره ای در کار نیست ولی اصولی نمیشه"}
+                ]
+            },
+            {id: 1,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
+            {id: 2,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
+            {id: 3,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
+            {id: 4,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
+            {id: 5,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
+            {id: 6,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
+            {id: 7,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []}
+        ]
     });
 
     const [routingItems, setRoutingItems] = useState([
@@ -89,22 +107,26 @@ const Product = () => {
                 <h3>{item.title}</h3>
 
                 <div className="description">
-                    <Description 
-                        numOfQuestions={item.question}
-                        numOfOpinions={item.opinion}
-                        star={item.star}
-                        userSuggestNumber={item.userSuggestNumber}
-                        userSuggestPercent={item.userSuggestPercent}
-                        features={item.features}
-                    />
+                    <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
+                        <Description 
+                            numOfQuestions={item.question}
+                            numOfOpinions={item.opinion}
+                            star={item.star}
+                            userSuggestNumber={item.userSuggestNumber}
+                            userSuggestPercent={item.userSuggestPercent}
+                            features={item.features}
+                        />
+                    </div>
 
-                    <Store 
-                        available={item.available}
-                        price={item.price}
-                    />
+                    <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
+                        <Store 
+                            available={item.available}
+                            price={item.price}
+                        />
+                        <PricingProcess />
+                    </div>
                 </div>
 
-                {/* <PricingProcess /> */}
             </LeftDiv>
         );
     }
@@ -164,7 +186,7 @@ const Product = () => {
                         />
                 }
 
-                {/* <PricingProcess /> */}
+                <PricingProcess />
             </FirstSectionResponsiveWrapper>
         );
     }
@@ -179,6 +201,10 @@ const Product = () => {
                 {firstSectionResponsive()}
 
                 <Slogan />
+
+                <Questions 
+                    questions={item.questions}
+                />
             </ProductWrapper>
         </Layout>
     );

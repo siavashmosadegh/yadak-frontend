@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    width: 60%;
-    border-top: 1px solid gray;
+    // width: 60%;
+    width: 100%;
+    // border-top: 1px solid gray;
+
+    // border: 2px solid green;
 
     @media (max-width: 1100px) {
         width: 100%;

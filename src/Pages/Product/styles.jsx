@@ -102,6 +102,7 @@ export const LeftDiv = styled.div`
     .description {
         display: flex;
         flex-direction: row-reverse;
+        width: 100%;
     }
 
     @media (max-width: 1100px) {
@@ -117,6 +118,8 @@ export const FirstSectionResponsiveWrapper = styled.div`
     }
 
     @media (max-width: 1100px) {
-        display: initial;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `;
