@@ -3,12 +3,28 @@ import QuestionMarkIcon from '../../../Icons/ProductIcons/QuestionMarkIcon';
 import AnswerItem from '../AnswerItem';
 import { Wrapper } from './styles';
 import LeftArrowIcon from '../../../Icons/LeftArrowIcon';
+import { useDispatch, useSelector } from 'react-redux';
+import ProductActions from '../../../Redux/Product/Actions';
 
 const QuestionItem = (props) => {
 
     const {
         item
     } = props;
+
+    const dispatch = useDispatch();
+
+    const ProductState = useSelector((state) => state.Product);
+
+    const {
+        selectedQuestion
+    } = ProductState;
+
+    console.log(selectedQuestion);
+
+    const showAnswerQuestionModal = () => {
+        dispatch(ProductActions.showAnswerQuestionModalHandler(item));
+    }
 
     const answers = () => {
         if (item.answers !== null && item.answers.length !== 0) {
@@ -35,15 +51,17 @@ const QuestionItem = (props) => {
                     {item.question}
                 </div>
             </div>
+
             {answers()}
 
-            <div className="askQuestionDiv">
-                <button style={{display: "flex",alignItems: "center"}}>
-                    <LeftArrowIcon />
+            <button
+                className="registerNewAnswer"
+                onClick={showAnswerQuestionModal}
+            >
+                <LeftArrowIcon />
 
-                    <span>ثبت پاسخ جدید</span>
-                </button>
-            </div>
+                <span>ثبت پاسخ جدید</span>
+            </button>
         </Wrapper>
     );
 }

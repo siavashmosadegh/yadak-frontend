@@ -7,12 +7,20 @@ import {
 } from './styles';
 import AskQuestionForm from '../Product/Forms/AskQuestionForm/index';
 import QuestionItem from './QuestionItem';
+import { useDispatch } from 'react-redux';
+import ProductActions from '../../Redux/Product/Actions';
 
 const Questions = (props) => {
+
+    const dispatch = useDispatch();
 
     const {
         questions
     } = props;
+
+    const showAskQuestionModal = () => {
+        dispatch(ProductActions.showAskQuestionModalHandler({}));
+    }
 
     const emptyContent = () => {
         return (
@@ -30,7 +38,7 @@ const Questions = (props) => {
                 <div className="askQuestionDiv">
                     <p>شما هم پرسش ثبت کنید</p>
 
-                    <button>ثبت پرسش</button>                    
+                    <button onClick={showAskQuestionModal}>ثبت پرسش</button>                    
                 </div>
 
                 <div className="questions">

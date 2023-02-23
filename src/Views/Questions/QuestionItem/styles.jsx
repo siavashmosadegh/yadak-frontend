@@ -33,12 +33,33 @@ export const Wrapper = styled.div`
         text-align: right;
     }
 
-    .askQuestionDiv {
+    // .askQuestionDiv {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: flex-start;
+    // }
+    
+    .registerNewAnswer {
+        width: 120px;
+        height: 40px;
+        border: none;
+        background-color: red;
+        color: white;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-    }
+        justify-content: center;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
 
+        svg {
+            fill: #ffffff;
+            width: 25px;
+            height: 25px;
+        }
+    }
 `;
 // .iconDiv {
 //     width: 80px;

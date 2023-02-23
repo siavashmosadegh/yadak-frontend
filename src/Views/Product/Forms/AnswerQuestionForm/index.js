@@ -3,12 +3,12 @@ import React from 'react';
 import { Form, FormContainer } from './styles';
 import FormHandlers from '../../../../Util/FormHandlers';
 
-const AskQuestionForm = () => {
+const AnswerQuestionForm = () => {
     return (
         <FormContainer>
             <Formik
                 initialValues={{
-                    questionBox: ""
+                    answer: null
                 }}
                 validationSchema=""
                 onSubmit={(values, action) => {
@@ -21,8 +21,8 @@ const AskQuestionForm = () => {
                     >
                         <div className="textareaDiv">
                             <textarea 
-                                name="questionBox"
-                                value={formik.values.questionBox}
+                                name="answer"
+                                value={formik.values.answer}
                                 onChange={(e) => FormHandlers.onChange(e,formik)}
                             />
                         </div>
@@ -30,7 +30,7 @@ const AskQuestionForm = () => {
                         <button
                             type="submit"
                         >
-                            ثبت پرسش
+                            ثبت پاسخ
                         </button>
                     </Form>
                 )}
@@ -39,4 +39,4 @@ const AskQuestionForm = () => {
     );
 }
 
-export default AskQuestionForm;
+export default AnswerQuestionForm;

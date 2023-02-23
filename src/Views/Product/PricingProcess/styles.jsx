@@ -22,7 +22,15 @@ export const Wrapper = styled.div`
         flex-direction: row-reverse;
         svg {
             margin-left: 5px;
+            fill: none;
+            width: 20px;
+            height: 20px;
         }
     }
 
+    svg {
+        fill: black;
+        width: 20px;
+        height: 20px;
+    }
 `;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import AddToListIcon from '../../Icons/ProductIcons/AddToListIcon';
 import BellAlertIcon from '../../Icons/ProductIcons/BellAlertIcon';
 import CompareIcon from '../../Icons/ProductIcons/CompareIcon';
@@ -10,6 +11,8 @@ import QuestionOpitionStar from '../../Views/Product/FirstSection/Description/Qu
 import UserSuggest from '../../Views/Product/FirstSection/Description/UserSuggest';
 import Features from '../../Views/Product/FirstSection/Features';
 import Store from '../../Views/Product/FirstSection/Store';
+import AnswerQuestionModal from '../../Views/Product/Modals/AnswerQuestionModal';
+import AskQuestionModal from '../../Views/Product/Modals/AskQuestionModal';
 import PricingProcess from '../../Views/Product/PricingProcess';
 import Questions from '../../Views/Questions';
 import Slogan from '../../Views/Slogan';
@@ -24,6 +27,12 @@ import {
 } from './styles';
 
 const Product = () => {
+
+    const ProductState = useSelector((state) => state.Product);
+    const {
+        showAskQuestionModal,
+        showAnswerQuestionModal
+    } = ProductState;
 
     const [item, setItem] = useState({
         id: 1902374982374,
@@ -50,13 +59,13 @@ const Product = () => {
                     {id: 1,answer: "درود بر شما که بهترین هستید هر دو را میتوانید انجام بدهید به شرطی که کناف شما راویز کاری شده باشد اصولی تر میشود ولی ادر کل تحمل میکنه و ما تو مغازه ها و نمایندگی هامون حتی پشت کارو یدونه برگ سوراخ میکنیم تا بتونیم مدلها رو تغیر بدیم هر ماه و شما اگه اینجا بودید میدیدید که هیچ پیچ و مهره ای در کار نیست ولی اصولی نمیشه"}
                 ]
             },
-            {id: 1,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
-            {id: 2,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
-            {id: 3,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
-            {id: 4,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
-            {id: 5,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
-            {id: 6,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []},
-            {id: 7,question: "سلام وقت بخیر توی دیوار پیچ میشه یا فقط همینجوری توی باکس قرار میگیره؟کناف تی وی تحمل وزنشو داره؟",answers: []}
+            {id: 1,question: "سوال 1",answers: []},
+            {id: 2,question: "سوال 2",answers: []},
+            {id: 3,question: "سوال 3",answers: []},
+            {id: 4,question: "سوال 4",answers: []},
+            {id: 5,question: "سوال 5",answers: []},
+            {id: 6,question: "سوال 7",answers: []},
+            {id: 7,question: "سوال 8",answers: []}
         ]
     });
 
@@ -65,6 +74,16 @@ const Product = () => {
         {id: 1,title: "موبایل"},
         {id: 2,title: "گوشی موبایل"}
     ]);
+
+    // const [showAskQuestionModal, setShowAskQuestionModal] = useState(false);
+
+    // const showAskQuestionModalHandler = () => {
+    //     setShowAskQuestionModal(true);
+    // }
+
+    // const closeAskQuestionModalHandler = () => {
+    //     setShowAskQuestionModal(false);
+    // }
 
     const routingItemsContent = () => {
         return (
@@ -205,6 +224,22 @@ const Product = () => {
                 <Questions 
                     questions={item.questions}
                 />
+
+                {
+                    showAskQuestionModal === true
+                        ?
+                        <AskQuestionModal />
+                        :
+                        null
+                }
+
+                {
+                    showAnswerQuestionModal === true
+                        ?
+                        <AnswerQuestionModal />
+                        :
+                        null
+                }
             </ProductWrapper>
         </Layout>
     );

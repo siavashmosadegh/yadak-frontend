@@ -15,7 +15,7 @@ const Categories = () => {
 
     const [showMenu, setShowMenu] = useState(false);
 
-    console.log(showMenu);
+    // console.log(showMenu);
 
     return (
         <Wrapper>

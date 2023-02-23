@@ -3,13 +3,13 @@ import React from 'react';
 function LeftArrowIcon () {
 	return (
 		<svg 
-			fill="#000000"
+			// fill="#000000"
 			version="1.1"
 			id="Layer_1"
 			xmlns="http://www.w3.org/2000/svg"
 			// xmlns:xlink="http://www.w3.org/1999/xlink" 
-			width="20px"
-			height="20px"
+			// width="20px"
+			// height="20px"
 			viewBox="0 0 100 100"
 			enable-background="new 0 0 100 100"
 			// xml:space="preserve"

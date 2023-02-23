@@ -45,9 +45,8 @@ export const ContentWrapper = styled.div`
 
     .questions {
         width: 80%;
-        // max-height: 200px;
-        // overflow-y: auto;
+        max-height: 500px;
+        overflow-y: auto;
         padding: 20px;
-        border: 1px solid blue;
     }
 `;

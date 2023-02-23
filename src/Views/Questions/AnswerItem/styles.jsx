@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
     align-items: flex-start;
     width: 100%;
     border-bottom: 1px solid rgba(0,0,0,0.1);
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
     .pasokh {
         width: 80px;
