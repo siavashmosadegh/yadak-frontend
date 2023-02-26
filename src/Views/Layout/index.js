@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Main/Header';
+import Footer from './Footer';
 import { LayoutWrapper } from './styles';
 
 const Layout = (props) => {
@@ -11,6 +12,10 @@ const Layout = (props) => {
 
             <div className="childrenWrapper">
                 {props.children}
+            </div>
+
+            <div>
+                <Footer />
             </div>
         </LayoutWrapper>
     );

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ProductWrapper = styled.div`
     padding: 20px;
+    // padding-bottom: 100px;
 `;
 
 export const RoutingSection = styled.div`
@@ -121,5 +122,26 @@ export const FirstSectionResponsiveWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+`;
+
+export const PriceSectionResponsive = styled.div`
+    display: none;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    height: 100px;
+    background-color: red;
+    width: 100%;
+    margin-left: -20px;
+
+    .priceAndButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (max-width: 1100px) {
+        display: initial;
     }
 `;

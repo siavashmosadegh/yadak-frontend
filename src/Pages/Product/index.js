@@ -20,6 +20,7 @@ import {
     FirstSectionResponsiveWrapper,
     FirstSectionWrapper,
     LeftDiv,
+    PriceSectionResponsive,
     ProductWrapper,
     RightDiv,
     RoutingItem,
@@ -224,6 +225,16 @@ const Product = () => {
                 <Questions 
                     questions={item.questions}
                 />
+
+                <PriceSectionResponsive>
+                    <p>قیمت مصرف کننده</p>
+
+                    <div className="priceAndButton">
+                        <span>{item.price.toLocaleString()}</span>
+
+                        <button>افزودن به سبد</button>
+                    </div>
+                </PriceSectionResponsive>
 
                 {
                     showAskQuestionModal === true
