@@ -36,4 +36,10 @@ export const Wrapper = styled.div`
     .law {
         text-align: center;
     }
+
+    @media (max-width: 1100px) {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
 `;

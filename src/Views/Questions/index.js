@@ -38,7 +38,9 @@ const Questions = (props) => {
                 <div className="askQuestionDiv">
                     <p>شما هم پرسش ثبت کنید</p>
 
-                    <button onClick={showAskQuestionModal}>ثبت پرسش</button>                    
+                    <div className="buttonDiv">
+                        <button onClick={showAskQuestionModal}>ثبت پرسش</button>                    
+                    </div>
                 </div>
 
                 <div className="questions">

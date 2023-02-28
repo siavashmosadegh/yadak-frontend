@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: row-reverse;
-    margin-bottom: ${(props) => props.isProduct === true ? "100px" : "0px"};
+    margin-bottom: ${(props) => props.isProduct === true ? "120px" : "0px"};
+    border: 1px solid black;
 
     .iconsDiv {
         display: flex;

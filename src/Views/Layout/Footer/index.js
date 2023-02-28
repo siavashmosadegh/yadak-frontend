@@ -66,25 +66,25 @@ const Footer = () => {
     return (
         <Wrapper isProduct={isProduct}>
             <Grid container flexDirection="row-reverse">
-                <Grid item lg={3} md={4} sm={6} xs={12} sx={{border: "1px solid red",paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
+                <Grid item lg={3} md={4} sm={6} xs={12} sx={{paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
                     <FooterCard 
                         header={first.header}
                         items={first.items}
                     />
                 </Grid>
-                <Grid item lg={3} md={4} sm={6} xs={12} sx={{border: "1px solid red",paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
+                <Grid item lg={3} md={4} sm={6} xs={12} sx={{paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
                     <FooterCard 
                         header={second.header}
                         items={second.items}
                     />
                 </Grid>
-                <Grid item lg={3} md={4} sm={6} xs={12} sx={{border: "1px solid red",paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
+                <Grid item lg={3} md={4} sm={6} xs={12} sx={{paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
                     <FooterCard 
                         header={third.header}
                         items={third.items}
                     />
                 </Grid>
-                <Grid item lg={3} md={4} sm={6} xs={12} sx={{border: "1px solid red",paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
+                <Grid item lg={3} md={4} sm={6} xs={12} sx={{paddingInline: "10px"}} justifyContent="flex-start" flexDirection="column">
                     <h3>همراه ما باشید</h3>
 
                     <div className="iconsDiv">

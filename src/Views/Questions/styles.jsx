@@ -24,7 +24,7 @@ export const ContentWrapper = styled.div`
     margin-top: 20px;
 
     .askQuestionDiv {
-        width: 20%;
+        width: 250px;
 
         p {
             text-align: right;
@@ -44,9 +44,36 @@ export const ContentWrapper = styled.div`
     }
 
     .questions {
-        width: 80%;
+        width: calc(100% - 250px);
         max-height: 500px;
         overflow-y: auto;
-        padding: 20px;
+        // padding: 20px;
+        // border: 1px solid red;
+    }
+
+    @media (max-width: 1100px) {
+        flex-direction: column;
+
+        .askQuestionDiv {
+            width: 100%;
+
+            button {
+                width: 250px;
+            }
+        }
+
+        .buttonDiv {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .questions {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
     }
 `;

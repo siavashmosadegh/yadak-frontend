@@ -60,6 +60,16 @@ export const Wrapper = styled.div`
             height: 25px;
         }
     }
+
+    @media (max-width: 1100px) {
+        min-width: 300px;
+        height: 300px;
+        border: 1px solid red;
+        font-size: 12px;
+        overflow-y: auto;
+        padding: 10px;
+        margin-left: 20px;
+    }
 `;
 // .iconDiv {
 //     width: 80px;

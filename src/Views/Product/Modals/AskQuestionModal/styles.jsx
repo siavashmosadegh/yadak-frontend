@@ -30,4 +30,10 @@ export const Wrapper = styled.div`
         margin-top: 20px;
         font-size: 15px;
     }
+
+    @media (max-width: 1100px) {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
 `;

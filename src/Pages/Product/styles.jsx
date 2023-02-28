@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ProductWrapper = styled.div`
     padding: 20px;
     // padding-bottom: 100px;
+    overflow-x: hidden;
 `;
 
 export const RoutingSection = styled.div`
@@ -131,14 +132,32 @@ export const PriceSectionResponsive = styled.div`
     bottom: 0;
     z-index: 100;
     height: 100px;
-    background-color: red;
+    background-color: gray;
     width: 100%;
     margin-left: -20px;
+    padding-bottom: 20px;
+
+
+    p {
+        padding-left: 10px;
+    }
 
     .priceAndButton {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-inline: 10px;
+
+        button {
+            width: 50%;
+            background-color: red;
+            color: white;
+            border: none;
+            height: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
     }
 
     @media (max-width: 1100px) {
