@@ -4,6 +4,7 @@ import HeaderInputForm from '../Forms/HeaderInputForm';
 import BasketAndRegisterLogin from './BasketAndRegisterLogin';
 import Categories from './Categories';
 import { Wrapper } from './styles';
+import routePaths from '../../../Routes/NameSpace';
 
 const Header = () => {
     return (
@@ -18,7 +19,7 @@ const Header = () => {
 
 
                     <div className="logoText">
-                        <Link to="/">   
+                        <Link to={routePaths.default}>   
                             سیاوش یدک
                         </Link>
                     </div>
