@@ -6,9 +6,13 @@ import {
 import { Formik } from 'formik';
 import FormHandlers from '../../../../Util/FormHandlers';
 import { RegisterLoginSchema } from '../../../../Validation/General/Schema';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import AuthActions from '../../../../Redux/Auth/Actions';
 
 const LoginRegisterForm = () => {
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -21,6 +25,7 @@ const LoginRegisterForm = () => {
                 validationSchema={RegisterLoginSchema}
                 onSubmit={(values, action) => {
                     console.log(values);
+                    dispatch(AuthActions.login({}));
                     navigate(localStorage.getItem("backURL"));
                 }}
             >

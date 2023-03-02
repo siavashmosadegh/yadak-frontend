@@ -8,7 +8,6 @@ import {
     Wrapper
 } from './styles';
 import BasketIconTwo from '../../../../Icons/BasketIconTwo';
-import LoginIcon from '../../../../Icons/LoginIcon';
 import { Link } from 'react-router-dom';
 import routePaths from '../../../../Routes/NameSpace';
 import {useLocation} from 'react-router-dom';
@@ -21,6 +20,7 @@ import ExitIcon from '../../../../Icons/Header/ExitIcon';
 import PersonTwoIcon from '../../../../Icons/Header/PersonTwoIcon';
 import LeftArrowIcon from '../../../../Icons/LeftArrowIcon';
 import RegisterLoginLink from '../RegisterLoginLink';
+import { useSelector } from 'react-redux';
 
 const BasketAndRegisterLogin = () => {
 
@@ -30,7 +30,9 @@ const BasketAndRegisterLogin = () => {
         localStorage.setItem("backURL", location.pathname);
     }
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const {
+        isLoggedIn
+    } = useSelector((state) => state.Auth);
 
     const [showProfileDiv, setShowProfileDiv] = useState(true);
 
