@@ -9,6 +9,7 @@ import Login from '../Pages/Login';
 import Header from '../Views/Main/Header';
 import routePaths from './NameSpace';
 import Product from '../Pages/Product';
+import Logout from '../Pages/Logout';
 
 const RoutesList = () => {
     
@@ -26,13 +27,19 @@ const RoutesList = () => {
                 <Route 
                     exact
                     path={routePaths.login}
-                    element={ <Login />}
+                    element={ <Login /> }
                 />
 
                 <Route
                     exact
                     path={routePaths.product}
                     element={ <Product /> }
+                />
+
+                <Route
+                    exact
+                    path={routePaths.logout}
+                    element={ <Logout /> }
                 />
 
                 {/* <Route

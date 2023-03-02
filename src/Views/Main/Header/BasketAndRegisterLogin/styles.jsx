@@ -41,16 +41,16 @@ export const BasketIconContainer = styled.div`
     }
 `;
 
-export const LoginIconContainer = styled.div`
-    width: auto;
-    margin-left: 7px;
-    margin-top: 3px;
-    svg {
-        fill: black;
-        width: 25px;
-        height: 25px;
-    }
-`;
+// export const LoginIconContainer = styled.div`
+//     width: auto;
+//     margin-left: 7px;
+//     margin-top: 3px;
+//     svg {
+//         fill: black;
+//         width: 25px;
+//         height: 25px;
+//     }
+// `;
 
 export const PersonAndReverseTriangleContainer = styled.div`
     display: flex;

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import HeaderInputForm from '../Forms/HeaderInputForm';
 import BasketAndRegisterLogin from './BasketAndRegisterLogin';
 import Categories from './Categories';
 import { Wrapper } from './styles';
-import routePaths from '../../../Routes/NameSpace';
+import Logo from './Logo';
 
 const Header = () => {
     return (
@@ -17,12 +16,7 @@ const Header = () => {
                 <div className="formAndLogo">
                     <HeaderInputForm />
 
-
-                    <div className="logoText">
-                        <Link to={routePaths.default}>   
-                            سیاوش یدک
-                        </Link>
-                    </div>
+                    <Logo />
                 </div>
             </div>
             <div>

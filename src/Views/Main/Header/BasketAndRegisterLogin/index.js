@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
     BasketIconContainer,
-    LoginIconContainer,
     PersonAndReverseTriangleContainer,
     PersonIconContainer,
     ProfileItemsContainer,
@@ -21,6 +20,7 @@ import CommentIcon from '../../../../Icons/Header/CommentIcon';
 import ExitIcon from '../../../../Icons/Header/ExitIcon';
 import PersonTwoIcon from '../../../../Icons/Header/PersonTwoIcon';
 import LeftArrowIcon from '../../../../Icons/LeftArrowIcon';
+import RegisterLoginLink from '../RegisterLoginLink';
 
 const BasketAndRegisterLogin = () => {
 
@@ -30,7 +30,7 @@ const BasketAndRegisterLogin = () => {
         localStorage.setItem("backURL", location.pathname);
     }
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const [showProfileDiv, setShowProfileDiv] = useState(true);
 
@@ -58,17 +58,7 @@ const BasketAndRegisterLogin = () => {
             {
                 isLoggedIn === false
                     ?
-                    <Link to={routePaths.login} style={{ textDecoration: 'none' ,color: "black"}}>
-                        <div className="loginDiv" onClick={() => myFunc()}>
-                            <div className="textContainer">
-                                {"ورود | ثبت نام"}
-                            </div>
-
-                            <LoginIconContainer>
-                                <LoginIcon />
-                            </LoginIconContainer>
-                        </div>            
-                    </Link>
+                    <RegisterLoginLink />
                     :
                     <div style={{position: "relative"}}>
                         <PersonAndReverseTriangleContainer onClick={changeShowProfileDivHandler} showProfileDiv={showProfileDiv}>

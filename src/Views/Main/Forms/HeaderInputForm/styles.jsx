@@ -29,4 +29,10 @@ export const FormContainer = styled.div`
     input:focus { 
         outline: none;
     }
+
+    @media (max-width: 1100px) {
+        input {
+            width: 100%;
+        }
+    }
 `;

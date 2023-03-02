@@ -3,12 +3,24 @@ import styled from "styled-components";
 export const LayoutWrapper = styled.div`
 
     .headerWrapper {
-        // position: fixed;
-        // top: 0;
-        // width: 100%;
+        display: initial;
     }
 
     .childrenWrapper {
         margin-top: 84.5px;
+    }
+
+    .responsiveHeaderWrapper {
+        display: none;
+    }
+
+    @media (max-width: 1100px) {
+        .headerWrapper {
+            display: none;
+        }
+
+        .responsiveHeaderWrapper {
+            display: initial;
+        }
     }
 `;
