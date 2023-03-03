@@ -13,8 +13,13 @@ import {
     Wrapper
 } from './styles';
 import { useSelector } from 'react-redux';
+import ResponsiveCategories from './ResponsiveCategories';
+import GeneralActions from '../../../Redux/General/Actions';
+import { useDispatch } from 'react-redux';
 
 const ResponsiveHeader = () => {
+
+    const dispatch = useDispatch();
 
     const {
         isLoggedIn
@@ -27,7 +32,9 @@ const ResponsiveHeader = () => {
 
                 <Logo />
 
-                <CategoryIconContainer>
+                <CategoryIconContainer
+                    onClick={() => dispatch(GeneralActions.showResponsiveHeaderCategoriesModalHandler({}))}
+                >
                     <CategoryIcon />
                 </CategoryIconContainer>
             </div>
@@ -52,6 +59,8 @@ const ResponsiveHeader = () => {
                     <HeaderInputForm />
                 </div>
             </div>
+
+            <ResponsiveCategories />
         </Wrapper>
     );
 }
