@@ -1,19 +1,42 @@
 import { Drawer } from '@mui/material';
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import BestSellerIcon from '../../../../Icons/BestSellerIcon';
+import DiscountIcon from '../../../../Icons/DiscountIcon';
 import GeneralActions from '../../../../Redux/General/Actions';
 import Logo from '../../Header/Logo';
-import { IconContainer, Item, Line, TextContainer, Wrapper } from './styles';
+import ResponsiveCategoryItem from './ResponsiveCategoryItem';
+import {
+    IconContainer,
+    Item,
+    TextContainer,
+    Wrapper
+} from './styles';
 
 const ResponsiveCategories = () => {
 
     const dispatch = useDispatch();
 
     const {
-        showResponsiveHeaderCategoriesModal
+        showResponsiveHeaderCategoriesModal,
+        menuData
     } = useSelector((state) => state.General);
 
+    const [activeCategoryItem, setActiveCategoryItem] = useState(null);
+
+    const responsiveCategoriesItems = () => {
+        return (
+            menuData.map( (item) => {
+                return (
+                    <ResponsiveCategoryItem 
+                        item={item}
+                        activeCategoryItem={activeCategoryItem}
+                        setActiveCategoryItem={setActiveCategoryItem}
+                    />
+                );
+            })
+        );
+    }
 
     return (
         <Drawer
@@ -24,17 +47,26 @@ const ResponsiveCategories = () => {
             <Wrapper>
                 <Logo />
 
-                <Line />
+                <Item>
+                    <IconContainer>
+                        <DiscountIcon />
+                    </IconContainer>
+
+                    <TextContainer>
+                        تخفیف ها
+                    </TextContainer>
+                </Item>
 
                 <Item>
                     <IconContainer>
                         <BestSellerIcon />
                     </IconContainer>
-
                     <TextContainer>
-                        تفیف هامون
+                        پرفروش ترین
                     </TextContainer>
                 </Item>
+
+                {responsiveCategoriesItems()}
             </Wrapper>
         </Drawer>
     );

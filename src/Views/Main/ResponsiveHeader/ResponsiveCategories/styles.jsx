@@ -12,10 +12,11 @@ export const Line = styled.div`
 `;
 
 export const Item = styled.div`
+    border-top: 1px solid rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+    flex-direction: row-reverse;
+    height: 35px;
 `;
 
 export const IconContainer = styled.div`
