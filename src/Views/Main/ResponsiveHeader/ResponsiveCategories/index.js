@@ -28,7 +28,8 @@ const ResponsiveCategories = () => {
         return (
             menuData.map( (item) => {
                 return (
-                    <ResponsiveCategoryItem 
+                    <ResponsiveCategoryItem
+                        key={item.id}
                         item={item}
                         activeCategoryItem={activeCategoryItem}
                         setActiveCategoryItem={setActiveCategoryItem}

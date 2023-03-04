@@ -34,7 +34,7 @@ const BasketAndRegisterLogin = () => {
         isLoggedIn
     } = useSelector((state) => state.Auth);
 
-    const [showProfileDiv, setShowProfileDiv] = useState(true);
+    const [showProfileDiv, setShowProfileDiv] = useState(false);
 
     const changeShowProfileDivHandler = () => {
         setShowProfileDiv(!showProfileDiv);

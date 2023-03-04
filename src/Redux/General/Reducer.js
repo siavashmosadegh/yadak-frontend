@@ -9,14 +9,14 @@ const initState = {
         {
             id: 0,
             headerTitle: "قطعات بدنه",
-            goTo: "",
+            goTo: "/قطعات-بدنه",
             items: [
                 {id: 0,itemTitle: "بدنه و شیشه",goTo: "",subItems: [
-                    {id: 0,subItemTitle: "کاپوت",goTo: ""},
-                    {id: 0,subItemTitle: "درب صندوق عقب",goTo: ""},
-                    {id: 0,subItemTitle: "سپر",goTo: ""},
-                    {id: 0,subItemTitle: "درب ماشین",goTo: ""},
-                    {id: 0,subItemTitle: "گلگیر",goTo: ""}
+                    {id: 0,subItemTitle: "کاپوت",goTo: "/کاپوت"},
+                    {id: 0,subItemTitle: "درب صندوق عقب",goTo: "/درب صندوق عقب"},
+                    {id: 0,subItemTitle: "سپر",goTo: "/سپر"},
+                    {id: 0,subItemTitle: "درب ماشین",goTo: "/درب ماشین"},
+                    {id: 0,subItemTitle: "گلگیر",goTo: "/گلگیر"}
                 ]},
                 {id: 1,itemTitle: "قطعات روشنایی",goTo: "",subItems: [
                     {id: 0,subItemTitle: "چراغ ماشین",goTo: ""},
@@ -28,7 +28,18 @@ const initState = {
                 {id: 2,itemTitle: "سایر قطعات بدنه",goTo: "",subItems: null}
             ]
         },
-        {id: 1,headerTitle: "موتور و اگزوز",goTo: "",items: null},
+        {
+            id: 1,
+            headerTitle: "موتور و اگزوز",
+            goTo: "/موتور-و-اگزوز",
+            items: [
+                {id: 0,itemTitle: "سیستم خنک کننده",goTo: "",subItems: null},
+                {id: 1,itemTitle: "قطعات موتوری",goTo: "",subItems: null},
+                {id: 2,itemTitle: "سوخت رسانی و احتراق",goTo: "",subItems: null},
+                {id: 3,itemTitle: "قطعات اگزوز",goTo: "",subItems: null},
+                {id: 4,itemTitle: "سایر قطعات موتوری و اگزوز",goTo: "",subItems: null}
+            ]
+        },
         {id: 2,headerTitle: "برقی و الکتریکی",goTo: "",items: null},
         {id: 3,headerTitle: "رینگ و لاستیک",goTo: "",items: null},
         {id: 4,headerTitle: "روغن و فیلتر",goTo: "",items: null},
