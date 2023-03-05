@@ -6,5 +6,6 @@ export default {
   profileOrders: '/profile/orders',
   profileLists: '/profile/lists',
   profileOpinions: '/profile/opinions',
-  logout: '/logout'
+  logout: '/logout',
+  search: '/search'
 };

@@ -10,6 +10,7 @@ import Header from '../Views/Main/Header';
 import routePaths from './NameSpace';
 import Product from '../Pages/Product';
 import Logout from '../Pages/Logout';
+import Search from '../Pages/Search';
 
 const RoutesList = () => {
     
@@ -40,6 +41,12 @@ const RoutesList = () => {
                     exact
                     path={routePaths.logout}
                     element={ <Logout /> }
+                />
+
+                <Route
+                    // exact
+                    path={routePaths.search}
+                    element={ <Search />}
                 />
 
                 {/* <Route
