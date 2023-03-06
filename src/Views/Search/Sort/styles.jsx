@@ -9,7 +9,7 @@ export const SortWrapper = styled.div`
 
 export const SortIconContainer = styled.div`
     width: auto;
-    margin-left: 10px;
+    margin-left: 5px;
     padding-top: 5px;
     svg {
         width: 25px;

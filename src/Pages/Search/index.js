@@ -2,10 +2,11 @@ import React from 'react';
 import Layout from '../../Views/Layout';
 import Filter from '../../Views/Search/Filter';
 import Sort from '../../Views/Search/Sort';
-import { SearchWrapper } from './styles';
+import { FilterIconContainer, SearchWrapper } from './styles';
 import { useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 import ProductListItem from '../../Views/Search/ProductListItem';
+import FilterIcon from '../../Icons/Search/FilterIcon';
 
 const Search = () => {
 
@@ -33,15 +34,27 @@ const Search = () => {
     return (
         <Layout>
             <SearchWrapper>
-                <div className="filterDiv">
-                    <Filter />
+                <Sort />
+
+                <div className="responsiveFilter">
+                    <FilterIconContainer>
+                        <FilterIcon />
+                    </FilterIconContainer>
+
+                    <p>فیلتر ها</p>
+                </div>
+                
+                <div className="lowerDiv">
+                    
+                    <div className="filterDiv">
+                        <Filter />
+                    </div>
+
+                    <div className="productListDiv">
+                        {productListContent()}
+                    </div>
                 </div>
 
-                <div className="productListDiv">
-                    <Sort />
-
-                    {productListContent()}
-                </div>
             </SearchWrapper>
         </Layout>
     );

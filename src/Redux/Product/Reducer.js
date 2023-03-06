@@ -12,6 +12,8 @@ const initState = {
             opinion: 92, // first section
             question: 170, // first section
             userSuggestPercent: "89%", // first section
+            numberOfItemsAvailableInStore: 11,
+            discount: null,
             userSuggestNumber: 50, // first section
             features: [
                 {id: 0,title: "آمپرها",explanation: "بنزین"},
@@ -46,6 +48,8 @@ const initState = {
             opinion: 92, // first section
             question: 170, // first section
             userSuggestPercent: "89%", // first section
+            numberOfItemsAvailableInStore: 3,
+            discount: "3%",
             userSuggestNumber: 50, // first section
             features: [
                 {id: 0,title: "آمپرها",explanation: "بنزین"},
@@ -80,6 +84,8 @@ const initState = {
             opinion: 92, // first section
             question: 170, // first section
             userSuggestPercent: "89%", // first section
+            numberOfItemsAvailableInStore: 0,
+            discount: "3%",
             userSuggestNumber: 50, // first section
             features: [
                 {id: 0,title: "آمپرها",explanation: "بنزین"},
