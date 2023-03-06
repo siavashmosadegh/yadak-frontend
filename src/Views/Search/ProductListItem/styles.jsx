@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        height: 35px;
         .descriptionParagraph {
             font-size: 10px;
             color: red;

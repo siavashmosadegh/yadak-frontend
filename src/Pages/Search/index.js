@@ -3,12 +3,22 @@ import Layout from '../../Views/Layout';
 import Filter from '../../Views/Search/Filter';
 import Sort from '../../Views/Search/Sort';
 import { FilterIconContainer, SearchWrapper } from './styles';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Grid } from '@mui/material';
 import ProductListItem from '../../Views/Search/ProductListItem';
 import FilterIcon from '../../Icons/Search/FilterIcon';
+import FilterModal from '../../Views/Search/Modals/FilterModal';
+import SearchActions from '../../Redux/Search/Actions';
+import {Link} from 'react-router-dom';
+import ProductActions from '../../Redux/Product/Actions';
 
 const Search = () => {
+
+    const dispatch = useDispatch();
+
+    const {
+        showFilterModal
+    } = useSelector((state) => state.Search);
 
     const {
         productList
@@ -19,11 +29,24 @@ const Search = () => {
             <Grid container>
                 {productList.map( (item) => {
                     return (
-                        <Grid item lg={4} md={6} sm={12} display="flex" justifyContent="center">
-                            <ProductListItem
-                                key={item.id}
-                                item={item}
-                            />
+                        <Grid 
+                            item
+                            lg={4}
+                            md={6}
+                            sm={12}
+                            display="flex"
+                            justifyContent="center"
+                            onClick={() => dispatch(ProductActions.selectProductHandler(item))}
+                        >
+                            <Link
+                                to={item.productLink}
+                                // target={'_blank'}
+                            >
+                                <ProductListItem
+                                    key={item.id}
+                                    item={item}
+                                />
+                            </Link>
                         </Grid>
                     );
                 })}
@@ -37,7 +60,9 @@ const Search = () => {
                 <Sort />
 
                 <div className="responsiveFilter">
-                    <FilterIconContainer>
+                    <FilterIconContainer
+                        onClick={() => dispatch(SearchActions.showFilterModalHandler({}))}
+                    >
                         <FilterIcon />
                     </FilterIconContainer>
 
@@ -55,6 +80,13 @@ const Search = () => {
                     </div>
                 </div>
 
+                {
+                    showFilterModal === true
+                        ?
+                        <FilterModal />
+                        :
+                        null
+                }
             </SearchWrapper>
         </Layout>
     );

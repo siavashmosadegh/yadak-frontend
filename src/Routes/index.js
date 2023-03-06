@@ -19,32 +19,27 @@ const RoutesList = () => {
         
             <Routes>
 
-                <Route 
-                    exact
+                <Route
                     path={routePaths.default}
                     element={ <Main /> }
                 />
 
-                <Route 
-                    exact
+                <Route
                     path={routePaths.login}
                     element={ <Login /> }
                 />
 
                 <Route
-                    exact
                     path={routePaths.product}
                     element={ <Product /> }
                 />
 
                 <Route
-                    exact
                     path={routePaths.logout}
                     element={ <Logout /> }
                 />
 
                 <Route
-                    // exact
                     path={routePaths.search}
                     element={ <Search />}
                 />

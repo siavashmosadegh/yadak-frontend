@@ -32,8 +32,11 @@ const Product = () => {
     const ProductState = useSelector((state) => state.Product);
     const {
         showAskQuestionModal,
-        showAnswerQuestionModal
+        showAnswerQuestionModal,
+        selectedProduct
     } = ProductState;
+
+    console.log(selectedProduct);
 
     const [item, setItem] = useState({
         id: 1902374982374,
@@ -124,24 +127,24 @@ const Product = () => {
     const leftDivContent = () => {
         return (
             <LeftDiv>
-                <h3>{item.title}</h3>
+                <h3>{selectedProduct.title}</h3>
 
                 <div className="description">
                     <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
                         <Description 
-                            numOfQuestions={item.question}
-                            numOfOpinions={item.opinion}
-                            star={item.star}
-                            userSuggestNumber={item.userSuggestNumber}
-                            userSuggestPercent={item.userSuggestPercent}
-                            features={item.features}
+                            numOfQuestions={selectedProduct.question}
+                            numOfOpinions={selectedProduct.opinion}
+                            star={selectedProduct.star}
+                            userSuggestNumber={selectedProduct.userSuggestNumber}
+                            userSuggestPercent={selectedProduct.userSuggestPercent}
+                            features={selectedProduct.features}
                         />
                     </div>
 
                     <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
                         <Store 
-                            available={item.available}
-                            price={item.price}
+                            available={selectedProduct.available}
+                            price={selectedProduct.price}
                         />
                         <PricingProcess />
                     </div>
@@ -178,31 +181,31 @@ const Product = () => {
             <FirstSectionResponsiveWrapper>
                 {rightDivContent()}
 
-                <h3>{item.title}</h3>
+                <h3>{selectedProduct.title}</h3>
 
                 <QuestionOpitionStar 
-                    star={item.star}
-                    numOfOpinions={item.opinion}
-                    numOfQuestions={item.question}
+                    star={selectedProduct.star}
+                    numOfOpinions={selectedProduct.opinion}
+                    numOfQuestions={selectedProduct.question}
                 />
 
                 <UserSuggest 
-                    userSuggestNumber={item.userSuggestNumber}
-                    userSuggestPercent={item.userSuggestPercent}
+                    userSuggestNumber={selectedProduct.userSuggestNumber}
+                    userSuggestPercent={selectedProduct.userSuggestPercent}
                 />            
 
                 <Store
-                    available={item.available}
-                    price={item.price}
+                    available={selectedProduct.available}
+                    price={selectedProduct.price}
                 />
 
                 {
-                    (item.features === null) || (item.features.length === 0)
+                    (selectedProduct.features === null) || (selectedProduct.features.length === 0)
                         ?
                         null
                         :
                         <Features 
-                            features={item.features}
+                            features={selectedProduct.features}
                         />
                 }
 
@@ -223,14 +226,14 @@ const Product = () => {
                 <Slogan />
 
                 <Questions 
-                    questions={item.questions}
+                    questions={selectedProduct.questions}
                 />
 
                 <PriceSectionResponsive>
                     <p>قیمت مصرف کننده</p>
 
                     <div className="priceAndButton">
-                        <span>{item.price.toLocaleString()}</span>
+                        <span>{selectedProduct.price.toLocaleString()}</span>
 
                         <button>افزودن به سبد</button>
                     </div>

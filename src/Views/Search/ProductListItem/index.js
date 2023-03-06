@@ -35,7 +35,7 @@ const ProductListItem = (props) => {
 
             <div className="thirdRow">
                 {
-                    star === null
+                    star !== null
                         ?
                         <div className="starDiv">
                             <StarIcon />

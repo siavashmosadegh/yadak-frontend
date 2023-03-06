@@ -4,6 +4,11 @@ export const SearchWrapper = styled.div`
     
     padding: 20px;
 
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
     .responsiveFilter {
         display: none;
     }
