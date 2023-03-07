@@ -13,7 +13,8 @@ const initState = {
         {id: 7,title: "پیشنهاد خریداران"},
         {id: 8,title: "منتخب"}
     ],
-    selectedSort: null
+    selectedSort: null,
+    showSortDrawer: false
 }
 
 export default function Reducer (state = initState, action) {
@@ -32,6 +33,16 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 selectedSort: action.data
+            };
+        case Types.SHOW_SORT_DRAWER:
+            return {
+                ...state,
+                showSortDrawer: true
+            };
+        case Types.CLOSE_SORT_DRAWER:
+            return {
+                ...state,
+                showSortDrawer: false
             };
         default:
             return state;

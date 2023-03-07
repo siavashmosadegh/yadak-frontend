@@ -9,7 +9,7 @@ const initState = {
         {
             id: 0,
             headerTitle: "قطعات بدنه",
-            goTo: "/search",
+            goTo: "/search/قطعات_بدنه",
             items: [
                 {id: 0,itemTitle: "بدنه و شیشه",goTo: "",subItems: [
                     {id: 0,subItemTitle: "کاپوت",goTo: "/کاپوت"},
@@ -31,7 +31,7 @@ const initState = {
         {
             id: 1,
             headerTitle: "موتور و اگزوز",
-            goTo: "/search",
+            goTo: "/search/موتور_و_اگزوز",
             items: [
                 {id: 0,itemTitle: "سیستم خنک کننده",goTo: "",subItems: null},
                 {id: 1,itemTitle: "قطعات موتوری",goTo: "",subItems: null},

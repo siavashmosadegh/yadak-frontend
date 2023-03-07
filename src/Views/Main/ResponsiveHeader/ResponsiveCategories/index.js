@@ -1,5 +1,5 @@
 import { Drawer } from '@mui/material';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import BestSellerIcon from '../../../../Icons/BestSellerIcon';
 import DiscountIcon from '../../../../Icons/DiscountIcon';
@@ -12,10 +12,13 @@ import {
     TextContainer,
     Wrapper
 } from './styles';
+import useWindowSize from '../../../../Util/Hooks/UseWindowSize';
 
 const ResponsiveCategories = () => {
 
     const dispatch = useDispatch();
+
+    const size = useWindowSize();
 
     const {
         showResponsiveHeaderCategoriesModal,
@@ -38,6 +41,12 @@ const ResponsiveCategories = () => {
             })
         );
     }
+
+    useEffect(() => {
+        if (size.width > 1100) {
+            dispatch(GeneralActions.closeResponsiveHeaderCategoriesModalHandler({}));
+        }
+    },[size.width]);
 
     return (
         <Drawer
