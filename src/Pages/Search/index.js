@@ -34,6 +34,7 @@ const Search = () => {
                             lg={4}
                             md={6}
                             sm={12}
+                            xs={12}
                             display="flex"
                             justifyContent="center"
                             onClick={() => dispatch(ProductActions.selectProductHandler(item))}

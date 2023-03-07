@@ -25,6 +25,8 @@ export const SortingItemsDiv = styled.div`
         font-size: 13px;
         font-weight: bold;
         margin-right: 7px;
-        // color: ${(props) => props.id === props.selectedSortingItemId ? "#FF0000" : "#000000"};
+        // p {
+        //     color: ${(props) => props.id === props.selectedSortId ? "#FF0000" : "#000000"};
+        // }
     }
 `;

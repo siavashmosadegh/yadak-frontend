@@ -1,22 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SortIcon from '../../../Icons/Search/SortIcon';
-import { SortIconContainer, SortingItemsDiv, SortWrapper } from './styles';
+import {
+    SortIconContainer,
+    SortingItemsDiv,
+    SortWrapper
+} from './styles';
+import { useSelector,useDispatch } from 'react-redux';
+import SearchActions from '../../../Redux/Search/Actions';
 
 const Sort = () => {
 
-    const [sortingItems, setSortingItems] = useState([
-        {id: 0,title: "مرتبط ترین"},
-        {id: 1,title: "پربازدید ترین"},
-        {id: 2,title: "جدید ترین"},
-        {id: 3,title: "پرفروش ترین"},
-        {id: 4,title: "ارزان ترین"},
-        {id: 5,title: "گران ترین"},
-        {id: 6,title: "سریع ترین ارسال"},
-        {id: 7,title: "پیشنهاد خریداران"},
-        {id: 8,title: "منتخب"}
-    ]);
+    const dispatch = useDispatch();
 
-    const [selectedSortingItemId, setSelectedSortingItemId] = useState(null);
+    const {
+        sortingItems,
+        selectedSort
+    } = useSelector((state) => state.Search);
+
+    console.log(selectedSort);
 
     const sortingItemsContent = () => {
         return (
@@ -26,11 +27,13 @@ const Sort = () => {
                         <div
                             className="sortingItem"
                             key={item.id}
-                            onClick={() => setSelectedSortingItemId(item.id)}
                             id={item.id}
-                            selectedSortingItemId={selectedSortingItemId}
+                            onClick={() => dispatch(SearchActions.selectSortingItemHandler(item))}
+                            // selectedSortId={selectedSort.id}
                         >
-                            {item.title}
+                            <p>
+                                {item.title}
+                            </p>
                         </div>
                     );
                 })}
