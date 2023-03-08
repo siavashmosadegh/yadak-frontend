@@ -7,5 +7,6 @@ export default {
   profileLists: '/profile/lists',
   profileOpinions: '/profile/opinions',
   logout: '/logout',
-  search: '/search/*'
+  search: '/search/*',
+  checkoutCart: '/checkout/cart'
 };

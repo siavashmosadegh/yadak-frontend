@@ -54,7 +54,9 @@ const BasketAndRegisterLogin = () => {
             {/* </BasketIconContainer> */}
 
             <BasketIconContainer>
-                <BasketIconTwo />
+                <Link to={routePaths.checkoutCart}>
+                    <BasketIconTwo />
+                </Link>
             </BasketIconContainer>
 
             {
