@@ -17,18 +17,26 @@ const Checkout = () => {
 
     console.log(shoppingBag.length);
 
-    // useEffect(() => {
-    //     if ( (isLoggedIn === false) && (shoppingBag.length !== 0) ) {
+    useEffect(() => {
+        if ( shoppingBag.length === 0 ) {
 
-    //     }
-    // },[isLoggedIn, shoppingBag.length])
+        } else {
 
-    const checkoutContent = () => {
+        }
+    },[shoppingBag.length]);
+
+    const checkoutEmptyContent = () => {
         if (shoppingBag.length == 0) {
             return (
                 <>
-                    <LoginToAccount />
-                    <EmptyShoppingBagContainer>
+                    {
+                        isLoggedIn === false
+                            ?
+                            <LoginToAccount />
+                            :
+                            null
+                    }
+                    <EmptyShoppingBagContainer isLoggedIn={isLoggedIn}>
                         <ShoppingBagIconContainer>
                             <ShoppingBagIcon />
                         </ShoppingBagIconContainer>
@@ -40,10 +48,24 @@ const Checkout = () => {
         }
     }
 
+    const checkoutContent = () => {
+        return (
+            <>
+            </>
+        );
+    }
+
     return (
         <Layout>
             <CheckoutWrapper>
-                {checkoutContent()}            
+                {
+                    shoppingBag.length == 0
+                        ?
+                        checkoutEmptyContent()
+                        :
+                        checkoutContent()
+                }
+                {/* {checkoutEmptyContent()}             */}
             </CheckoutWrapper>
         </Layout>
     );
