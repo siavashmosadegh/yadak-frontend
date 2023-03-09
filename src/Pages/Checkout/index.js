@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import Layout from '../../Views/Layout';
 import { useSelector } from 'react-redux';
-import { CheckoutWrapper, EmptyShoppingBagContainer, ShoppingBagIconContainer } from './styles';
+import {
+    CheckoutWrapper,
+    EmptyShoppingBagContainer,
+    ShoppingBagIconContainer
+} from './styles';
 import ShoppingBagIcon from '../../Icons/Checkout/ShoppingBagIcon';
 import LoginToAccount from '../../Views/Checkout/LoginToAccount';
+import CheckoutItem from '../../Views/Checkout/CheckoutItem';
 
 const Checkout = () => {
 
@@ -26,7 +31,7 @@ const Checkout = () => {
     },[shoppingBag.length]);
 
     const checkoutEmptyContent = () => {
-        if (shoppingBag.length == 0) {
+        // if (shoppingBag.length == 0) {
             return (
                 <>
                     {
@@ -45,12 +50,19 @@ const Checkout = () => {
                     </EmptyShoppingBagContainer>               
                 </>
             );
-        }
+        // }
     }
 
     const checkoutContent = () => {
         return (
             <>
+                {shoppingBag.map( (item) => {
+                    return (
+                        <CheckoutItem 
+                            item={item}
+                        />
+                    );
+                })}
             </>
         );
     }
