@@ -8,7 +8,9 @@ import {
 } from './styles';
 import ShoppingBagIcon from '../../Icons/Checkout/ShoppingBagIcon';
 import LoginToAccount from '../../Views/Checkout/LoginToAccount';
-import CheckoutItem from '../../Views/Checkout/CheckoutItem';
+// import CheckoutItem from '../../Views/Checkout/CheckoutItem';
+import FinalPricesAndDiscount from '../../Views/Checkout/FinalPricesAndDiscount';
+import LoadedShoppingBag from '../../Views/Checkout/LoadedShoppingBag';
 
 const Checkout = () => {
 
@@ -56,13 +58,19 @@ const Checkout = () => {
     const checkoutContent = () => {
         return (
             <>
-                {shoppingBag.map( (item) => {
+                <FinalPricesAndDiscount
+                    numberOfItems={shoppingBag.length}
+                />
+                <LoadedShoppingBag
+                    items={shoppingBag}
+                />
+                {/* {shoppingBag.map( (item) => {
                     return (
                         <CheckoutItem 
                             item={item}
                         />
                     );
-                })}
+                })} */}
             </>
         );
     }

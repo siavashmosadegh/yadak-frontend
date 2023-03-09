@@ -1,5 +1,9 @@
 import React from 'react';
-import { LeftDiv, RightDiv, Wrapper } from './styles';
+import {
+    LeftDiv,
+    RightDiv,
+    Wrapper
+} from './styles';
 import img1 from '../../../Assets/images/1.jpg';
 import NumberOfItemsRequested from './NumberOfItemsRequested';
 
