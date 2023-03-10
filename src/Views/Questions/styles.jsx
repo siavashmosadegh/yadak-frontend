@@ -30,17 +30,6 @@ export const ContentWrapper = styled.div`
             text-align: right;
             font-size: 12px;
         }
-
-        button {
-            width: 100%;
-            height: 50px;
-            border: 1px solid red;
-            border-radius: 10px;
-            background-color: white;
-            color: red;
-            font-size: 15px;
-            font-weight: bold;
-        }
     }
 
     .questions {

@@ -9,6 +9,7 @@ import AskQuestionForm from '../Product/Forms/AskQuestionForm/index';
 import QuestionItem from './QuestionItem';
 import { useDispatch } from 'react-redux';
 import ProductActions from '../../Redux/Product/Actions';
+import CustomButton from '../../UI-Kit/CustomButton';
 
 const Questions = (props) => {
 
@@ -39,7 +40,18 @@ const Questions = (props) => {
                     <p>شما هم پرسش ثبت کنید</p>
 
                     <div className="buttonDiv">
-                        <button onClick={showAskQuestionModal}>ثبت پرسش</button>                    
+                        <CustomButton
+                            width="100%"
+                            height="50px"
+                            title="ثبت پرسش"
+                            backgroundColor="white"
+                            borderRadius="10px"
+                            border="1px solid red"
+                            color="red"
+                            fontSize="15px"
+                            fontWeight="bold"
+                            onClick={showAskQuestionModal}
+                        />
                     </div>
                 </div>
 
