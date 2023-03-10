@@ -1,31 +1,28 @@
-import { Modal } from '@mui/material';
 import React from 'react';
-import MultiplyIcon from '../../../../Icons/ProductIcons/MultiplyIcon';
 import { FilterModalWrapper } from './styles';
 import { useDispatch } from 'react-redux';
 import SearchActions from '../../../../Redux/Search/Actions';
+import CustomModal from '../../../../UI-Kit/CustomModal';
 
 const FilterModal = () => {
 
     const dispatch = useDispatch();
 
     return (
-        <Modal
-            open={true}
+        <CustomModal
+            width="100%"
+            height="100%"
+            closeCustomModalHandler={() => dispatch(SearchActions.closeFilterModalHandler({}))}
+            headerTitle="فیلتر ها"
+            modalBackgroundColor="#FFFFFF"
+            headerHeight="50px"
+            mediaQueryBreakpoint="1100px"
         >
             <FilterModalWrapper>
-                <div className="header">
-                    <span>فیلتر ها</span>
-
-                    <span
-                        onClick={() => dispatch(SearchActions.closeFilterModalHandler({}))}
-                    >
-                        <MultiplyIcon />
-                    </span>
-                </div>
+                Siavash
             </FilterModalWrapper>
-        </Modal>
+        </CustomModal>
     );
 }
-
+    
 export default FilterModal;

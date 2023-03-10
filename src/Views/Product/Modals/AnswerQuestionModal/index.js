@@ -1,11 +1,10 @@
 import React from 'react';
-import { Modal } from '@mui/material';
 import { Wrapper } from './styles';
-import MultiplyIcon from '../../../../Icons/ProductIcons/MultiplyIcon';
 import { useDispatch } from 'react-redux';
 import ProductActions from '../../../../Redux/Product/Actions';
 import AnswerQuestionForm from '../../Forms/AnswerQuestionForm';
 import { useSelector } from 'react-redux';
+import CustomModal from '../../../../UI-Kit/CustomModal';
 
 const AnswerQuestionModal = () => {
 
@@ -22,21 +21,16 @@ const AnswerQuestionModal = () => {
     } = ProductState;
 
     return (
-        <Modal
-            open={true}
-            sx={{display: "flex",alignItems: "center",justifyContent: "center"}}
+        <CustomModal
+            width="400px"
+            height="400px"
+            closeCustomModalHandler={closeAnswerQuestionModal}
+            headerTitle="به این پرسش پاسخ دهید"
+            modalBackgroundColor="#FFFFFF"
+            headerHeight="50px"
+            mediaQueryBreakpoint="1100px"
         >
             <Wrapper>
-                <div className="header">
-                    <span>به این پرسش پاسخ دهید</span>
-
-                    <span
-                        onClick={closeAnswerQuestionModal}
-                    >
-                        <MultiplyIcon />
-                    </span>
-                </div>
-
                 <p>
                     {selectedQuestion !== null
                         ?
@@ -52,7 +46,7 @@ const AnswerQuestionModal = () => {
 
                 <p className="law">ثبت پاسخ به معنی پذیرش قوانین سیاوش یدک است</p>
             </Wrapper>
-        </Modal>
+        </CustomModal>
     );
 }
 

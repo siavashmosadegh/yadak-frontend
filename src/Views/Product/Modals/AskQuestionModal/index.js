@@ -1,10 +1,9 @@
 import React from 'react';
-import { Modal } from '@mui/material';
 import { Wrapper } from './styles';
-import MultiplyIcon from '../../../../Icons/ProductIcons/MultiplyIcon';
 import { useDispatch } from 'react-redux';
 import ProductActions from '../../../../Redux/Product/Actions';
 import AskQuestionForm from '../../Forms/AskQuestionForm';
+import CustomModal from '../../../../UI-Kit/CustomModal';
 
 const AskQuestionModal = () => {
 
@@ -15,27 +14,21 @@ const AskQuestionModal = () => {
     }
 
     return (
-        <Modal
-            open={true}
-            sx={{display: "flex",alignItems: "center",justifyContent: "center"}}
+        <CustomModal
+            width="400px"
+            height="400px"
+            closeCustomModalHandler={closeAskQuestionModal}
+            headerTitle="پرسش خود را درباره این کالا ثبت کنید"
+            modalBackgroundColor="#FFFFFF"
+            headerHeight="50px"
+            mediaQueryBreakpoint="1100px"
         >
             <Wrapper>
-                <div className="header">
-                    <span>پرسش خود را درباره این کالا ثبت کنید</span>
-
-                    <span
-                        onClick={closeAskQuestionModal}
-                    >
-                        <MultiplyIcon />
-                    </span>
-                </div>
-
                 <AskQuestionForm />
-
                 <p>ثبت پرسش به معنی موافقت با قوانین انتشار سیاوش یدک است</p>
             </Wrapper>
-        </Modal>
+        </CustomModal>
     );
 }
-
+    
 export default AskQuestionModal;
