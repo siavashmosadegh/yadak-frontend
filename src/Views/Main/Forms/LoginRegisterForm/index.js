@@ -9,6 +9,7 @@ import { RegisterLoginSchema } from '../../../../Validation/General/Schema';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import AuthActions from '../../../../Redux/Auth/Actions';
+import CustomButton from '../../../../UI-Kit/CustomButton';
 
 const LoginRegisterForm = () => {
 
@@ -49,7 +50,17 @@ const LoginRegisterForm = () => {
                             }
                         </div>
 
-                        <button type="submit">ورود</button>
+                        <CustomButton
+                            width="100%"
+                            height="40px"
+                            title="ورود"
+                            backgroundColor="red"
+                            borderRadius="10px"
+                            border="none"
+                            color="white"
+                            fontSize="20px"
+                            fontWeight="bold"
+                        />
                     </Form>
                 )}
             </Formik>

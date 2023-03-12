@@ -1,8 +1,12 @@
 import { Formik } from 'formik';
 import React from 'react';
-import { Form, FormContainer } from './styles';
+import {
+    Form,
+    FormContainer
+} from './styles';
 import FormHandlers from '../../../../Util/FormHandlers';
 import { NewsletterFormSchema } from '../../../../Validation/Product/Schema';
+import CustomButton from '../../../../UI-Kit/CustomButton';
 
 const NewsletterForm = () => {
     return (
@@ -29,7 +33,6 @@ const NewsletterForm = () => {
                                 placeholder="ایمیل شما"
                             />
 
-
                             <div className="errorDiv">
                                 {
                                     formik.errors.email && formik.touched.email === true
@@ -41,12 +44,17 @@ const NewsletterForm = () => {
                             </div>
                         </div>
 
-                        <button 
-                            type="submit"
-                            // disabled={formik.errors.email && formik.touched.email}
-                        >
-                            ثبت
-                        </button>
+                        <CustomButton
+                            width="60px"
+                            height="50px"
+                            title="ثبت"
+                            backgroundColor="red"
+                            borderRadius="10px"
+                            border="none"
+                            color="white"
+                            fontSize="17px"
+                            fontWeight="bold"
+                        />
                     </Form>
                 )}
             </Formik>

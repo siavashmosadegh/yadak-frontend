@@ -45,10 +45,6 @@ export const ContentWrapper = styled.div`
 
         .askQuestionDiv {
             width: 100%;
-
-            button {
-                width: 250px;
-            }
         }
 
         .buttonDiv {

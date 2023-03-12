@@ -26,22 +26,6 @@ export const Form = styled.form`
 `;
 
 export const FormContainer = styled.div`
-
-
-
-
-
-    button {
-        height: 40px;
-        border-radius: 10px;
-        width: 100%;
-        border: none;
-        background-color: red;
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
     .errorDiv {
         display: flex;
         align-items: center;

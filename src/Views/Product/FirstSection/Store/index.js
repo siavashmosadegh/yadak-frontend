@@ -3,7 +3,8 @@ import AvailableInStoreIcon from '../../../../Icons/ProductIcons/AvailableInStor
 import EuroPriceIcon from '../../../../Icons/ProductIcons/EuroPriceIcon';
 import UnavailableInStoreIcon from '../../../../Icons/ProductIcons/UnavailableInStoreIcon';
 import VerifiedIcon from '../../../../Icons/ProductIcons/VerifiedIcon';
-import { Button, Line, Wrapper } from './styles';
+import CustomButton from '../../../../UI-Kit/CustomButton';
+import { Line, Wrapper } from './styles';
 
 const Store = (props) => {
 
@@ -56,9 +57,17 @@ const Store = (props) => {
             </div>
 
             <div className="buttonDiv">
-                <Button>
-                    افزودن به سبد
-                </Button>
+                <CustomButton
+                    width="100%"
+                    height="50px"
+                    title="افزودن به سبد"
+                    backgroundColor="red"
+                    borderRadius="15px"
+                    border="none"
+                    color="white"
+                    fontSize="20px"
+                    fontWeight="bold"                  
+                />
             </div>
         </Wrapper>
     );

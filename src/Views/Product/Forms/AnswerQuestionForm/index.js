@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import { Form, FormContainer } from './styles';
 import FormHandlers from '../../../../Util/FormHandlers';
+import CustomButton from '../../../../UI-Kit/CustomButton';
 
 const AnswerQuestionForm = () => {
     return (
@@ -27,11 +28,17 @@ const AnswerQuestionForm = () => {
                             />
                         </div>
 
-                        <button
-                            type="submit"
-                        >
-                            ثبت پاسخ
-                        </button>
+                        <CustomButton
+                            width="120px"
+                            height="40px"
+                            title="ثبت پاسخ"
+                            backgroundColor="red"
+                            borderRadius="10px"
+                            border="none"
+                            color="white"
+                            fontSize="18px"
+                            fontWeight="bold"
+                        />
                     </Form>
                 )}
             </Formik>

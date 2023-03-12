@@ -5,23 +5,10 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.form`
-
     width: 100%;
     display: flex;
     align-items: flex-start;
     flex-direction: row-reverse;
-
-    button {
-        width: 60px;
-        height: 50px;
-        // background-color: ${(props) => props.errorss === true ? "rgb(241,242,244)" : "red"};
-        background-color: red;
-        color: white;
-        border-radius: 10px;
-        border: none;
-        font-size: 17px;
-        font-weight: bold;
-    }
 
     .inputDiv {
         width: calc(100% - 60px);

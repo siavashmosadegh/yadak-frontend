@@ -66,14 +66,3 @@ export const Line = styled.div`
     height: 1px;
     background-color: gray;
 `;
-
-export const Button = styled.button`
-    width: 100%;
-    height: 50px;
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 15px;
-    font-size: 20px;
-    font-weight: bold;
-`;

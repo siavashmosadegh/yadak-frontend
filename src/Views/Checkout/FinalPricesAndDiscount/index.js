@@ -1,4 +1,5 @@
 import React from 'react';
+import CustomButton from '../../../UI-Kit/CustomButton';
 import {
     Button,
     Item,
@@ -37,9 +38,17 @@ const FinalPricesAndDiscount = (props) => {
                 <p>سود شما از خرید</p>
             </Item>
 
-            <Button>
-                ادامه
-            </Button>
+            <CustomButton
+                width="100%"
+                height="40px"
+                title="ادامه"
+                backgroundColor="red"
+                borderRadius="10px"
+                border="none"
+                color="white"
+                fontSize="18px"
+                fontWeight="bold"
+            />
         </Wrapper>
     );
 }
