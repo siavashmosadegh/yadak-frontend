@@ -22,5 +22,9 @@ export const LayoutWrapper = styled.div`
         .responsiveHeaderWrapper {
             display: initial;
         }
+
+        .childrenWrapper {
+            margin-top: 0px;
+        }
     }
 `;

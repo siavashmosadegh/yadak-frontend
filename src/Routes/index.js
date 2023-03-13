@@ -11,7 +11,7 @@ import routePaths from './NameSpace';
 import Product from '../Pages/Product';
 import Logout from '../Pages/Logout';
 import Search from '../Pages/Search';
-import Checkout from '../Pages/Checkout';
+import CheckoutCart from '../Pages/Checkout/Cart';
 
 const RoutesList = () => {
     
@@ -47,7 +47,7 @@ const RoutesList = () => {
 
                 <Route
                     path={routePaths.checkoutCart}
-                    element={ <Checkout /> }
+                    element={ <CheckoutCart /> }
                 />
 
                 {/* <Route

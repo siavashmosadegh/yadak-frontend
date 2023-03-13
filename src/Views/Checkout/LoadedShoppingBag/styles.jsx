@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
     padding-inline: 20px;
+
+    @media (max-width: 1100px) {
+        width: 100%;
+    }
 `;
 
 export const Header = styled.div`

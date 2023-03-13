@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import Layout from '../../Views/Layout';
+import Layout from '../../../Views/Layout';
 import { useSelector } from 'react-redux';
 import {
     CheckoutWrapper,
     EmptyShoppingBagContainer,
     ShoppingBagIconContainer
 } from './styles';
-import ShoppingBagIcon from '../../Icons/Checkout/ShoppingBagIcon';
-import LoginToAccount from '../../Views/Checkout/LoginToAccount';
-import FinalPricesAndDiscount from '../../Views/Checkout/FinalPricesAndDiscount';
-import LoadedShoppingBag from '../../Views/Checkout/LoadedShoppingBag';
+import ShoppingBagIcon from '../../../Icons/Checkout/ShoppingBagIcon';
+import LoginToAccount from '../../../Views/Checkout/LoginToAccount';
+import FinalPricesAndDiscount from '../../../Views/Checkout/FinalPricesAndDiscount';
+import LoadedShoppingBag from '../../../Views/Checkout/LoadedShoppingBag';
 
-const Checkout = () => {
+const CheckoutCart = () => {
 
     const {
         shoppingBag
@@ -83,4 +83,4 @@ const Checkout = () => {
     );
 }
 
-export default Checkout;
+export default CheckoutCart;

@@ -12,6 +12,11 @@ export const Wrapper = styled.div`
         margin: 0;
         padding: 0;
     }
+
+    @media (max-width: 1100px) {
+        width: 100%;
+        margin-right: 0px;
+    }
 `;
 
 export const Item = styled.div`
