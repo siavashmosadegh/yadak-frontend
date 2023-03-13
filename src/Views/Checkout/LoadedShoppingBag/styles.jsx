@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
     padding-inline: 20px;
-    padding-top: 10px;
 `;
 
 export const Header = styled.div`
@@ -13,8 +12,7 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 40px;
-    // padding-inline: 20px;
+    height: 50px;
 
     .headerTitle {
         font-size: 20px;

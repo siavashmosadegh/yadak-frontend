@@ -5,7 +5,7 @@ export const CheckoutWrapper = styled.div`
     padding: 20px;
     
     @media (max-width: 1100px) {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
 `;

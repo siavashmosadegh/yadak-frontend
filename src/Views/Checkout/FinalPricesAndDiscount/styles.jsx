@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
     margin-right: 10px;
+    height: 180px;
 
     p {
         margin: 0;

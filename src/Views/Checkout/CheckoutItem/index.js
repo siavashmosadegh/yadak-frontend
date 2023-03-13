@@ -6,6 +6,8 @@ import {
 } from './styles';
 import img1 from '../../../Assets/images/1.jpg';
 import NumberOfItemsRequested from './NumberOfItemsRequested';
+import VerifiedIcon from '../../../Icons/ProductIcons/VerifiedIcon';
+import PriceComponent from '../../PriceComponent';
 
 const CheckoutItem = (props) => {
 
@@ -15,16 +17,38 @@ const CheckoutItem = (props) => {
     
     return (
         <Wrapper>
-            <LeftDiv>
-                siavash
-            </LeftDiv>
-            <RightDiv>
-                <img src={img1} />
+            <div className="row">
+                <LeftDiv>
+                    <p className="title">{item.title}</p>
 
-                <NumberOfItemsRequested
-                    number={2}
-                />
-            </RightDiv>
+                    <div className="verified">
+                        <VerifiedIcon />
+
+                        <p>گارانتی اصالت و سلامت فیزیکی کالا</p>
+                    </div>
+                </LeftDiv>
+                <RightDiv>
+                    <img src={img1} />
+                </RightDiv>
+            </div>
+            <div className="row">
+                <LeftDiv>
+                    <PriceComponent
+                        price={item.price}
+                        width="auto"
+                        height="auto"
+                        tomanColor="#000000"
+                        tomanFontSize="15px"
+                        priceColor="#000000"
+                        priceFontSize="15px"
+                    />
+                </LeftDiv>
+                <RightDiv>
+                    <NumberOfItemsRequested
+                        number={2}
+                    />
+                </RightDiv>
+            </div>
         </Wrapper>
     );
 }

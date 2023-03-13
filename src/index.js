@@ -8,6 +8,7 @@ import { Provider } from 'react-redux/es/exports';
 import { ThemeProvider } from '@mui/material';
 import {createTheme} from '@mui/material';
 import { green, purple } from '@mui/material/colors';
+import ErrorBoundary from './Views/ErrorBoundary';
 
 const theme = createTheme({
   palette: {
@@ -23,11 +24,13 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </Provider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 

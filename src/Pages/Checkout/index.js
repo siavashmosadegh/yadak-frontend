@@ -8,7 +8,6 @@ import {
 } from './styles';
 import ShoppingBagIcon from '../../Icons/Checkout/ShoppingBagIcon';
 import LoginToAccount from '../../Views/Checkout/LoginToAccount';
-// import CheckoutItem from '../../Views/Checkout/CheckoutItem';
 import FinalPricesAndDiscount from '../../Views/Checkout/FinalPricesAndDiscount';
 import LoadedShoppingBag from '../../Views/Checkout/LoadedShoppingBag';
 
@@ -64,13 +63,6 @@ const Checkout = () => {
                 <LoadedShoppingBag
                     items={shoppingBag}
                 />
-                {/* {shoppingBag.map( (item) => {
-                    return (
-                        <CheckoutItem 
-                            item={item}
-                        />
-                    );
-                })} */}
             </>
         );
     }
