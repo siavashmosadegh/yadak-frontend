@@ -8,5 +8,7 @@ export default {
   profileOpinions: '/profile/opinions',
   logout: '/logout',
   search: '/search/*',
-  checkoutCart: '/checkout/cart'
+  checkoutCart: '/checkout/cart',
+  checkoutShipping: '/checkout/shipping',
+  checkoutPayment: '/checkout/payment'
 };

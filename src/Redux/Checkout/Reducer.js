@@ -1,4 +1,5 @@
 import Types from './Types';
+import routePaths from '../../Routes/NameSpace';
 
 const initState = {
     shoppingBag: [
@@ -75,6 +76,32 @@ const initState = {
                 // {id: 6,question: "سوال 7",answers: []},
                 // {id: 7,question: "سوال 8",answers: []}
             ]
+        }
+    ],
+    navigationItems: [
+        {
+            id: 0,
+            title: "سبد خرید",
+            icon: "ShoppingBagIconTwo",
+            goTo: routePaths.checkoutCart,
+            active: false,
+            fill: "none"
+        },
+        {
+            id: 1,
+            title: "زمان و نحوه ارسال",
+            icon: "TruckTransportIcon",
+            goTo: routePaths.checkoutPayment,
+            active: false,
+            fill: "red"
+        },
+        {
+            id: 2,
+            title: "پرداخت",
+            icon: "OnlinePaymentIcon",
+            goTo: "/pardakht",
+            active: false,
+            fill: "red"
         }
     ]
 }

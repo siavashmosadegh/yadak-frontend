@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CustomButton from '../../../UI-Kit/CustomButton';
 import {
-    Button,
     Item,
     Wrapper
 } from './styles';
+import routePaths from '../../../Routes/NameSpace';
 
 const FinalPricesAndDiscount = (props) => {
 
@@ -38,17 +39,19 @@ const FinalPricesAndDiscount = (props) => {
                 <p>سود شما از خرید</p>
             </Item>
 
-            <CustomButton
-                width="100%"
-                height="40px"
-                title="ادامه"
-                backgroundColor="red"
-                borderRadius="10px"
-                border="none"
-                color="white"
-                fontSize="18px"
-                fontWeight="bold"
-            />
+            <Link to={routePaths.checkoutShipping}>
+                <CustomButton
+                    width="100%"
+                    height="40px"
+                    title="ادامه"
+                    backgroundColor="red"
+                    borderRadius="10px"
+                    border="none"
+                    color="white"
+                    fontSize="18px"
+                    fontWeight="bold"
+                />            
+            </Link>
         </Wrapper>
     );
 }

@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
     margin-right: 10px;
     height: 180px;
 
+    a {
+        text-decoration: none;
+    }
+
     p {
         margin: 0;
         padding: 0;
@@ -25,18 +29,4 @@ export const Item = styled.div`
     justify-content: space-between;
     color: ${(props) => props.color == "gray" ? "#808080" : props.color == "black" ? "#000000" : "#FF0000"};
     margin-bottom: 20px;
-`;
-
-export const Button = styled.button`
-    width: 100%;
-    height: 40px;
-    background-color: red;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
 `;

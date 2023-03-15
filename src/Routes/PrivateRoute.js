@@ -1,9 +1,13 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import routePaths from './NameSpace';
 
 export const PrivateRoute = (props) => {
-  const isLoggedin = useSelector((state) => state.Principal.isLoggedin);
-  return isLoggedin ? <Route {...props} /> : <Redirect to={routePaths.login} />;
+  const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
+  return isLoggedIn === true ? <Outlet /> : <Navigate to={routePaths.login} />;
 };
+
+// const navigate = useNavigate();
+// const isLoggedin = useSelector((state) => state.Auth.isLoggedin);
+// return isLoggedin ? <Route {...props} /> : <React.Fragment>{navigate(routePaths.login)}</React.Fragment>;
