@@ -14,6 +14,7 @@ import Search from '../Pages/Search';
 import CheckoutCart from '../Pages/Checkout/Cart';
 import CheckoutShipping from '../Pages/Checkout/Shipping';
 import { PrivateRoute } from './PrivateRoute';
+import CheckoutPayment from '../Pages/Checkout/Payment';
 
 const RoutesList = () => {
     
@@ -59,6 +60,10 @@ const RoutesList = () => {
 
                 <Route path={routePaths.checkoutShipping} element={<PrivateRoute/>}>
                     <Route path={routePaths.checkoutShipping} element={<CheckoutShipping/>}/>
+                </Route>
+
+                <Route path={routePaths.checkoutPayment} element={<PrivateRoute/>}>
+                    <Route path={routePaths.checkoutPayment} element={<CheckoutPayment/>}/>
                 </Route>
 
                 {/* <Route

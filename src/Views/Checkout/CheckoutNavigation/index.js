@@ -6,22 +6,34 @@ import {
 } from './styles';
 import { useSelector } from 'react-redux';
 import TitleAndIcon from '../../TitleAndIcon';
+import { useLocation } from 'react-router-dom';
 
 const CheckoutNavigation = () => {
+
+    const location = useLocation();
 
     const {
         navigationItems
     } = useSelector((state) => state.Checkout);
+
+    // id: 0,
+    // title: "سبد خرید",
+    // icon: "ShoppingBagIconTwo",
+    // goTo: routePaths.checkoutCart,
+    // active: "/checkout/card",
+    // fill: "none"
 
     const navigationItemsContent = () => {
         return (
             navigationItems.map((item) => {
                 return (
                     <TitleAndIcon
+                        location={location.pathname}
                         title={item.title}
                         icon={item.icon}
                         goTo={item.goTo}
                         fill={item.fill}
+                        active={item.active}
                     />
                 );
             })

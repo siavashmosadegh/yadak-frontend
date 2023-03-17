@@ -84,23 +84,23 @@ const initState = {
             title: "سبد خرید",
             icon: "ShoppingBagIconTwo",
             goTo: routePaths.checkoutCart,
-            active: false,
+            active: "/checkout/card",
             fill: "none"
         },
         {
             id: 1,
             title: "زمان و نحوه ارسال",
             icon: "TruckTransportIcon",
-            goTo: routePaths.checkoutPayment,
-            active: false,
+            goTo: routePaths.checkoutShipping,
+            active: "/checkout/shipping",
             fill: "red"
         },
         {
             id: 2,
             title: "پرداخت",
             icon: "OnlinePaymentIcon",
-            goTo: "/pardakht",
-            active: false,
+            goTo: routePaths.checkoutPayment,
+            active: "/checkout/payment",
             fill: "red"
         }
     ]

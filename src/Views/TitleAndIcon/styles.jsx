@@ -13,7 +13,7 @@ export const TitleAndIconWrapper = styled.div`
 
 export const TitleContainer = styled.div`
     color: red;
-    font-size: 15px;
+    font-size: ${(props) => props.active === true ? "24px" : "15px"};
     font-weight: bold;
 `;
 
@@ -22,7 +22,7 @@ export const IconContainer = styled.div`
     margin-left: 10px;
     svg {
         fill: ${(props) => props.fill};
-        width: 45px;
-        height: 45px;
+        width: ${(props) => props.active === true ? "50px" : "30px"};
+        height: ${(props) => props.active === true ? "50px" : "30px"};
     }
 `;

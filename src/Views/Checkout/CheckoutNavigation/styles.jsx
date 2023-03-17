@@ -8,6 +8,7 @@ export const CheckoutNavigationWrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
     width: 100%;
+    margin-top: 20px;
 `;
 
 export const NavigationItemsContainer = styled.div`
@@ -16,4 +17,5 @@ export const NavigationItemsContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 70%;
+    margin-top: 20px;
 `;

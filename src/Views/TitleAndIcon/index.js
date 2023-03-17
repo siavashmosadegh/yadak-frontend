@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import OnlinePaymentIcon from '../../Icons/Checkout/OnlinePaymentIcon';
 import ShoppingBagIconTwo from '../../Icons/Checkout/ShoppingBagIconTwo';
@@ -15,8 +15,11 @@ const TitleAndIcon = (props) => {
         title,
         icon,
         goTo,
-        fill
+        fill,
+        location
     } = props;
+
+    const [active, setActive] = useState(false);
 
     const iconCreator = () => {
         switch (icon) {
@@ -31,7 +34,13 @@ const TitleAndIcon = (props) => {
         }
     }
 
-    console.log(iconCreator);
+    useEffect(() => {
+        if (location === goTo) {
+            setActive(true);
+        } else {
+            setActive(false);
+        }
+    },[location]);
 
     return (
         <TitleAndIconWrapper>
@@ -40,11 +49,14 @@ const TitleAndIcon = (props) => {
             >
                 <IconContainer
                     fill={fill}
+                    active={active}
                 >
                     {iconCreator()}
                 </IconContainer>
 
-                <TitleContainer>
+                <TitleContainer
+                    active={active}
+                >
                     {title}
                 </TitleContainer>
             </Link>
