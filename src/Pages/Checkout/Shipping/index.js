@@ -1,19 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import CheckoutNavigation from '../../../Views/Checkout/CheckoutNavigation';
 import { Wrapper } from './styles';
-import routePaths from '../../../Routes/NameSpace';
+import FinalPricesAndDiscount from '../../../Views/Checkout/FinalPricesAndDiscount/index';
+import Address from '../../../Views/Checkout/Address';
+import { useSelector } from 'react-redux';
+import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 
 const CheckoutShipping = () => {
+
+    const {
+        shoppingBag
+    } = useSelector((state) => state.Checkout);
+
     return (
         <Wrapper>
             <CheckoutNavigation />
 
-            <Link to={routePaths.checkoutPayment}>
-                <button>
-                    click me !
-                </button>            
-            </Link>
+            <CustomContainer>
+                <Address />
+
+                <FinalPricesAndDiscount
+                    numberOfItems={shoppingBag.length}
+                />
+            </CustomContainer>
         </Wrapper>
     );
 }

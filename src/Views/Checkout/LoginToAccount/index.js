@@ -1,7 +1,11 @@
 import React from 'react';
 import LeftArrowIcon from '../../../Icons/Header/LeftArrowIcon';
 import LoginIcon from '../../../Icons/LoginIcon';
-import { LeftArrowIconContainer, LoginIconContainer, Wrapper } from './styles';
+import {
+    LeftArrowIconContainer,
+    LoginIconContainer,
+    Wrapper
+} from './styles';
 
 const LoginToAccount = () => {
     return (
