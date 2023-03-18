@@ -5,11 +5,13 @@ import FinalPricesAndDiscount from '../../../Views/Checkout/FinalPricesAndDiscou
 import Address from '../../../Views/Checkout/Address';
 import { useSelector } from 'react-redux';
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
+import ChangeEditAddressModal from '../../../Views/Checkout/Modals/ChangeEditAddressModal';
 
 const CheckoutShipping = () => {
 
     const {
-        shoppingBag
+        shoppingBag,
+        showChangeEditAddressModal
     } = useSelector((state) => state.Checkout);
 
     return (
@@ -23,6 +25,14 @@ const CheckoutShipping = () => {
                     numberOfItems={shoppingBag.length}
                 />
             </CustomContainer>
+
+            {
+                showChangeEditAddressModal === true
+                    ?
+                    <ChangeEditAddressModal />
+                    :
+                    null
+            }
         </Wrapper>
     );
 }

@@ -7,8 +7,13 @@ import {
     LocationIconContainer,
     Wrapper
 } from './styles';
+import { useDispatch } from 'react-redux';
+import CheckoutActions from '../../../Redux/Checkout/Actions';
 
 const Address = () => {
+
+    const dispatch = useDispatch();
+
     return (
         <Wrapper>
             <p className="title">آدرس تحویل سفارش</p>
@@ -30,6 +35,7 @@ const Address = () => {
                 <CustomContainer
                     disableMediaQuery={true}
                     justifyContent="center"
+                    onClick={() => dispatch(CheckoutActions.showChangeEditAddressModalHandler({}))}
                 >
                     <p className="changeEditText">تغییر | ویرایش</p>
 

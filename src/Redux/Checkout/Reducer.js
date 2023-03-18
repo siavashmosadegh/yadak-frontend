@@ -103,7 +103,8 @@ const initState = {
             active: "/checkout/payment",
             fill: "red"
         }
-    ]
+    ],
+    showChangeEditAddressModal: false
 }
 
 export default function Reducer (state = initState, action) {
@@ -112,7 +113,17 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 shoppingBag: []
-            }
+            };
+        case Types.SHOW_CHANGE_EDIT_ADDRESS_MODAL:
+            return {
+                ...state,
+                showChangeEditAddressModal: true
+            };
+        case Types.CLOSE_CHANGE_EDIT_ADDRESS_MODAL:
+            return {
+                ...state,
+                showChangeEditAddressModal: false
+            };
         default:
             return state;
     }
