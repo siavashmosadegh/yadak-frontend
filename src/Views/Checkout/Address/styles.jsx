@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    width: calc(100% - 300px);
+    // width: calc(100% - 300px);
+    width: 100%;
+    margin-bottom: 15px;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
 
     .title {
         text-align: right;

@@ -9,6 +9,7 @@ export const CheckoutNavigationWrapper = styled.div`
     border-radius: 10px;
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 15px;
 `;
 
 export const NavigationItemsContainer = styled.div`
