@@ -5,7 +5,10 @@ const CheckoutActions = {
     deleteEverythingHandler: DelegateAction(Types.DELETE_EVERYTHING),
 
     showChangeEditAddressModalHandler: DelegateAction(Types.SHOW_CHANGE_EDIT_ADDRESS_MODAL),
-    closeChangeEditAddressModalHandler: DelegateAction(Types.CLOSE_CHANGE_EDIT_ADDRESS_MODAL)
+    closeChangeEditAddressModalHandler: DelegateAction(Types.CLOSE_CHANGE_EDIT_ADDRESS_MODAL),
+
+    showConfirmSelectTimeModalHandler: DelegateAction(Types.SHOW_CONFIRM_SELECT_TIME_MODAL),
+    closeConfirmSelectTimeModalHandler: DelegateAction(Types.CLOSE_CONFIRM_SELECT_TIME_MODAL)
 }
 
 export default CheckoutActions;
