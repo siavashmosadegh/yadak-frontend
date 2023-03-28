@@ -10,7 +10,7 @@ import Address from '../../../Views/Checkout/Address';
 import { useSelector } from 'react-redux';
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 import ChangeEditAddressModal from '../../../Views/Checkout/Modals/ChangeEditAddressModal';
-import PersianDatePicker from '@skhazaei/persian-date-picker';
+// import PersianDatePicker from '@skhazaei/persian-date-picker';
 import moment from 'jalali-moment';
 import SelectDeliveryTime from '../../../Views/Checkout/SelectDeliveryTime';
 

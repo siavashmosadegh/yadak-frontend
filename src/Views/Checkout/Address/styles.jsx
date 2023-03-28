@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
     margin-bottom: 15px;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     p {
         margin: 0;

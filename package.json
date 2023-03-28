@@ -19,6 +19,8 @@
     "jalali-moment": "^3.3.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-multi-date-picker": "^3.3.4",
+    "react-persian-datepicker": "^3.0.2",
     "react-redux": "^8.0.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
