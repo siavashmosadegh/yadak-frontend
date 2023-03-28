@@ -15,6 +15,10 @@ import CheckoutCart from '../Pages/Checkout/Cart';
 import CheckoutShipping from '../Pages/Checkout/Shipping';
 import { PrivateRoute } from './PrivateRoute';
 import CheckoutPayment from '../Pages/Checkout/Payment';
+import Profile from '../Pages/Profile';
+import ProfileLists from '../Pages/Profile/ProfileLists';
+import ProfileOrders from '../Pages/Profile/ProfileOrders';
+import ProfileOpinions from '../Pages/Profile/ProfileOpinions';
 
 const RoutesList = () => {
     
@@ -64,6 +68,22 @@ const RoutesList = () => {
 
                 <Route path={routePaths.checkoutPayment} element={<PrivateRoute/>}>
                     <Route path={routePaths.checkoutPayment} element={<CheckoutPayment/>}/>
+                </Route>
+
+                <Route path={routePaths.profile} element={<PrivateRoute/>}>
+                    <Route path={routePaths.profile} element={<Profile />}/>
+                </Route>
+
+                <Route path={routePaths.profileLists} element={<PrivateRoute/>}>
+                    <Route path={routePaths.profileLists} element={<ProfileLists />}/>
+                </Route>
+
+                <Route path={routePaths.profileOrders} element={<PrivateRoute/>}>
+                    <Route path={routePaths.profileOrders} element={<ProfileOrders />}/>
+                </Route>
+
+                <Route path={routePaths.profileOpinions} element={<PrivateRoute/>}>
+                    <Route path={routePaths.profileOpinions} element={<ProfileOpinions />}/>
                 </Route>
 
                 {/* <Route
