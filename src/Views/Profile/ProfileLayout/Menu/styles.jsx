@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 
 export const MenuWrapper = styled.div`
-
+    // margin-inline: 20px;
 `;
 
 export const IconContainer = styled.div`

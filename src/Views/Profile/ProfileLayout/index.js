@@ -6,6 +6,7 @@ const ProfileLayout = (props) => {
     return (
         <Wrapper
             justifyContent="flex-start"
+            alignItems="flex-start"
         >
             <div className="menu">
                 <Menu />
