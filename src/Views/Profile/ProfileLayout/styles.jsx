@@ -20,11 +20,14 @@ export const Wrapper = styled(CustomContainer)`
 
     @media (max-width: 1100px) {
         .menu {
-            margin-right: 0px;
+            margin-right: 0;
+            margin-bottom: 20px;
+            width: 90%;
         }
     
         .children {
-            margin-left: 0px;
+            // margin-left: 0;
+            width: 90%;
         }
     }
 `;

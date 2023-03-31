@@ -12,7 +12,8 @@ const CustomContainer = (props) => {
         responsiveFlexDirection,
         responsiveMaxWidth,
         onClick,
-        className
+        className,
+        responsiveAlignItems
     } = props;
 
     return (
@@ -26,6 +27,7 @@ const CustomContainer = (props) => {
             responsiveMaxWidth={responsiveMaxWidth}
             onClick={onClick}
             className={className}
+            responsiveAlignItems={responsiveAlignItems}
         >
             {props.children}
         </Wrapper>
@@ -40,7 +42,8 @@ CustomContainer.defaultProps = {
     justifyContent: "space-between",
     responsiveFlexDirection: "column",
     responsiveMaxWidth: "1100px",
-    onClick: console.log("this log is shown because onClick props is empty")
+    onClick: console.log("this log is shown because onClick props is empty"),
+    responsiveAlignItems: "center"
 }
 
 export default CustomContainer;

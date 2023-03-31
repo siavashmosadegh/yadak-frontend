@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
     ${props => props.disableMediaQuery === false && css`
         @media (max-width: ${props => props.responsiveMaxWidth}) {
             flex-direction: ${(props) => props.responsiveFlexDirection};
+            align-items: ${(props) => props.responsiveAlignItems};
         }
     `};
 `;

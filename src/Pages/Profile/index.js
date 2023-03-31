@@ -49,7 +49,7 @@ const Profile = () => {
                     </FirstRowCustomContainer>
 
                     <SecondRowCustomContainer
-                        disableMediaQuery={true}
+                        // disableMediaQuery={true}
                     >
                         <CustomContainer
                             disableMediaQuery={true}
