@@ -4,7 +4,8 @@ import {
     MenuWrapper,
     StyledCustomContainer,
     StyledLink,
-    UserCustomContainer
+    UserCustomContainer,
+    VerticalLine
 } from './styles';
 import routePaths from '../../../../Routes/NameSpace';
 import ActivityIcon from '../../../../Icons/Profile/ActivityIcon';
@@ -16,9 +17,11 @@ import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import PersonTwoIcon from '../../../../Icons/Header/PersonTwoIcon';
 import PersonThreeIcon from '../../../../Icons/Header/PersonThreeIcon';
 import EditIcon from '../../../../Icons/Profile/EditIcon';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Menu = () => {
+
+    const location = useLocation();
 
     const [menuItems, setMenuItems] = useState([
         {id: 0,title: "خلاصه ی فعالیت ها",icon: <ActivityIcon />,goTo: routePaths.profile},
@@ -33,12 +36,19 @@ const Menu = () => {
         return (
             menuItems.map( (item) => {
                 return (
-                    <StyledLink to={item.goTo}>
+                    <StyledLink
+                        to={item.goTo}
+                        location={location.pathname}
+                    >
                         <StyledCustomContainer
                             key={item.id}
                             justifyContent="flex-start"
                             disableMediaQuery={true}
                         >
+                            <VerticalLine 
+                                isActive={ item.goTo === location.pathname }
+                            />
+
                             <IconContainer>
                                 {item.icon}
                             </IconContainer>

@@ -19,6 +19,8 @@ export const IconContainer = styled.div`
 export const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
+    font-size: 13px;
+    font-weight: ${(props) => props.to === props.location ? "bold" : "normal"};
 `;
 
 export const StyledCustomContainer = styled(CustomContainer)`
@@ -32,4 +34,10 @@ export const StyledCustomContainer = styled(CustomContainer)`
 
 export const UserCustomContainer = styled(CustomContainer)`
     height: 50px;
+`;
+
+export const VerticalLine = styled.div`
+    width: 2px;
+    height: 100%;
+    background-color: ${(props) => props.isActive === true ? "red" : "white"};
 `;

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Main from '../Pages/Main';
 import Login from '../Pages/Login';
-import Header from '../Views/Main/Header';
+// import Header from '../Views/Main/Header';
 import routePaths from './NameSpace';
 import Product from '../Pages/Product';
 import Logout from '../Pages/Logout';
@@ -19,6 +19,7 @@ import Profile from '../Pages/Profile';
 import ProfileLists from '../Pages/Profile/ProfileLists';
 import ProfileOrders from '../Pages/Profile/ProfileOrders';
 import ProfileOpinions from '../Pages/Profile/ProfileOpinions';
+import ProfilePersonalInfo from '../Pages/Profile/ProfilePersonalInfo';
 
 const RoutesList = () => {
     
@@ -84,6 +85,10 @@ const RoutesList = () => {
 
                 <Route path={routePaths.profileOpinions} element={<PrivateRoute/>}>
                     <Route path={routePaths.profileOpinions} element={<ProfileOpinions />}/>
+                </Route>
+
+                <Route path={routePaths.profilePersonalInfo} element={<PrivateRoute/>}>
+                    <Route path={routePaths.profilePersonalInfo} element={<ProfilePersonalInfo />}/>
                 </Route>
 
                 {/* <Route
