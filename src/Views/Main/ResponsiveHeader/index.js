@@ -16,6 +16,8 @@ import { useSelector } from 'react-redux';
 import ResponsiveCategories from './ResponsiveCategories';
 import GeneralActions from '../../../Redux/General/Actions';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import routePaths from '../../../Routes/NameSpace';
 
 const ResponsiveHeader = () => {
 
@@ -42,14 +44,18 @@ const ResponsiveHeader = () => {
             <div className="lowerDiv">
                 <div className="basketAndRegisterLogin">
                     <BasketIconContainer>
-                        <BasketIconTwo />
+                        <Link to={routePaths.checkoutCart}>
+                            <BasketIconTwo />
+                        </Link>
                     </BasketIconContainer>
 
                     {
                         isLoggedIn === true
                             ?
                             <PersonThreeIconContainer>
-                                <PersonThreeIcon />
+                                <Link to={routePaths.profile}>
+                                    <PersonThreeIcon />
+                                </Link>
                             </PersonThreeIconContainer>
                             :
                             <RegisterLoginLink />
