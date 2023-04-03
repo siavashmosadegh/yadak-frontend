@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import React from 'react';
-import { FormContainer } from './styles';
+import { FormContainer, MagnifierIconContainer } from './styles';
 import FormHandler from '../../../../Util/FormHandlers';
+import MagnifierIcon from '../../../../Icons/Profile/MagnifierIcon';
 
 const HeaderInputForm = () => {
     return (
@@ -23,6 +24,14 @@ const HeaderInputForm = () => {
                             onChange={(e) => FormHandler.onChange(e,formik)}
                             placeholder="جستجو"
                         />
+
+                        <button
+                            type="submit"
+                        >
+                            <MagnifierIconContainer>
+                                <MagnifierIcon />
+                            </MagnifierIconContainer>
+                        </button>
                     </form>
                 )}
             </Formik>

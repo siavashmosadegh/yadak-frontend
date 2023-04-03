@@ -11,6 +11,7 @@ export const FormContainer = styled.div`
         justify-content: center;
         align-items: center;
         height: 100%;
+        position: relative;
     }
 
     input {
@@ -30,9 +31,32 @@ export const FormContainer = styled.div`
         outline: none;
     }
 
+    button {
+        background-color: rgb(241, 242, 244);
+        border: none;
+        height: 37px;
+        position: absolute;
+        left: 5px;
+        top: 11.5px;
+        border-radius: 10px;
+    }
+
     @media (max-width: 1100px) {
         input {
             width: 100%;
         }
+        button {
+            top: 0;
+        }
+    }
+`;
+
+export const MagnifierIconContainer = styled.div`
+    width: auto;
+    display: flex;
+    svg {
+        fill: #000000;
+        width: 20px;
+        height: 20px;
     }
 `;
