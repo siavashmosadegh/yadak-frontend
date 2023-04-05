@@ -5,6 +5,7 @@ import Auth from './Auth/Reducer';
 import Search from './Search/Reducer';
 import Checkout from './Checkout/Reducer';
 import User from './User/Reducer';
+import Orders from './Orders/Reducer';
 
 export default combineReducers({
     General,
@@ -12,5 +13,6 @@ export default combineReducers({
     Auth,
     Search,
     Checkout,
-    User
+    User,
+    Orders
 });

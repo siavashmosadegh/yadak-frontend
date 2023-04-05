@@ -1,0 +1,3 @@
+export default {
+    SELECT_ACTIVE_ORDER_TAB: "SELECT_ACTIVE_ORDER_TAB"
+}
