@@ -2,18 +2,16 @@ import Types from './Types';
 
 const initState = {
     onGoingOrders: [
-        {id: 0,title: "sefaresh"},
-        {id: 1,title: "sefaresh"}
     ],
     successfulOrders: [
         {id: 0,title: "sefaresh"},
         {id: 1,title: "sefaresh"}
     ],
     returnedOrders: [
-
+        {id: 0,title: "sefaresh"},
+        {id: 1,title: "sefaresh"}
     ],
     canceledOrders: [
-        
     ],
     activeOrdersTab: null
 }

@@ -4,11 +4,13 @@ import ProfileLayout from '../../../Views/Profile/ProfileLayout';
 import SearchOrdersForm from '../../../Views/Profile/Forms/SearchOrdersForm';
 import {
     FormAndTitleContainer,
+    Line,
     ProfileWrapper
 } from './styles';
 import { useSelector } from 'react-redux';
 import ProfileOrdersTab from '../../../Views/Profile/ProfileOrdersTab';
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
+import Empty from '../../../Views/Empty';
 
 const ProfileOrders = () => {
 
@@ -60,6 +62,24 @@ const ProfileOrders = () => {
                             activeOrdersTab={activeOrdersTab}
                         />
                     </CustomContainer>
+
+                    <Line />
+
+                    {
+                        activeOrdersTab === 'جاری'
+                            ?
+                            onGoingOrders.length !== 0
+                                ?
+                                null
+                                :
+                                <Empty
+                                    title="هنوز هیچ سفارشی ثبت نکرده اید"
+                                    width="100%"
+                                    height="500px"
+                                />
+                                :
+                                null
+                    }
                 </ProfileWrapper>
             </ProfileLayout>
         </Layout>

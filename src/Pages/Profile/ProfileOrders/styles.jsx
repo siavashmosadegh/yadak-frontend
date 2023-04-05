@@ -20,3 +20,9 @@ export const ProfileWrapper = styled.div`
     border-radius: 10px;
     margin-right: 20px;
 `;
+
+export const Line = styled.div`
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+`;
