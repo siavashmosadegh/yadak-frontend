@@ -15,6 +15,13 @@ export const FormAndTitleContainer = styled(CustomContainer)`
     }
 `;
 
+export const TabsContainer = styled(CustomContainer)`
+    @media (max-width: 1100px) {
+        margin-inline: 20px;
+        justify-content: space-between;
+    }
+`;
+
 export const ProfileWrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px;

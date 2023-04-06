@@ -5,12 +5,15 @@ import SearchOrdersForm from '../../../Views/Profile/Forms/SearchOrdersForm';
 import {
     FormAndTitleContainer,
     Line,
-    ProfileWrapper
+    ProfileWrapper,
+    TabsContainer
 } from './styles';
 import { useSelector } from 'react-redux';
 import ProfileOrdersTab from '../../../Views/Profile/ProfileOrdersTab';
-import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
-import Empty from '../../../Views/Empty';
+import OngoingOrders from '../../../Views/Profile/Orders/OngoingOrders';
+import SuccessfulOrders from '../../../Views/Profile/Orders/SuccessfulOrders';
+import ReturnedOrders from '../../../Views/Profile/Orders/ReturnedOrders';
+import CanceledOrders from '../../../Views/Profile/Orders/CanceledOrders';
 
 const ProfileOrders = () => {
 
@@ -34,7 +37,7 @@ const ProfileOrders = () => {
                         <SearchOrdersForm />
                     </FormAndTitleContainer>
 
-                    <CustomContainer
+                    <TabsContainer
                         disableMediaQuery={true}
                         justifyContent="flex-start"
                     >
@@ -61,24 +64,40 @@ const ProfileOrders = () => {
                             number={canceledOrders.length}
                             activeOrdersTab={activeOrdersTab}
                         />
-                    </CustomContainer>
+                    </TabsContainer>
 
                     <Line />
 
                     {
                         activeOrdersTab === 'جاری'
                             ?
-                            onGoingOrders.length !== 0
-                                ?
-                                null
-                                :
-                                <Empty
-                                    title="هنوز هیچ سفارشی ثبت نکرده اید"
-                                    width="100%"
-                                    height="500px"
-                                />
-                                :
-                                null
+                            <OngoingOrders />
+                            :
+                            null
+                    }
+
+                    {
+                        activeOrdersTab === 'تحویل شده'
+                            ?
+                            <SuccessfulOrders />
+                            :
+                            null
+                    }
+
+                    {
+                        activeOrdersTab === 'مرجوع شده'
+                            ?
+                            <ReturnedOrders />
+                            :
+                            null
+                    }
+
+                    {
+                        activeOrdersTab === 'لغو شده'
+                            ?
+                            <CanceledOrders />
+                            :
+                            null
                     }
                 </ProfileWrapper>
             </ProfileLayout>

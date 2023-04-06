@@ -4,6 +4,10 @@ import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 export const Wrapper = styled(CustomContainer)`
     margin-right: 20px;
     height: 40px;
+
+    @media (max-width: 1100px) {
+        margin-right: 0;
+    }
 `;
 
 export const TitleContainer = styled.div`
