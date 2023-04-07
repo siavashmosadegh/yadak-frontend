@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Empty from '../../../Empty/index';
 import { Wrapper } from './styles';
+import SuccessfulOrderItem from './SuccessfulOrderItem';
+import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 
 const SuccessfulOrders = () => {
 
@@ -17,6 +19,21 @@ const SuccessfulOrders = () => {
                     width="100%"
                     height="400px"
                 />
+            );
+        } else {
+            return (
+                <CustomContainer
+                    disableMediaQuery={true}
+                    flexDirection="column"
+                >
+                    {
+                        successfulOrders.map((item) => {
+                            return  <SuccessfulOrderItem
+                                        item={item}
+                                    />
+                        })
+                    }
+                </CustomContainer>
             );
         }
     }
