@@ -37,34 +37,36 @@ const ProfileOrders = () => {
                         <SearchOrdersForm />
                     </FormAndTitleContainer>
 
-                    <TabsContainer
-                        disableMediaQuery={true}
-                        justifyContent="flex-start"
-                    >
-                        <ProfileOrdersTab
-                            title="جاری"
-                            number={onGoingOrders.length}
-                            activeOrdersTab={activeOrdersTab}
-                        />
+                    <div className="tabsContainerParent">
+                        <TabsContainer
+                            disableMediaQuery={true}
+                            justifyContent="flex-start"
+                        >
+                            <ProfileOrdersTab
+                                title="جاری"
+                                number={onGoingOrders.length}
+                                activeOrdersTab={activeOrdersTab}
+                            />
 
-                        <ProfileOrdersTab
-                            title="تحویل شده"
-                            number={successfulOrders.length}
-                            activeOrdersTab={activeOrdersTab}
-                        />
+                            <ProfileOrdersTab
+                                title="تحویل شده"
+                                number={successfulOrders.length}
+                                activeOrdersTab={activeOrdersTab}
+                            />
 
-                        <ProfileOrdersTab
-                            title="مرجوع شده"
-                            number={returnedOrders.length}
-                            activeOrdersTab={activeOrdersTab}
-                        />
+                            <ProfileOrdersTab
+                                title="مرجوع شده"
+                                number={returnedOrders.length}
+                                activeOrdersTab={activeOrdersTab}
+                            />
 
-                        <ProfileOrdersTab
-                            title="لغو شده"
-                            number={canceledOrders.length}
-                            activeOrdersTab={activeOrdersTab}
-                        />
-                    </TabsContainer>
+                            <ProfileOrdersTab
+                                title="لغو شده"
+                                number={canceledOrders.length}
+                                activeOrdersTab={activeOrdersTab}
+                            />
+                        </TabsContainer>
+                    </div>
 
                     <Line />
 

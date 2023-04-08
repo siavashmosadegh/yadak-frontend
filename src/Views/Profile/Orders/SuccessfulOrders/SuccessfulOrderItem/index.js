@@ -4,11 +4,19 @@ import {
     CheckedIconContainer,
     LeftArrowIconContainer,
     FirstRowCustomContainer,
-    SecondRowCustomContainer
+    SecondRowCustomContainer,
+    SingleItem,
+    ReceiptCustomContainer,
+    ReceiptIconContainer
 } from './styles';
 import CustomContainer from '../../../../../UI-Kit/Grid/CustomContainer';
 import CheckedIcon from '../../../../../Icons/Profile/CheckedIcon';
 import LeftArrowIcon from '../../../../../Icons/Profile/LeftArrowIcon';
+import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+import ReceiptIcon from '../../../../../Icons/Profile/ReceiptIcon';
 
 const SuccessfulOrderItem = (props) => {
 
@@ -32,6 +40,15 @@ const SuccessfulOrderItem = (props) => {
         discount
     } = item;
 
+    const dateContent = () => {
+        let dateformat = new DateObject({
+            date: orderRegisterDate,
+            calendar: persian,
+            locale: persian_fa,
+        });
+        return dateformat.format();
+    }
+
     return (
         <Wrapper>
             <FirstRowCustomContainer
@@ -54,47 +71,67 @@ const SuccessfulOrderItem = (props) => {
             </FirstRowCustomContainer>
 
             <SecondRowCustomContainer
-                disableMediaQuery={true}
                 justifyContent="flex-start"
+                responsiveMaxWidth="1000px"
+                responsiveAlignItems="flex-end"
+                alignItems="center"
             >
-                <span>
-                    {orderRegisterDate}
+                <span className="orderRegistryDateSpan">
+                    {dateContent()}
                 </span>
 
-                <CustomContainer
+                <DotIcon />
+
+                <SingleItem
                     disableMediaQuery={true}
                     justifyContent="center"
                 >
                     <p>کد سفارش</p>
 
                     <span>{tracingNumber}</span>
-                </CustomContainer>
+                </SingleItem>
 
-                <CustomContainer
+                <DotIcon />
+
+                <SingleItem
                     disableMediaQuery={true}
                     justifyContent="center"
                 >
                     <p>مبلغ</p>
 
                     <span>{price}</span>
-                </CustomContainer>
-
+                </SingleItem>
 
                 {
                     discount !== null
                         ?
-                        <CustomContainer
-                            disableMediaQuery={true}
-                            justifyContent="center"
-                        >
-                            <p>تخفیف</p>
+                        <>
+                            <DotIcon />
 
-                            <span>{discount}</span>
-                        </CustomContainer>
+                            <SingleItem
+                                disableMediaQuery={true}
+                                justifyContent="center"
+                            >
+                                <p>تخفیف</p>
+
+                                <span>{discount}</span>
+                            </SingleItem>
+                        </>
                         :
                         null
                 }
             </SecondRowCustomContainer>
+
+            <ReceiptCustomContainer
+                disableMediaQuery={true}
+                justifyContent="flex-end"
+            >
+                <ReceiptIconContainer>
+                    <ReceiptIcon />
+                </ReceiptIconContainer>
+
+                <p>مشاهده ی فاکتور</p>
+            </ReceiptCustomContainer>
         </Wrapper>
     );
 }

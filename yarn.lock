@@ -8933,7 +8933,7 @@
   dependencies:
     "@babel/runtime" "^7.12.13"
 
-"react-date-object@^2.1.5":
+"react-date-object@^2.1.5", "react-date-object@^2.1.7":
   "integrity" "sha512-810eaGk/xvQBJNncPvhwXaKcSwPRKX48jtY/5U5T1bSUnGFqmBdMvl4EVl76cyzQ8U3KX6hpF6xZ1c0eY9vvJA=="
   "resolved" "https://registry.npmjs.org/react-date-object/-/react-date-object-2.1.7.tgz"
   "version" "2.1.7"
