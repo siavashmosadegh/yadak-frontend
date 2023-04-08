@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Empty from '../../../Empty/index';
 import { Wrapper } from './styles';
+import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
+import OngoingOrderItem from './OngoingOrderItem';
 
 const OngoingOrders = () => {
 
@@ -17,6 +19,21 @@ const OngoingOrders = () => {
                     width="100%"
                     height="400px"
                 />
+            );
+        } else {
+            return (
+                <CustomContainer
+                    disableMediaQuery={true}
+                    flexDirection="column"
+                >
+                    {
+                        onGoingOrders.map( (item) =>  {
+                            return  <OngoingOrderItem
+                                        item={item}
+                                    />
+                        })
+                    }
+                </CustomContainer>
             );
         }
     }

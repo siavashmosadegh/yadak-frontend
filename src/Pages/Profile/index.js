@@ -19,8 +19,16 @@ import routePaths from '../../Routes/NameSpace';
 import PendingDelivery from '../../Icons/Profile/PendingDeliveryIcon';
 import SuccessfulDelivery from '../../Icons/Profile/SuccessfulDeliveryIcon';
 import FailedDeliveryIcon from '../../Icons/Profile/FailedDeliveryIcon';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
+
+    const {
+        onGoingOrders,
+        successfulOrders,
+        returnedOrders
+    } = useSelector((state) => state.Orders);
+
     return (
         <Layout>
             <ProfileLayout>
@@ -64,7 +72,7 @@ const Profile = () => {
                                     justifyContent="flex-start"
                                 >
                                     <span className='numberSpan'>
-                                        ۱
+                                        {onGoingOrders.length}
                                     </span>
 
                                     <span>
@@ -91,7 +99,7 @@ const Profile = () => {
                                     justifyContent="flex-start"
                                 >
                                     <span className='numberSpan'>
-                                        ۲
+                                        {successfulOrders.length}
                                     </span>
 
                                     <span>
@@ -118,7 +126,7 @@ const Profile = () => {
                                     justifyContent="flex-start"
                                 >
                                     <span className='numberSpan'>
-                                        ۳
+                                        {returnedOrders.length}
                                     </span>
 
                                     <span>
