@@ -18,16 +18,6 @@ export const FirstRowCustomContainer = styled(CustomContainer)`
     }
 `;
 
-export const PendingIconContainer = styled.div`
-    display: flex;
-    width: auto;
-    margin-left: 10px;
-    svg {
-        width: 30px;
-        height: 30px;
-    }
-`;
-
 export const LeftArrowIconContainer = styled.div`
     width: auto;
     display: flex;
@@ -38,8 +28,19 @@ export const LeftArrowIconContainer = styled.div`
     }
 `;
 
+export const CrossIconContainer = styled.div`
+    width: auto;
+    display: flex;
+    margin-left: 10px;
+    svg {
+        fill: #000000;
+        width: 23px;
+        height: 23px;
+    }
+`;
+
 export const SecondRowCustomContainer = styled(CustomContainer)`
-    margin-right: 17px;
+    margin-right: 12px;
 
     .orderRegistryDateSpan {
         font-weight: bold;
@@ -64,48 +65,6 @@ export const SingleItem = styled(CustomContainer)`
     span {
         color: black;
         font-size: 14px;
-        font-weight: bold;
-    }
-`;
-
-export const ThirdRowCustomContainer = styled(CustomContainer)`
-    margin-inline: 17px;
-
-    .deliveryParagraph {
-        font-size: 12px;
-        font-weight: bold;
-        color: gray;
-        margin-left: 5px;
-    }
-
-    // .currentStatus {
-    //     margin-left: 50px;
-    // }
-`;
-
-export const NextStepCustomContainer = styled(CustomContainer)`
-    .text {
-        font-size: 12px;
-        font-weight: bold;
-        color: gray;
-    }
-
-    .processed {
-        font-size: 12px;
-        font-weight: bold;
-        color: black;
-    }
-
-    p {
-        margin-right: 5px;
-    }
-`;
-
-export const StatusContainer = styled(CustomContainer)`
-    width: 40%;
-
-    .currentStatus {
-        color: green;
         font-weight: bold;
     }
 `;

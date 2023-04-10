@@ -12,6 +12,7 @@ const initState = {
             recieverMobile: "09128702302", // شماره موبایل تحویل گیرنده
             address: "tehran", // آدرس
             status: "آماده سازی سفارش", // وضعیت سفارش
+            nextStepStatus: "پردازش شده", // مرحله بعد
             orderReceivingDate: Date.now(), // زمان تحویل
             transferPrice: "3500", // هزینه ارسال
             sentItemTracingNumber: "194154961", // کد پیگیری مرسوله
@@ -32,6 +33,7 @@ const initState = {
             recieverMobile: "09128702302",
             address: "tehran",
             status: "پردازش شده",
+            nextStepStatus: null,
             orderReceivingDate: Date.now(),
             transferPrice: "3500",
             sentItemTracingNumber: "194154961",
@@ -80,6 +82,24 @@ const initState = {
         {id: 1,title: "sefaresh"}
     ],
     canceledOrders: [
+        {
+            id: 0,
+            title: "sefaresh",
+            status: "لغو سیستمی",
+            date: Date.now(),
+            orderCode: "123232323",
+            price: "18000",
+            discount: "800"
+        },
+        {
+            id: 1,
+            title: "sefaresh",
+            status: "لغو سیستمی",
+            date: Date.now(),
+            orderCode: "123232323",
+            price: "18000",
+            discount: null
+        }
     ],
     activeOrdersTab: null
 }

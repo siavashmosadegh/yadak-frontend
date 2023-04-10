@@ -1,25 +1,21 @@
 import React from 'react';
 import {
     Wrapper,
+    CrossIconContainer,
     FirstRowCustomContainer,
     LeftArrowIconContainer,
-    PendingIconContainer,
     SecondRowCustomContainer,
-    SingleItem,
-    ThirdRowCustomContainer,
-    NextStepCustomContainer,
-    StatusContainer
+    SingleItem
 } from './styles';
 import CustomContainer from '../../../../../UI-Kit/Grid/CustomContainer';
-import PendingIcon from '../../../../../Icons/Profile/PendingIcon';
 import LeftArrowIcon from '../../../../../Icons/Profile/LeftArrowIcon';
+import CrossIcon from '../../../../../Icons/Profile/CrossIcon';
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
-import { LinearProgress } from '@mui/material';
 
-const OngoingOrderItem = (props) => {
+const CanceledOrderItem = (props) => {
 
     const {
         item
@@ -28,36 +24,16 @@ const OngoingOrderItem = (props) => {
     const {
         id,
         title,
-        productId,
-        tracingNumber,
-        orderRegisterDate,
-        recieverName,
-        recieverMobile,
-        address,
         status,
-        nextStepStatus,
-        orderReceivingDate,
-        transferPrice,
-        sentItemTracingNumber,
-        sentItemReceiveCode,
+        date,
+        orderCode,
         price,
-        profit,
-        paymentMethod,
         discount
     } = item;
 
     const dateContent = () => {
         let dateformat = new DateObject({
-            date: orderReceivingDate,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format();
-    }
-
-    const receivingDateContent = () => {
-        let dateformat = new DateObject({
-            date: orderRegisterDate,
+            date: date,
             calendar: persian,
             locale: persian_fa,
         });
@@ -73,9 +49,9 @@ const OngoingOrderItem = (props) => {
                     disableMediaQuery={true}
                     justifyContent="center"
                 >
-                    <PendingIconContainer>
-                        <PendingIcon />
-                    </PendingIconContainer>
+                    <CrossIconContainer>
+                        <CrossIcon />
+                    </CrossIconContainer>
 
                     <p className="statusParagraph">{status}</p>
                 </CustomContainer>
@@ -84,7 +60,6 @@ const OngoingOrderItem = (props) => {
                     <LeftArrowIcon />
                 </LeftArrowIconContainer>
             </FirstRowCustomContainer>
-
 
             <SecondRowCustomContainer
                 justifyContent="flex-start"
@@ -104,7 +79,7 @@ const OngoingOrderItem = (props) => {
                 >
                     <p>کد سفارش</p>
 
-                    <span>{tracingNumber}</span>
+                    <span>{orderCode}</span>
                 </SingleItem>
 
                 <DotIcon />
@@ -137,51 +112,8 @@ const OngoingOrderItem = (props) => {
                         null
                 }
             </SecondRowCustomContainer>
-
-            <ThirdRowCustomContainer
-                disableMediaQuery={true}
-            >
-                <CustomContainer
-                    disableMediaQuery={true}
-                    justifyContent="center"
-                >
-                    <p className="deliveryParagraph">تحویل</p>
-
-                    <span className="orderRegistryDateSpan">
-                        {receivingDateContent()}
-                    </span>
-                </CustomContainer>
-
-                {/* <CustomContainer
-                    disableMediaQuery={true}
-                >
-                    <LinearProgress title="test" variant="determinate" value={80} />
-                </CustomContainer> */}
-
-                <StatusContainer
-                    disableMediaQuery={true}
-                >
-                    <p className="currentStatus">{status}</p>
-
-                    {
-                        nextStepStatus !== null
-                            ?
-                            <NextStepCustomContainer
-                                disableMediaQuery={true}
-                            >
-                                <p className="text">مرحله بعد</p>
-
-                                <p>:</p>
-
-                                <p className="processed">{nextStepStatus}</p>
-                            </NextStepCustomContainer>
-                            :
-                            null
-                    }
-                </StatusContainer>
-            </ThirdRowCustomContainer>
         </Wrapper>
     );
 }
 
-export default OngoingOrderItem;
+export default CanceledOrderItem;

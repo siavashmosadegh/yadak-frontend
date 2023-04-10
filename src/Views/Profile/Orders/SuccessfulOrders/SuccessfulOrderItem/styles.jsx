@@ -22,7 +22,6 @@ export const SecondRowCustomContainer = styled(CustomContainer)`
     margin-inline: 10px;
 
     .orderRegistryDateSpan {
-        margin-left: 5px;
         font-weight: bold;
         opacity: 0.5;
     }
