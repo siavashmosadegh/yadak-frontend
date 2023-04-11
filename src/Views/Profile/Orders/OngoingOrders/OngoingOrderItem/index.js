@@ -61,7 +61,7 @@ const OngoingOrderItem = (props) => {
             calendar: persian,
             locale: persian_fa,
         });
-        return dateformat.format();
+        return dateformat.format("dddd DD MMMM YYYY");
     }
 
     return (
@@ -139,7 +139,8 @@ const OngoingOrderItem = (props) => {
             </SecondRowCustomContainer>
 
             <ThirdRowCustomContainer
-                disableMediaQuery={true}
+                responsiveMaxWidth="900px"
+                responsiveAlignItems="flex-end"
             >
                 <CustomContainer
                     disableMediaQuery={true}
@@ -152,33 +153,32 @@ const OngoingOrderItem = (props) => {
                     </span>
                 </CustomContainer>
 
-                {/* <CustomContainer
-                    disableMediaQuery={true}
-                >
-                    <LinearProgress title="test" variant="determinate" value={80} />
-                </CustomContainer> */}
+                
+                <div className="statusDiv">
+                    <StatusContainer
+                        disableMediaQuery={true}
+                    >
+                        <p className="currentStatus">{status}</p>
 
-                <StatusContainer
-                    disableMediaQuery={true}
-                >
-                    <p className="currentStatus">{status}</p>
-
-                    {
-                        nextStepStatus !== null
+                        {
+                            nextStepStatus !== null
                             ?
-                            <NextStepCustomContainer
-                                disableMediaQuery={true}
-                            >
-                                <p className="text">مرحله بعد</p>
+                                <NextStepCustomContainer
+                                    disableMediaQuery={true}
+                                >
+                                        <p className="text">مرحله بعد</p>
 
-                                <p>:</p>
+                                        <p>:</p>
 
-                                <p className="processed">{nextStepStatus}</p>
-                            </NextStepCustomContainer>
+                                        <p className="processed">{nextStepStatus}</p>
+                                </NextStepCustomContainer>
                             :
-                            null
-                    }
-                </StatusContainer>
+                                null
+                        }
+                    </StatusContainer>
+
+                    <LinearProgress variant="determinate" value={80} sx={{width: "100%",height: "5px",rotate: "180deg"}}/>
+                </div>
             </ThirdRowCustomContainer>
         </Wrapper>
     );

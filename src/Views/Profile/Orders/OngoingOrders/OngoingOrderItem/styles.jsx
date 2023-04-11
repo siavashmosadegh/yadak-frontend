@@ -70,12 +70,23 @@ export const SingleItem = styled(CustomContainer)`
 
 export const ThirdRowCustomContainer = styled(CustomContainer)`
     margin-inline: 17px;
-
+    border-top: 1px solid rgba(0,0,0,0.1);
     .deliveryParagraph {
         font-size: 12px;
         font-weight: bold;
         color: gray;
         margin-left: 5px;
+        padding-top: 3px;
+    }
+
+    .statusDiv {
+        width: 40%;
+    }
+
+    @media (max-width: 900px) {
+        .statusDiv {
+            width: 100%;
+        }
     }
 
     // .currentStatus {
@@ -102,10 +113,11 @@ export const NextStepCustomContainer = styled(CustomContainer)`
 `;
 
 export const StatusContainer = styled(CustomContainer)`
-    width: 40%;
+    width: 100%;
 
     .currentStatus {
         color: green;
         font-weight: bold;
+        font-size: 14px;
     }
 `;
