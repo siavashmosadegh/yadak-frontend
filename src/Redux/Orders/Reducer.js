@@ -101,7 +101,8 @@ const initState = {
             discount: null
         }
     ],
-    activeOrdersTab: null
+    activeOrdersTab: null,
+    activeOpinionsTab: null
 }
 
 export default function Reducer (state = initState, action) {
@@ -110,7 +111,12 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 activeOrdersTab: action.data
-            }
+            };
+        case Types.SELECT_ACTIVE_OPINION_TAB:
+            return {
+                ...state,
+                activeOpinionsTab: action.data
+            };
         default:
             return state;
     }

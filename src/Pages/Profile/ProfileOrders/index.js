@@ -68,7 +68,13 @@ const ProfileOrders = () => {
                         </TabsContainer>
                     </div>
 
-                    <Line />
+                    {
+                        activeOrdersTab !== null
+                            ?
+                            <Line />
+                            :
+                            null
+                    }
 
                     {
                         activeOrdersTab === 'جاری'
