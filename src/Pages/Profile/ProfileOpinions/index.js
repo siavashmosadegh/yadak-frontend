@@ -11,11 +11,13 @@ import ProfileOpinionsTab from '../../../Views/Profile/ProfileOpinionsTab';
 import { useSelector } from 'react-redux';
 import PendingOpinions from '../../../Views/Profile/ProfileOpinions/PendingOpinions';
 import RegisteredOpinions from '../../../Views/Profile/ProfileOpinions/RegisteredOpinions';
+import ProfileSubmitOpinionModal from '../../../Views/Profile/Modals/ProfileSubmitOpinionModal';
 
 const ProfileOpinions = () => {
 
     const {
-        activeOpinionsTab
+        activeOpinionsTab,
+        showSubmitOpinionModal
     } = useSelector((state) => state.Orders);
 
     return (
@@ -61,6 +63,14 @@ const ProfileOpinions = () => {
                         activeOpinionsTab === 'دیدگاه های من'
                             ?
                             <RegisteredOpinions />
+                            :
+                            null
+                    }
+
+                    {
+                        showSubmitOpinionModal === true
+                            ?
+                            <ProfileSubmitOpinionModal />
                             :
                             null
                     }

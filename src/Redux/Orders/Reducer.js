@@ -102,7 +102,8 @@ const initState = {
         }
     ],
     activeOrdersTab: null,
-    activeOpinionsTab: null
+    activeOpinionsTab: null,
+    showSubmitOpinionModal: false
 }
 
 export default function Reducer (state = initState, action) {
@@ -116,6 +117,16 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 activeOpinionsTab: action.data
+            };
+        case Types.SHOW_SUBMIT_OPINION_MODAL_HANDLER:
+            return {
+                ...state,
+                showSubmitOpinionModal: true
+            };
+        case Types.CLOSE_SUBMIT_OPINION_MODAL_HANDLER:
+            return {
+                ...state,
+                showSubmitOpinionModal: false
             };
         default:
             return state;
