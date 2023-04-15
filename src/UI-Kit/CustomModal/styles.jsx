@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid rgba(0,0,0,0.5);
-        margin-bottom: 15px;
+        // margin-bottom: 15px;
         svg {
             fill: #000000;
             width: 35px;
@@ -25,7 +25,10 @@ export const Wrapper = styled.div`
     }
 
     .content {
-        height: calc(100% - ${(props) => props.headerHeight});
+        padding-top: 15px;
+        padding-bottom: 15px;
+        height: calc(100% - ${(props) => props.headerHeight} - 31px);
+        overflow-y: auto;
     }
 
     @media (max-width: ${(props) => props.mediaQueryBreakpoint}) {

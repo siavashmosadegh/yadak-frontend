@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer/index';
 
 export const Wrapper = styled(CustomContainer)`
-
+    overflow-y: auto;
 `;
 
 export const RatingWrapper = styled(CustomContainer)`
@@ -14,6 +14,10 @@ export const RatingWrapper = styled(CustomContainer)`
     h2 {
         text-align: center;
     }
+
+    @media (max-width: 600px) {
+        width: 90%;
+    }
 `;
 
 export const SuggestionWrapper = styled.div`
@@ -23,6 +27,10 @@ export const SuggestionWrapper = styled.div`
     padding-bottom: 10px;
     p {
         text-align: right;
+    }
+
+    @media (max-width: 600px) {
+        width: 90%;
     }
 `;
 
