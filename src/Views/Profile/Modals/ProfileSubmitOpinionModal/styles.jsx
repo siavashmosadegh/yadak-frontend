@@ -8,7 +8,7 @@ export const Wrapper = styled(CustomContainer)`
 export const RatingWrapper = styled(CustomContainer)`
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px;
-    width: 70%;
+    width: 100%;
     padding-bottom: 20px;
     margin-bottom: 10px;
     h2 {
@@ -23,7 +23,7 @@ export const RatingWrapper = styled(CustomContainer)`
 export const SuggestionWrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px;
-    width: 70%;
+    width: 100%;
     padding-bottom: 10px;
     p {
         text-align: right;

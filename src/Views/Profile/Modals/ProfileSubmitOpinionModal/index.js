@@ -24,88 +24,88 @@ const ProfileSubmitOpinionModal = () => {
 
     const dispatch = useDispatch();
 
-    const [ratingValue, setRatingValue] = useState(null);
+    // const [ratingValue, setRatingValue] = useState(null);
 
-    const [activeIcon , setActiveIcon] = useState(null);
+    // const [activeIcon , setActiveIcon] = useState(null);
 
-    console.log(activeIcon);
+    // console.log(ratingValue);
 
-    const ratingContent = () => {
-        return (
-            <RatingWrapper
-                flexDirection="column"
-            >
-                <h2>امتیاز دهید</h2>
+    // const ratingContent = () => {
+    //     return (
+    //         <RatingWrapper
+    //             flexDirection="column"
+    //         >
+    //             <h2>امتیاز دهید</h2>
 
-                <Rating
-                    name="simple-controlled"
-                    size="large"
-                    value={ratingValue}
-                    onChange={(event, newValue) => {
-                        setRatingValue(newValue);
-                    }}
-                />
-            </RatingWrapper>
-        );
-    }
+    //             <Rating
+    //                 name="simple-controlled"
+    //                 size="large"
+    //                 value={ratingValue}
+    //                 onChange={(event, newValue) => {
+    //                     setRatingValue(newValue);
+    //                 }}
+    //             />
+    //         </RatingWrapper>
+    //     );
+    // }
 
-    const suggestionContent = () => {
-        return (
-            <SuggestionWrapper>
-                <p>خرید این محصول را به دیگران</p>
+    // const suggestionContent = () => {
+    //     return (
+    //         <SuggestionWrapper>
+    //             <p>خرید این محصول را به دیگران</p>
 
-                <CustomContainer
-                    disableMediaQuery={true}
-                    justifyContent="space-evenly"
-                >
-                    <DislikeCustomContainer
-                        disableMediaQuery={true}
-                        flexDirection="column"
-                        onClick={() => setActiveIcon('dislike')}
-                        activeIcon={activeIcon}
-                    >
-                        <DislikeIconContainer
-                            activeIcon={activeIcon}
-                        >
-                            <DislikeIcon />
-                        </DislikeIconContainer>
+    //             <CustomContainer
+    //                 disableMediaQuery={true}
+    //                 justifyContent="space-evenly"
+    //             >
+    //                 <DislikeCustomContainer
+    //                     disableMediaQuery={true}
+    //                     flexDirection="column"
+    //                     onClick={() => setActiveIcon('dislike')}
+    //                     activeIcon={activeIcon}
+    //                 >
+    //                     <DislikeIconContainer
+    //                         activeIcon={activeIcon}
+    //                     >
+    //                         <DislikeIcon />
+    //                     </DislikeIconContainer>
 
-                        <p>پیشنهاد نمیکنم</p>
-                    </DislikeCustomContainer>
+    //                     <p>پیشنهاد نمیکنم</p>
+    //                 </DislikeCustomContainer>
 
-                    <QuestionCustomContainer
-                        disableMediaQuery={true}
-                        flexDirection="column"
-                        onClick={() => setActiveIcon('question')}
-                        activeIcon={activeIcon}
-                    >
-                        <QuestionIconContainer
-                            activeIcon={activeIcon}
-                        >
-                            <QuestionIcon />
-                        </QuestionIconContainer>
+    //                 <QuestionCustomContainer
+    //                     disableMediaQuery={true}
+    //                     flexDirection="column"
+    //                     onClick={() => setActiveIcon('question')}
+    //                     activeIcon={activeIcon}
+    //                 >
+    //                     <QuestionIconContainer
+    //                         activeIcon={activeIcon}
+    //                     >
+    //                         <QuestionIcon />
+    //                     </QuestionIconContainer>
 
-                        <p>مطمعن نیستم</p>
-                    </QuestionCustomContainer>
+    //                     <p>مطمعن نیستم</p>
+    //                 </QuestionCustomContainer>
 
-                    <LikeCustomContainer
-                        disableMediaQuery={true}
-                        flexDirection="column"
-                        onClick={() => setActiveIcon('like')}
-                        activeIcon={activeIcon}
-                    >
-                        <LikeIconContainer
-                            activeIcon={activeIcon}
-                        >
-                            <LikeIcon />
-                        </LikeIconContainer>
+    //                 <LikeCustomContainer
+    //                     disableMediaQuery={true}
+    //                     flexDirection="column"
+    //                     onClick={() => setActiveIcon('like')}
+    //                     activeIcon={activeIcon}
+    //                 >
+    //                     <LikeIconContainer
+    //                         activeIcon={activeIcon}
+    //                     >
+    //                         <LikeIcon />
+    //                     </LikeIconContainer>
 
-                        <p>پیشنهاد میکنم</p>
-                    </LikeCustomContainer>
-                </CustomContainer>
-            </SuggestionWrapper>
-        );
-    }
+    //                     <p>پیشنهاد میکنم</p>
+    //                 </LikeCustomContainer>
+    //             </CustomContainer>
+    //         </SuggestionWrapper>
+    //     );
+    // }
 
     return (
         <CustomModal
@@ -120,11 +120,14 @@ const ProfileSubmitOpinionModal = () => {
             <Wrapper
                 flexDirection="column"
             >
-                {ratingContent()}
+                {/* {ratingContent()}
 
-                {suggestionContent()}
+                {suggestionContent()} */}
 
-                <ProfileSubmitOpinionForm />
+                <ProfileSubmitOpinionForm
+                    // activeIcon={activeIcon}
+                    // ratingValue={ratingValue}
+                />
             </Wrapper>
         </CustomModal>
     );

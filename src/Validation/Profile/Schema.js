@@ -5,5 +5,9 @@ export const ProfileSubmitOpinionFormSchema = Yup.object().shape({
         .min(3,'حداقل باید ۳ کاراکتر وارد کنید')
         .required('وارد کردن این فیلد الزامی است'),
     opinionText: Yup.string()
-        .required('وارد کردن این فیلد الزامی است')
+        .required('وارد کردن این فیلد الزامی است'),
+    activeIcon: Yup.number()
+        .required('این فیلد الزامی است'),
+    ratingValue: Yup.number()
+        .required('این فیلد الزامی')
 });
