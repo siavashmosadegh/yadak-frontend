@@ -6,8 +6,8 @@ export const ProfileSubmitOpinionFormSchema = Yup.object().shape({
         .required('وارد کردن این فیلد الزامی است'),
     opinionText: Yup.string()
         .required('وارد کردن این فیلد الزامی است'),
-    activeIcon: Yup.number()
-        .required('این فیلد الزامی است'),
+    activeIcon: Yup.string()
+        .required('وارد کردن این فیلد الزامی است'),
     ratingValue: Yup.number()
-        .required('این فیلد الزامی')
+        .required('وارد کردن این فیلد الزامی است'),
 });

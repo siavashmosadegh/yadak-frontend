@@ -1,31 +1,29 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
     FormContainer,
     Form
 } from './styles';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
 import FormHandlers from '../../../../Util/FormHandlers';
 import CustomButton from '../../../../UI-Kit/CustomButton/index';
 import { ProfileSubmitOpinionFormSchema } from '../../../../Validation/Profile/Schema';
-import { DislikeCustomContainer, DislikeIconContainer, LikeCustomContainer, LikeIconContainer, QuestionCustomContainer, QuestionIconContainer, RatingWrapper, SuggestionWrapper } from '../../Modals/ProfileSubmitOpinionModal/styles';
+import {
+    DislikeCustomContainer,
+    DislikeIconContainer,
+    LikeCustomContainer,
+    LikeIconContainer,
+    QuestionCustomContainer,
+    QuestionIconContainer,
+    RatingWrapper,
+    SuggestionWrapper
+} from './styles';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import DislikeIcon from '../../../../Icons/Profile/DislikeIcon';
 import QuestionIcon from '../../../../Icons/Profile/QuestionIcon';
 import LikeIcon from '../../../../Icons/Profile/LikeIcon';
-import { FormControlLabel, RadioGroup, Rating } from '@mui/material';
+import { Rating } from '@mui/material';
 
-const ProfileSubmitOpinionForm = (props) => {
-
-    // const {
-    //     activeIcon,
-    //     ratingValue
-    // } = props;
-
-    const [ratingValue, setRatingValue] = useState(null);
-
-    const [activeIcon , setActiveIcon] = useState(null);
-
-    console.log(ratingValue);
+const ProfileSubmitOpinionForm = () => {
 
     const ratingContent = (formik) => {
         return (
@@ -37,10 +35,7 @@ const ProfileSubmitOpinionForm = (props) => {
                 <Rating
                     name="ratingValue"
                     size="large"
-                    value={formik.ratingValue}
-                    // onChange={(event, newValue) => {
-                    //     setRatingValue(newValue);
-                    // }}
+                    value={formik.values.ratingValue}
                     onChange={(e) => FormHandlers.onChange(e,formik)}
                 />
             </RatingWrapper>
@@ -50,73 +45,60 @@ const ProfileSubmitOpinionForm = (props) => {
     const suggestionContent = (formik) => {
         return (
             <SuggestionWrapper>
-                <p>خرید این محصول را به دیگران</p>
+                 <p>خرید این محصول را به دیگران</p>
 
+                 <CustomContainer
+                     disableMediaQuery={true}
+                     justifyContent="space-evenly"
+                 >
+                     <DislikeCustomContainer
+                         disableMediaQuery={true}
+                         flexDirection="column"
+                         activeIcon={formik.values.activeIcon}
+                     >
+                         <DislikeIconContainer
+                             activeIcon={formik.values.activeIcon}
+                         >
+                             <DislikeIcon />
+                         </DislikeIconContainer>
 
-                <RadioGroup>
-                    <CustomContainer
-                        disableMediaQuery={true}
-                        justifyContent="space-evenly"
-                    >
-                        <FormControlLabel
-                            value={formik.values.activeIcon}
-                            control={
-                                <DislikeCustomContainer
-                                    disableMediaQuery={true}
-                                    flexDirection="column"
-                                    name="question"
-                                    onClick={(e) => FormHandlers.onChange(e,formik)}
-                                    // onClick={() => setActiveIcon('dislike')}
-                                    // activeIcon={activeIcon}
-                                >
-                                    <DislikeIconContainer
-                                        activeIcon={activeIcon}
-                                    >
-                                        <DislikeIcon />
-                                    </DislikeIconContainer>
-        
-                                    <p>پیشنهاد نمیکنم</p>
-                                </DislikeCustomContainer>        
-                            }
-                        />
+                         <p>پیشنهاد نمیکنم</p>
 
-                        <FormControlLabel
-                            value={formik.values.activeIcon}
-                            control={
-                                <QuestionCustomContainer
-                                    disableMediaQuery={true}
-                                    flexDirection="column"
-                                    // onClick={() => setActiveIcon('question')}
-                                    name="question"
-                                    onClick={(e) => FormHandlers.onChange(e,formik)}
-                                    // activeIcon={activeIcon}
-                                >
-                                    <QuestionIconContainer
-                                        activeIcon={activeIcon}
-                                    >
-                                        <QuestionIcon />
-                                    </QuestionIconContainer>
-        
-                                    <p>مطمعن نیستم</p>
-                                </QuestionCustomContainer>        
-                            }  
-                        />
-                        {/* <LikeCustomContainer
-                            disableMediaQuery={true}
-                            flexDirection="column"
-                            onClick={() => setActiveIcon('like')}
-                            activeIcon={activeIcon}
-                        >
-                            <LikeIconContainer
-                                activeIcon={activeIcon}
-                            >
-                                <LikeIcon />
-                            </LikeIconContainer>
+                         <Field className="styledField" type="radio" name="activeIcon" value="dislike" onChange={(e) => FormHandlers.onChange(e,formik)} />
+                     </DislikeCustomContainer>
 
-                            <p>پیشنهاد میکنم</p>
-                        </LikeCustomContainer> */}
-                    </CustomContainer>
-                </RadioGroup>
+                     <QuestionCustomContainer
+                         disableMediaQuery={true}
+                         flexDirection="column"
+                         activeIcon={formik.values.activeIcon}
+                     >
+                         <QuestionIconContainer
+                             activeIcon={formik.values.activeIcon}
+                         >
+                             <QuestionIcon />
+                         </QuestionIconContainer>
+
+                         <p>مطمعن نیستم</p>
+
+                         <Field className="styledField" type="radio" name="activeIcon" value="question" onChange={(e) => FormHandlers.onChange(e,formik)} />
+                     </QuestionCustomContainer>
+
+                     <LikeCustomContainer
+                         disableMediaQuery={true}
+                         flexDirection="column"
+                         activeIcon={formik.values.activeIcon}
+                     >
+                         <LikeIconContainer
+                             activeIcon={formik.values.activeIcon}
+                         >
+                             <LikeIcon />
+                         </LikeIconContainer>
+
+                        <p>پیشنهاد میکنم</p>
+
+                        <Field className="styledField" type="radio" name="activeIcon" value="like" onChange={(e) => FormHandlers.onChange(e,formik)} />
+                    </LikeCustomContainer>
+                </CustomContainer>
             </SuggestionWrapper>
         );
     }
@@ -125,8 +107,8 @@ const ProfileSubmitOpinionForm = (props) => {
         <FormContainer>
             <Formik
                 initialValues={{
-                    activeIcon: activeIcon, // پیشنهاد میکنم-نمیکنم
-                    ratingValue: ratingValue, // امتیاز
+                    activeIcon: "", // پیشنهاد میکنم-نمیکنم
+                    ratingValue: "", // امتیاز
                     opinionTitle: "", // عنوان نظر
                     opinionText: "" // متن نظر
                 }}
@@ -143,14 +125,14 @@ const ProfileSubmitOpinionForm = (props) => {
 
                         {
                             formik.errors.ratingValue && formik.touched.ratingValue === true
-                            ?
-                            <p>
-                                {
-                                    formik.errors.ratingValue
-                                }
-                            </p>
-                            :
-                            null
+                                ?
+                                <p className="ratingValueError">
+                                    {
+                                        formik.errors.ratingValue
+                                    }
+                                </p>
+                                :
+                                null
                         }
 
                         {suggestionContent(formik)}
