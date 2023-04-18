@@ -135,8 +135,10 @@ export const NumberDiv = styled(CustomContainer)`
     width: 25px;
     height: 25px;
     color: white;
-    background-color: green;
+    background-color: ${(props) => props.backgroundColor};
     border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
 `;
 
 export const TrashIconContainer = styled.div`

@@ -99,6 +99,68 @@ const RegisteredOpinionItem = (props) => {
           }
     }
 
+    const ScoreContent = (score) => {
+        switch(score) {
+            case 1:
+                return (
+                    <NumberDiv
+                        disableMediaQuery={true}
+                        justifyContent="center"
+                        backgroundColor="rgb(249,188,0)"
+                    >
+                        {score}
+                    </NumberDiv>
+                );
+                break;
+            case 2:
+                return (
+                    <NumberDiv
+                        disableMediaQuery={true}
+                        justifyContent="center"
+                        backgroundColor="rgb(177,182,77)"
+                    >
+                        {score}
+                    </NumberDiv>
+                );
+                break;
+            case 3:
+                return (
+                    <NumberDiv
+                        disableMediaQuery={true}
+                        justifyContent="center"
+                        backgroundColor="rgb(101,170,87)"
+                    >
+                        {score}
+                    </NumberDiv>
+                );
+                break;
+            case 4:
+                return (
+                    <NumberDiv
+                        disableMediaQuery={true}
+                        justifyContent="center"
+                        backgroundColor="rgb(0,160,73)"
+                    >
+                        {score}
+                    </NumberDiv>
+                );
+                break;
+            case 5:
+                return (
+                    <NumberDiv
+                        disableMediaQuery={true}
+                        justifyContent="center"
+                        backgroundColor="rgb(0,160,73)"
+                    >
+                        {score}
+                    </NumberDiv>
+                );
+                break;
+            default:
+              // code block
+          }
+    }
+
     return (
         <Wrapper>
             <CustomContainer
@@ -176,12 +238,7 @@ const RegisteredOpinionItem = (props) => {
                     disableMediaQuery={true}
                     justifyContent="flex-start"
                 >
-                    <NumberDiv
-                        disableMediaQuery={true}
-                        justifyContent="center"
-                    >
-                        {score}
-                    </NumberDiv>
+                    {ScoreContent(score)}
                 </CustomContainer>
             </div>
         </Wrapper>

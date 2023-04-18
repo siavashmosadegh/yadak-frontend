@@ -18,7 +18,7 @@ const RegisteredOpinions = () => {
             opinionTitle: "خوب بود",
             image: img1,
             opinionText: "شسیبخشخحع شسی ب شسیب ص ثق صثق بیس لیب  یب یب یبل یسب سیب سی بس یب سیب",
-            score: 4,
+            score: 1,
             status: "تایید شده",
             suggestion: "like"
         },
@@ -32,12 +32,26 @@ const RegisteredOpinions = () => {
             opinionTitle: "خوب بود",
             image: img1,
             opinionText: "شسیبخشخحع شسی ب شسیب ص ثق صثق بیس لیب  یب یب یبل یسب سیب سی بس یب سیب",
-            score: 4,
+            score: 2,
             status: "در حال بررسی",
             suggestion: "dislike"
         },
         {
             id: 2,
+            product: {
+                id: 0,
+                title: "شسکینمبت شسیمکنبت شسیمکنبت شسهخ شسص صث ق صثق صث ق صثق یب س یب سیب",
+                imgSrc: img1
+            },
+            opinionTitle: "خوب بود",
+            image: img1,
+            opinionText: "شسیبخشخحع شسی ب شسیب ص ثق صثق بیس لیب  یب یب یبل یسب سیب سی بس یب سیب",
+            score: 3,
+            status: "در حال بررسی",
+            suggestion: "question"
+        },
+        {
+            id: 3,
             product: {
                 id: 0,
                 title: "شسکینمبت شسیمکنبت شسیمکنبت شسهخ شسص صث ق صثق صث ق صثق یب س یب سیب",
