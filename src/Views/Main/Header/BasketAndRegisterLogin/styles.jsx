@@ -33,7 +33,7 @@ export const BasketIconContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    margin-bottom: 5px;
+    // margin-bottom: 5px;
     svg {
         fill: black;
         width: 25px;

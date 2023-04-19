@@ -13,7 +13,9 @@ const CustomContainer = (props) => {
         responsiveMaxWidth,
         onClick,
         className,
-        responsiveAlignItems
+        responsiveAlignItems,
+        onMouseMove,
+        onMouseLeave
     } = props;
 
     return (
@@ -28,6 +30,8 @@ const CustomContainer = (props) => {
             onClick={onClick}
             className={className}
             responsiveAlignItems={responsiveAlignItems}
+            onMouseMove={onMouseMove}
+            onMouseLeave={onMouseLeave}
         >
             {props.children}
         </Wrapper>
@@ -43,7 +47,9 @@ CustomContainer.defaultProps = {
     responsiveFlexDirection: "column",
     responsiveMaxWidth: "1100px",
     onClick: console.log("this log is shown because onClick props is empty"),
-    responsiveAlignItems: "center"
+    responsiveAlignItems: "center",
+    onMouseMove: console.log("default for onMouseMove"),
+    onMouseLeave: console.log("default for onMouseLeave")
 }
 
 export default CustomContainer;

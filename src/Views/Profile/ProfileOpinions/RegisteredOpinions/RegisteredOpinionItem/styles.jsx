@@ -21,6 +21,10 @@ export const Wrapper = styled(CustomContainer)`
         width: calc(100% - 100px);
     }
 
+    .otherDivFirstRow {
+        position: relative;
+    }
+
     .opinionTextParagraph {
         text-align: right;
         font-size: 14px;
@@ -66,6 +70,7 @@ export const StatusContainer = styled.div`
     background-color: ${(props) => props.status === 'تایید شده' ? 'rgba(0,128,0,0.1)' : 'rgba(255,165,0,0.1)'};
     border-radius: 10px;
     padding: 4px 8px 6px 8px;
+    margin-right: auto;
 `;
 
 export const Line = styled.div`
@@ -164,10 +169,19 @@ export const EditIconContainer = styled.div`
 
 export const EditAndTrashDiv = styled.div`
     position: absolute;
-    top: 70px;
+    top: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     left: 20px;
     border: 1px solid black;
     z-index: 10;
+    background-color: white;
     padding-inline: 10px;
     border-radius: 10px;
+
+    .item {
+        :hover {
+            background-color: rgb(241,242,244);
+        }
+    }
 `;

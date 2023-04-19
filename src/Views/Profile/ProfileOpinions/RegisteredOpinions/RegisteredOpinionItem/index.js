@@ -174,29 +174,34 @@ const RegisteredOpinionItem = (props) => {
             <div className="otherDiv">
                 <CustomContainer
                     disableMediaQuery={true}
+                    className="otherDivFirstRow"
+                    // style={{position: "relative"}}
                 >
                     <p className='opinionTitleParagraph'>
                         {opinionTitle}
                     </p>
 
+                    <StatusContainer
+                        status={status}
+                    >
+                        {status}
+                    </StatusContainer>
+
                     <CustomContainer
                         disableMediaQuery={true}
                         justifyContent="center"
                         className="firstRow"
+                        onMouseMove={showEditAndTrashHandler}
+                        onMouseLeave={closeEditAndTrashHandler}
                     >
-                        <StatusContainer
-                            status={status}
-                        >
-                            {status}
-                        </StatusContainer>
-
                         {
-                            showEditAndTrash
+                            showEditAndTrash === true
                                 ?
                                 <EditAndTrashDiv>
                                     <CustomContainer
                                         disableMediaQuery={true}
                                         justifyContent="flex-start"
+                                        className="item"
                                     >
                                         <EditIconContainer>
                                             <EditIcon />
@@ -207,6 +212,7 @@ const RegisteredOpinionItem = (props) => {
                                     <CustomContainer
                                         disableMediaQuery={true}
                                         justifyContent="flex-start"
+                                        className="item"
                                     >
                                         <TrashIconContainer>
                                             <TrashIcon />
@@ -219,10 +225,7 @@ const RegisteredOpinionItem = (props) => {
                                 null
                         }
 
-                        <ThreeDotsVerticalIconContainer
-                            onMouseMove={showEditAndTrashHandler}
-                            onMouseLeave={closeEditAndTrashHandler}
-                        >
+                        <ThreeDotsVerticalIconContainer>
                             <ThreeDotsVerticalIcon />
                         </ThreeDotsVerticalIconContainer>
                     </CustomContainer>
