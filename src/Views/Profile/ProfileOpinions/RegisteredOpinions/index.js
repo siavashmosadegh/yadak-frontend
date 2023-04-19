@@ -4,8 +4,16 @@ import { useState } from 'react';
 import Empty from '../../../Empty';
 import RegisteredOpinionItem from './RegisteredOpinionItem';
 import img1 from '../../../../Assets/images/1.jpg';
+import ProfileSubmitOpinionModal from '../../Modals/ProfileSubmitOpinionModal';
+import { useSelector } from 'react-redux';
+import DeleteOpinionModal from '../../Modals/DeleteOpinionModal';
 
 const RegisteredOpinions = () => {
+
+    const {
+        showEditOpinionModal,
+        showDeleteOpinionModal
+    } = useSelector((state) => state.Orders)
 
     const [opinions, setOpinions] = useState([
         {
@@ -90,6 +98,22 @@ const RegisteredOpinions = () => {
     return (
         <Wrapper>
             {opinionsContent()}
+
+            {
+                showEditOpinionModal === true
+                    ?
+                    <ProfileSubmitOpinionModal />
+                    :
+                    null
+            }
+
+            {
+                showDeleteOpinionModal === true
+                    ?
+                    <DeleteOpinionModal />
+                    :
+                    null
+            }
         </Wrapper>
     );
 }

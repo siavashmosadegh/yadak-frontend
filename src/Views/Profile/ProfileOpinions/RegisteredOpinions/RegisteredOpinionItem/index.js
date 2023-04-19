@@ -22,8 +22,12 @@ import QuestionIcon from '../../../../../Icons/Profile/QuestionIcon';
 import DislikeIcon from '../../../../../Icons/Profile/DislikeIcon';
 import TrashIcon from '../../../../../Icons/Checkout/TrashIcon';
 import EditIcon from '../../../../../Icons/Profile/EditIcon';
+import OrdersActions from '../../../../../Redux/Orders/Actions';
+import { useDispatch } from 'react-redux';
 
 const RegisteredOpinionItem = (props) => {
+
+    const dispatch = useDispatch();
 
     const {
         item
@@ -202,6 +206,7 @@ const RegisteredOpinionItem = (props) => {
                                         disableMediaQuery={true}
                                         justifyContent="flex-start"
                                         className="item"
+                                        onClick={() => dispatch(OrdersActions.showEditOpinionModalHandler({}))}
                                     >
                                         <EditIconContainer>
                                             <EditIcon />
@@ -213,6 +218,7 @@ const RegisteredOpinionItem = (props) => {
                                         disableMediaQuery={true}
                                         justifyContent="flex-start"
                                         className="item"
+                                        onClick={() => dispatch(OrdersActions.showDeleteOpinionModalHandler({}))}
                                     >
                                         <TrashIconContainer>
                                             <TrashIcon />
