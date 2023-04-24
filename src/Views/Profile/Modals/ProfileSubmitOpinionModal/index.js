@@ -5,7 +5,11 @@ import { useDispatch } from 'react-redux';
 import OrdersActions from '../../../../Redux/Orders/Actions';
 import ProfileSubmitOpinionForm from '../../Forms/ProfileSubmitOpinionForm';
 
-const ProfileSubmitOpinionModal = () => {
+const ProfileSubmitOpinionModal = (props) => {
+
+    const {
+        type
+    } = props;
 
     const dispatch = useDispatch();
 
@@ -13,7 +17,13 @@ const ProfileSubmitOpinionModal = () => {
         <CustomModal
             width="600px"
             height="600px"
-            closeCustomModalHandler={() => dispatch(OrdersActions.closeSubmitOpinionModalHandler({}))}
+            closeCustomModalHandler={
+                type === "submit"
+                    ?
+                    () => dispatch(OrdersActions.closeSubmitOpinionModalHandler({}))
+                    :
+                    () => dispatch(OrdersActions.closeEditOpinionModalHandler({}))
+            }
             headerTitle="دیدگاه شما"
             modalBackgroundColor="#FFFFFF"
             headerHeight="50px"

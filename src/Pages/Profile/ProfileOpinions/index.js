@@ -70,7 +70,9 @@ const ProfileOpinions = () => {
                     {
                         showSubmitOpinionModal === true
                             ?
-                            <ProfileSubmitOpinionModal />
+                            <ProfileSubmitOpinionModal
+                                type="submit"
+                            />
                             :
                             null
                     }

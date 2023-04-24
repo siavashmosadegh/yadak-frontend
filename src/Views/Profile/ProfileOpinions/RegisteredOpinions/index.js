@@ -102,7 +102,9 @@ const RegisteredOpinions = () => {
             {
                 showEditOpinionModal === true
                     ?
-                    <ProfileSubmitOpinionModal />
+                    <ProfileSubmitOpinionModal
+                        type="edit"
+                    />
                     :
                     null
             }
