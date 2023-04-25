@@ -20,6 +20,7 @@ import ProfileLists from '../Pages/Profile/ProfileLists';
 import ProfileOrders from '../Pages/Profile/ProfileOrders';
 import ProfileOpinions from '../Pages/Profile/ProfileOpinions';
 import ProfilePersonalInfo from '../Pages/Profile/ProfilePersonalInfo';
+import OrderDetails from '../Pages/Profile/OrderDetails';
 
 const RoutesList = () => {
     
@@ -90,6 +91,10 @@ const RoutesList = () => {
                 <Route path={routePaths.profilePersonalInfo} element={<PrivateRoute/>}>
                     <Route path={routePaths.profilePersonalInfo} element={<ProfilePersonalInfo />}/>
                 </Route>
+
+                <Route path={routePaths.profileOrderDetails} element={<PrivateRoute/>}>
+                    <Route path={routePaths.profileOrderDetails} element={<OrderDetails />}/>
+                </Route>                
 
                 {/* <Route
                     exact

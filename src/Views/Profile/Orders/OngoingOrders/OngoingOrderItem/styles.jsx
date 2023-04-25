@@ -4,7 +4,7 @@ import CustomContainer from '../../../../../UI-Kit/Grid/CustomContainer';
 export const Wrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     margin-top: 20px;
 `;
 

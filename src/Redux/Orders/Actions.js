@@ -12,7 +12,9 @@ const OrdersActions = {
     closeEditOpinionModalHandler: DelegateAction(Types.CLOSE_EDIT_OPINION_MODAL_HANDLER),
 
     showDeleteOpinionModalHandler: DelegateAction(Types.SHOW_DELETE_OPINION_MODAL_HANDLER),
-    closeDeleteOpinionModalHandler: DelegateAction(Types.CLOSE_DELETE_OPINION_MODAL_HANDLER)
+    closeDeleteOpinionModalHandler: DelegateAction(Types.CLOSE_DELETE_OPINION_MODAL_HANDLER),
+
+    selectOrder: DelegateAction(Types.SELECT_ORDER)
 }
 
 export default OrdersActions;

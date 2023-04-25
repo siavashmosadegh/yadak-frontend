@@ -4,6 +4,7 @@ export default {
   product: '/product/*',
   profile: '/profile',
   profileOrders: '/profile/orders',
+  profileOrderDetails: '/profile/orders/code-12345678',
   profileLists: '/profile/lists',
   profileOpinions: '/profile/opinions',
   profilePersonalInfo: '/profile/personal-info',

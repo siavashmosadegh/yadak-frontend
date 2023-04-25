@@ -2,7 +2,10 @@ import React from 'react';
 import Layout from '../../Views/Layout';
 import Filter from '../../Views/Search/Filter';
 import Sort from '../../Views/Search/Sort';
-import { FilterIconContainer, SearchWrapper } from './styles';
+import {
+    SearchWrapper,
+    FilterIconContainer
+} from './styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { Grid } from '@mui/material';
 import ProductListItem from '../../Views/Search/ProductListItem';

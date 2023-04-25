@@ -11,6 +11,7 @@ const initState = {
             recieverName: "asdfasdf", // نام تحویل گیرنده
             recieverMobile: "09128702302", // شماره موبایل تحویل گیرنده
             address: "tehran", // آدرس
+            orderLink: "/profile/orders/code-12345678",
             status: "آماده سازی سفارش", // وضعیت سفارش
             nextStepStatus: "پردازش شده", // مرحله بعد
             orderReceivingDate: Date.now(), // زمان تحویل
@@ -32,6 +33,7 @@ const initState = {
             recieverName: "asdfasdf",
             recieverMobile: "09128702302",
             address: "tehran",
+            orderLink: "/profile/orders/code-23456789",
             status: "پردازش شده",
             nextStepStatus: null,
             orderReceivingDate: Date.now(),
@@ -101,6 +103,7 @@ const initState = {
             discount: null
         }
     ],
+    selectedOrder: null,
     activeOrdersTab: null,
     activeOpinionsTab: null,
     showSubmitOpinionModal: false,
@@ -149,6 +152,11 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 showDeleteOpinionModal: false
+            };
+        case Types.SELECT_ORDER:
+            return {
+                ...state,
+                selectedOrder: action.data
             };
         default:
             return state;

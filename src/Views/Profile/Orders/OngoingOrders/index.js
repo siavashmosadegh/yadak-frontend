@@ -1,11 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Empty from '../../../Empty/index';
 import { Wrapper } from './styles';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import OngoingOrderItem from './OngoingOrderItem';
+import { Link } from 'react-router-dom';
+import OrdersActions from '../../../../Redux/Orders/Actions';
 
 const OngoingOrders = () => {
+
+    const dispatch = useDispatch();
 
     const {
         onGoingOrders
@@ -28,9 +32,16 @@ const OngoingOrders = () => {
                 >
                     {
                         onGoingOrders.map( (item) =>  {
-                            return  <OngoingOrderItem
+                            return (
+                                <Link
+                                    to={item.orderLink}
+                                    onClick={() => dispatch(OrdersActions.selectOrder(item))}
+                                >
+                                    <OngoingOrderItem
                                         item={item}
                                     />
+                                </Link>                                
+                            );
                         })
                     }
                 </CustomContainer>
