@@ -21,7 +21,7 @@ const initState = {
             price: "123", // قیمت
             // profit: "123233", // سود
             paymentMethod: "پرداخت اینترنتی", // روش پرداخت
-            transferPrice: "3500", // هزینه ارسال
+            // transferPrice: "3500", // هزینه ارسال
             discount: "23222" // تخفیف
         },
         {
@@ -43,7 +43,7 @@ const initState = {
             price: "123",
             // profit: null,
             paymentMethod: "پرداخت در محل",
-            transferPrice: "3500",
+            // transferPrice: "3500",
             discount: null
         }
     ],

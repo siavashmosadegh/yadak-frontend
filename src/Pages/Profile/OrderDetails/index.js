@@ -4,6 +4,7 @@ import Layout from '../../../Views/Layout';
 import {
     CircleIconContainer,
     EditIconContainer,
+    FifthCustomContainer,
     FirstContainer,
     FourthContainer,
     Line,
@@ -11,14 +12,47 @@ import {
     ProfileWrapper,
     RightArrowIconContainer,
     SecondContainer,
+    SixthCustomContainer,
     ThirdContainer
 } from './styles';
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 import RightArrowIcon from '../../../Icons/Profile/RightArrowIcon';
 import DotIcon from '../../../Icons/ProductIcons/DotIcon';
 import EditIcon from '../../../Icons/Profile/EditIcon';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const OrderDetails = () => {
+
+    const navigate = useNavigate();
+    
+    const {
+        selectedOrder
+    } = useSelector((state) => state.Orders);
+
+    const {
+        id,
+        title,
+        productId,
+        tracingNumber,
+        orderRegisterDate,
+        recieverName,
+        recieverMobile,
+        address,
+        orderLink,
+        status,
+        nextStepStatus,
+        orderReceivingDate,
+        transferPrice,
+        sentItemTracingNumber,
+        sentItemReceiveCode,
+        price,
+        paymentMethod,
+        discount
+    } = selectedOrder;
+
+    console.log(selectedOrder);
+
     return (
         <Layout>
             <ProfileLayout>
@@ -27,7 +61,9 @@ const OrderDetails = () => {
                         disableMediaQuery={true}
                         justifyContent="flex-start"
                     >
-                        <RightArrowIconContainer>
+                        <RightArrowIconContainer
+                            onClick={() => navigate(-1)}
+                        >
                             <RightArrowIcon />
                         </RightArrowIconContainer>
 
@@ -43,7 +79,7 @@ const OrderDetails = () => {
                         >
                             <p className="title">کد پیگیری سفارش</p>
 
-                            <p className="item">12323232332</p>
+                            <p className="item">{tracingNumber}</p>
                         </CustomContainer>
 
                         <CircleIconContainer>
@@ -55,7 +91,7 @@ const OrderDetails = () => {
                         >
                             <p className="title">تاریخ ثبت سفارش</p>
 
-                            <p className="item">۱۴ اردیبهشت ۱۲۳۹</p>
+                            <p className="item">{orderRegisterDate}</p>
                         </CustomContainer>
                     </SecondContainer>
 
@@ -72,7 +108,7 @@ const OrderDetails = () => {
                         >
                             <p className="title">تحویل گیرنده</p>
 
-                            <p className="item">سیاوش مصدق</p>
+                            <p className="item">{recieverName}</p>
                         </CustomContainer>
 
                         <CircleIconContainer>
@@ -84,7 +120,7 @@ const OrderDetails = () => {
                         >
                             <p className="title">شماره موبایل</p>
 
-                            <p className="item">09128702302</p>
+                            <p className="item">{recieverMobile}</p>
                         </CustomContainer>
                     </ThirdContainer>
 
@@ -94,7 +130,7 @@ const OrderDetails = () => {
                         >
                             <p className="title">آدرس</p>
 
-                            <p className="item">ونک ، برزیل شرقی ، نیلو ، ک ۱۴ ، پ ۴ ، و ۱</p>
+                            <p className="item">{address}</p>
                         </CustomContainer>
 
                         <CustomContainer
@@ -104,9 +140,35 @@ const OrderDetails = () => {
                                 <EditIcon />
                             </EditIconContainer>
 
-                            <p>تغییر آدرس زمان تحویل</p>
+                            <p className='changeAddress'>تغییر آدرس زمان تحویل</p>
                         </CustomContainer>
                     </FourthContainer>
+
+                    <FifthCustomContainer
+                        disableMediaQuery={true}
+                        justifyContent="flex-start"
+                    >
+                        <CustomContainer>
+                            <p className='title'>مبلغ</p>
+
+                            <p className='item'>{price}</p>
+                        </CustomContainer>
+
+                        <CircleIconContainer>
+                            <DotIcon />
+                        </CircleIconContainer>
+
+                        <p className='item'>{paymentMethod}</p>
+                    </FifthCustomContainer>
+
+                    <SixthCustomContainer
+                        disableMediaQuery={true}
+                        justifyContent="flex-start"
+                    >
+                        <p className='title'>هزینه ارسال (بر اساس وزن و حجم)</p>
+
+                        <p className='item'>{transferPrice}</p>
+                    </SixthCustomContainer>
                 </ProfileWrapper>
             </ProfileLayout>
         </Layout>

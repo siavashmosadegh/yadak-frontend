@@ -97,6 +97,7 @@ export const FourthContainer = styled(CustomContainer)`
     padding-right: 10px;
     padding-left: 10px;
     height: 50px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 
     p {
         margin: 0;
@@ -114,6 +115,12 @@ export const FourthContainer = styled(CustomContainer)`
         font-weight: bold;
         color: black;
     }
+
+    .changeAddress {
+        color: rgb(26,191,211);
+        font-size: 14px;
+        font-weight: bold;
+    }
 `;
 
 export const EditIconContainer = styled.div`
@@ -126,5 +133,39 @@ export const EditIconContainer = styled.div`
         path {
             fill: rgb(26,191,211);
         }
+    }
+`;
+
+export const FifthCustomContainer = styled(CustomContainer)`
+
+    padding-right: 10px;
+
+    .title {
+        font-size: 12px;
+        color: rgba(0,0,0,0.5);
+        margin-left: 5px;
+    }
+
+    .item {
+        font-size: 13px;
+        font-weight: bold;
+        color: black;
+    }
+`;
+
+export const SixthCustomContainer = styled(CustomContainer)`
+    padding-right: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    .title {
+        font-size: 12px;
+        color: rgba(0,0,0,0.5);
+        margin-left: 5px;
+    }
+
+    .item {
+        font-size: 13px;
+        font-weight: bold;
+        color: black;
     }
 `;
