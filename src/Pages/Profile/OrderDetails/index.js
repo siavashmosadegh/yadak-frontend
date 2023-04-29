@@ -21,6 +21,8 @@ import DotIcon from '../../../Icons/ProductIcons/DotIcon';
 import EditIcon from '../../../Icons/Profile/EditIcon';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import OrderDetailsProductDescription from '../../../Views/Profile/Orders/OrderDetailsProductDescription';
+import PriceComponent from '../../../Views/PriceComponent';
 
 const OrderDetails = () => {
 
@@ -71,7 +73,7 @@ const OrderDetails = () => {
                     </FirstContainer>
 
                     <SecondContainer
-                        disableMediaQuery={true}
+                        responsiveAlignItems="flex-end"
                         justifyContent="flex-start"
                     >
                         <CustomContainer
@@ -100,7 +102,7 @@ const OrderDetails = () => {
                     </LineContainer>
 
                     <ThirdContainer
-                        disableMediaQuery={true}
+                        responsiveAlignItems="flex-end"
                         justifyContent="flex-start"
                     >
                         <CustomContainer
@@ -124,7 +126,14 @@ const OrderDetails = () => {
                         </CustomContainer>
                     </ThirdContainer>
 
-                    <FourthContainer>
+                    <LineContainer>
+                        <Line />
+                    </LineContainer>
+
+                    <FourthContainer
+                        responsiveAlignItems="flex-end"
+                        responsiveMaxWidth="900px"
+                    >
                         <CustomContainer
                             disableMediaQuery={true}
                         >
@@ -135,6 +144,7 @@ const OrderDetails = () => {
 
                         <CustomContainer
                             disableMediaQuery={true}
+                            className="editIconCustomContainer"
                         >
                             <EditIconContainer>
                                 <EditIcon />
@@ -148,10 +158,22 @@ const OrderDetails = () => {
                         disableMediaQuery={true}
                         justifyContent="flex-start"
                     >
-                        <CustomContainer>
+                        <CustomContainer
+                            disableMediaQuery={true}
+                        >
                             <p className='title'>مبلغ</p>
 
-                            <p className='item'>{price}</p>
+                            <p className='item'>
+                                <PriceComponent
+                                    price={price}
+                                    width="auto"
+                                    height="auto"
+                                    tomanColor="black"
+                                    tomanFontSize="13px"
+                                    priceColor="black"
+                                    priceFontSiz="13px"
+                                />
+                            </p>
                         </CustomContainer>
 
                         <CircleIconContainer>
@@ -167,8 +189,25 @@ const OrderDetails = () => {
                     >
                         <p className='title'>هزینه ارسال (بر اساس وزن و حجم)</p>
 
-                        <p className='item'>{transferPrice}</p>
+                        <p className='item'>
+                            <PriceComponent
+                                price={transferPrice}
+                                width="auto"
+                                height="auto"
+                                tomanColor="black"
+                                tomanFontSize="13px"
+                                priceColor="black"
+                                priceFontSize="13px"
+                            />
+                        </p>
                     </SixthCustomContainer>
+
+                    <CustomContainer
+                        disableMediaQuery={true}
+                        flexDirection="column"
+                    >
+                        <OrderDetailsProductDescription />
+                    </CustomContainer>
                 </ProfileWrapper>
             </ProfileLayout>
         </Layout>

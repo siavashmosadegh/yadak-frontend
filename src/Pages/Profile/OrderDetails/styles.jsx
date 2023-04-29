@@ -9,6 +9,12 @@ export const ProfileWrapper = styled.div`
     .firstContainer {
         
     }
+
+    .editIconCustomContainer {
+        @media (max-width: 900px) {
+            margin-top: 10px;
+        }
+    }
 `;
 
 export const RightArrowIconContainer = styled.div`
@@ -35,7 +41,8 @@ export const FirstContainer = styled(CustomContainer)`
 export const SecondContainer = styled(CustomContainer)`
 
     padding-right: 10px;
-    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
     p {
         margin: 0;
@@ -73,7 +80,8 @@ export const Line = styled.div`
 
 export const ThirdContainer = styled(CustomContainer)`
     padding-right: 10px;
-    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
     p {
         margin: 0;
@@ -96,7 +104,8 @@ export const ThirdContainer = styled(CustomContainer)`
 export const FourthContainer = styled(CustomContainer)`
     padding-right: 10px;
     padding-left: 10px;
-    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 
     p {
