@@ -15,8 +15,20 @@ import CopyDocumentIcon from '../../../../Icons/Profile/CopyDocumentIcon';
 import CheckoutItem from '../../../Checkout/CheckoutItem';
 import AddCommentIcon from '../../../../Icons/Profile/AddCommentIcon';
 import PriceComponent from '../../../PriceComponent';
+import persian_fa from 'react-date-object/locales/persian_fa';
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
 
 const OrderDetailsProductDescription = () => {
+
+    const receivingDateContent = () => {
+        let dateformat = new DateObject({
+            date: Date.now(),
+            calendar: persian,
+            locale: persian_fa,
+        });
+        return dateformat.format("dddd DD MMMM YYYY");
+    }
 
     const [item, setItem] = useState({
         title: "شسیب ضصثق س یب شسی بثق  لیب ل یسبل یسب سشیب سی بس یب سیب",
@@ -50,7 +62,9 @@ const OrderDetailsProductDescription = () => {
             >
                 <p className="titleParagraph">زمان تحویل</p>
 
-                <p className="itemParagraph">پنج شنبه</p>
+                <p className="itemParagraph">
+                    {receivingDateContent()}
+                </p>
             </CustomContainer>
 
             <CustomContainer
@@ -131,7 +145,11 @@ const OrderDetailsProductDescription = () => {
                 >
                     <p className="titleParagraph">کد تحویل مرسوله</p>
 
-                    <p className="itemParagraph">24023</p>
+                    <p className="itemParagraph"
+                        onClick={() => navigator.clipboard.writeText(24023)}
+                    >
+                        24023
+                    </p>
 
                     <CopyDocumentIconContainer>
                         <CopyDocumentIcon />

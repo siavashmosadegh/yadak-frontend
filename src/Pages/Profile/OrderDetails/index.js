@@ -23,8 +23,20 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import OrderDetailsProductDescription from '../../../Views/Profile/Orders/OrderDetailsProductDescription';
 import PriceComponent from '../../../Views/PriceComponent';
+import persian_fa from 'react-date-object/locales/persian_fa';
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
 
 const OrderDetails = () => {
+
+    const orderRegisterDateContent = () => {
+        let dateformat = new DateObject({
+            date: orderRegisterDate,
+            calendar: persian,
+            locale: persian_fa,
+        });
+        return dateformat.format("dddd DD MMMM YYYY");
+    }
 
     const navigate = useNavigate();
     
@@ -93,7 +105,9 @@ const OrderDetails = () => {
                         >
                             <p className="title">تاریخ ثبت سفارش</p>
 
-                            <p className="item">{orderRegisterDate}</p>
+                            <p className="item">
+                                {orderRegisterDateContent()}
+                            </p>
                         </CustomContainer>
                     </SecondContainer>
 
