@@ -78,46 +78,4 @@ export const ThirdRowCustomContainer = styled(CustomContainer)`
         margin-left: 5px;
         padding-top: 3px;
     }
-
-    .statusDiv {
-        width: 40%;
-    }
-
-    @media (max-width: 900px) {
-        .statusDiv {
-            width: 100%;
-        }
-    }
-
-    // .currentStatus {
-    //     margin-left: 50px;
-    // }
-`;
-
-export const NextStepCustomContainer = styled(CustomContainer)`
-    .text {
-        font-size: 12px;
-        font-weight: bold;
-        color: gray;
-    }
-
-    .processed {
-        font-size: 12px;
-        font-weight: bold;
-        color: black;
-    }
-
-    p {
-        margin-right: 5px;
-    }
-`;
-
-export const StatusContainer = styled(CustomContainer)`
-    width: 100%;
-
-    .currentStatus {
-        color: green;
-        font-weight: bold;
-        font-size: 14px;
-    }
 `;

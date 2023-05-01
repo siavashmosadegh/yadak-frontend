@@ -90,6 +90,11 @@ export const Wrapper = styled.div`
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    
+    .orderStatusRow {
+        height: 50px;
+        padding-right: 10px;
+    }
 `;
 
 export const CircleIconContainer = styled.div`

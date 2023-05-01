@@ -18,6 +18,7 @@ import PriceComponent from '../../../PriceComponent';
 import persian_fa from 'react-date-object/locales/persian_fa';
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
+import OrderStatus from '../OrderStatus';
 
 const OrderDetailsProductDescription = (props) => {
 
@@ -111,6 +112,18 @@ const OrderDetailsProductDescription = (props) => {
                 <p className="itemParagraph">
                     {receivingDateContent()}
                 </p>
+
+            </CustomContainer>
+
+            <CustomContainer
+                justifyContent="flex-start"
+                className="orderStatusRow"
+            >
+                <OrderStatus
+                    status={status}
+                    nextStepStatus={nextStepStatus}
+                    linearProgressValue={50}
+                />
             </CustomContainer>
 
             <CustomContainer

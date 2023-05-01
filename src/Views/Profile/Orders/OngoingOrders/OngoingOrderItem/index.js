@@ -6,9 +6,7 @@ import {
     PendingIconContainer,
     SecondRowCustomContainer,
     SingleItem,
-    ThirdRowCustomContainer,
-    NextStepCustomContainer,
-    StatusContainer
+    ThirdRowCustomContainer
 } from './styles';
 import CustomContainer from '../../../../../UI-Kit/Grid/CustomContainer';
 import PendingIcon from '../../../../../Icons/Profile/PendingIcon';
@@ -17,7 +15,7 @@ import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
-import { LinearProgress } from '@mui/material';
+import OrderStatus from '../../OrderStatus';
 import PriceComponent from '../../../../PriceComponent';
 
 const OngoingOrderItem = (props) => {
@@ -162,8 +160,12 @@ const OngoingOrderItem = (props) => {
                     </span>
                 </CustomContainer>
 
-                
-                <div className="statusDiv">
+                <OrderStatus
+                    status={status}
+                    nextStepStatus={nextStepStatus}
+                    linearProgressValue={80}
+                />
+                {/* <div className="statusDiv">
                     <StatusContainer
                         disableMediaQuery={true}
                     >
@@ -187,7 +189,7 @@ const OngoingOrderItem = (props) => {
                     </StatusContainer>
 
                     <LinearProgress variant="determinate" value={80} sx={{width: "100%",height: "5px",rotate: "180deg"}}/>
-                </div>
+                </div> */}
             </ThirdRowCustomContainer>
         </Wrapper>
     );
