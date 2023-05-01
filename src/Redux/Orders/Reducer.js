@@ -15,13 +15,12 @@ const initState = {
             status: "آماده سازی سفارش", // وضعیت سفارش
             nextStepStatus: "پردازش شده", // مرحله بعد
             orderReceivingDate: Date.now(), // زمان تحویل
-            transferPrice: "3500", // هزینه ارسال
+            transferPrice: 3500, // هزینه ارسال
             sentItemTracingNumber: "194154961", // کد پیگیری مرسوله
             sentItemReceiveCode: "81841", // کد تحویل مرسوله
             price: "123", // قیمت
             // profit: "123233", // سود
             paymentMethod: "پرداخت اینترنتی", // روش پرداخت
-            // transferPrice: "3500", // هزینه ارسال
             discount: "23222" // تخفیف
         },
         {
@@ -37,13 +36,12 @@ const initState = {
             status: "پردازش شده",
             nextStepStatus: null,
             orderReceivingDate: Date.now(),
-            transferPrice: "3500",
+            transferPrice: 3500,
             sentItemTracingNumber: "194154961",
             sentItemReceiveCode: "81841",
             price: "123",
             // profit: null,
             paymentMethod: "پرداخت در محل",
-            // transferPrice: "3500",
             discount: null
         }
     ],

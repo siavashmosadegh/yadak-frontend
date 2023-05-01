@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Wrapper,
     CircleIconContainer,
@@ -19,21 +19,67 @@ import persian_fa from 'react-date-object/locales/persian_fa';
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 
-const OrderDetailsProductDescription = () => {
+const OrderDetailsProductDescription = (props) => {
+
+    const {
+        selectedOrder
+    } = props;
+
+    const {
+        id,
+        title,
+        productId,
+        tracingNumber,
+        orderRegisterDate,
+        recieverName,
+        recieverMobile,
+        address,
+        orderLink,
+        status,
+        nextStepStatus,
+        orderReceivingDate,
+        transferPrice,
+        sentItemTracingNumber,
+        sentItemReceiveCode,
+        price,
+        paymentMethod,
+        discount
+    } = selectedOrder;
+
+    const [gotCopied, setGotCopied] = useState(false);
+
+    const makeGotCopiedTrue = () => {
+        navigator.clipboard.writeText(sentItemReceiveCode);
+        setGotCopied(true);
+    }
+
+    const makeGotCopiedFalse = () => {
+        setGotCopied(false);
+    }
+
+
+
+    useEffect(() => {
+        if (gotCopied === true) {
+            setTimeout(makeGotCopiedFalse,5000);
+        }
+    },[gotCopied]);
+
+
 
     const receivingDateContent = () => {
         let dateformat = new DateObject({
-            date: Date.now(),
+            date: orderReceivingDate,
             calendar: persian,
             locale: persian_fa,
         });
         return dateformat.format("dddd DD MMMM YYYY");
     }
 
-    const [item, setItem] = useState({
-        title: "شسیب ضصثق س یب شسی بثق  لیب ل یسبل یسب سشیب سی بس یب سیب",
-        price: 123333
-    });
+    const item = {
+        title: title,
+        price: price
+    }
 
     return (
         <Wrapper>
@@ -82,7 +128,7 @@ const OrderDetailsProductDescription = () => {
 
                         <p className="itemParagraph">
                             <PriceComponent
-                                price={1000}
+                                price={transferPrice}
                                 width="auto"
                                 height="auto"
                                 tomanColor="black"
@@ -104,7 +150,7 @@ const OrderDetailsProductDescription = () => {
 
                         <p className="itemParagraph">
                             <PriceComponent
-                                price={10000}
+                                price={price}
                                 width="auto"
                                 height="auto"
                                 tomanColor="black"
@@ -119,7 +165,9 @@ const OrderDetailsProductDescription = () => {
                 <CustomContainer>
                     <p className="titleParagraph">کد پیگیری مرسوله</p>
 
-                    <p className="itemParagraph">۱۲۳۴۲۳۴۲۳۴</p>
+                    <p className="itemParagraph">
+                        {sentItemTracingNumber}
+                    </p>
                 </CustomContainer>
             </CustomContainer>
 
@@ -145,15 +193,25 @@ const OrderDetailsProductDescription = () => {
                 >
                     <p className="titleParagraph">کد تحویل مرسوله</p>
 
-                    <p className="itemParagraph"
-                        onClick={() => navigator.clipboard.writeText(24023)}
-                    >
-                        24023
-                    </p>
+                    {
+                        gotCopied === false
+                            ?
+                            <React.Fragment
+                                // onClick={() => gotCopiedHandler()}
+                            >
+                                <p className="itemParagraph">
+                                    {sentItemReceiveCode}
+                                </p>
 
-                    <CopyDocumentIconContainer>
-                        <CopyDocumentIcon />
-                    </CopyDocumentIconContainer>
+                                <CopyDocumentIconContainer
+                                    onClick={() => makeGotCopiedTrue()}
+                                >
+                                    <CopyDocumentIcon />
+                                </CopyDocumentIconContainer>                            
+                            </React.Fragment>
+                            :
+                            <p className="itemParagraph">! کپی شد</p>
+                    }
                 </CustomContainer>
 
             </CustomContainer>
@@ -163,6 +221,7 @@ const OrderDetailsProductDescription = () => {
             >
                 <CheckoutItem
                     item={item}
+                    type="orderDetails"
                 />
             </CustomContainer>
 

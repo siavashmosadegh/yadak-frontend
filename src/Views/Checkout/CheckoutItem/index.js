@@ -12,9 +12,10 @@ import PriceComponent from '../../PriceComponent';
 const CheckoutItem = (props) => {
 
     const {
-        item
+        item,
+        type
     } = props;
-    
+
     return (
         <Wrapper>
             <div className="row">
@@ -44,13 +45,23 @@ const CheckoutItem = (props) => {
                     />
                 </LeftDiv>
                 <RightDiv>
-                    <NumberOfItemsRequested
-                        number={2}
-                    />
+                    {
+                        type === "inCheckout"
+                            ?
+                            <NumberOfItemsRequested
+                                number={2}
+                            />
+                            :
+                            null
+                    }
                 </RightDiv>
             </div>
         </Wrapper>
     );
+}
+
+CheckoutItem.defaultProps = {
+    type: "inCheckout"
 }
 
 export default CheckoutItem;

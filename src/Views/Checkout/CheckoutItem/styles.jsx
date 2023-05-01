@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
         svg {
             margin-left: 5px;
         }
+
+        @media (max-width: 550px) {
+            p {
+                font-size: 13px;
+            }
+        }
     }
 
     border-bottom: 1px solid rgba(0,0,0,0.2);

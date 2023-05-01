@@ -18,6 +18,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
 import { LinearProgress } from '@mui/material';
+import PriceComponent from '../../../../PriceComponent';
 
 const OngoingOrderItem = (props) => {
 
@@ -115,7 +116,15 @@ const OngoingOrderItem = (props) => {
                 >
                     <p>مبلغ</p>
 
-                    <span>{price}</span>
+                    <PriceComponent
+                        price={price}
+                        width="auto"
+                        height="auto"
+                        tomanColor="black"
+                        tomanFontSize="14px"
+                        priceColor="black"
+                        priceFontSize="14px"
+                    />
                 </SingleItem>
 
                 {

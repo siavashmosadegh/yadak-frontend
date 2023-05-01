@@ -36,6 +36,7 @@ const OngoingOrders = () => {
                                 <Link
                                     to={item.orderLink}
                                     onClick={() => dispatch(OrdersActions.selectOrder(item))}
+                                    key={item.id}
                                 >
                                     <OngoingOrderItem
                                         item={item}

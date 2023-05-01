@@ -220,7 +220,9 @@ const OrderDetails = () => {
                         disableMediaQuery={true}
                         flexDirection="column"
                     >
-                        <OrderDetailsProductDescription />
+                        <OrderDetailsProductDescription
+                            selectedOrder={selectedOrder}
+                        />
                     </CustomContainer>
                 </ProfileWrapper>
             </ProfileLayout>
