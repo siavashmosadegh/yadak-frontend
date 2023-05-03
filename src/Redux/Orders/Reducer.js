@@ -7,7 +7,7 @@ const initState = {
             title: "سفارش جادی",
             productId: "asdfsdf", // کد محصول
             tracingNumber: "123123123213", // کد پیگیری سفارش
-            orderRegisterDate: Date.now(), // تاریخ ثبت سفارش
+            orderRegisterDate: "2022-01-15", // تاریخ ثبت سفارش
             recieverName: "asdfasdf", // نام تحویل گیرنده
             recieverMobile: "09128702302", // شماره موبایل تحویل گیرنده
             address: "tehran", // آدرس

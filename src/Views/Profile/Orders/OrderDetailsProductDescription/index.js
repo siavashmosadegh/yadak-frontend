@@ -19,6 +19,7 @@ import persian_fa from 'react-date-object/locales/persian_fa';
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 import OrderStatus from '../OrderStatus';
+import DateTimeController from '../../../../Util/DateTimeController';
 
 const OrderDetailsProductDescription = (props) => {
 
@@ -58,23 +59,23 @@ const OrderDetailsProductDescription = (props) => {
         setGotCopied(false);
     }
 
-
-
     useEffect(() => {
         if (gotCopied === true) {
             setTimeout(makeGotCopiedFalse,5000);
         }
     },[gotCopied]);
 
-
+    // const receivingDateContent = () => {
+    //     let dateformat = new DateObject({
+    //         date: orderReceivingDate,
+    //         calendar: persian,
+    //         locale: persian_fa,
+    //     });
+    //     return dateformat.format("dddd DD MMMM YYYY");
+    // }
 
     const receivingDateContent = () => {
-        let dateformat = new DateObject({
-            date: orderReceivingDate,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format("dddd DD MMMM YYYY");
+        return DateTimeController.parseToJDate(orderReceivingDate, "jYYYY jMM jDD day");
     }
 
     const item = {
