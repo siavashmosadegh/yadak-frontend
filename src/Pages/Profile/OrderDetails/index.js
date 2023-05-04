@@ -23,19 +23,12 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import OrderDetailsProductDescription from '../../../Views/Profile/Orders/OrderDetailsProductDescription';
 import PriceComponent from '../../../Views/PriceComponent';
-import persian_fa from 'react-date-object/locales/persian_fa';
-import DateObject from "react-date-object";
-import persian from "react-date-object/calendars/persian";
+import ConvertGregorianToPersian from '../../../Util/ConvertGregorianToPersian';
 
 const OrderDetails = () => {
 
     const orderRegisterDateContent = () => {
-        let dateformat = new DateObject({
-            date: orderRegisterDate,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format("dddd DD MMMM YYYY");
+        return ConvertGregorianToPersian.parseToJDate(orderRegisterDate,"dddd DD MMMM YYYY");
     }
 
     const navigate = useNavigate();

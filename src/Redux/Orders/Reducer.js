@@ -7,10 +7,10 @@ const initState = {
             title: "سفارش جادی",
             productId: "asdfsdf", // کد محصول
             tracingNumber: "123123123213", // کد پیگیری سفارش
-            orderRegisterDate: "2022-01-15", // تاریخ ثبت سفارش
+            orderRegisterDate: "1998-01-15T00:00:00", // تاریخ ثبت سفارش
             recieverName: "asdfasdf", // نام تحویل گیرنده
             recieverMobile: "09128702302", // شماره موبایل تحویل گیرنده
-            address: "tehran", // آدرس
+            address: "karaj", // آدرس
             orderLink: "/profile/orders/code-12345678",
             status: "آماده سازی سفارش", // وضعیت سفارش
             nextStepStatus: "پردازش شده", // مرحله بعد
@@ -28,14 +28,14 @@ const initState = {
             title: "سفارش جادی",
             productId: "asdfsdf",
             tracingNumber: "123123123213",
-            orderRegisterDate: Date.now(),
+            orderRegisterDate: "2023-01-15T00:00:00",
             recieverName: "asdfasdf",
             recieverMobile: "09128702302",
             address: "tehran",
             orderLink: "/profile/orders/code-23456789",
             status: "پردازش شده",
             nextStepStatus: null,
-            orderReceivingDate: Date.now(),
+            orderReceivingDate: "2024-01-15T00:00:00",
             transferPrice: 3500,
             sentItemTracingNumber: "194154961",
             sentItemReceiveCode: "81841",
@@ -51,7 +51,7 @@ const initState = {
             title: "sefaresh",
             productId: 123232333,
             tracingNumber: "112323323",
-            orderRegisterDate: Date.now(),
+            orderRegisterDate: "2024-01-15T00:00:00",
             receiverName: "ali",
             receiverMobile: "09128702302",
             address: "tehran",
@@ -66,7 +66,7 @@ const initState = {
             title: "sefaresh",
             productId: 123232333,
             tracingNumber: "112323323",
-            orderRegisterDate: Date.now(),
+            orderRegisterDate: "2024-02-15T00:00:00",
             receiverName: "ali",
             receiverMobile: "09128702302",
             address: "tehran",
@@ -86,7 +86,7 @@ const initState = {
             id: 0,
             title: "sefaresh",
             status: "لغو سیستمی",
-            date: Date.now(),
+            orderRegisterDate: "2023-03-15T00:00:00",
             orderCode: "123232323",
             price: "18000",
             discount: "800"
@@ -95,7 +95,7 @@ const initState = {
             id: 1,
             title: "sefaresh",
             status: "لغو سیستمی",
-            date: Date.now(),
+            orderRegisterDate: "2023-03-15T00:00:00",
             orderCode: "123232323",
             price: "18000",
             discount: null

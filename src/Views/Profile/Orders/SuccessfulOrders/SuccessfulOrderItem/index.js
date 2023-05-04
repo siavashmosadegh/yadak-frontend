@@ -13,10 +13,9 @@ import CustomContainer from '../../../../../UI-Kit/Grid/CustomContainer';
 import CheckedIcon from '../../../../../Icons/Profile/CheckedIcon';
 import LeftArrowIcon from '../../../../../Icons/Profile/LeftArrowIcon';
 import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
-import DateObject from "react-date-object";
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
 import ReceiptIcon from '../../../../../Icons/Profile/ReceiptIcon';
+import ConvertGregorianToPersian from '../../../../../Util/ConvertGregorianToPersian';
+import PriceComponent from '../../../../PriceComponent';
 
 const SuccessfulOrderItem = (props) => {
 
@@ -40,13 +39,8 @@ const SuccessfulOrderItem = (props) => {
         discount
     } = item;
 
-    const dateContent = () => {
-        let dateformat = new DateObject({
-            date: orderRegisterDate,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format();
+    const orderRegisterDateContent = () => {
+        return ConvertGregorianToPersian.parseToJDate(orderRegisterDate);
     }
 
     return (
@@ -77,7 +71,7 @@ const SuccessfulOrderItem = (props) => {
                 alignItems="center"
             >
                 <span className="orderRegistryDateSpan">
-                    {dateContent()}
+                    {orderRegisterDateContent()}
                 </span>
 
                 <DotIcon />
@@ -99,7 +93,15 @@ const SuccessfulOrderItem = (props) => {
                 >
                     <p>مبلغ</p>
 
-                    <span>{price}</span>
+                    <span>
+                        <PriceComponent
+                            price={price}
+                            tomanColor="black"
+                            tomanFontSize="14px"
+                            priceColor="black"
+                            priceFontSize="14px"
+                        />
+                    </span>
                 </SingleItem>
 
                 {
@@ -114,7 +116,15 @@ const SuccessfulOrderItem = (props) => {
                             >
                                 <p>تخفیف</p>
 
-                                <span>{discount}</span>
+                                <span>
+                                    <PriceComponent
+                                        price={discount}
+                                        tomanColor="black"
+                                        tomanFontSize="14px"
+                                        priceColor="black"
+                                        priceFontSize="14px"
+                                    />
+                                </span>
                             </SingleItem>
                         </>
                         :

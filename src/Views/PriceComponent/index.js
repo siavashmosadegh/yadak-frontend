@@ -29,4 +29,9 @@ const PriceComponent = (props) => {
     );
 }
 
+PriceComponent.defaultProps = {
+    width: "auto",
+    height: "auto"
+}
+
 export default PriceComponent;

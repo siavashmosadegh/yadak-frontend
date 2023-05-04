@@ -11,12 +11,10 @@ import {
 import CustomContainer from '../../../../../UI-Kit/Grid/CustomContainer';
 import PendingIcon from '../../../../../Icons/Profile/PendingIcon';
 import LeftArrowIcon from '../../../../../Icons/Profile/LeftArrowIcon';
-import DateObject from "react-date-object";
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
 import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
 import OrderStatus from '../../OrderStatus';
 import PriceComponent from '../../../../PriceComponent';
+import ConvertGregorianToPersian from '../../../../../Util/ConvertGregorianToPersian';
 
 const OngoingOrderItem = (props) => {
 
@@ -45,22 +43,12 @@ const OngoingOrderItem = (props) => {
         discount
     } = item;
 
-    const dateContent = () => {
-        let dateformat = new DateObject({
-            date: orderReceivingDate,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format();
+    const orderReceivingDateContent = () => {
+        return ConvertGregorianToPersian.parseToJDate(orderReceivingDate,"dddd DD MMMM YYYY");
     }
 
-    const receivingDateContent = () => {
-        let dateformat = new DateObject({
-            date: orderRegisterDate,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format("dddd DD MMMM YYYY");
+    const orderRegisterDateContent = () => {
+        return ConvertGregorianToPersian.parseToJDate(orderRegisterDate);
     }
 
     return (
@@ -92,7 +80,7 @@ const OngoingOrderItem = (props) => {
                 alignItems="center"
             >
                 <span className="orderRegistryDateSpan">
-                    {dateContent()}
+                    {orderRegisterDateContent()}
                 </span>
 
                 <DotIcon />
@@ -137,7 +125,17 @@ const OngoingOrderItem = (props) => {
                             >
                                 <p>تخفیف</p>
 
-                                <span>{discount}</span>
+                                <span>
+                                    <PriceComponent
+                                        price={discount}
+                                        width="auto"
+                                        height="auto"
+                                        tomanColor="black"
+                                        tomanFontSize="14px"
+                                        priceColor="black"
+                                        priceFontSize="14px"
+                                    />
+                                </span>
                             </SingleItem>
                         </>
                         :
@@ -156,7 +154,7 @@ const OngoingOrderItem = (props) => {
                     <p className="deliveryParagraph">تحویل</p>
 
                     <span className="orderRegistryDateSpan">
-                        {receivingDateContent()}
+                        {orderReceivingDateContent()}
                     </span>
                 </CustomContainer>
 

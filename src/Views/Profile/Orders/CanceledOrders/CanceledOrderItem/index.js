@@ -14,6 +14,8 @@ import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import DotIcon from '../../../../../Icons/ProductIcons/DotIcon';
+import ConvertGregorianToPersian from '../../../../../Util/ConvertGregorianToPersian';
+import PriceComponent from '../../../../PriceComponent';
 
 const CanceledOrderItem = (props) => {
 
@@ -25,19 +27,14 @@ const CanceledOrderItem = (props) => {
         id,
         title,
         status,
-        date,
+        orderRegisterDate,
         orderCode,
         price,
         discount
     } = item;
 
-    const dateContent = () => {
-        let dateformat = new DateObject({
-            date: date,
-            calendar: persian,
-            locale: persian_fa,
-        });
-        return dateformat.format();
+    const orderRegisterDateContent = () => {
+        return ConvertGregorianToPersian.parseToJDate(orderRegisterDate);
     }
 
     return (
@@ -68,7 +65,7 @@ const CanceledOrderItem = (props) => {
                 alignItems="center"
             >
                 <span className="orderRegistryDateSpan">
-                    {dateContent()}
+                    {orderRegisterDateContent()}
                 </span>
 
                 <DotIcon />
@@ -90,7 +87,15 @@ const CanceledOrderItem = (props) => {
                 >
                     <p>مبلغ</p>
 
-                    <span>{price}</span>
+                    <span>
+                        <PriceComponent
+                            price={price}
+                            tomanColor="black"
+                            tomanFontSize="14px"
+                            priceColor="black"
+                            priceFontSize="14px"
+                        />
+                    </span>
                 </SingleItem>
 
                 {
@@ -105,7 +110,15 @@ const CanceledOrderItem = (props) => {
                             >
                                 <p>تخفیف</p>
 
-                                <span>{discount}</span>
+                                <span>
+                                    <PriceComponent
+                                        price={discount}
+                                        tomanColor="black"
+                                        tomanFontSize="14px"
+                                        priceColor="black"
+                                        priceFontSize="14px"
+                                    />
+                                </span>
                             </SingleItem>
                         </>
                         :

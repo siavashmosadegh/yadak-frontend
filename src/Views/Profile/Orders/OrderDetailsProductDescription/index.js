@@ -15,11 +15,8 @@ import CopyDocumentIcon from '../../../../Icons/Profile/CopyDocumentIcon';
 import CheckoutItem from '../../../Checkout/CheckoutItem';
 import AddCommentIcon from '../../../../Icons/Profile/AddCommentIcon';
 import PriceComponent from '../../../PriceComponent';
-import persian_fa from 'react-date-object/locales/persian_fa';
-import DateObject from "react-date-object";
-import persian from "react-date-object/calendars/persian";
 import OrderStatus from '../OrderStatus';
-import DateTimeController from '../../../../Util/DateTimeController';
+import ConvertGregorianToPersian from '../../../../Util/ConvertGregorianToPersian';
 
 const OrderDetailsProductDescription = (props) => {
 
@@ -65,17 +62,8 @@ const OrderDetailsProductDescription = (props) => {
         }
     },[gotCopied]);
 
-    // const receivingDateContent = () => {
-    //     let dateformat = new DateObject({
-    //         date: orderReceivingDate,
-    //         calendar: persian,
-    //         locale: persian_fa,
-    //     });
-    //     return dateformat.format("dddd DD MMMM YYYY");
-    // }
-
     const receivingDateContent = () => {
-        return DateTimeController.parseToJDate(orderReceivingDate, "jYYYY jMM jDD day");
+        return ConvertGregorianToPersian.parseToJDate(orderReceivingDate,"dddd DD MMMM YYYY");
     }
 
     const item = {
