@@ -47,7 +47,7 @@ const ConfirmSelectTimeModal = (props) => {
             <Wrapper>
                 <p className="title">آیا زمان زیر را تایید میکنید ؟</p>
 
-                {
+                {/* {
                 selectedDate !== null
                     ?
                     moment(selectedDate,'MMMM').locale('fa').format('MMMM')
@@ -61,6 +61,14 @@ const ConfirmSelectTimeModal = (props) => {
                     getNameOfTheDay(selectedDate.getDay())
                     :
                     null                    
+                } */}
+
+                {
+                    selectedDate !== null
+                        ?
+                        selectedDate.year
+                        :
+                        null
                 }
 
                 <CustomContainer
@@ -70,14 +78,12 @@ const ConfirmSelectTimeModal = (props) => {
                         width="30%"
                         height="50px"
                         title="تایید"
-                        backgroundColor=""
-                        borderRadius=""
-                        border=""
-                        color=""
-                        fontSize=""
-                        fontWeight=""
-                        onClick=""
-                        type
+                        backgroundColor="red"
+                        borderRadius="10px"
+                        border="none"
+                        color="white"
+                        fontSize="20px"
+                        fontWeight="bold"
                     >
                     </CustomButton>
 
@@ -85,14 +91,12 @@ const ConfirmSelectTimeModal = (props) => {
                         width="30%"
                         height="50px"
                         title="رد"
-                        backgroundColor=""
-                        borderRadius=""
-                        border=""
-                        color=""
-                        fontSize=""
-                        fontWeight=""
-                        onClick=""
-                        type
+                        backgroundColor="red"
+                        borderRadius="10px"
+                        border="none"
+                        color="white"
+                        fontSize="20px"
+                        fontWeight="bold"
                     >
                     </CustomButton>
                 </CustomContainer>

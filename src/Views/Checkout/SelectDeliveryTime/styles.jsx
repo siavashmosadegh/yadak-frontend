@@ -5,6 +5,16 @@ export const Wrapper = styled.div`
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
     width: 100%;
+
+    .selectedDateCustomContainer {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        span {
+            margin-right: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
 `;
 
 export const ClockIconContainer = styled.div`

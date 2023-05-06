@@ -1,14 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import { ClockIconContainer, DatePickerContainer, TitleAndIconContainer, Wrapper } from './styles';
-import moment from 'jalali-moment';
+import React, {useState} from 'react';
+import {
+    Wrapper,
+    ClockIconContainer,
+    DatePickerContainer,
+    TitleAndIconContainer
+} from './styles';
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 import ClockIcon from '../../../Icons/Checkout/ClockIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import ConfirmSelectTimeModal from '../Modals/ConfirmSelectTimeModal';
-import CheckoutActions from '../../../Redux/Checkout/Actions';
 import DatePicker from 'react-multi-date-picker';
-import persian from "react-date-object/calendars/persian"
-import persian_fa from "react-date-object/locales/persian_fa"
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+import ConvertToPersianDigit from '../../../Util/ConvertToPersianDigit';
 
 const SelectDeliveryTime = () => {
 
@@ -20,14 +24,14 @@ const SelectDeliveryTime = () => {
         showConfirmSelectTimeModal
     } = useSelector((state) => state.Checkout);
 
-    const selectedDateHandler = (date) => {
-        setSelectedDate(date);
-        dispatch(CheckoutActions.showConfirmSelectTimeModalHandler({}));
-    }
+    // const selectedDateHandler = (date) => {
+    //     setSelectedDate(date);
+    //     dispatch(CheckoutActions.showConfirmSelectTimeModalHandler({}));
+    // }
 
-    useEffect(() => {
-        // dispatch(CheckoutActions.showConfirmSelectTimeModalHandler({}));
-    },[selectedDate]);
+    // useEffect(() => {
+    //     // dispatch(CheckoutActions.showConfirmSelectTimeModalHandler({}));
+    // },[selectedDate]);
 
     return (
         <Wrapper>
@@ -42,7 +46,6 @@ const SelectDeliveryTime = () => {
                 <p>انتخاب زمان ارسال</p>
             </TitleAndIconContainer>
 
-
             <DatePickerContainer
                 disableMediaQuery={true}
                 justifyContent="flex-start"
@@ -56,35 +59,35 @@ const SelectDeliveryTime = () => {
                 />
             </DatePickerContainer>
 
-            {/* /* <PersianDatePicker
-                input={false}
-                onSelectDay={(date) => selectedDateHandler(date)}
-            /> /* */}
-
             {
                 selectedDate !== null
                     ?
-                    // null// moment(selectedDate,'MMMM').locale('fa').format('MMMM')
-                    // moment(selectedDate,'MMMM').locale('fa').format('MMMM')
-                    selectedDate.month.name
-                    // moment(Date.now(),'MMMM').locale('fa').format('MMMM')
-                    // Date.now()
+                    <CustomContainer
+                        disableMediaQuery={true}
+                        justifyContent="flex-start"
+                        className="selectedDateCustomContainer"
+                    >
+                        <span>
+                            {
+                                ConvertToPersianDigit(selectedDate.day)
+                            }
+                        </span>
+
+                        <span>
+                            {
+                                selectedDate.month.name
+                            }
+                        </span>
+
+                        <span>
+                            {
+                                ConvertToPersianDigit(selectedDate.year)
+                            }
+                        </span>
+                    </CustomContainer>
                     :
                     null
             }
-
-            {/*}
-
-            {
-                selectedDate !== null
-                ?
-                null// moment(selectedDate,'MMMM').locale('fa').format('MMMM')
-                moment(selectedDate,'DD').locale('fa').format('DD')
-                moment(Date.now(),'MMMM').locale('fa').format('MMMM')
-                getNameOfTheDay(selectedDate.getDay())
-                :
-                null                    
-            } */}
 
             {
                 showConfirmSelectTimeModal === true
@@ -100,3 +103,32 @@ const SelectDeliveryTime = () => {
 }
 
 export default SelectDeliveryTime;
+
+            {/*}
+            {
+                selectedDate !== null
+                ?
+                null// moment(selectedDate,'MMMM').locale('fa').format('MMMM')
+                moment(selectedDate,'DD').locale('fa').format('DD')
+                moment(Date.now(),'MMMM').locale('fa').format('MMMM')
+                getNameOfTheDay(selectedDate.getDay())
+                :
+                null                    
+            } */}
+
+            {/* /* <PersianDatePicker
+                input={false}
+                onSelectDay={(date) => selectedDateHandler(date)}
+            /> /* */}
+
+            // {
+            //     selectedDate !== null
+            //         ?
+            //         // null// moment(selectedDate,'MMMM').locale('fa').format('MMMM')
+            //         // moment(selectedDate,'MMMM').locale('fa').format('MMMM')
+            //         selectedDate.month.name
+            //         // moment(Date.now(),'MMMM').locale('fa').format('MMMM')
+            //         // Date.now()
+            //         :
+            //         null
+            // }

@@ -6,8 +6,12 @@ import {
     Wrapper
 } from './styles';
 import routePaths from '../../../Routes/NameSpace';
+import CheckoutActions from '../../../Redux/Checkout/Actions';
+import { useDispatch } from 'react-redux';
 
 const FinalPricesAndDiscount = (props) => {
+
+    const dispatch = useDispatch();
 
     const {
         numberOfItems
@@ -50,6 +54,7 @@ const FinalPricesAndDiscount = (props) => {
                     color="white"
                     fontSize="18px"
                     fontWeight="bold"
+                    onClick={() => dispatch(CheckoutActions.showConfirmSelectTimeModalHandler({}))}
                 />            
             </Link>
         </Wrapper>
