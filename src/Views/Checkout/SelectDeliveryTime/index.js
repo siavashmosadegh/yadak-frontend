@@ -8,7 +8,7 @@ import {
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 import ClockIcon from '../../../Icons/Checkout/ClockIcon';
 import { useDispatch, useSelector } from 'react-redux';
-import ConfirmSelectTimeModal from '../Modals/ConfirmSelectTimeModal';
+import ConfirmSelectTimeAddressModal from '../Modals/ConfirmSelectTimeAddressModal';
 import DatePicker from 'react-multi-date-picker';
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
@@ -21,7 +21,7 @@ const SelectDeliveryTime = () => {
     const [selectedDate, setSelectedDate] = useState(null);
 
     const {
-        showConfirmSelectTimeModal
+        showConfirmSelectTimeAddressModal
     } = useSelector((state) => state.Checkout);
 
     // const selectedDateHandler = (date) => {
@@ -90,9 +90,9 @@ const SelectDeliveryTime = () => {
             }
 
             {
-                showConfirmSelectTimeModal === true
+                showConfirmSelectTimeAddressModal === true
                     ?
-                    <ConfirmSelectTimeModal
+                    <ConfirmSelectTimeAddressModal
                         selectedDate={selectedDate}
                     />
                     :

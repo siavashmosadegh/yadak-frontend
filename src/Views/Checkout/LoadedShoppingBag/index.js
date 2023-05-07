@@ -20,7 +20,11 @@ const LoadedShoppingBag = (props) => {
 
     return (
         <Wrapper>
-            <Header>
+            <Header
+                disableMediaQuery={true}
+            >
+                <span className="headerTitle">سبد خرید شما</span>
+
                 <DeleteEverythingButton
                     onClick={() => dispatch(CheckoutActions.deleteEverythingHandler({}))}
                 >
@@ -30,8 +34,6 @@ const LoadedShoppingBag = (props) => {
                         <TrashIcon />
                     </TrashIconContainer>
                 </DeleteEverythingButton>
-
-                <span className="headerTitle">سبد خرید شما</span>
             </Header>
             {
                 items.map( (item) => {

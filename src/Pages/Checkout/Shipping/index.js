@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import CheckoutNavigation from '../../../Views/Checkout/CheckoutNavigation';
 import {
     Wrapper,
-    SelectDeliveryInfo,
-    Line
+    SelectDeliveryInfo
 } from './styles';
 import FinalPricesAndDiscount from '../../../Views/Checkout/FinalPricesAndDiscount/index';
 import Address from '../../../Views/Checkout/Address';
 import { useSelector } from 'react-redux';
 import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 import ChangeEditAddressModal from '../../../Views/Checkout/Modals/ChangeEditAddressModal';
-// import PersianDatePicker from '@skhazaei/persian-date-picker';
-import moment from 'jalali-moment';
 import SelectDeliveryTime from '../../../Views/Checkout/SelectDeliveryTime';
 
 const CheckoutShipping = () => {
@@ -37,8 +34,6 @@ const CheckoutShipping = () => {
                     alignItems="flex-end"
                 >
                     <Address />
-
-                    {/* <Line /> */}
 
                     <SelectDeliveryTime />
                 </SelectDeliveryInfo>

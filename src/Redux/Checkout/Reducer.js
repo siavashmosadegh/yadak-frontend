@@ -105,7 +105,7 @@ const initState = {
         }
     ],
     showChangeEditAddressModal: false,
-    showConfirmSelectTimeModal: false
+    showConfirmSelectTimeAddressModal: false
 }
 
 export default function Reducer (state = initState, action) {
@@ -125,15 +125,15 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 showChangeEditAddressModal: false
             };
-        case Types.SHOW_CONFIRM_SELECT_TIME_MODAL:
+        case Types.SHOW_CONFIRM_SELECT_TIME_ADDRESS_MODAL:
             return {
                 ...state,
-                showConfirmSelectTimeModal: true
+                showConfirmSelectTimeAddressModal: true
             };
-        case Types.CLOSE_CONFIRM_SELECT_TIME_MODAL:
+        case Types.CLOSE_CONFIRM_SELECT_TIME_ADDRESS_MODAL:
             return {
                 ...state,
-                showConfirmSelectTimeModal: false
+                showConfirmSelectTimeAddressModal: false
             };
         default:
             return state;

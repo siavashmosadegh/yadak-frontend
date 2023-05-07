@@ -3,11 +3,10 @@ import CustomModal from '../../../../UI-Kit/CustomModal';
 import { useDispatch } from 'react-redux';
 import CheckoutActions from '../../../../Redux/Checkout/Actions';
 import { Wrapper } from './styles';
-import moment from 'jalali-moment';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import CustomButton from '../../../../UI-Kit/CustomButton';
 
-const ConfirmSelectTimeModal = (props) => {
+const ConfirmSelectTimeAddressModal = (props) => {
 
     const dispatch = useDispatch();
 
@@ -15,30 +14,11 @@ const ConfirmSelectTimeModal = (props) => {
         selectedDate
     } = props;
 
-    const getNameOfTheDay = (day) => {
-        switch (day) {
-            case 0:
-                return "شنبه";
-            case 1:
-                return "یکشنبه";
-            case 2:
-                return "دوشنبه";
-            case 3:
-                return "سه شنبه";
-            case 4:
-                return "چهارشنبه";
-            case 5:
-                return "پنج شنبه";
-            case 6:
-                return "جمعه";
-        }
-    }
-
     return (
         <CustomModal
             width="400px"
             height="400px"
-            closeCustomModalHandler={() => dispatch(CheckoutActions.closeConfirmSelectTimeModalHandler({}))}
+            closeCustomModalHandler={() => dispatch(CheckoutActions.closeConfirmSelectTimeAddressModalHandler({}))}
             headerTitle="تایید زمان ارسال"
             modalBackgroundColor="white"
             headerHeight="50px"
@@ -46,22 +26,6 @@ const ConfirmSelectTimeModal = (props) => {
         >
             <Wrapper>
                 <p className="title">آیا زمان زیر را تایید میکنید ؟</p>
-
-                {/* {
-                selectedDate !== null
-                    ?
-                    moment(selectedDate,'MMMM').locale('fa').format('MMMM')
-                    :
-                    null
-                }
-
-                {
-                    selectedDate !== null
-                    ?
-                    getNameOfTheDay(selectedDate.getDay())
-                    :
-                    null                    
-                } */}
 
                 {
                     selectedDate !== null
@@ -97,6 +61,7 @@ const ConfirmSelectTimeModal = (props) => {
                         color="white"
                         fontSize="20px"
                         fontWeight="bold"
+                        onClick={() => dispatch(CheckoutActions.closeConfirmSelectTimeAddressModalHandler({}))}
                     >
                     </CustomButton>
                 </CustomContainer>
@@ -105,4 +70,20 @@ const ConfirmSelectTimeModal = (props) => {
     );
 }
 
-export default ConfirmSelectTimeModal;
+export default ConfirmSelectTimeAddressModal;
+
+{/* {
+selectedDate !== null
+    ?
+    moment(selectedDate,'MMMM').locale('fa').format('MMMM')
+    :
+    null
+}
+
+{
+    selectedDate !== null
+    ?
+    getNameOfTheDay(selectedDate.getDay())
+    :
+    null                    
+} */}

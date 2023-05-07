@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+    margin-inline: ${(props) => props.type === "inCheckout" ? "10px" : "0px"};
+
     .row {
         display: flex;
         align-items: center;

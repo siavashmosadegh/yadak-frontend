@@ -17,7 +17,9 @@ const CheckoutItem = (props) => {
     } = props;
 
     return (
-        <Wrapper>
+        <Wrapper
+            type={type}
+        >
             <div className="row">
                 <LeftDiv>
                     <p className="title">{item.title}</p>

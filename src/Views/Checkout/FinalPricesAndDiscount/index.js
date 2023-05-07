@@ -44,18 +44,20 @@ const FinalPricesAndDiscount = (props) => {
             </Item>
 
             <Link to={routePaths.checkoutShipping}>
-                <CustomButton
-                    width="100%"
-                    height="40px"
-                    title="ادامه"
-                    backgroundColor="red"
-                    borderRadius="10px"
-                    border="none"
-                    color="white"
-                    fontSize="18px"
-                    fontWeight="bold"
-                    onClick={() => dispatch(CheckoutActions.showConfirmSelectTimeModalHandler({}))}
-                />            
+                <div className="buttonContainer">
+                    <CustomButton
+                        width="100%"
+                        height="40px"
+                        title="ادامه"
+                        backgroundColor="red"
+                        borderRadius="10px"
+                        border="none"
+                        color="white"
+                        fontSize="18px"
+                        fontWeight="bold"
+                        onClick={() => dispatch(CheckoutActions.showConfirmSelectTimeAddressModalHandler({}))}
+                    />
+                </div>
             </Link>
         </Wrapper>
     );
