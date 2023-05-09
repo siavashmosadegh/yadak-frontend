@@ -40,6 +40,7 @@ const CheckoutShipping = () => {
 
                 <FinalPricesAndDiscount
                     numberOfItems={shoppingBag.length}
+                    selectedDate={selectedDate}
                 />
             </CustomContainer>
 

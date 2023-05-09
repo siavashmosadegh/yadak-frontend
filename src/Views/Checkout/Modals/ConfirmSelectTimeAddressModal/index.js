@@ -5,6 +5,7 @@ import CheckoutActions from '../../../../Redux/Checkout/Actions';
 import { Wrapper } from './styles';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import CustomButton from '../../../../UI-Kit/CustomButton';
+import ConvertToPersianDigit from '../../../../Util/ConvertToPersianDigit';
 
 const ConfirmSelectTimeAddressModal = (props) => {
 
@@ -29,10 +30,31 @@ const ConfirmSelectTimeAddressModal = (props) => {
 
                 {
                     selectedDate !== null
-                        ?
-                        selectedDate.year
-                        :
-                        null
+                    ?
+                    <CustomContainer
+                        disableMediaQuery={true}
+                        justifyContent="flex-start"
+                    >
+                        <span>
+                            {
+                                ConvertToPersianDigit(selectedDate.day)
+                            }
+                        </span>
+
+                        <span>
+                            {
+                                selectedDate.month.name
+                            }
+                        </span>
+
+                        <span>
+                            {
+                                ConvertToPersianDigit(selectedDate.year)
+                            }
+                        </span>
+                    </CustomContainer>
+                    :
+                    null
                 }
 
                 <CustomContainer

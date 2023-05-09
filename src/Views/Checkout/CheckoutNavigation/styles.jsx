@@ -16,7 +16,7 @@ export const NavigationItemsContainer = styled.div`
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 70%;
     margin-top: 20px;
 `;

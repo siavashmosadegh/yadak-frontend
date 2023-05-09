@@ -14,8 +14,13 @@ const FinalPricesAndDiscount = (props) => {
     const dispatch = useDispatch();
 
     const {
-        numberOfItems
+        numberOfItems,
+        selectedDate
     } = props;
+
+    const continueButtonOnClickHandler = () => {
+        dispatch(CheckoutActions.showConfirmSelectTimeAddressModalHandler({}));
+    }
 
     return (
         <Wrapper>
@@ -55,7 +60,7 @@ const FinalPricesAndDiscount = (props) => {
                         color="white"
                         fontSize="18px"
                         fontWeight="bold"
-                        onClick={() => dispatch(CheckoutActions.showConfirmSelectTimeAddressModalHandler({}))}
+                        onClick={continueButtonOnClickHandler}
                     />
                 </div>
             </Link>

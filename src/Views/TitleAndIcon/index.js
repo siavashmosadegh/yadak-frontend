@@ -5,6 +5,7 @@ import ShoppingBagIconTwo from '../../Icons/Checkout/ShoppingBagIconTwo';
 import TruckTransportIcon from '../../Icons/Checkout/TruckTransportIcon';
 import {
     IconContainer,
+    Line,
     TitleAndIconWrapper,
     TitleContainer
 } from './styles';
@@ -43,7 +44,10 @@ const TitleAndIcon = (props) => {
     },[location]);
 
     return (
-        <TitleAndIconWrapper>
+        <TitleAndIconWrapper
+            justifyContent="center"
+            disableMediaQuery={true}
+        >
             <Link
                 to={goTo}
             >
@@ -60,6 +64,14 @@ const TitleAndIcon = (props) => {
                     {title}
                 </TitleContainer>
             </Link>
+
+            {
+                icon !== 'OnlinePaymentIcon'
+                    ?
+                    <Line />
+                    :
+                    null
+            }
         </TitleAndIconWrapper>
     );
 }
