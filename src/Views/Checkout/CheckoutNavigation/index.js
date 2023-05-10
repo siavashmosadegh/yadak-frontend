@@ -16,18 +16,12 @@ const CheckoutNavigation = () => {
         navigationItems
     } = useSelector((state) => state.Checkout);
 
-    // id: 0,
-    // title: "سبد خرید",
-    // icon: "ShoppingBagIconTwo",
-    // goTo: routePaths.checkoutCart,
-    // active: "/checkout/card",
-    // fill: "none"
-
     const navigationItemsContent = () => {
         return (
             navigationItems.map((item) => {
                 return (
                     <TitleAndIcon
+                        key={item.id}
                         location={location.pathname}
                         title={item.title}
                         icon={item.icon}

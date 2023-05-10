@@ -8,6 +8,7 @@ import {
 import routePaths from '../../../Routes/NameSpace';
 import CheckoutActions from '../../../Redux/Checkout/Actions';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const FinalPricesAndDiscount = (props) => {
 
@@ -18,9 +19,17 @@ const FinalPricesAndDiscount = (props) => {
         selectedDate
     } = props;
 
-    const continueButtonOnClickHandler = () => {
-        dispatch(CheckoutActions.showConfirmSelectTimeAddressModalHandler({}));
+    function continueButtonOnClickHandler () {
+        if (selectedDate === null || selectedDate === undefined) {
+        } else {
+            console.log(selectedDate);
+            dispatch(CheckoutActions.showConfirmSelectTimeAddressModalHandler({}));
+        }
     }
+
+    useEffect(() => {
+        dispatch(CheckoutActions.closeConfirmSelectTimeAddressModalHandler({}));
+    },[]);
 
     return (
         <Wrapper>

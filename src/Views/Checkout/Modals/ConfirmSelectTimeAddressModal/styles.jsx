@@ -18,4 +18,17 @@ export const Wrapper = styled.div`
             margin-left: 5px;
         }
     }
+
+    .location {
+        margin-bottom: 15px;
+        p {
+            text-align: right;
+        }
+    }
+
+    a {
+        width: 30%;
+        height: 50px;
+        text-decoration: none;
+    }
 `;

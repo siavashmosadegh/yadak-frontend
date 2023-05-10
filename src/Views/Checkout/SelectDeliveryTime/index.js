@@ -14,11 +14,14 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import ConvertToPersianDigit from '../../../Util/ConvertToPersianDigit';
 
-const SelectDeliveryTime = () => {
+const SelectDeliveryTime = (props) => {
+
+    const {
+        selectedDate,
+        setSelectedDate
+    } = props;
 
     const dispatch = useDispatch();
-
-    const [selectedDate, setSelectedDate] = useState(null);
 
     const {
         showConfirmSelectTimeAddressModal

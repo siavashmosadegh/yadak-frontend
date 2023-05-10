@@ -19,8 +19,6 @@ const CheckoutShipping = () => {
     } = useSelector((state) => state.Checkout);
 
     const [selectedDate, setSelectedDate] = useState(null);
-    
-    console.log(selectedDate);
 
     return (
         <Wrapper>
@@ -35,7 +33,10 @@ const CheckoutShipping = () => {
                 >
                     <Address />
 
-                    <SelectDeliveryTime />
+                    <SelectDeliveryTime
+                        selectedDate={selectedDate}
+                        setSelectedDate={setSelectedDate}
+                    />
                 </SelectDeliveryInfo>
 
                 <FinalPricesAndDiscount
