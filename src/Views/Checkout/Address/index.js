@@ -7,12 +7,32 @@ import {
     LocationIconContainer,
     Wrapper
 } from './styles';
-import { useDispatch } from 'react-redux';
+import {
+    useDispatch,
+    useSelector
+} from 'react-redux';
 import CheckoutActions from '../../../Redux/Checkout/Actions';
+import { useEffect } from 'react';
+import UserActions from '../../../Redux/User/Actions';
 
 const Address = () => {
 
     const dispatch = useDispatch();
+
+    const {
+        addresses,
+        selectedAddress
+    } = useSelector((state) => state.User);
+
+    console.log(selectedAddress);
+
+    useEffect(() => {
+        if (addresses === null || addresses.length === 0) {
+
+        } else {
+            dispatch(UserActions.selectAddressHandler(addresses[0]));
+        }
+    },[]);
 
     return (
         <Wrapper>
@@ -29,7 +49,15 @@ const Address = () => {
                         <LocationIcon />
                     </LocationIconContainer>
 
-                    <p>ونک / برزیل شرقی / نیلو / سمت چپ</p>
+                    <p>
+                        {
+                            selectedAddress !== null
+                                ?
+                                selectedAddress.title
+                                :
+                                null
+                        }
+                    </p>
                 </CustomContainer>
 
                 <CustomContainer

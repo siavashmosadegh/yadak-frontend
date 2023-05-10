@@ -28,34 +28,36 @@ const ConfirmSelectTimeAddressModal = (props) => {
             <Wrapper>
                 <p className="title">آیا زمان زیر را تایید میکنید ؟</p>
 
-                {
-                    selectedDate !== null
-                    ?
-                    <CustomContainer
-                        disableMediaQuery={true}
-                        justifyContent="flex-start"
-                    >
-                        <span>
-                            {
-                                ConvertToPersianDigit(selectedDate.day)
-                            }
-                        </span>
+                <div className='time'>
+                    {
+                        selectedDate !== null
+                        ?
+                        <CustomContainer
+                            disableMediaQuery={true}
+                            justifyContent="flex-start"
+                        >
+                            <span>
+                                {
+                                    ConvertToPersianDigit(selectedDate.day)
+                                }
+                            </span>
 
-                        <span>
-                            {
-                                selectedDate.month.name
-                            }
-                        </span>
+                            <span>
+                                {
+                                    selectedDate.month.name
+                                }
+                            </span>
 
-                        <span>
-                            {
-                                ConvertToPersianDigit(selectedDate.year)
-                            }
-                        </span>
-                    </CustomContainer>
-                    :
-                    null
-                }
+                            <span>
+                                {
+                                    ConvertToPersianDigit(selectedDate.year)
+                                }
+                            </span>
+                        </CustomContainer>
+                        :
+                        null
+                    }
+                </div>
 
                 <CustomContainer
                     disableMediaQuery={true}

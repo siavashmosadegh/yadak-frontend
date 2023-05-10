@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
 
     .title {
         text-align: right;
+        margin-right: 10px;
     }
 
     .changeEditText {
@@ -33,6 +34,7 @@ export const LocationIconContainer = styled.div`
     width: auto;
     margin-top: 8px;
     margin-left: 5px;
+    margin-right: 5px;
     svg {
         width: 30px;
         height: 30px;

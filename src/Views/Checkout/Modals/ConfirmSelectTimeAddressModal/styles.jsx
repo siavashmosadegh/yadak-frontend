@@ -9,4 +9,13 @@ export const Wrapper = styled.div`
         padding: 0;
         margin: 0;
     }
+
+    .time {
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        span {
+            margin-left: 5px;
+        }
+    }
 `;
