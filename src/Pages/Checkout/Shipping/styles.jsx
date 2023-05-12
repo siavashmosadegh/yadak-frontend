@@ -3,6 +3,10 @@ import CustomContainer from '../../../UI-Kit/Grid/CustomContainer';
 
 export const Wrapper = styled.div`
     padding-inline: 50px;
+
+    @media (max-width: 600px) {
+        padding-inline: 30px;
+    }
 `;
 
 export const SelectDeliveryInfo = styled(CustomContainer)`
