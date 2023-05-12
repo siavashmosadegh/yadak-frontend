@@ -59,6 +59,7 @@ const CheckoutCart = () => {
             <>
                 <FinalPricesAndDiscount
                     numberOfItems={shoppingBag.length}
+                    buttonTitle="ثبت سفارش"
                 />
                 <LoadedShoppingBag
                     items={shoppingBag}

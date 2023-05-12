@@ -16,7 +16,8 @@ const FinalPricesAndDiscount = (props) => {
 
     const {
         numberOfItems,
-        selectedDate
+        selectedDate,
+        buttonTitle
     } = props;
 
     function continueButtonOnClickHandler () {
@@ -62,7 +63,7 @@ const FinalPricesAndDiscount = (props) => {
                     <CustomButton
                         width="100%"
                         height="40px"
-                        title="ادامه"
+                        title={buttonTitle}
                         backgroundColor="red"
                         borderRadius="10px"
                         border="none"

@@ -42,6 +42,7 @@ const CheckoutShipping = () => {
                 <FinalPricesAndDiscount
                     numberOfItems={shoppingBag.length}
                     selectedDate={selectedDate}
+                    buttonTitle="ثبت سفارش"
                 />
             </CustomContainer>
 
