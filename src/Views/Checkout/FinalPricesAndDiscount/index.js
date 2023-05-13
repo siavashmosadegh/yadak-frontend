@@ -17,7 +17,8 @@ const FinalPricesAndDiscount = (props) => {
     const {
         numberOfItems,
         selectedDate,
-        buttonTitle
+        buttonTitle,
+        currentPage
     } = props;
 
     function continueButtonOnClickHandler () {
@@ -31,6 +32,19 @@ const FinalPricesAndDiscount = (props) => {
     useEffect(() => {
         dispatch(CheckoutActions.closeConfirmSelectTimeAddressModalHandler({}));
     },[]);
+
+    const linkHandler = () => {
+        switch (currentPage) {
+            case 'cart':
+                return routePaths.checkoutShipping;
+            case 'shipping':
+                return '#';
+            case 'payment':
+                return routePaths.pardakht;
+            default:
+                return null;
+        }
+    }
 
     return (
         <Wrapper>
@@ -58,7 +72,9 @@ const FinalPricesAndDiscount = (props) => {
                 <p>سود شما از خرید</p>
             </Item>
 
-            <Link to={routePaths.checkoutShipping}>
+            <Link
+                to={linkHandler()}
+            >
                 <div className="buttonContainer">
                     <CustomButton
                         width="100%"

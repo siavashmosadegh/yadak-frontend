@@ -45,54 +45,54 @@ const ProfileSubmitOpinionForm = () => {
     const suggestionContent = (formik) => {
         return (
             <SuggestionWrapper>
-                 <p>خرید این محصول را به دیگران</p>
+                    <p>خرید این محصول را به دیگران</p>
 
-                 <CustomContainer
-                     disableMediaQuery={true}
-                     justifyContent="space-evenly"
-                 >
-                     <DislikeCustomContainer
-                         disableMediaQuery={true}
-                         flexDirection="column"
-                         activeIcon={formik.values.activeIcon}
-                     >
-                         <DislikeIconContainer
-                             activeIcon={formik.values.activeIcon}
-                         >
-                             <DislikeIcon />
-                         </DislikeIconContainer>
+                    <CustomContainer
+                        disableMediaQuery={true}
+                        justifyContent="space-evenly"
+                    >
+                        <DislikeCustomContainer
+                            disableMediaQuery={true}
+                            flexDirection="column"
+                            activeIcon={formik.values.activeIcon}
+                        >
+                            <DislikeIconContainer
+                                activeIcon={formik.values.activeIcon}
+                            >
+                                <DislikeIcon />
+                            </DislikeIconContainer>
 
-                         <p>پیشنهاد نمیکنم</p>
+                            <p>پیشنهاد نمیکنم</p>
 
-                         <Field className="styledField" type="radio" name="activeIcon" value="dislike" onChange={(e) => FormHandlers.onChange(e,formik)} />
-                     </DislikeCustomContainer>
+                            <Field className="styledField" type="radio" name="activeIcon" value="dislike" onChange={(e) => FormHandlers.onChange(e,formik)} />
+                        </DislikeCustomContainer>
 
-                     <QuestionCustomContainer
-                         disableMediaQuery={true}
-                         flexDirection="column"
-                         activeIcon={formik.values.activeIcon}
-                     >
-                         <QuestionIconContainer
-                             activeIcon={formik.values.activeIcon}
-                         >
-                             <QuestionIcon />
-                         </QuestionIconContainer>
+                        <QuestionCustomContainer
+                            disableMediaQuery={true}
+                            flexDirection="column"
+                            activeIcon={formik.values.activeIcon}
+                        >
+                            <QuestionIconContainer
+                                activeIcon={formik.values.activeIcon}
+                            >
+                                <QuestionIcon />
+                            </QuestionIconContainer>
 
-                         <p>مطمعن نیستم</p>
+                            <p>مطمعن نیستم</p>
 
-                         <Field className="styledField" type="radio" name="activeIcon" value="question" onChange={(e) => FormHandlers.onChange(e,formik)} />
-                     </QuestionCustomContainer>
+                            <Field className="styledField" type="radio" name="activeIcon" value="question" onChange={(e) => FormHandlers.onChange(e,formik)} />
+                        </QuestionCustomContainer>
 
-                     <LikeCustomContainer
-                         disableMediaQuery={true}
-                         flexDirection="column"
-                         activeIcon={formik.values.activeIcon}
-                     >
-                         <LikeIconContainer
-                             activeIcon={formik.values.activeIcon}
-                         >
-                             <LikeIcon />
-                         </LikeIconContainer>
+                        <LikeCustomContainer
+                            disableMediaQuery={true}
+                            flexDirection="column"
+                            activeIcon={formik.values.activeIcon}
+                        >
+                            <LikeIconContainer
+                                activeIcon={formik.values.activeIcon}
+                            >
+                                <LikeIcon />
+                            </LikeIconContainer>
 
                         <p>پیشنهاد میکنم</p>
 

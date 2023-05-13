@@ -32,6 +32,7 @@ const CheckoutPayment = () => {
                 <FinalPricesAndDiscount
                     numberOfItems={shoppingBag.length}
                     buttonTitle="پرداخت"
+                    currentPage="payment"
                 />
             </CustomContainer>
         </Wrapper>

@@ -3,7 +3,9 @@ import {
     FormContainer,
     Form,
     PaymentMethodContentWrapper,
-    CreditCardIconContainer
+    CreditCardIconContainer,
+    CashOnDeliveryIconContainer,
+    AddDiscountCodeContentWrapper
 } from './styles';
 import {
     Formik,
@@ -13,6 +15,8 @@ import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import FormHandlers from '../../../../Util/FormHandlers';
 import CreditCardIcon from '../../../../Icons/Checkout/CreditCardIcon';
 import CashOnDeliveryIcon from '../../../../Icons/Slogan/CashOnDeliveryIcon';
+import CustomButton from '../../../../UI-Kit/CustomButton';
+import { CheckoutPaymentInfoFormSchema } from '../../../../Validation/Checkout/Schema';
 
 const PaymentInfoForm = () => {
 
@@ -44,13 +48,71 @@ const PaymentInfoForm = () => {
                 >
                     <Field className="styledField" type="radio" name="paymentMethod" value="cashondelivery" onChange={(e) => FormHandlers.onChange(e,formik)} />
 
-                    <CashOnDeliveryIcon />
+                    <CashOnDeliveryIconContainer>
+                        <CashOnDeliveryIcon />
+                    </CashOnDeliveryIconContainer>
 
                     <p>پرداخت در محل</p>
+                </CustomContainer>
+
+                
+                <CustomContainer
+                    disableMediaQuery={true}
+                    className="styledCustomContainer"
+                    justifyContent="flex-start"
+                >
+                    {
+                        formik.errors.paymentMethod && formik.touched.paymentMethod === true
+                            ?
+                            <p className="paymentMethodError">
+                                {
+                                    formik.errors.paymentMethod
+                                }
+                            </p>
+                            :
+                            null
+                    }
                 </CustomContainer>
             </PaymentMethodContentWrapper>
         );
     }
+
+    const addDiscountCodeContent = (formik) => {
+        return (
+            <AddDiscountCodeContentWrapper>
+                <h3>کد تخفیف</h3>
+
+                <CustomContainer
+                    disableMediaQuery={true}
+                    className="styledCustomContainer"
+                >
+                    <input
+                        name="addDiscountCode"
+                        value={formik.values.addDiscountCode}
+                        onChange={(e) => FormHandlers.onChange(e,formik)}
+                    />
+                </CustomContainer>
+
+                <CustomContainer
+                    disableMediaQuery={true}
+                    className="styledCustomContainer"
+                >
+                    <CustomButton
+                        width="60px"
+                        height="30px"
+                        title="ثبت"
+                        backgroundColor="red"
+                        borderRadius="5px"
+                        border="none"
+                        color="white"
+                        fontSize="15px"
+                        fontWeight="bold"
+                    />
+                </CustomContainer>
+            </AddDiscountCodeContentWrapper>
+        );
+    }
+
     return (
         <FormContainer>
             <Formik
@@ -59,7 +121,7 @@ const PaymentInfoForm = () => {
                     addDiscountCode: "", // افزودن کد تخفیف
                     addGiftCard: "", // افزودن کارت هدیه
                 }}
-                validationSchema=""
+                validationSchema={CheckoutPaymentInfoFormSchema}
                 onSubmit={(values, action) => {
                     console.log(values);
                 }}
@@ -69,6 +131,14 @@ const PaymentInfoForm = () => {
                         onSubmit={formik.handleSubmit}
                     >
                         {paymentMethodContent(formik)}
+
+
+
+                        {addDiscountCodeContent(formik)}
+
+                        <button>
+                            asdfasdf
+                        </button>
                     </Form>
                 )}
             </Formik>

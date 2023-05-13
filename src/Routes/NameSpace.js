@@ -12,5 +12,6 @@ export default {
   search: '/search/*',
   checkoutCart: '/checkout/cart',
   checkoutShipping: '/checkout/shipping',
-  checkoutPayment: '/checkout/payment'
+  checkoutPayment: '/checkout/payment',
+  pardakht: 'صفحه ی پرداخت'
 };

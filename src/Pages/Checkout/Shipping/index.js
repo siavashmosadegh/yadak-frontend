@@ -43,6 +43,7 @@ const CheckoutShipping = () => {
                     numberOfItems={shoppingBag.length}
                     selectedDate={selectedDate}
                     buttonTitle="ثبت سفارش"
+                    currentPage="shipping"
                 />
             </CustomContainer>
 
