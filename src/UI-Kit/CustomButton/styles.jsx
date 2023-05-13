@@ -6,10 +6,10 @@ export const Button = styled.button`
     justify-content: center;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.disabled === true ? props.disabledBackgroundColor : props.backgroundColor};
     border-radius: ${(props) => props.borderRadius};
-    border: ${(props) => props.border};
-    color: ${(props) => props.color};
+    border: ${(props) => props.disabled === true ? props.disabledBorder : props.border};
+    color: ${(props) => props.disabled === true ? props.disabledColor : props.color};
     font-size: ${(props) => props.fontSize};
     font-weight: ${(props) => props.fontWeight};
 `;

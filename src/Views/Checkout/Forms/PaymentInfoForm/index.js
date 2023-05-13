@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     FormContainer,
     Form,
@@ -8,8 +8,9 @@ import {
     AddDiscountCodeContentWrapper
 } from './styles';
 import {
-    Formik,
-    Field
+    useFormik,
+    Field,
+    FormikProvider
 } from 'formik';
 import CustomContainer from '../../../../UI-Kit/Grid/CustomContainer';
 import FormHandlers from '../../../../Util/FormHandlers';
@@ -19,6 +20,23 @@ import CustomButton from '../../../../UI-Kit/CustomButton';
 import { CheckoutPaymentInfoFormSchema } from '../../../../Validation/Checkout/Schema';
 
 const PaymentInfoForm = () => {
+
+    const formik = useFormik({
+        initialValues: {
+            paymentMethod: "", // انتخاب روش پرداخت
+            addDiscountCode: "", // افزودن کد تخفیف
+            addGiftCard: "", // افزودن کارت هدیه
+        },
+        validationSchema: CheckoutPaymentInfoFormSchema,
+        onSubmit: values => {
+            console.log(values);
+        },
+    });
+
+    useEffect(() => {
+        console.log(formik.errors.paymentMethod);
+        console.log(formik.touched.paymentMethod);
+    },[formik.errors.paymentMethod,formik.touched.paymentMethod]);
 
     const paymentMethodContent = (formik) => {
         return (
@@ -115,33 +133,19 @@ const PaymentInfoForm = () => {
 
     return (
         <FormContainer>
-            <Formik
-                initialValues={{
-                    paymentMethod: "", // انتخاب روش پرداخت
-                    addDiscountCode: "", // افزودن کد تخفیف
-                    addGiftCard: "", // افزودن کارت هدیه
-                }}
-                validationSchema={CheckoutPaymentInfoFormSchema}
-                onSubmit={(values, action) => {
-                    console.log(values);
-                }}
-            >
-                {(formik) => (
-                    <Form
-                        onSubmit={formik.handleSubmit}
-                    >
-                        {paymentMethodContent(formik)}
+            <FormikProvider value={formik}>
+                <Form
+                    onSubmit={formik.handleSubmit}
+                >
+                    {paymentMethodContent(formik)}
 
+                    {addDiscountCodeContent(formik)}
 
-
-                        {addDiscountCodeContent(formik)}
-
-                        <button>
-                            asdfasdf
-                        </button>
-                    </Form>
-                )}
-            </Formik>
+                    <button>
+                        asdfasdf
+                    </button>
+                </Form>
+            </FormikProvider>
         </FormContainer>
     );
 }

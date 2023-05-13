@@ -8,13 +8,17 @@ const CustomButton = (props) => {
         height,
         title,
         backgroundColor,
+        disabledBackgroundColor,
         borderRadius,
         border,
+        disabledBorder,
         color,
+        disabledColor,
         fontSize,
         fontWeight,
         onClick,
-        type
+        type,
+        disabled
     } = props;
 
     return (
@@ -22,13 +26,17 @@ const CustomButton = (props) => {
             width={width}
             height={height}
             backgroundColor={backgroundColor}
+            disabledBackgroundColor={disabledBackgroundColor}
             borderRadius={borderRadius}
             border={border}
+            disabledBorder={disabledBorder}
             color={color}
+            disabledColor={disabledColor}
             fontSize={fontSize}
             fontWeight={fontWeight}
             onClick={onClick}
             type={type}
+            disabled={disabled}
         >
             {title}
         </Button>
@@ -36,8 +44,15 @@ const CustomButton = (props) => {
 }
 
 CustomButton.defaultProps = {
+    backgroundColor: "red",
+    disabledBackgroundColor: "white",
+    color: "white",
+    disabledColor: "red",
+    border: "none",
+    disabledBorder: "1px solid red",
     onClick: () => console.log("siavash"),
-    type:"submit"
+    type:"submit",
+    disabled: false
 }
 
 export default CustomButton;

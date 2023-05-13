@@ -18,7 +18,8 @@ const FinalPricesAndDiscount = (props) => {
         numberOfItems,
         selectedDate,
         buttonTitle,
-        currentPage
+        currentPage,
+        disabled
     } = props;
 
     function continueButtonOnClickHandler () {
@@ -87,6 +88,7 @@ const FinalPricesAndDiscount = (props) => {
                         fontSize="18px"
                         fontWeight="bold"
                         onClick={continueButtonOnClickHandler}
+                        disabled={disabled}
                     />
                 </div>
             </Link>
