@@ -141,7 +141,7 @@ const ResponsiveCategoryItem = (props) => {
                 onClick={onClickActiveCategoryItemHandler}
             >
                 <span>
-                    {headerTitle}
+                    {item.FarsiCategoryName}
                 </span>
 
                 <DownAndUpIconContainer

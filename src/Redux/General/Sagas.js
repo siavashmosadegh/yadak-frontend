@@ -55,9 +55,24 @@ export function* GetItems() {
     })
 }
 
+function* fetchProductCategories(action) {
+    try {
+        const products = yield call(() => fetch('http://localhost:8080/api/v1/products/get-all-categories').then(res => res.json()));
+        yield put({ type: 'FETCH_PRODUCT_CATEGORIES_SUCCESS', payload: products });
+    } catch (error) {
+        yield put({ type: 'FETCH_PRODUCT_CATEGORIES_FAILURE', error });
+    }
+}
+  
+  // A watcher saga that listens for specific actions
+function* watchFetchData() {
+    yield takeEvery('FETCH_PRODUCT_CATEGORIES_REQUEST', fetchProductCategories);
+}
+
 export default function* GeneralSagas() {
-    yield all([
-        fork(GetItems)
-    ]);
+    // yield all([
+    //     fork(watchFetchData)
+    // ]);
+    yield watchFetchData(); // All watchers related to productSaga
 }
 

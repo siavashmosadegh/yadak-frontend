@@ -22,24 +22,33 @@ const ResponsiveCategories = () => {
 
     const {
         showResponsiveHeaderCategoriesModal,
-        menuData
+        menuData,
+        loading
     } = useSelector((state) => state.General);
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_PRODUCT_CATEGORIES_REQUEST' });
+    }, []);
+
+    console.log(menuData);
 
     const [activeCategoryItem, setActiveCategoryItem] = useState(null);
 
     const responsiveCategoriesItems = () => {
-        return (
-            menuData.map( (item) => {
-                return (
-                    <ResponsiveCategoryItem
-                        key={item.id}
-                        item={item}
-                        activeCategoryItem={activeCategoryItem}
-                        setActiveCategoryItem={setActiveCategoryItem}
-                    />
-                );
-            })
-        );
+        if (loading === false) {
+            return (
+                menuData.result.map( (item) => {
+                    return (
+                        <ResponsiveCategoryItem
+                            key={item.id}
+                            item={item}
+                            activeCategoryItem={activeCategoryItem}
+                            setActiveCategoryItem={setActiveCategoryItem}
+                        />
+                    );
+                })
+            );
+        }
     }
 
     useEffect(() => {
