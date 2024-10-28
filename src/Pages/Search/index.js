@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from '../../Views/Layout';
 import Filter from '../../Views/Search/Filter';
 import Sort from '../../Views/Search/Sort';
@@ -14,10 +14,24 @@ import FilterModal from '../../Views/Search/Modals/FilterModal';
 import SearchActions from '../../Redux/Search/Actions';
 import {Link} from 'react-router-dom';
 import ProductActions from '../../Redux/Product/Actions';
+import { useParams } from 'react-router-dom';
 
 const Search = () => {
 
     const dispatch = useDispatch();
+
+    const {category} = useParams();
+    
+    const [categoryID, setCategoryID] = useState(category);
+
+    useEffect(() => {
+        setCategoryID(category);
+    }, [category]);
+
+    // useEffect(() => {
+    //     dispatch(OrdersActions.selectActiveOpinionTab(title));
+    //     dispatch({ type: 'SEARCH_PRODUCT_BY_CATEGORY_ID' , data });
+    // });
 
     const {
         showFilterModal

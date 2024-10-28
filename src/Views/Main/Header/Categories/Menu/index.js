@@ -4,6 +4,7 @@ import {
     useSelector,
     useDispatch
 } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
 
@@ -25,7 +26,9 @@ const Menu = () => {
                 {menuData.result.map((item) => {
                     return (
                         <div className="menuItem">
-                            {item.FarsiCategoryName}
+                            <Link to={`search?category=${item.CategoryID}`}>
+                                {item.FarsiCategoryName}
+                            </Link>
                         </div>
                     );
                 })}
