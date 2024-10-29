@@ -14,7 +14,8 @@ const initState = {
         {id: 8,title: "منتخب"}
     ],
     selectedSort: null,
-    showSortDrawer: false
+    showSortDrawer: false,
+    searchedProducts: []
 }
 
 export default function Reducer (state = initState, action) {
@@ -43,6 +44,24 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 showSortDrawer: false
+            };
+        case Types.SEARCH_PRODUCT_BY_CATEGORY_ID:
+            return {
+                ...state,
+                loading: true,
+                // error: null
+            };
+        case Types.SEARCH_PRODUCT_BY_CATEGORY_ID_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                searchedProducts: action.payload
+            };
+        case Types.SEARCH_PRODUCT_BY_CATEGORY_ID_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
             };
         default:
             return state;

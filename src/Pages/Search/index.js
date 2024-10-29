@@ -14,24 +14,51 @@ import FilterModal from '../../Views/Search/Modals/FilterModal';
 import SearchActions from '../../Redux/Search/Actions';
 import {Link} from 'react-router-dom';
 import ProductActions from '../../Redux/Product/Actions';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { searchProductByCategoryID } from '../../Redux/Search/Actions';
 
 const Search = () => {
 
     const dispatch = useDispatch();
 
-    const {category} = useParams();
-    
-    const [categoryID, setCategoryID] = useState(category);
+    // const {category} = useParams();
 
+    
+
+    // Initialize useSearchParams to access query parameters
+    const [searchParams] = useSearchParams();
+
+    // Get the initial `category` parameter from the URL
+    const initialCategory = searchParams.get('category');
+
+    // Initialize useState with the category value
+    const [category, setCategory] = useState(initialCategory || '');
+
+    // Sync the category state if it changes in the URL
     useEffect(() => {
-        setCategoryID(category);
-    }, [category]);
+        console.log(category);
+        if (initialCategory !== category) {
+        setCategory(initialCategory || '');
+        }
+    }, [initialCategory, category]);
+
+    // useEffect(() => {
+    //     setCategoryID(category);
+    // }, [category]);
 
     // useEffect(() => {
     //     dispatch(OrdersActions.selectActiveOpinionTab(title));
     //     dispatch({ type: 'SEARCH_PRODUCT_BY_CATEGORY_ID' , data });
     // });
+
+    
+
+    useEffect(() => {
+        if (category !== null && category !== undefined) {
+            console.log(`category: ${category}`);
+            dispatch(searchProductByCategoryID(category))
+        }
+    },[category]);
 
     const {
         showFilterModal
@@ -40,6 +67,12 @@ const Search = () => {
     const {
         productList
     } = useSelector((state) => state.Product);
+
+    const {
+        searchedProducts
+    } = useSelector((state) => state.Search);
+
+    console.log(`${searchedProducts}`);
 
     const productListContent = () => {
         return (
