@@ -26,7 +26,7 @@ const Menu = () => {
                 {menuData.result.map((item) => {
                     return (
                         <div className="menuItem">
-                            <Link to={`search?category=${item.CategoryID}`}>
+                            <Link to={`/search?category=${item.CategoryID}`}>
                                 {item.FarsiCategoryName}
                             </Link>
                         </div>
