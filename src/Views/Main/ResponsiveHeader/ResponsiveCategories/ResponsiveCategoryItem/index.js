@@ -22,12 +22,20 @@ const ResponsiveCategoryItem = (props) => {
         setActiveCategoryItem
     } = props;
 
+    // const {
+    //     id,
+    //     headerTitle,
+    //     goTo,
+    //     items,
+    // } = item;
     const {
-        id,
-        headerTitle,
-        goTo,
-        items,
+        CategoryID,
+        CategoryName,
+        Description,
+        CreatedDate,
+        FarsiCategoryName
     } = item;
+
 
     // const onClickSelectedItemIdHandler = () => {
     //     if (activeCategoryItem === id) {
@@ -58,79 +66,29 @@ const ResponsiveCategoryItem = (props) => {
     }
 
     const itemsContent = () => {
-        if (items !== null && items.length !== 0) {
+        //if (items !== null && items.length !== 0) {
             return (
                 <ItemsDiv>
                     <div className="allOfTheThings">
-                        <Link to={goTo}>همه ی موارد این دسته</Link>
+                        <Link to={`/search?category=${CategoryID}`}>همه ی موارد این دسته</Link>
 
                         <LeftArrowIconContainer>
                             <LeftArrowIcon />
                         </LeftArrowIconContainer>
                     </div>
-                    {items.map( (item) => {
-                        return (
-                            <>
-                                <div
-                                    className="itemDiv"
-                                    // onClick={() => setSelectedItemId(item.id)}
-                                    onClick={() => {
-                                        if (selectedItemId === item.id) {
-                                            setSelectedItemId(null);
-                                        } else {
-                                            setSelectedItemId(item.id);
-                                        }
-                                    }}
-                                    id={item.id}
-                                    selectedItemId={selectedItemId}
-                                >
-                                    {item.itemTitle}
-        
-                                    <DownAndUpItemIconContainer
-                                        selectedItemId={selectedItemId}
-                                        id={item.id}
-                                    >
-                                        {
-                                            item.id === selectedItemId
-                                                ?
-                                                <UpArrowIcon />
-                                                :
-                                                <DownArrowIcon />
-                                        }
-                                    </DownAndUpItemIconContainer>                            
-                                </div>
-                                {
-                                    selectedItemId === item.id
-                                        ?
-                                        <>
-                                            <div className="allOfTheThings">
-                                                <Link to={item.goTo}>همه ی موارد این دسته</Link>
-
-                                                <LeftArrowIconContainer>
-                                                    <LeftArrowIcon />
-                                                </LeftArrowIconContainer>
-                                            </div>
-                                            {subItemsContent(item.subItems)}
-                                        </>
-                                        :
-                                        null
-                                }
-                                {/* <div>
-                                    {subItemsContent(item.subItems)}
-                                </div> */}
-                            </>
-                        );
-                    })}
+                    {/* 
+                        اینجا چیزی که در انتهای فایل هست نوشته شده بود
+                    */}
                 </ItemsDiv>
             );
-        }
+        //}
     }
 
     const onClickActiveCategoryItemHandler = () => {
-        if (activeCategoryItem === id) {
+        if (activeCategoryItem === CategoryID) {
             setActiveCategoryItem(null);
         } else {
-            setActiveCategoryItem(id);
+            setActiveCategoryItem(CategoryID);
         }
     }
 
@@ -141,15 +99,15 @@ const ResponsiveCategoryItem = (props) => {
                 onClick={onClickActiveCategoryItemHandler}
             >
                 <span>
-                    {item.FarsiCategoryName}
+                    {FarsiCategoryName}
                 </span>
 
                 <DownAndUpIconContainer
-                    id={id}
+                    id={CategoryID}
                     activeCategoryItem={activeCategoryItem}
                 >
                     {
-                        id === activeCategoryItem
+                        CategoryID === activeCategoryItem
                             ?
                             <UpArrowIcon />
                             :
@@ -158,7 +116,7 @@ const ResponsiveCategoryItem = (props) => {
                 </DownAndUpIconContainer>
             </div>
             {
-                id === activeCategoryItem
+                CategoryID === activeCategoryItem
                     ?
                     itemsContent()
                     :
@@ -169,3 +127,57 @@ const ResponsiveCategoryItem = (props) => {
 }
 
 export default ResponsiveCategoryItem;
+
+// {items.map( (item) => {
+//     return (
+//         <>
+//             <div
+//                 className="itemDiv"
+//                 // onClick={() => setSelectedItemId(item.id)}
+//                 onClick={() => {
+//                     if (selectedItemId === item.id) {
+//                         setSelectedItemId(null);
+//                     } else {
+//                         setSelectedItemId(item.id);
+//                     }
+//                 }}
+//                 id={item.id}
+//                 selectedItemId={selectedItemId}
+//             >
+//                 {item.itemTitle}
+
+//                 <DownAndUpItemIconContainer
+//                     selectedItemId={selectedItemId}
+//                     id={item.id}
+//                 >
+//                     {
+//                         item.id === selectedItemId
+//                             ?
+//                             <UpArrowIcon />
+//                             :
+//                             <DownArrowIcon />
+//                     }
+//                 </DownAndUpItemIconContainer>                            
+//             </div>
+//             {
+//                 selectedItemId === item.id
+//                     ?
+//                     <>
+//                         <div className="allOfTheThings">
+//                             <Link to={item.goTo}>همه ی موارد این دسته</Link>
+
+//                             <LeftArrowIconContainer>
+//                                 <LeftArrowIcon />
+//                             </LeftArrowIconContainer>
+//                         </div>
+//                         {/* {subItemsContent(item.subItems)} */}
+//                     </>
+//                     :
+//                     null
+//             }
+//             {/* <div>
+//                 {subItemsContent(item.subItems)}
+//             </div> */}
+//         </>
+//     );
+// })}
