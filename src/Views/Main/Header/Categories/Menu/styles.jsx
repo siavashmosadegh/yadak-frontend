@@ -25,5 +25,6 @@ export const Wrapper = styled.div`
 
     .subMenu {
         width: calc(100% - 200px);
+        background-color: blue;
     }
 `;
