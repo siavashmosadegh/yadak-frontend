@@ -9,8 +9,6 @@ export const Wrapper = styled.div`
 export const Column = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100px;
-    border: 1px solid black;
+    width: max-content;
     padding: 5px;
-    background-color: #f9f9f9;
 `;

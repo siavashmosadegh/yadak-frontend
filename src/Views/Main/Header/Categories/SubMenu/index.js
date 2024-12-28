@@ -5,6 +5,7 @@ import {
 } from './styles';
 import SubMenuItem from './SubMenuItem';
 import OneDimensionalArrayToTwoDimensionalArray from '../../../../../Util/OneDimensionalArrayToTwoDimensionalArray';  
+import { Link } from 'react-router-dom';
 
 const SubMenu = (props) => {
 
@@ -15,7 +16,7 @@ const SubMenu = (props) => {
     const [columns, setColumns] = useState([]);
 
     useEffect(() => {
-        const distributedColumns = OneDimensionalArrayToTwoDimensionalArray(subMenuData, 10);
+        const distributedColumns = OneDimensionalArrayToTwoDimensionalArray(subMenuData, 13);
         setColumns(distributedColumns);
         console.log(distributedColumns);
     },[subMenuData]);
@@ -27,10 +28,12 @@ const SubMenu = (props) => {
                     <Column key={columnIndex}>
                         {column.map((item, itemIndex) => {
                             return (
-                                <SubMenuItem
-                                    key={itemIndex}
-                                    title={item.productTypeNameFarsi}
-                                />
+                                <Link to={`/?category=${item.categoryID}&productType=${item.productTypeID}`}>
+                                    <SubMenuItem
+                                        key={itemIndex}
+                                        title={item.productTypeNameFarsi}
+                                    />
+                                </Link>
                             );
                         })}
                     </Column>
