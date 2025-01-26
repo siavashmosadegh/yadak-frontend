@@ -13,5 +13,6 @@ export default {
   checkoutCart: '/checkout/cart',
   checkoutShipping: '/checkout/shipping',
   checkoutPayment: '/checkout/payment',
-  pardakht: 'صفحه ی پرداخت'
+  pardakht: 'صفحه ی پرداخت',
+  productCategory: '/product-category/*'
 };

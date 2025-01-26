@@ -21,6 +21,7 @@ import ProfileOrders from '../Pages/Profile/ProfileOrders';
 import ProfileOpinions from '../Pages/Profile/ProfileOpinions';
 import ProfilePersonalInfo from '../Pages/Profile/ProfilePersonalInfo';
 import OrderDetails from '../Pages/Profile/OrderDetails';
+import ProductCategory from '../Pages/ProductCategory';
 
 const RoutesList = () => {
     
@@ -57,6 +58,11 @@ const RoutesList = () => {
                 <Route
                     path={routePaths.checkoutCart}
                     element={ <CheckoutCart /> }
+                />
+
+                <Route
+                    path={routePaths.productCategory}
+                    element={ <ProductCategory /> }
                 />
 
                 {/* <PrivateRoute
