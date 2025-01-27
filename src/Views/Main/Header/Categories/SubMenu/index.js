@@ -28,7 +28,7 @@ const SubMenu = (props) => {
                     <Column key={columnIndex}>
                         {column.map((item, itemIndex) => {
                             return (
-                                <Link to={`/product-category/?category=${item.categoryID}&productType=${item.productTypeID}`}>
+                                <Link to={`/product-category?category=${item.categoryID}&productType=${item.productTypeID}`}>
                                     <SubMenuItem
                                         key={itemIndex}
                                         title={item.productTypeNameFarsi}
