@@ -50,7 +50,8 @@ const ProductCategory = () => {
             return (
                 data.map( (item) => {
                     return  <ProductCategoryItem
-                                item={item}
+                                CarModelFarsi={item.CarModelFarsi}
+                                CarNameFarsi={item.CarNameFarsi}
                             />
                 })                    
             );
