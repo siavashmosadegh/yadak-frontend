@@ -31,8 +31,8 @@ const ProductCategory = () => {
             axios.get(`http://localhost:8080/api/v1/product-category/${productType}`)
                 .then(function (response) {
                     // handle success
-                    setData(response.data.result);
-                    console.log(response.data.result);
+                    setData(response.data.result.data);
+                    console.log(response.data.result.data);
             })
                 .catch(function (error) {
                     // handle error
