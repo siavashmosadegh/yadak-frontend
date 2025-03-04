@@ -8,3 +8,17 @@ export const ProductCategoryWrapper = styled.div`
         text-align: center;
     }
 `;
+
+export const BigScreenWrapper = styled.div`;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .filterDiv {
+        width: 250px;
+        border: 1px solid red;
+    }
+
+    .contentDiv {
+        width: calc(100% - 250px);
+    }
+`;

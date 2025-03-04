@@ -19,11 +19,17 @@ const ProductCategoryItem = (props) => {
 
     return (
         <Wrapper>
-            <p>{props.CarModelFarsi}</p>
+            <div className="imageDiv">
+                <p>aks</p>
+            </div>
 
-            <p>{props.CarNameFarsi}</p>
+            <div className="titleDiv">
+                <p>{props.CarModelFarsi}</p>
 
-            <p>{props.ProductType.productTypeNameFarsi}</p>
+                <p>{props.CarNameFarsi}</p>
+
+                <p>{props.ProductType.productTypeNameFarsi}</p>
+            </div>
         </Wrapper>
     );
 }

@@ -3,7 +3,11 @@ import Layout from '../../Views/Layout/index.js';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductCategoryItem from '../../Views/ProductCategory/ProductCategoryItem/index.js';
-import { ProductCategoryWrapper } from './styles.jsx';
+import {
+    BigScreenWrapper,
+    ProductCategoryWrapper
+} from './styles.jsx';
+import { Grid } from '@mui/material';
 
 const ProductCategory = () => {
 
@@ -54,16 +58,32 @@ const ProductCategory = () => {
         if (data !== null && productType !== null) {
             console.log(data);
             return (
-                data.map( (item) => {
-                    return  <ProductCategoryItem
-                                ProductType={productType}
-                                CarModelFarsi={item.CarModelFarsi}
-                                CarNameFarsi={item.CarNameFarsi}
-                            />
-                })                    
+                <Grid container>
+                    {
+                        data.map( (item) => {
+                            return  (
+                                <Grid 
+                                    item
+                                    lg={3}
+                                    md={6}
+                                    sm={12}
+                                    xs={12}
+                                    display="flex"
+                                    justifyContent="center"
+                                    // onClick={() => dispatch(ProductActions.selectProductHandler(item))}
+                                >
+                                    <ProductCategoryItem
+                                        ProductType={productType}
+                                        CarModelFarsi={item.CarModelFarsi}
+                                        CarNameFarsi={item.CarNameFarsi}
+                                    />
+                                </Grid>
+                            )
+                        })                    
+                    }
+                </Grid>
             );
         }
-
     }
 
     const headerContent = () => {
@@ -79,7 +99,16 @@ const ProductCategory = () => {
             <ProductCategoryWrapper>
                 {headerContent()}
 
-                {content()}
+                <BigScreenWrapper>
+                    <div className="filterDiv">
+                        <p>فیلتر</p>
+                    </div>
+
+                    <div className="contentDiv">
+                        {content()}
+                    </div>
+                </BigScreenWrapper>
+
             </ProductCategoryWrapper>
         </Layout>        
     );
