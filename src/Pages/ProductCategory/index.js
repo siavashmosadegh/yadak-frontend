@@ -3,6 +3,7 @@ import Layout from '../../Views/Layout/index.js';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductCategoryItem from '../../Views/ProductCategory/ProductCategoryItem/index.js';
+import { ProductCategoryWrapper } from './styles.jsx';
 
 const ProductCategory = () => {
 
@@ -13,26 +14,30 @@ const ProductCategory = () => {
     const [searchParams] = useSearchParams();
 
     // Get the initial `productType` parameter from the URL
-    const initialProductType = searchParams.get('productType');
+    const initialProductTypeID = searchParams.get('productType');
 
     // Initialize useState with the productType value
-    const [productType, setProductType] = useState(initialProductType || '');
+    const [productTypeID, setProductTypeID] = useState(initialProductTypeID || '');
+
+    const [productType, setProductType] = useState(null);
 
     // Sync the productType state if it changes in the URL
     useEffect(() => {
-        console.log(productType);
-        if (initialProductType !== productType) {
-        setProductType(initialProductType || '');
+        console.log(productTypeID);
+        if (initialProductTypeID !== productTypeID) {
+        setProductTypeID(initialProductTypeID || '');
         }
-    }, [initialProductType, productType]);
+    }, [initialProductTypeID, productTypeID]);
 
     useEffect(() => {
-        if (productType !== null && productType !== undefined) {
-            axios.get(`http://localhost:8080/api/v1/product-category/${productType}`)
+        if (productTypeID !== null && productTypeID !== undefined) {
+            axios.get(`http://localhost:8080/api/v1/product-category/${productTypeID}`)
                 .then(function (response) {
                     // handle success
                     setData(response.data.result.data);
+                    setProductType(response.data.result.productTypeDetails[0]);
                     console.log(response.data.result.data);
+                    console.log(response.data.result.productTypeDetails[0]);
             })
                 .catch(function (error) {
                     // handle error
@@ -40,16 +45,18 @@ const ProductCategory = () => {
             })
                 .finally(function () {
                     // always executed
+                    console.log(productType);
             });
         }
-    },[productType]);
+    },[productTypeID]);
 
     const content = () => {
-        if (data !== null) {
+        if (data !== null && productType !== null) {
             console.log(data);
             return (
                 data.map( (item) => {
                     return  <ProductCategoryItem
+                                ProductType={productType}
                                 CarModelFarsi={item.CarModelFarsi}
                                 CarNameFarsi={item.CarNameFarsi}
                             />
@@ -59,9 +66,21 @@ const ProductCategory = () => {
 
     }
 
+    const headerContent = () => {
+        if (productType !== null) {
+            return (
+                <h1>خرید {productType.productTypeNameFarsi} ماشین</h1>
+            );
+        }
+    }
+
     return (
         <Layout>
-            {content()}
+            <ProductCategoryWrapper>
+                {headerContent()}
+
+                {content()}
+            </ProductCategoryWrapper>
         </Layout>        
     );
 }

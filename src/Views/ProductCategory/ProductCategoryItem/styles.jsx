@@ -12,5 +12,6 @@ export const Wrapper = styled(Grid)`
     p {
         font-size: 12px;
         font-weight: bold;
+        margin-left: 3px;
     }
 `;

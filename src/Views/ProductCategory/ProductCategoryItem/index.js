@@ -22,6 +22,8 @@ const ProductCategoryItem = (props) => {
             <p>{props.CarModelFarsi}</p>
 
             <p>{props.CarNameFarsi}</p>
+
+            <p>{props.ProductType.productTypeNameFarsi}</p>
         </Wrapper>
     );
 }
