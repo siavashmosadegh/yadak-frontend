@@ -14,5 +14,6 @@ export default {
   checkoutShipping: '/checkout/shipping',
   checkoutPayment: '/checkout/payment',
   pardakht: 'صفحه ی پرداخت',
-  productCategory: '/product-category/*'
+  productCategory: '/product-category/*',
+  carbrand: '/car-brand/*'
 };

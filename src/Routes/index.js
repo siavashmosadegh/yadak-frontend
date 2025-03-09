@@ -22,6 +22,7 @@ import ProfileOpinions from '../Pages/Profile/ProfileOpinions';
 import ProfilePersonalInfo from '../Pages/Profile/ProfilePersonalInfo';
 import OrderDetails from '../Pages/Profile/OrderDetails';
 import ProductCategory from '../Pages/ProductCategory';
+import CarBrand from '../Pages/CarBrand';
 
 const RoutesList = () => {
     
@@ -63,6 +64,11 @@ const RoutesList = () => {
                 <Route
                     path={routePaths.productCategory}
                     element={ <ProductCategory /> }
+                />
+
+                <Route
+                    path={routePaths.carbrand}
+                    element={ <CarBrand /> }
                 />
 
                 {/* <PrivateRoute

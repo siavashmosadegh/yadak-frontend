@@ -1,7 +1,10 @@
 import React from 'react';
 import { Wrapper } from './styles';
+import { Link } from 'react-router-dom';
 
 const ProductCategoryItem = (props) => {
+
+    console.log(props);
 
     // const {
     //     item
@@ -18,19 +21,21 @@ const ProductCategoryItem = (props) => {
     // } = item;
 
     return (
-        <Wrapper>
-            <div className="imageDiv">
-                <p>aks</p>
-            </div>
+        <Link to={`/car-brand?CarModel=${props.CarModel}&CarName=${props.CarName}&productTypeID=${props.ProductType.productTypeID}`}>
+            <Wrapper>
+                <div className="imageDiv">
+                    <p>aks</p>
+                </div>
 
-            <div className="titleDiv">
-                <p>{props.CarModelFarsi}</p>
+                <div className="titleDiv">
+                    <p>{props.CarModelFarsi}</p>
 
-                <p>{props.CarNameFarsi}</p>
+                    <p>{props.CarNameFarsi}</p>
 
-                <p>{props.ProductType.productTypeNameFarsi}</p>
-            </div>
-        </Wrapper>
+                    <p>{props.ProductType.productTypeNameFarsi}</p>
+                </div>
+            </Wrapper>
+        </Link>
     );
 }
 
