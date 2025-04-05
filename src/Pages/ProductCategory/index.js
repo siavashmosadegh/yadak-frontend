@@ -74,6 +74,7 @@ const ProductCategory = () => {
                                 >
                                     <ProductCategoryItem
                                         ProductType={productType}
+                                        CarID={item.CarID}
                                         CarModel={item.CarModel}
                                         CarName={item.CarName}
                                         CarModelFarsi={item.CarModelFarsi}

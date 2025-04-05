@@ -21,7 +21,7 @@ const ProductCategoryItem = (props) => {
     // } = item;
 
     return (
-        <Link to={`/car-brand?CarModel=${props.CarModel}&CarName=${props.CarName}&productTypeID=${props.ProductType.productTypeID}`}>
+        <Link to={`/car-brand?CarID=${props.CarID}&productTypeID=${props.ProductType.productTypeID}`}>
             <Wrapper>
                 <div className="imageDiv">
                     <p>aks</p>
