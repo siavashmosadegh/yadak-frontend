@@ -1,8 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+    useEffect,
+    useState
+} from 'react';
 import Layout from '../../Views/Layout';
-import { Wrapper } from './styles';
+import {
+    CarTrimLevelItemsWrapper,
+    Wrapper
+} from './styles';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
+import CarTrimLevelItem from '../../Views/CarBrand/CarTrimLevelItem';
 
 const CarBrand = () => {
 
@@ -73,10 +80,51 @@ const CarBrand = () => {
         }
     }
 
+    const [trimLevels, setTrimLevels] = useState([])
+
+    useEffect(() => {
+        if (carID !== null && carID !== undefined) {
+            console.log(carID);
+            axios.get(`http://localhost:8080/api/v1/product/car-brand/get-trimlevels-by-carId/${carID}`)
+                .then(function (response) {
+                    // handle success
+                    console.log(response.data.result);
+                    setTrimLevels(response.data.result);
+            })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+            })
+                .finally(function () {
+                    // always executed
+            });
+        }
+    },[carID]);
+
+    const trimLevelContent = () => {
+        if (trimLevels !== null && trimLevels.length !== 0) {
+            return (
+                trimLevels.map( (item, index) => {
+                    console.log(item)
+                    return (
+                        <CarTrimLevelItem
+                            key={index}
+                            TrimLevel={item.TrimLevel}
+                        />
+                    );
+                })
+            );
+        }
+    }
+
     return (
         <Layout>
             <Wrapper>
                 {headerContent()}
+
+                <CarTrimLevelItemsWrapper>
+                    {trimLevelContent()}
+                </CarTrimLevelItemsWrapper>
             </Wrapper>
         </Layout>
     );
