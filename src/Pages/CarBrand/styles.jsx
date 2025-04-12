@@ -13,3 +13,10 @@ export const CarTrimLevelItemsWrapper = styled.div`
     align-items: center;
     justify-content: center;
 `;
+
+export const MainContentWrapper = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border: 1px solid red;
+`;

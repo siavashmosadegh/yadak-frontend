@@ -5,11 +5,13 @@ import React, {
 import Layout from '../../Views/Layout';
 import {
     CarTrimLevelItemsWrapper,
+    MainContentWrapper,
     Wrapper
 } from './styles';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import CarTrimLevelItem from '../../Views/CarBrand/CarTrimLevelItem';
+import ProductTypeBrandsItem from '../../Views/CarBrand/ProductTypeBrandsItem';
 
 const CarBrand = () => {
 
@@ -117,6 +119,35 @@ const CarBrand = () => {
         }
     }
 
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        if (carID !== null && carID !== undefined && productTypeID !== null && productTypeID !== undefined) {
+            console.log(carID);
+            axios.get(`http://localhost:8080/api/v1/product/car-brand/get-products-carId-productTypeId/${productTypeID}/${carID}`)
+                .then(function (response) {
+                    // handle success
+                    console.log(response.data.result);
+                    setProducts(response.data.result);
+            })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+            })
+                .finally(function () {
+                    // always executed
+            });
+        }
+    },[carID, productTypeID]);
+
+    const productContent = () => {
+        if (products.length !== 0) {
+            return  <ProductTypeBrandsItem
+                        products={products}
+                    />
+        }
+    }
+
     return (
         <Layout>
             <Wrapper>
@@ -125,6 +156,10 @@ const CarBrand = () => {
                 <CarTrimLevelItemsWrapper>
                     {trimLevelContent()}
                 </CarTrimLevelItemsWrapper>
+
+                <MainContentWrapper>
+                    {productContent()}
+                </MainContentWrapper>
             </Wrapper>
         </Layout>
     );
