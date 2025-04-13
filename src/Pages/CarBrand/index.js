@@ -5,7 +5,9 @@ import React, {
 import Layout from '../../Views/Layout';
 import {
     CarTrimLevelItemsWrapper,
+    FilterDiv,
     MainContentWrapper,
+    MainDiv,
     Wrapper
 } from './styles';
 import { useSearchParams } from 'react-router-dom';
@@ -144,6 +146,9 @@ const CarBrand = () => {
         if (products.length !== 0) {
             return  <ProductTypeBrandsItem
                         products={products}
+                        productTypeNameFarsi={productType.productTypeNameFarsi}
+                        CarNameFarsi={car.CarNameFarsi}
+                        CarModelFarsi={car.CarModelFarsi}
                     />
         }
     }
@@ -158,7 +163,13 @@ const CarBrand = () => {
                 </CarTrimLevelItemsWrapper>
 
                 <MainContentWrapper>
-                    {productContent()}
+                    <FilterDiv>
+                        فیلتر ها
+                    </FilterDiv>
+
+                    <MainDiv>
+                        {productContent()}
+                    </MainDiv>
                 </MainContentWrapper>
             </Wrapper>
         </Layout>
