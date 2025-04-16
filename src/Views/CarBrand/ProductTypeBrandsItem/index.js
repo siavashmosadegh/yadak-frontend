@@ -29,18 +29,31 @@ const ProductTypeBrandsItem = (props) => {
             );
         }
     }
+
+    const productTypeCarNameCarModelContent = () => {
+        if (productTypeNameFarsi !== null && CarNameFarsi !== null && CarModelFarsi !== null) {
+            return (
+                <p>{productTypeNameFarsi} {CarNameFarsi} {CarModelFarsi}</p>
+            );
+        }
+    }
+
     return (
         <ProductTypeBrandsItemWrapper>
             <ImageDiv>
                 aks
             </ImageDiv>
 
-            <p>{productTypeNameFarsi} {CarNameFarsi} {CarModelFarsi}</p>
+
+            {productTypeCarNameCarModelContent()}
 
             
             <p>برند های این قطعه</p>
 
-            {productContent()}
+
+            <div className='productsContentDiv'>
+                {productContent()}
+            </div>
         </ProductTypeBrandsItemWrapper>
     );
 }
