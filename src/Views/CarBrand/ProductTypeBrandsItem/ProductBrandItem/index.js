@@ -36,7 +36,7 @@ const ProductBrandItem = (props) => {
         }
     }
     return (
-        <Link to={`/product/${item.ProductID}`} style={{textDecoration: "none",color: "black"}}>
+        <Link to={`/product/?productID=${item.ProductID}`} style={{textDecoration: "none",color: "black"}}>
             <ProductBrandItemWrapper>
                 {productBrandNameContent()} <p>تیپ {item.TrimLevelFarsi}</p> <p>{item.Price}</p>
             </ProductBrandItemWrapper>        

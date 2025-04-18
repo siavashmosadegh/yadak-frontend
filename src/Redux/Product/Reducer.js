@@ -132,6 +132,11 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 selectedProduct: action.data
             };
+        case Types.GET_PRODUCT_DETAILS_BY_PRODUCT_ID_SUCCESS:
+            return {
+                ...state,
+                selectedProduct: action.payload
+            };
         default:
             return state;
     }   

@@ -1,6 +1,11 @@
 import Types from "./Types";
 import DelegateAction from "../ActionDelegator";
 
+export const getProductDetailsByProductID = (productID) => ({
+    type: Types.GET_PRODUCT_DETAILS_BY_PRODUCT_ID,
+    payload: { productID }, // Make sure payload has `category`
+  });
+
 const ProductActions = {
     showAskQuestionModalHandler: DelegateAction(Types.SHOW_ASK_QUESTION_MODAL),
     closeAskQuestionModalHandler: DelegateAction(Types.CLOSE_ASK_QUESTION_MODAL),

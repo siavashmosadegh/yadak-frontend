@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import AddToListIcon from '../../Icons/ProductIcons/AddToListIcon';
 import BellAlertIcon from '../../Icons/ProductIcons/BellAlertIcon';
 import CompareIcon from '../../Icons/ProductIcons/CompareIcon';
@@ -26,6 +26,10 @@ import {
     RoutingItem,
     RoutingSection
 } from './styles';
+import {
+    useSearchParams
+} from 'react-router-dom';
+import { getProductDetailsByProductID } from '../../Redux/Product/Actions';
 
 const Product = () => {
 
@@ -35,6 +39,8 @@ const Product = () => {
         showAnswerQuestionModal,
         selectedProduct
     } = ProductState;
+
+    const dispatch = useDispatch();
 
     console.log(selectedProduct);
 
@@ -115,13 +121,15 @@ const Product = () => {
     }
 
     const firstSection = () => {
-        return (
-            <FirstSectionWrapper>
-                {leftDivContent()}
-
-                {rightDivContent()}
-            </FirstSectionWrapper>
-        );
+        if (selectedProduct !== null && selectedProduct !== undefined) {
+            return (
+                <FirstSectionWrapper>
+                    {leftDivContent()}
+    
+                    {rightDivContent()}
+                </FirstSectionWrapper>
+            );
+        }
     }
 
     const leftDivContent = () => {
@@ -177,59 +185,86 @@ const Product = () => {
     }
 
     const firstSectionResponsive = () => {
-        return (
-            <FirstSectionResponsiveWrapper>
-                {rightDivContent()}
-
-                <h3>{selectedProduct.title}</h3>
-
-                <QuestionOpitionStar 
-                    star={selectedProduct.star}
-                    numOfOpinions={selectedProduct.opinion}
-                    numOfQuestions={selectedProduct.question}
-                />
-
-                <UserSuggest 
-                    userSuggestNumber={selectedProduct.userSuggestNumber}
-                    userSuggestPercent={selectedProduct.userSuggestPercent}
-                />            
-
-                <Store
-                    available={selectedProduct.available}
-                    price={selectedProduct.price}
-                />
-
-                {
-                    (selectedProduct.features === null) || (selectedProduct.features.length === 0)
-                        ?
-                        null
-                        :
-                        <Features 
-                            features={selectedProduct.features}
-                        />
-                }
-
-                <PricingProcess />
-            </FirstSectionResponsiveWrapper>
-        );
+        if (selectedProduct !== null && selectedProduct !== undefined) {
+            return (
+                <FirstSectionResponsiveWrapper>
+                    {rightDivContent()}
+    
+                    <h3>{selectedProduct.title}</h3>
+    
+                    <QuestionOpitionStar 
+                        star={selectedProduct.star}
+                        numOfOpinions={selectedProduct.opinion}
+                        numOfQuestions={selectedProduct.question}
+                    />
+    
+                    <UserSuggest 
+                        userSuggestNumber={selectedProduct.userSuggestNumber}
+                        userSuggestPercent={selectedProduct.userSuggestPercent}
+                    />            
+    
+                    <Store
+                        available={selectedProduct.available}
+                        price={selectedProduct.price}
+                    />
+    
+                    {
+                        (selectedProduct.features === null) || (selectedProduct.features.length === 0)
+                            ?
+                            null
+                            :
+                            <Features 
+                                features={selectedProduct.features}
+                            />
+                    }
+    
+                    <PricingProcess />
+                </FirstSectionResponsiveWrapper>
+            );
+        }
     }
+
+    // Initialize useSearchParams to access query parameters
+    const [searchParams] = useSearchParams();
+
+    // Get the initial `productID` parameter from the URL
+    const initialProductID = searchParams.get('productID');
+
+    // Initialize useState with the productID value
+    const [productID, setProductID] = useState(initialProductID || '');
+
+    // Sync the productID state if it changes in the URL
+    useEffect(() => {
+        if (initialProductID !== productID) {
+            setProductID(initialProductID || '');
+        }
+    }, [initialProductID, productID]);
+
+    useEffect(() => {
+        if (productID !== null && productID !== undefined) {
+            console.log(`productID: ${productID}`);
+            dispatch(getProductDetailsByProductID(productID))
+        }
+    },[productID]);
+
+    console.log(selectedProduct);
 
     return (
         <Layout>
             <ProductWrapper>
                 {routingItemsContent()}
 
-                {firstSection()}
+                {/* {firstSection()}
 
-                {firstSectionResponsive()}
+                {firstSectionResponsive()} */}
 
                 <Slogan />
 
-                <Questions 
+                {/* <Questions 
                     questions={selectedProduct.questions}
-                />
+                /> */}
 
-                <PriceSectionResponsive>
+                {/* <PriceSectionResponsive>
                     <p>قیمت مصرف کننده</p>
 
                     <div className="priceAndButton">
@@ -237,7 +272,7 @@ const Product = () => {
 
                         <button>افزودن به سبد</button>
                     </div>
-                </PriceSectionResponsive>
+                </PriceSectionResponsive> */}
 
                 {
                     showAskQuestionModal === true
