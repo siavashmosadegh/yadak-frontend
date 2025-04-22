@@ -29,7 +29,10 @@ import {
 import {
     useSearchParams
 } from 'react-router-dom';
-import { getProductDetailsByProductID } from '../../Redux/Product/Actions';
+import {
+    getProductDetailsByProductID,
+    getSelectedProductFeatures
+} from '../../Redux/Product/Actions';
 
 const Product = () => {
 
@@ -37,12 +40,11 @@ const Product = () => {
     const {
         showAskQuestionModal,
         showAnswerQuestionModal,
-        selectedProduct
+        selectedProduct,
+        selectedProductFeatures
     } = ProductState;
 
     const dispatch = useDispatch();
-
-    console.log(selectedProduct);
 
     const [item, setItem] = useState({
         id: 1902374982374,
@@ -145,7 +147,7 @@ const Product = () => {
                             star={selectedProduct.star}
                             userSuggestNumber={selectedProduct.userSuggestNumber}
                             userSuggestPercent={selectedProduct.userSuggestPercent}
-                            features={selectedProduct.features}
+                            features={selectedProductFeatures}
                         />
                     </div>
 
@@ -242,12 +244,15 @@ const Product = () => {
 
     useEffect(() => {
         if (productID !== null && productID !== undefined) {
-            console.log(`productID: ${productID}`);
-            dispatch(getProductDetailsByProductID(productID))
+            dispatch(getProductDetailsByProductID(productID));
         }
     },[productID]);
 
-    console.log(selectedProduct);
+    useEffect(() => {
+        if (productID !== null && productID !== undefined) {
+            dispatch(getSelectedProductFeatures(productID));
+        }
+    },[productID]);
 
     return (
         <Layout>
