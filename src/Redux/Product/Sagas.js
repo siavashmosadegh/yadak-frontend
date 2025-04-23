@@ -30,7 +30,7 @@ function* getSelectedProductFeatures(action) {
     
     try {
         const features = yield call(() => fetch(`http://localhost:8080/api/v1/product-features/${productID}`).then(res => res.json()));
-        yield put({ type: Types.GET_SELECTED_PRODUCT_FEATURES_SUCCESS, payload: JSON.stringify(features, null, 2) });
+        yield put({ type: Types.GET_SELECTED_PRODUCT_FEATURES_SUCCESS, payload: features });
     } catch (error) {
         yield put({ type: Types.GET_SELECTED_PRODUCT_FEATURES_FAIL, error });
     }

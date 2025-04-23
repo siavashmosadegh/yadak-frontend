@@ -137,24 +137,24 @@ const Product = () => {
     const leftDivContent = () => {
         return (
             <LeftDiv>
-                <h3>{selectedProduct.title}</h3>
+                <h3>{selectedProduct.ProductName}</h3>
 
                 <div className="description">
                     <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
                         <Description 
-                            numOfQuestions={selectedProduct.question}
-                            numOfOpinions={selectedProduct.opinion}
-                            star={selectedProduct.star}
-                            userSuggestNumber={selectedProduct.userSuggestNumber}
-                            userSuggestPercent={selectedProduct.userSuggestPercent}
+                            numOfQuestions={5}
+                            numOfOpinions={5}
+                            star={5}
+                            userSuggestNumber={5}
+                            userSuggestPercent={5}
                             features={selectedProductFeatures}
                         />
                     </div>
 
                     <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
                         <Store 
-                            available={selectedProduct.available}
-                            price={selectedProduct.price}
+                            available={true}
+                            price={selectedProduct.Price}
                         />
                         <PricingProcess />
                     </div>
@@ -259,9 +259,9 @@ const Product = () => {
             <ProductWrapper>
                 {routingItemsContent()}
 
-                {/* {firstSection()}
+                {firstSection()}
 
-                {firstSectionResponsive()} */}
+                {/* {firstSectionResponsive()} */}
 
                 <Slogan />
 
