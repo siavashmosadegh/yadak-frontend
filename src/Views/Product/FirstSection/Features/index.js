@@ -9,24 +9,21 @@ const Features = (props) => {
     } = props;
     
     const featuresCreator = () => {
+        return (
+            features?.result.map(item => {
+                return (
+                    <div className="featureItem">
+                        <DotIcon />
 
-        if (features.result !== null && features.result.length !== 0) {
-            return (
-                features.result.map(item => {
-                    return (
-                        <div className="featureItem">
-                            <DotIcon />
+                        <p>{item.Title}</p>
 
-                            <p>{item.Title}</p>
+                        <p>:</p>
 
-                            <p>:</p>
-
-                            <p>{item.Explanation}</p>    
-                        </div>
-                    );
-                })
-            );
-        }
+                        <p>{item.Explanation}</p>    
+                    </div>
+                );
+            })
+        );
     }
 
     return (

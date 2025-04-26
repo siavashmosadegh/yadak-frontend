@@ -31,7 +31,7 @@ const Description = (props) => {
             />
 
             {
-                (features === null) || (features.length === 0) 
+                (features?.result === null) || (features?.result.length === 0) || (features?.result === "There are not any product features with the provided product id")
                     ?
                     null
                     :
