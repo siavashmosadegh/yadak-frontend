@@ -12,7 +12,7 @@ const Main = () => {
 
     const location = useLocation();
 
-    console.log(location);
+    console.log("trying to solve the 'cant push to remote' problem all over again :(");
     return (
         <Layout>
             {/* <MainPageCarousel /> */}
