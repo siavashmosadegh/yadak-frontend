@@ -40,10 +40,26 @@ function* watchGetSelectedProductFeatures() {
     yield takeEvery(Types.GET_SELECTED_PRODUCT_FEATURES, getSelectedProductFeatures);
 }
 
+function* getSelectedProductInventory(action) {
+    const { productID } = action.payload || {}; // This will default to an empty object if payload is undefined
+    
+    try {
+        const result = yield call(() => fetch(`http://localhost:8080/api/v1/product-inventory/get-product-quantity/${productID}`).then(res => res.json()));
+        yield put({ type: Types.GET_SELECTED_PRODUCT_INVENTORY_SUCCESS, payload: result });
+    } catch (error) {
+        yield put({ type: Types.GET_SELECTED_PRODUCT_INVENTORY_FAIL, error });
+    }
+}
+
+function* watchGetSelectedProductInventory () {
+    yield takeEvery(Types.GET_SELECTED_PRODUCT_INVENTORY, getSelectedProductInventory);
+}
+
 export default function* Sagas() {
     yield all([
         fork(watchGetProductDetailsByProductID),
-        fork(watchGetSelectedProductFeatures)
+        fork(watchGetSelectedProductFeatures),
+        fork(watchGetSelectedProductInventory)
     ]);
     // yield watchGetProductDetailsByProductID();
     // yield watchGetSelectedProductFeatures();

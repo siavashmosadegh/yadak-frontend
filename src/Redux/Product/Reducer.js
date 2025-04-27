@@ -102,7 +102,8 @@ const initState = {
         }
     ],
     selectedProduct: null,
-    selectedProductFeatures: null
+    selectedProductFeatures: null,
+    selectedProductInventory: null
 }
 
 export default function Reducer (state = initState, action) {
@@ -142,6 +143,11 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 selectedProductFeatures: action.payload
+            };
+        case Types.GET_SELECTED_PRODUCT_INVENTORY_SUCCESS:
+            return {
+                ...state,
+                selectedProductInventory: action.payload
             };
         default:
             return state;
