@@ -31,8 +31,10 @@ import {
 } from 'react-router-dom';
 import {
     getProductDetailsByProductID,
-    getSelectedProductFeatures
+    getSelectedProductFeatures,
+    getSelectedProductInventory
 } from '../../Redux/Product/Actions';
+import isAvailable from '../../Util/IsAvailable';
 
 const Product = () => {
 
@@ -41,8 +43,11 @@ const Product = () => {
         showAskQuestionModal,
         showAnswerQuestionModal,
         selectedProduct,
-        selectedProductFeatures
+        selectedProductFeatures,
+        selectedProductInventory
     } = ProductState;
+
+    console.log(selectedProductInventory);
 
     const dispatch = useDispatch();
 
@@ -137,25 +142,33 @@ const Product = () => {
     const leftDivContent = () => {
         return (
             <LeftDiv>
-                <h3>{selectedProduct.ProductName}</h3>
+                {/* <h3>{selectedProduct.ProductName}</h3> */}
+
+                {isAvailable(selectedProduct) && (
+                    <h3>{selectedProduct.ProductName}</h3>
+                )}
 
                 <div className="description">
                     <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
-                        <Description 
-                            numOfQuestions={5}
-                            numOfOpinions={5}
-                            star={5}
-                            userSuggestNumber={5}
-                            userSuggestPercent={5}
-                            features={selectedProductFeatures}
-                        />
+                        {isAvailable(selectedProductFeatures) && (
+                            <Description
+                                numOfQuestions={5}
+                                numOfOpinions={5}
+                                star={5}
+                                userSuggestNumber={5}
+                                userSuggestPercent={5}
+                                features={selectedProductFeatures}
+                            />
+                        )}
                     </div>
 
                     <div style={{width: "50%",display: "flex",flexDirection: "column",padding: "5px"}}>
-                        <Store 
-                            available={true}
-                            price={selectedProduct.Price}
-                        />
+                        {isAvailable(selectedProductInventory?.result) && isAvailable(selectedProduct) && (
+                            <Store
+                                available={selectedProductInventory.result}
+                                price={selectedProduct.Price}
+                            />
+                        )}
                         <PricingProcess />
                     </div>
                 </div>
@@ -253,6 +266,12 @@ const Product = () => {
             dispatch(getSelectedProductFeatures(productID));
         }
     },[productID]);
+
+    useEffect(() => {
+        if (productID ?? false) {
+          dispatch(getSelectedProductInventory(productID));
+        }
+    }, [productID]);
 
     return (
         <Layout>

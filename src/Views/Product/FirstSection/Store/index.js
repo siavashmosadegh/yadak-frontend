@@ -13,6 +13,8 @@ const Store = (props) => {
         price
     } = props;
 
+    console.log(`Quantity: ${available[0].Quantity}`);
+
     return (
         <Wrapper>
             <div className="verified">
@@ -25,14 +27,14 @@ const Store = (props) => {
 
             <div className="verified">
                 {
-                    available === true
+                    available[0].Quantity !== 0
                         ?
                         <AvailableInStoreIcon />
                         :
                         <UnavailableInStoreIcon />
                 }
                 {
-                    available === true
+                    available[0].Quantity !== 0
                         ?
                         <p>موجود در انبار</p>
                         :
