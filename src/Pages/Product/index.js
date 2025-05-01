@@ -31,6 +31,7 @@ import {
 } from 'react-router-dom';
 import {
     getProductDetailsByProductID,
+    getSelectedProductCategory,
     getSelectedProductFeatures,
     getSelectedProductInventory
 } from '../../Redux/Product/Actions';
@@ -269,9 +270,15 @@ const Product = () => {
 
     useEffect(() => {
         if (productID ?? false) {
-          dispatch(getSelectedProductInventory(productID));
+            dispatch(getSelectedProductInventory(productID));
         }
     }, [productID]);
+
+    useEffect(() => {
+        if (productID ?? false) {
+            dispatch(getSelectedProductCategory(productID));
+        }
+    },[productID]);
 
     return (
         <Layout>

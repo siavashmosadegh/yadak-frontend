@@ -16,6 +16,11 @@ export const getSelectedProductInventory = (productID) => ({
     payload: { productID }
 });
 
+export const getSelectedProductCategory = (productID) => ({
+    type: Types.GET_SELECTED_PRODUCT_CATEGORY,
+    payload: { productID }
+});
+
 const ProductActions = {
     showAskQuestionModalHandler: DelegateAction(Types.SHOW_ASK_QUESTION_MODAL),
     closeAskQuestionModalHandler: DelegateAction(Types.CLOSE_ASK_QUESTION_MODAL),
