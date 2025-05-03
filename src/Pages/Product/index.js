@@ -33,7 +33,8 @@ import {
     getProductDetailsByProductID,
     getSelectedProductCategory,
     getSelectedProductFeatures,
-    getSelectedProductInventory
+    getSelectedProductInventory,
+    getSelectedProductTypeBrand
 } from '../../Redux/Product/Actions';
 import isAvailable from '../../Util/IsAvailable';
 
@@ -277,6 +278,12 @@ const Product = () => {
     useEffect(() => {
         if (productID ?? false) {
             dispatch(getSelectedProductCategory(productID));
+        }
+    },[productID]);
+
+    useEffect(() => {
+        if (productID ?? false) {
+            dispatch(getSelectedProductTypeBrand(productID));
         }
     },[productID]);
 

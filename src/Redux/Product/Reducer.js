@@ -104,7 +104,8 @@ const initState = {
     selectedProduct: null,
     selectedProductFeatures: null,
     selectedProductInventory: null,
-    selectedProductCategory: null
+    selectedProductCategory: null,
+    selectedProductTypeBrand: null
 }
 
 export default function Reducer (state = initState, action) {
