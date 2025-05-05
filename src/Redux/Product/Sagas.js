@@ -85,13 +85,29 @@ function* watchGetSelectedProductTypeBrand () {
     yield takeEvery(Types.GET_SELECTED_PRODUCT_TYPE_BRAND, getSelectedProductTypeBrand);
 }
 
+function* getSelectedProductCar(action) {
+    const { productID } = action.payload || {}; // This will default to an empty object if payload is undefined
+    
+    try {
+        const result = yield call(() => fetch(`http://localhost:8080/api/v1/car/get-car-by-product-id/${productID}`).then(res => res.json()));
+        yield put({ type: Types.GET_SELECTED_PRODUCT_CAR_SUCCESS, payload: result });
+    } catch (error) {
+        yield put({ type: Types.GET_SELECTED_PRODUCT_CAR_FAIL, error });
+    }
+}
+
+function* watchGetSelectedProductCar () {
+    yield takeEvery(Types.GET_SELECTED_PRODUCT_CAR, getSelectedProductCar);
+}
+
 export default function* Sagas() {
     yield all([
         fork(watchGetProductDetailsByProductID),
         fork(watchGetSelectedProductFeatures),
         fork(watchGetSelectedProductInventory),
         fork(watchGetSelectedProductCategory),
-        fork(watchGetSelectedProductTypeBrand)
+        fork(watchGetSelectedProductTypeBrand),
+        fork(watchGetSelectedProductCar)
     ]);
     // yield watchGetProductDetailsByProductID();
     // yield watchGetSelectedProductFeatures();
