@@ -31,6 +31,11 @@ export const getSelectedProductCar = (productID) => ({
     payload: { productID }
 });
 
+export const getSelectedProductProductType = (productID) => ({
+    type: Types.GET_SELECTED_PRODUCT_PRODUCT_TYPE,
+    payload: { productID }
+});
+
 const ProductActions = {
     showAskQuestionModalHandler: DelegateAction(Types.SHOW_ASK_QUESTION_MODAL),
     closeAskQuestionModalHandler: DelegateAction(Types.CLOSE_ASK_QUESTION_MODAL),

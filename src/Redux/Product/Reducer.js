@@ -106,7 +106,8 @@ const initState = {
     selectedProductInventory: null,
     selectedProductCategory: null,
     selectedProductTypeBrand: null,
-    selectedProductCar: null
+    selectedProductCar: null,
+    selectedProductProductType: null
 }
 
 export default function Reducer (state = initState, action) {
@@ -156,12 +157,17 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 selectedProductCategory: action.payload
-            }
+            };
         case Types.GET_SELECTED_PRODUCT_CAR_SUCCESS:
             return {
                 ...state,
                 selectedProductCar: action.payload
-            }
+            };
+        case Types.GET_SELECTED_PRODUCT_PRODUCT_TYPE_SUCCESS:
+            return {
+                ...state,
+                selectedProductProductType: action.payload
+            };
         default:
             return state;
     }   
