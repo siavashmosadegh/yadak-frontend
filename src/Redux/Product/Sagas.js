@@ -60,7 +60,7 @@ function* getSelectedProductCategory(action) {
     
     try {
         const result = yield call(() => fetch(`http://localhost:8080/api/v1/products/category/get-category-by-product-id/${productID}`).then(res => res.json()));
-        yield put({ type: Types.GET_SELECTED_PRODUCT_CATEGORY_SUCCESS, payload: result });
+        yield put({ type: Types.GET_SELECTED_PRODUCT_CATEGORY_SUCCESS, payload: result.result[0] });
     } catch (error) {
         yield put({ type: Types.GET_SELECTED_PRODUCT_CATEGORY_FAIL, error });
     }
