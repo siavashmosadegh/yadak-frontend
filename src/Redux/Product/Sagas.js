@@ -75,7 +75,7 @@ function* getSelectedProductTypeBrand(action) {
     
     try {
         const result = yield call(() => fetch(`http://localhost:8080/api/v1/product-type-brand/get-brand-by-product-id/${productID}`).then(res => res.json()));
-        yield put({ type: Types.GET_SELECTED_PRODUCT_TYPE_BRAND_SUCCESS, payload: result });
+        yield put({ type: Types.GET_SELECTED_PRODUCT_TYPE_BRAND_SUCCESS, payload: result.result[0] });
     } catch (error) {
         yield put({ type: Types.GET_SELECTED_PRODUCT_TYPE_BRAND_FAIL, error });
     }
