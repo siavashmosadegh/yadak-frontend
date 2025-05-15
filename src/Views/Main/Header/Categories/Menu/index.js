@@ -49,7 +49,7 @@ const Menu = () => {
     return (
         <Wrapper>
             <div className="menu">
-                {menuData.result.map((item) => {
+                {menuData?.result?.map((item) => {
                     return (
                         <div
                             className="menuItem"
