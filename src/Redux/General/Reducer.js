@@ -91,26 +91,24 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 showResponsiveHeaderCategoriesModal: false
             };
-        case 'FETCH_PRODUCT_CATEGORIES_REQUEST':
+        case Types.FETCH_PRODUCT_CATEGORIES:
             return {
                 ...state,
                 loading: true,
                 // error: null
+            };    
+        case Types.FETCH_PRODUCT_CATEGORIES_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                menuData: action.payload
             };
-    
-        case 'FETCH_PRODUCT_CATEGORIES_SUCCESS':
-        return {
-            ...state,
-            loading: false,
-            menuData: action.payload
-        };
-    
-        case 'FETCH_PRODUCT_CATEGORIES_FAILURE':
-        return {
-            ...state,
-            loading: false,
-            error: action.error
-        };
+        case Types.FETCH_PRODUCT_CATEGORIES_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
         default:
             return state;
     }

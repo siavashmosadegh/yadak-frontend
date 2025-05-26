@@ -1,6 +1,10 @@
 import Types from "./Types";
 import DelegateAction from "../ActionDelegator";
 
+export const fetchProductCategories = () => ({
+    type: Types.FETCH_PRODUCT_CATEGORIES
+});
+
 const MainActions = {
     abcd: DelegateAction(Types.ABCD),
     efgh: DelegateAction(Types.EFGH),
