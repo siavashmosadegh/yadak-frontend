@@ -1,5 +1,6 @@
 import { legacy_createStore as createStore , applyMiddleware } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
+import { takeEvery } from "redux-saga/effects";
 
 import reducers from './Reducers';
 import sagas from './Sagas';
@@ -16,5 +17,11 @@ const bindMiddleware = (middleware) => {
 } 
 
 const store = createStore(reducers, bindMiddleware(middlewares));
+
+function* testSaga() {
+  yield takeEvery('*', (action) => {
+    console.log('[testSaga caught action]', action);
+  });
+}
 sagaMiddleware.run(sagas);
 export {store};
