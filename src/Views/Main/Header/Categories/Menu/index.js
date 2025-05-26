@@ -7,6 +7,7 @@ import {
 } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SubMenu from '../SubMenu';
+import { fetchProductCategories } from '../../../../../Redux/General/Actions';
 
 const Menu = () => {
 
@@ -19,8 +20,8 @@ const Menu = () => {
     } = useSelector((state) => state.General);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PRODUCT_CATEGORIES_REQUEST' });
-    }, []);
+        dispatch(fetchProductCategories());
+    },[]);
 
     const [hoveredCategory, setHoveredCategory] = useState(null);
 
@@ -49,9 +50,10 @@ const Menu = () => {
     return (
         <Wrapper>
             <div className="menu">
-                {menuData?.result?.map((item) => {
+                {menuData?.result?.map((item, index) => {
                     return (
                         <div
+                            key={index}
                             className="menuItem"
                             onMouseEnter={() => setHoveredCategory(item.CategoryID)}
                             onMouseLeave={() => setHoveredCategory(null)}
