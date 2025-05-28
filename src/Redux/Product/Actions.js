@@ -22,7 +22,7 @@ export const getSelectedProductCategory = (productID) => ({
 });
 
 export const getSelectedProductTypeBrand = (productID) => ({
-    type: Types.GET_SELECTED_PRODUCT_TYPE_BRAND,
+    type: Types.GET_SELECTED_PRODUCT_PRODUCT_TYPE_BRAND,
     payload: { productID }
 });
 
