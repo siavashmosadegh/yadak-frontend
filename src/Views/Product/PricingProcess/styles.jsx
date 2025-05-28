@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
     // padding-right: 10px;
     width: 100%;
     margin-bottom: 10px;
+    margin-top: 10px;
 
     p {
         font-size: 12px;

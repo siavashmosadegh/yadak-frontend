@@ -31,12 +31,11 @@ import {
 } from 'react-router-dom';
 import {
     getProductDetailsByProductID,
-    getSelectedProductCategory,
     getSelectedProductFeatures,
-    getSelectedProductInventory,
-    getSelectedProductTypeBrand
+    getSelectedProductInventory
 } from '../../Redux/Product/Actions';
 import isAvailable from '../../Util/IsAvailable';
+import Details from '../../Views/Product/Details';
 
 const Product = () => {
 
@@ -46,10 +45,11 @@ const Product = () => {
         showAnswerQuestionModal,
         selectedProduct,
         selectedProductFeatures,
-        selectedProductInventory
+        selectedProductInventory,
+        selectedProductCar
     } = ProductState;
 
-    console.log(selectedProductInventory);
+    console.log(`selectedProduct ID: ${selectedProduct?.ProductID}`);
 
     const dispatch = useDispatch();
 
@@ -171,7 +171,14 @@ const Product = () => {
                                 price={selectedProduct.Price}
                             />
                         )}
+
                         <PricingProcess />
+
+                        {isAvailable(selectedProduct) && (
+                            <Details
+                                productId={selectedProduct.ProductID}
+                            />
+                        )}
                     </div>
                 </div>
 
@@ -274,18 +281,6 @@ const Product = () => {
             dispatch(getSelectedProductInventory(productID));
         }
     }, [productID]);
-
-    useEffect(() => {
-        if (productID ?? false) {
-            dispatch(getSelectedProductCategory(productID));
-        }
-    },[productID]);
-
-    useEffect(() => {
-        if (productID ?? false) {
-            dispatch(getSelectedProductTypeBrand(productID));
-        }
-    },[productID]);
 
     return (
         <Layout>
