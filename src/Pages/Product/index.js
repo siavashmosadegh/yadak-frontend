@@ -214,25 +214,29 @@ const Product = () => {
                 <FirstSectionResponsiveWrapper>
                     {rightDivContent()}
     
-                    <h3>{selectedProduct.title}</h3>
+                    {isAvailable(selectedProduct) && (
+                        <h3>{selectedProduct.ProductName}</h3>
+                    )}
     
                     <QuestionOpitionStar 
-                        star={selectedProduct.star}
-                        numOfOpinions={selectedProduct.opinion}
-                        numOfQuestions={selectedProduct.question}
+                        star={5}
+                        numOfOpinions={5}
+                        numOfQuestions={5}
                     />
     
                     <UserSuggest 
-                        userSuggestNumber={selectedProduct.userSuggestNumber}
-                        userSuggestPercent={selectedProduct.userSuggestPercent}
+                        userSuggestNumber={5}
+                        userSuggestPercent={5}
                     />            
     
-                    <Store
-                        available={selectedProduct.available}
-                        price={selectedProduct.price}
-                    />
+                    {isAvailable(selectedProductInventory?.result) && isAvailable(selectedProduct) && (
+                        <Store
+                            available={selectedProductInventory?.result}
+                            price={selectedProduct?.Price}
+                        />
+                    )}
     
-                    {
+                    {/* {
                         (selectedProduct.features === null) || (selectedProduct.features.length === 0)
                             ?
                             null
@@ -240,7 +244,7 @@ const Product = () => {
                             <Features 
                                 features={selectedProduct.features}
                             />
-                    }
+                    } */}
     
                     <PricingProcess />
                 </FirstSectionResponsiveWrapper>
@@ -289,7 +293,7 @@ const Product = () => {
 
                 {firstSection()}
 
-                {/* {firstSectionResponsive()} */}
+                {firstSectionResponsive()}
 
                 <Slogan />
 
@@ -297,15 +301,15 @@ const Product = () => {
                     questions={selectedProduct.questions}
                 /> */}
 
-                {/* <PriceSectionResponsive>
+                <PriceSectionResponsive>
                     <p>قیمت مصرف کننده</p>
 
                     <div className="priceAndButton">
-                        <span>{selectedProduct.price.toLocaleString()}</span>
+                        <span>{selectedProduct?.Price.toLocaleString()}</span>
 
                         <button>افزودن به سبد</button>
                     </div>
-                </PriceSectionResponsive> */}
+                </PriceSectionResponsive>
 
                 {
                     showAskQuestionModal === true
