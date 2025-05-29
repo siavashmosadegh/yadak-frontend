@@ -146,9 +146,9 @@ const CarBrand = () => {
         if (products.length !== 0) {
             return  <ProductTypeBrandsItem
                         products={products}
-                        productTypeNameFarsi={productType.productTypeNameFarsi}
-                        CarNameFarsi={car.CarNameFarsi}
-                        CarModelFarsi={car.CarModelFarsi}
+                        productTypeNameFarsi={productType?.productTypeNameFarsi}
+                        CarNameFarsi={car?.CarNameFarsi}
+                        CarModelFarsi={car?.CarModelFarsi}
                     />
         }
     }
