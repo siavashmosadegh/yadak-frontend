@@ -13,8 +13,6 @@ const Details = (props) => {
 
     const dispatch = useDispatch();
 
-    console.log(`productId productId productId productId: ${props.productId}`);
-
     const ProductState = useSelector((state) => state.Product);
     const {
         selectedProductCategory,
@@ -31,7 +29,6 @@ const Details = (props) => {
         if (productId ?? false) {
             dispatch(getSelectedProductCategory(productId));
         }
-        console.log(`selectedProductCategory : ${selectedProductCategory}`);
     },[productId]);
 
     useEffect(() => {
@@ -44,14 +41,12 @@ const Details = (props) => {
         if (productId ?? false) {
             dispatch(getSelectedProductCar(productId));
         }
-        console.log(`selectedProductCar : ${selectedProductCar}`);
     },[productId]);
 
     useEffect(() => {
         if (productId ?? false) {
             dispatch(getSelectedProductProductType(productId));
         }
-        console.log(`برند محصول : ${selectedProductProductType}`);
     },[productId]);
     
     return (
@@ -83,7 +78,9 @@ const Details = (props) => {
             <div className="item">
                 <p className="rightParagraph">خودرو</p>
 
-                <p className="leftParagraph">‍پزو ‍‍پارس</p>
+                {isAvailable(selectedProductCar) && (
+                    <p className="leftParagraph">{selectedProductCar.CarNameFarsi} {selectedProductCar.CarModelFarsi}</p>
+                )}
             </div>
         </DetailsWrapper>
     );

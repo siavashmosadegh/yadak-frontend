@@ -90,7 +90,7 @@ function* getSelectedProductCar(action) {
     
     try {
         const result = yield call(() => fetch(`http://localhost:8080/api/v1/car/get-car-by-product-id/${productID}`).then(res => res.json()));
-        yield put({ type: Types.GET_SELECTED_PRODUCT_CAR_SUCCESS, payload: result });
+        yield put({ type: Types.GET_SELECTED_PRODUCT_CAR_SUCCESS, payload: result.result[0] });
     } catch (error) {
         yield put({ type: Types.GET_SELECTED_PRODUCT_CAR_FAIL, error });
     }
