@@ -75,7 +75,9 @@ const Details = (props) => {
             <div className="item">
                 <p className="rightParagraph">قطعه</p>
 
-                <p className="leftParagraph">سرسیلندر</p>
+                {isAvailable(selectedProductProductType) && (
+                    <p className="leftParagraph">{selectedProductProductType.productTypeNameFarsi}</p>                    
+                )}
             </div>
 
             <div className="item">
