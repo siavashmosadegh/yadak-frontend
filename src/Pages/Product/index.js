@@ -247,6 +247,12 @@ const Product = () => {
                     }
     
                     <PricingProcess />
+
+                    {isAvailable(selectedProduct) && (
+                        <Details
+                            productId={selectedProduct.ProductID}
+                        />
+                    )}
                 </FirstSectionResponsiveWrapper>
             );
         }
