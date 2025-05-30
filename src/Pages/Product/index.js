@@ -235,16 +235,16 @@ const Product = () => {
                             price={selectedProduct?.Price}
                         />
                     )}
-    
-                    {/* {
-                        (selectedProduct.features === null) || (selectedProduct.features.length === 0)
+
+                    {
+                        (selectedProductFeatures?.result === null) || (selectedProductFeatures?.result.length === 0) || (selectedProductFeatures?.result === "There are not any product features with the provided product id")
                             ?
                             null
                             :
                             <Features 
-                                features={selectedProduct.features}
+                                features={selectedProductFeatures}
                             />
-                    } */}
+                    }
     
                     <PricingProcess />
                 </FirstSectionResponsiveWrapper>
