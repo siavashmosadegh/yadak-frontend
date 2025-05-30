@@ -27,7 +27,7 @@ const ResponsiveCategories = () => {
     } = useSelector((state) => state.General);
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PRODUCT_CATEGORIES_REQUEST' });
+        dispatch({ type: 'FETCH_PRODUCT_CATEGORIES' });
     }, []);
 
     console.log(menuData);
