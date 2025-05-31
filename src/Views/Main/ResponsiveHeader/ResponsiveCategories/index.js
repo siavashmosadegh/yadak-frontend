@@ -30,8 +30,6 @@ const ResponsiveCategories = () => {
         dispatch({ type: 'FETCH_PRODUCT_CATEGORIES' });
     }, []);
 
-    console.log(menuData);
-
     const [activeCategoryItem, setActiveCategoryItem] = useState(null);
 
     const responsiveCategoriesItems = () => {

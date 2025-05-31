@@ -79,7 +79,7 @@ export const SubItemsDiv = styled.div`
     font-size: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 40px;
     flex-direction: row-reverse;
 `;

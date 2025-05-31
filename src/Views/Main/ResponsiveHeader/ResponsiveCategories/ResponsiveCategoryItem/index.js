@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import DownArrowIcon from '../../../../../Icons/Header/DownArrowIcon';
 import LeftArrowIcon from '../../../../../Icons/Header/LeftArrowIcon';
@@ -11,6 +11,7 @@ import {
     SubItemsDiv,
     Wrapper
 } from './styles';
+import axios from 'axios';
 
 const ResponsiveCategoryItem = (props) => {
 
@@ -22,12 +23,6 @@ const ResponsiveCategoryItem = (props) => {
         setActiveCategoryItem
     } = props;
 
-    // const {
-    //     id,
-    //     headerTitle,
-    //     goTo,
-    //     items,
-    // } = item;
     const {
         CategoryID,
         CategoryName,
@@ -36,23 +31,17 @@ const ResponsiveCategoryItem = (props) => {
         FarsiCategoryName
     } = item;
 
-
-    // const onClickSelectedItemIdHandler = () => {
-    //     if (activeCategoryItem === id) {
-    //         setActiveCategoryItem(null);
-    //     } else {
-    //         setActiveCategoryItem(id);
-    //     }
-    // }
-
-    const subItemsContent = (subItems) => {
-        if (subItems !== null && subItems !== 0) {
+    const subItemsContent = () => {
+        if (subMenuData !== null && subMenuData.length !== 0) {
             return (
-                subItems.map( (item) => {
+                subMenuData.map( (item) => {
                     return (
                         <SubItemsDiv>
-                            <Link to={item.goTo}>
-                                {item.subItemTitle}
+                            <Link
+                                to={`/product-category?category=${item.categoryID}&productType=${item.productTypeID}`}
+                                style={{marginRight: "10px",marginBottom: "4px"}}
+                            >
+                                {item.productTypeNameFarsi}
                             </Link>
 
                             <LeftArrowIconContainer>
@@ -92,6 +81,24 @@ const ResponsiveCategoryItem = (props) => {
         }
     }
 
+    const [subMenuData, setSubMenuData] = useState([]);
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/api/v1/productType/get-product-type-by-category-id/${CategoryID}`)
+        .then(function (response) {
+            // handle success
+            setSubMenuData(response.data.result);
+            console.log(subMenuData);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+    },[]);
+
     return (
         <Wrapper>
             <div
@@ -119,6 +126,14 @@ const ResponsiveCategoryItem = (props) => {
                 CategoryID === activeCategoryItem
                     ?
                     itemsContent()
+                    :
+                    null
+            }
+
+            {
+                CategoryID === activeCategoryItem
+                    ?
+                    subItemsContent()
                     :
                     null
             }

@@ -32,10 +32,7 @@ const Menu = () => {
             axios.get(`http://localhost:8080/api/v1/productType/get-product-type-by-category-id/${hoveredCategory}`)
             .then(function (response) {
               // handle success
-              console.log(hoveredCategory);
-              console.log(response.data.result);
               setSubMenuData(response.data.result);
-              console.log(subMenuData);
             })
             .catch(function (error) {
               // handle error
