@@ -32,7 +32,7 @@ const ResponsiveCategoryItem = (props) => {
     } = item;
 
     const subItemsContent = () => {
-        if (subMenuData !== null && subMenuData.length !== 0) {
+        if (subMenuData !== null && subMenuData.length !== 0 && subMenuData !== "There is no product type with the provided category id") {
             return (
                 subMenuData.map( (item) => {
                     return (
