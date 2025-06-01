@@ -35,7 +35,7 @@ const ProductCategory = () => {
 
     useEffect(() => {
         if (productTypeID !== null && productTypeID !== undefined) {
-            axios.get(`http://localhost:8080/api/v1/product-category/${productTypeID}`)
+            axios.get(`http://localhost:8080/api/v1/product-category/product-type/${productTypeID}`)
                 .then(function (response) {
                     // handle success
                     setData(response.data.result.data);
