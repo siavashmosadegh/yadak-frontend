@@ -38,7 +38,7 @@ const ResponsiveCategoryItem = (props) => {
                     return (
                         <SubItemsDiv>
                             <Link
-                                to={`/product-category?category=${item.categoryID}&productType=${item.productTypeID}`}
+                                to={`/product-category?productType=${item.productTypeID}`}
                                 style={{marginRight: "10px",marginBottom: "4px"}}
                             >
                                 {item.productTypeNameFarsi}
