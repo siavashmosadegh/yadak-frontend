@@ -55,7 +55,7 @@ const Menu = () => {
                             onMouseEnter={() => setHoveredCategory(item.CategoryID)}
                             onMouseLeave={() => setHoveredCategory(null)}
                         >
-                            <Link to={`/search?category=${item.CategoryID}`}>
+                            <Link to={`/product-category?category=${item.CategoryID}`}>
                                 {item.FarsiCategoryName}
                             </Link>
                         </div>

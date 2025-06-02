@@ -59,7 +59,7 @@ const ResponsiveCategoryItem = (props) => {
             return (
                 <ItemsDiv>
                     <div className="allOfTheThings">
-                        <Link to={`/search?category=${CategoryID}`}>همه ی موارد این دسته</Link>
+                        <Link to={`/product-category?category=${item.CategoryID}`}>همه ی موارد این دسته</Link>
 
                         <LeftArrowIconContainer>
                             <LeftArrowIcon />
