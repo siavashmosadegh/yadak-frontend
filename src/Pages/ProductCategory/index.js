@@ -1,106 +1,105 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../../Views/Layout/index.js';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import ProductCategoryItem from '../../Views/ProductCategory/ProductCategoryItem/index.js';
+import Layout from '../../Views/Layout';
+import ProductCategoryItem from '../../Views/ProductCategory/ProductCategoryItem';
 import {
     BigScreenWrapper,
     ProductCategoryWrapper
-} from './styles.jsx';
-import { Grid } from '@mui/material';
+} from './styles';
+import { Grid, CircularProgress } from '@mui/material';
 
 const ProductCategory = () => {
-
-    // data is the content we want to show in the current page
     const [data, setData] = useState([]);
-
-    // Initialize useSearchParams to access query parameters
-    const [searchParams] = useSearchParams();
-
-    // Get the initial `productType` parameter from the URL
-    const initialProductTypeID = searchParams.get('productType');
-
-    // Initialize useState with the productType value
-    const [productTypeID, setProductTypeID] = useState(initialProductTypeID || '');
-
     const [productType, setProductType] = useState(null);
+    const [categoryInfo, setCategoryInfo] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    // Sync the productType state if it changes in the URL
-    useEffect(() => {
-        console.log(productTypeID);
-        if (initialProductTypeID !== productTypeID) {
-        setProductTypeID(initialProductTypeID || '');
-        }
-    }, [initialProductTypeID, productTypeID]);
+    const [searchParams] = useSearchParams();
+    const productTypeID = searchParams.get('productType');
+    const categoryID = searchParams.get('category');
 
     useEffect(() => {
-        if (productTypeID !== null && productTypeID !== undefined) {
+        setLoading(true);
+        setData([]);
+        setProductType(null);
+        setCategoryInfo(null);
+
+        if (productTypeID) {
             axios.get(`http://localhost:8080/api/v1/product-category/product-type/${productTypeID}`)
-                .then(function (response) {
-                    // handle success
-                    setData(response.data.result.data);
-                    setProductType(response.data.result.productTypeDetails[0]);
-                    console.log(response.data.result.data);
-                    console.log(response.data.result.productTypeDetails[0]);
-            })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-            })
-                .finally(function () {
-                    // always executed
-                    console.log(productType);
-            });
+                .then(res => {
+                    setData(res.data.result.data);
+                    setProductType(res.data.result.productTypeDetails[0]);
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+                .finally(() => setLoading(false));
+        } else if (categoryID) {
+            axios.get(`http://localhost:8080/api/v1/product-category/category/${categoryID}`)
+                .then(res => {
+                    setData(res.data.result.data);
+                    setCategoryInfo(res.data.result.categoryDetails[0]);
+                })
+                .catch(err => {
+                    console.error(err)
+                })
+                .finally(() => setLoading(false));
+        } else {
+            setLoading(false); // اگر هیچ چیزی در URL نبود
         }
-    },[productTypeID]);
+    }, [productTypeID, categoryID]);
 
-    const content = () => {
-        if (data !== null && productType !== null) {
-            console.log(data);
-            return (
-                <Grid container>
-                    {
-                        data.map( (item) => {
-                            return  (
-                                <Grid 
-                                    item
-                                    lg={3}
-                                    md={6}
-                                    sm={12}
-                                    xs={12}
-                                    display="flex"
-                                    justifyContent="center"
-                                    // onClick={() => dispatch(ProductActions.selectProductHandler(item))}
-                                >
-                                    <ProductCategoryItem
-                                        ProductType={productType}
-                                        CarID={item.CarID}
-                                        CarModel={item.CarModel}
-                                        CarName={item.CarName}
-                                        CarModelFarsi={item.CarModelFarsi}
-                                        CarNameFarsi={item.CarNameFarsi}
-                                    />
-                                </Grid>
-                            )
-                        })                    
-                    }
-                </Grid>
-            );
+    const renderHeader = () => {
+        if (productType) {
+            return <h1>خرید {productType.productTypeNameFarsi} ماشین</h1>;
+        } else if (categoryInfo) {
+            return <h1>محصولات دسته {categoryInfo.categoryNameFarsi}</h1>;
+        } else {
+            return <h1>دسته‌بندی محصولات</h1>;
         }
-    }
+    };
 
-    const headerContent = () => {
-        if (productType !== null) {
-            return (
-                <h1>خرید {productType.productTypeNameFarsi} ماشین</h1>
-            );
+    const renderContent = () => {
+        if (loading) {
+            return <div style={{ textAlign: 'center' }}><CircularProgress /></div>;
         }
-    }
+
+        if (data.length === 0) {
+            return <p>محصولی یافت نشد.</p>;
+        }
+
+        return (
+            <Grid container spacing={2}>
+                {data.map((item, index) => (
+                    <Grid
+                        item
+                        key={index}
+                        lg={3}
+                        md={6}
+                        sm={12}
+                        xs={12}
+                        display="flex"
+                        justifyContent="center"
+                    >
+                        <ProductCategoryItem
+                            ProductType={productType}
+                            CarID={item.CarID}
+                            CarModel={item.CarModel}
+                            CarName={item.CarName}
+                            CarModelFarsi={item.CarModelFarsi}
+                            CarNameFarsi={item.CarNameFarsi}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
+        );
+    };
 
     return (
         <Layout>
             <ProductCategoryWrapper>
-                {headerContent()}
+                {renderHeader()}
 
                 <BigScreenWrapper>
                     <div className="filterDiv">
@@ -108,13 +107,12 @@ const ProductCategory = () => {
                     </div>
 
                     <div className="contentDiv">
-                        {content()}
+                        {renderContent()}
                     </div>
                 </BigScreenWrapper>
-
             </ProductCategoryWrapper>
-        </Layout>        
+        </Layout>
     );
-}
+};
 
 export default ProductCategory;
