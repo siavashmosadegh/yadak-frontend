@@ -54,13 +54,14 @@ const ProductCategory = () => {
         if (productType) {
             return <h1>خرید {productType.productTypeNameFarsi} ماشین</h1>;
         } else if (categoryInfo) {
-            return <h1>محصولات دسته {categoryInfo.categoryNameFarsi}</h1>;
+            return <h1>محصولات دسته {categoryInfo.FarsiCategoryName}</h1>;
         } else {
             return <h1>دسته‌بندی محصولات</h1>;
         }
     };
 
     const renderContent = () => {
+
         if (loading) {
             return <div style={{ textAlign: 'center' }}><CircularProgress /></div>;
         }
@@ -69,31 +70,66 @@ const ProductCategory = () => {
             return <p>محصولی یافت نشد.</p>;
         }
 
-        return (
-            <Grid container spacing={2}>
-                {data.map((item, index) => (
-                    <Grid
-                        item
-                        key={index}
-                        lg={3}
-                        md={6}
-                        sm={12}
-                        xs={12}
-                        display="flex"
-                        justifyContent="center"
-                    >
-                        <ProductCategoryItem
-                            ProductType={productType}
-                            CarID={item.CarID}
-                            CarModel={item.CarModel}
-                            CarName={item.CarName}
-                            CarModelFarsi={item.CarModelFarsi}
-                            CarNameFarsi={item.CarNameFarsi}
-                        />
-                    </Grid>
-                ))}
-            </Grid>
-        );
+        if (productType !== null && categoryInfo === null) {
+            return (
+                <Grid container spacing={2}>
+                    {data.map((item, index) => (
+                        <Grid
+                            item
+                            key={index}
+                            lg={3}
+                            md={6}
+                            sm={12}
+                            xs={12}
+                            display="flex"
+                            justifyContent="center"
+                        >
+                            <ProductCategoryItem
+                                mode="product-type"
+                                ProductType={productType}
+                                CarID={item.CarID}
+                                CarModel={item.CarModel}
+                                CarName={item.CarName}
+                                CarModelFarsi={item.CarModelFarsi}
+                                CarNameFarsi={item.CarNameFarsi}
+                            />
+                        </Grid>
+                    ))}
+                </Grid>
+            );
+        } else if (productType === null && categoryInfo !== null) {
+            return (
+                <Grid container spacing={2}>
+                    {data.map((item, index) => (
+                        <Grid
+                            item
+                            key={index}
+                            lg={3}
+                            md={6}
+                            sm={12}
+                            xs={12}
+                            display="flex"
+                            justifyContent="center"
+                        >
+                            <ProductCategoryItem
+                                mode="category"
+                                categoryInfo={categoryInfo}
+                                ProductID={item.ProductID}
+                                ProductName={item.ProductName}
+                                CarModel={item.CarModel}
+                                CarName={item.CarName}
+                                CarID={item.CarID}
+                                CarModelFarsi={item.CarModelFarsi}
+                                CarNameFarsi={item.CarNameFarsi}
+                                productTypeNameFarsi={item.productTypeNameFarsi}
+                                productTypeID={item.productTypeID}
+                            />
+                        </Grid>
+                    ))}
+                </Grid>
+            );
+        }
+
     };
 
     return (
