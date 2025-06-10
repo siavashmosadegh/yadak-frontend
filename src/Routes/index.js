@@ -56,10 +56,6 @@ const RoutesList = () => {
                     element={ <Search />}
                 />
 
-                <Route
-                    path={routePaths.checkoutCart}
-                    element={ <CheckoutCart /> }
-                />
 
                 <Route
                     path={routePaths.productCategory}
@@ -75,6 +71,10 @@ const RoutesList = () => {
                     path={routePaths.checkoutShipping}
                     element={ <CheckoutShipping /> }
                 /> */}
+
+                <Route path={routePaths.checkoutCart} element={<PrivateRoute/>}>
+                    <Route path={routePaths.checkoutCart} element={ <CheckoutCart /> } />
+                </Route>
 
                 <Route path={routePaths.checkoutShipping} element={<PrivateRoute/>}>
                     <Route path={routePaths.checkoutShipping} element={<CheckoutShipping/>}/>
