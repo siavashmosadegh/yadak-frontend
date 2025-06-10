@@ -16,8 +16,13 @@ const loginFailure = (error) => ({
     error,
 });
 
+const logout = () => ({
+    type: Types.LOGOUT
+});
+
 export default {
     loginRequest,
     loginSuccess,
-    loginFailure
+    loginFailure,
+    logout
 };

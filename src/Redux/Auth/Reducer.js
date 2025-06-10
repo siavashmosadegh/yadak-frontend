@@ -23,6 +23,7 @@ export default function Reducer (state = initState, action) {
                 loading: false
             };
         case Types.LOGOUT:
+            localStorage.removeItem('token');
             return {
                 ...state,
                 token: null,
