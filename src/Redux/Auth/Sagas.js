@@ -6,8 +6,6 @@ function* loginRequest(action) {
     
     const { mobile } = action.payload || {};
 
-    console.log(mobile);
-
     try {
         const result = yield call(() =>
             fetch('http://localhost:8080/api/v1/login/via-phone', {
@@ -19,11 +17,10 @@ function* loginRequest(action) {
             })
             .then(res => res.json())
         );
-        console.log(result.token);
-        yield put({ type: Types.LOGIN_SUCCESS, payload: { token: result.token } });
+        yield put({ type: Types.LOGIN_SUCCESS, payload: { token: result.message } });
         
         // save token in localStorage
-        localStorage.setItem('token', result.token);
+        localStorage.setItem('token', result.message);
     } catch (error) {
         yield put({ type: Types.LOGIN_FAILURE, error });
     }
