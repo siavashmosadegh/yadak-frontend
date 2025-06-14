@@ -78,6 +78,7 @@ const initState = {
             ]
         }
     ],
+    shoppingBarId: null,
     navigationItems: [
         {
             id: 0,
@@ -135,6 +136,12 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 showConfirmSelectTimeAddressModal: false
             };
+        case Types.GET_CART_VIA_USER_ID_SUCCESS:
+            return {
+                ...state,
+                shoppingBag: action.payload.items,
+                shoppingBarId: action.payload.cartId
+            }
         default:
             return state;
     }

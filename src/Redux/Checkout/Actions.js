@@ -1,6 +1,10 @@
 import Types from "./Types";
 import DelegateAction from "../ActionDelegator";
 
+export const getCartViaUserId = () => ({
+    type: Types.GET_CART_VIA_USER_ID_REQUEST
+});
+
 const CheckoutActions = {
     deleteEverythingHandler: DelegateAction(Types.DELETE_EVERYTHING),
 

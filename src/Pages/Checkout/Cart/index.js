@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Layout from '../../../Views/Layout';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
 import {
     CheckoutWrapper,
     EmptyShoppingBagContainer,
@@ -10,18 +10,20 @@ import ShoppingBagIcon from '../../../Icons/Checkout/ShoppingBagIcon';
 import LoginToAccount from '../../../Views/Checkout/LoginToAccount';
 import FinalPricesAndDiscount from '../../../Views/Checkout/FinalPricesAndDiscount';
 import LoadedShoppingBag from '../../../Views/Checkout/LoadedShoppingBag';
+import { getCartViaUserId } from '../../../Redux/Checkout/Actions';
 
 const CheckoutCart = () => {
 
+    const dispatch = useDispatch();
+
     const {
-        shoppingBag
+        shoppingBag,
+        shoppingBagId
     } = useSelector((state) => state.Checkout);
 
     const {
         isLoggedIn
     } = useSelector((state) => state.Auth);
-
-    console.log(shoppingBag.length);
 
     useEffect(() => {
         if ( shoppingBag.length === 0 ) {
@@ -68,6 +70,12 @@ const CheckoutCart = () => {
             </>
         );
     }
+
+    useEffect(() => {
+        dispatch(getCartViaUserId());
+        console.log(`shopping bag : ${shoppingBag}`);
+        console.log(`shopping Bag id: ${shoppingBagId}`);
+    },[shoppingBagId]);
 
     return (
         <Layout>
