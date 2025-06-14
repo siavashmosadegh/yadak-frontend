@@ -78,7 +78,7 @@ const initState = {
             ]
         }
     ],
-    shoppingBarId: null,
+    shoppingBagId: null,
     navigationItems: [
         {
             id: 0,
@@ -140,7 +140,7 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 shoppingBag: action.payload.items,
-                shoppingBarId: action.payload.cartId
+                shoppingBagId: action.payload.cartId
             }
         default:
             return state;

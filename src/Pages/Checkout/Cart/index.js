@@ -45,6 +45,8 @@ const CheckoutCart = () => {
                             null
                     }
                     <EmptyShoppingBagContainer isLoggedIn={isLoggedIn}>
+                        <h1>cartId: {shoppingBagId}</h1>
+
                         <ShoppingBagIconContainer>
                             <ShoppingBagIcon />
                         </ShoppingBagIconContainer>
@@ -73,9 +75,7 @@ const CheckoutCart = () => {
 
     useEffect(() => {
         dispatch(getCartViaUserId());
-        console.log(`shopping bag : ${shoppingBag}`);
-        console.log(`shopping Bag id: ${shoppingBagId}`);
-    },[shoppingBagId]);
+    },[]);
 
     return (
         <Layout>
