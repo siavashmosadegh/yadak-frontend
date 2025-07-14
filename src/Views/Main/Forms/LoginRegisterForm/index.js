@@ -25,7 +25,7 @@ const LoginRegisterForm = () => {
                 }}
                 validationSchema={RegisterLoginSchema}
                 onSubmit={(values, action) => {
-                    dispatch(AuthActions.loginRequest({ mobile: values.mobile }));
+                    dispatch(AuthActions.loginRequestOtpRequest({ mobile: values.mobile }));
                     navigate(localStorage.getItem("backURL"));
                 }}
             >

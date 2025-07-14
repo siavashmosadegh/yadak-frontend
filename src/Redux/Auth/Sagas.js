@@ -3,7 +3,6 @@ import Types from './Types';
 
 function* loginRequest(action) {
 
-    
     const { mobile } = action.payload || {};
 
     try {
@@ -30,8 +29,36 @@ function* watchLoginRequest() {
     yield takeEvery(Types.LOGIN_REQUEST, loginRequest);
 }
 
+function* loginRequestOtpRequest(action) {
+
+    const { mobile } = action.payload || {};
+
+    try {
+        const result = yield call(() =>
+            fetch('http://localhost:8080/api/v1/login/request-otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile: mobile }),
+            })
+            .then(res => res.json())
+        );
+        console.log(result);
+        yield put({ type: Types.LOGIN_REQUEST_OTP_SUCCESS, payload: result });
+
+    } catch (error) {
+        yield put({ type: Types.LOGIN_REQUEST_OTP_FAILURE, error });
+    }
+}
+
+function* watchLoginRequestOtpRequest() {
+    yield takeEvery(Types.LOGIN_REQUEST_OTP_REQUEST, loginRequestOtpRequest);
+}
+
 export default function* Sagas() {
   yield all([
-    fork(watchLoginRequest)
+    fork(watchLoginRequest),
+    fork(watchLoginRequestOtpRequest)
   ]);
 }
