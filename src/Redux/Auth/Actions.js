@@ -20,9 +20,27 @@ const logout = () => ({
     type: Types.LOGOUT
 });
 
+const loginRequestOtpRequest = (payload) => ({
+    type: Types.LOGIN_REQUEST_OTP_REQUEST,
+    payload
+});
+
+const loginRequestOtpSuccess = (payload) => ({
+    type: Types.LOGIN_REQUEST_OTP_SUCCESS,
+    payload
+});
+
+const loginRequestOtpFailure = (error) => ({
+    type: Types.LOGIN_REQUEST_OTP_FAILURE,
+    error
+});
+
 export default {
     loginRequest,
     loginSuccess,
     loginFailure,
-    logout
+    logout,
+    loginRequestOtpRequest,
+    loginRequestOtpSuccess,
+    loginRequestOtpFailure
 };
