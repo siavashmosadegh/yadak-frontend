@@ -2,6 +2,7 @@ import React from 'react';
 import LoginRegisterForm from '../../Views/Main/Forms/LoginRegisterForm';
 import { Wrapper } from './styles';
 import {useNavigate, useLocation} from "react-router-dom";
+import MobileOtpForm from '../../Views/Main/Forms/MobileOtpForm/MobileOtpForm';
 
 const Login = () => {
 
@@ -18,7 +19,9 @@ const Login = () => {
 
                 <p className="description">لطفا شماره موبایل خود را وارد کنید</p>
 
-                <LoginRegisterForm />
+                {/* <LoginRegisterForm /> */}
+
+                <MobileOtpForm />
             </div>
         </Wrapper>
     );
