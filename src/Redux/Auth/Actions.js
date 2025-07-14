@@ -35,6 +35,21 @@ const loginRequestOtpFailure = (error) => ({
     error
 });
 
+const loginVerifyOtpRequest = (payload) => ({
+    type: Types.LOGIN_VERIFY_OTP_REQUEST,
+    payload
+});
+
+const loginVerifyOtpSuccess = (token) => ({
+    type: Types.LOGIN_VERIFY_OTP_SUCCESS,
+    token
+});
+
+const loginVerifyOtpFailure = (error) => ({
+    type: Types.LOGIN_VERIFY_OTP_FAILURE,
+    error
+});
+
 export default {
     loginRequest,
     loginSuccess,
@@ -42,5 +57,8 @@ export default {
     logout,
     loginRequestOtpRequest,
     loginRequestOtpSuccess,
-    loginRequestOtpFailure
+    loginRequestOtpFailure,
+    loginVerifyOtpRequest,
+    loginVerifyOtpSuccess,
+    loginVerifyOtpFailure
 };
