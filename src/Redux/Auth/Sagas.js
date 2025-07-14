@@ -56,9 +56,37 @@ function* watchLoginRequestOtpRequest() {
     yield takeEvery(Types.LOGIN_REQUEST_OTP_REQUEST, loginRequestOtpRequest);
 }
 
+function* loginVerifyOtpRequest(action) {
+
+    const { mobile, otp } = action.payload || {};
+
+    try {
+        const result = yield call(() =>
+            fetch('http://localhost:8080/api/v1/login/verify-otp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile: mobile , otp: otp }),
+            })
+            .then(res => res.json())
+        );
+        console.log(result);
+        yield put({ type: Types.LOGIN_VERIFY_OTP_SUCCESS, payload: result });
+
+    } catch (error) {
+        yield put({ type: Types.LOGIN_VERIFY_OTP_FAILURE, error });
+    }
+}
+
+function* watchLoginVerifyOtpRequest() {
+    yield takeEvery(Types.LOGIN_VERIFY_OTP_REQUEST, loginVerifyOtpRequest);
+}
+
 export default function* Sagas() {
   yield all([
     fork(watchLoginRequest),
-    fork(watchLoginRequestOtpRequest)
+    fork(watchLoginRequestOtpRequest),
+    fork(watchLoginVerifyOtpRequest)
   ]);
 }
