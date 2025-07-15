@@ -26,7 +26,7 @@ const LoginRegisterForm = () => {
                 validationSchema={RegisterLoginSchema}
                 onSubmit={(values, action) => {
                     dispatch(AuthActions.loginRequestOtpRequest({ mobile: values.mobile }));
-                    navigate(localStorage.getItem("backURL"));
+                    // navigate(localStorage.getItem("backURL"));
                 }}
             >
                 {(formik) => (
