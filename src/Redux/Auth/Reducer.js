@@ -5,6 +5,7 @@ const initState = {
     isLoggedIn: false,
     loading: false,
     error: null,
+    step: "initial"
 }
 
 export default function Reducer (state = initState, action) {
@@ -34,7 +35,12 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 loading: false,
                 error: action.error
-        };
+            };
+        case Types.LOGIN_REQUEST_OTP_SUCCESS:
+            return {
+                ...state,
+                step: "verify"
+            };
         default:
             return state;
     }
