@@ -38,7 +38,11 @@ export const Wrapper = styled.div`
     }
 
     .buttonDiv {
+        margin-top: 10px;
+        margin-bottom: 10px;
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     @media (max-width: 1100px) {

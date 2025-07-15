@@ -60,7 +60,7 @@ const Store = (props) => {
 
             <div className="buttonDiv">
                 <CustomButton
-                    width="100%"
+                    width="85%"
                     height="50px"
                     title="افزودن به سبد"
                     backgroundColor="red"
