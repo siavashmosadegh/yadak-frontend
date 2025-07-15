@@ -28,6 +28,7 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 token: null,
+                step: "initial",
                 isLoggedIn: false
             };
         case Types.LOGIN_FAILURE:
