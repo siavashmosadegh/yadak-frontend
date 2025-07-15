@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginRegisterForm from '../../Views/Main/Forms/LoginRegisterForm';
 import { Wrapper } from './styles';
-import {useNavigate, useLocation} from "react-router-dom";
+import {useNavigate, useLocation, Navigate} from "react-router-dom";
 import MobileOtpForm from '../../Views/Main/Forms/MobileOtpForm/MobileOtpForm';
 import { useSelector } from 'react-redux';
 
@@ -30,6 +30,10 @@ const Login = () => {
 
                 {step === 'verify' && location.pathname === '/login' && (
                     <MobileOtpForm />
+                )}
+
+                {step === 'verified' && (
+                    <Navigate to={localStorage.getItem("backURL")} />
                 )}
             </div>
         </Wrapper>
