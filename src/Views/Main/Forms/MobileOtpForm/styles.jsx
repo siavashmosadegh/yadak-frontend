@@ -18,7 +18,7 @@ export const Input = styled.input`
     border-radius: 10px;
     font-size: 18px;
     border: 1px solid ${(props) => (props.hasError ? 'red' : 'gray')};
-    padding: 0 8px;
+    padding: 0px;
 
     &:focus {
         outline: none;
