@@ -3,12 +3,17 @@ import LoginRegisterForm from '../../Views/Main/Forms/LoginRegisterForm';
 import { Wrapper } from './styles';
 import {useNavigate, useLocation} from "react-router-dom";
 import MobileOtpForm from '../../Views/Main/Forms/MobileOtpForm/MobileOtpForm';
+import { useSelector } from 'react-redux';
 
 const Login = () => {
 
     const location = useLocation();
 
     console.log(localStorage.getItem("backURL"));
+
+    const {
+        step
+    } = useSelector((state) => state.Auth);
 
     return (
         <Wrapper height={window.innerHeight}>
@@ -19,9 +24,13 @@ const Login = () => {
 
                 <p className="description">لطفا شماره موبایل خود را وارد کنید</p>
 
-                {/* <LoginRegisterForm /> */}
+                {step === 'initial' && (
+                    <LoginRegisterForm />
+                )}
 
-                <MobileOtpForm />
+                {step === 'verify' && location.pathname === '/login' && (
+                    <MobileOtpForm />
+                )}
             </div>
         </Wrapper>
     );
