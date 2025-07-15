@@ -71,9 +71,11 @@ function* loginVerifyOtpRequest(action) {
             })
             .then(res => res.json())
         );
-        console.log(result);
+
         yield put({ type: Types.LOGIN_VERIFY_OTP_SUCCESS, payload: result });
 
+        // save token in localStorage
+        localStorage.setItem('token', result.token);
     } catch (error) {
         yield put({ type: Types.LOGIN_VERIFY_OTP_FAILURE, error });
     }
