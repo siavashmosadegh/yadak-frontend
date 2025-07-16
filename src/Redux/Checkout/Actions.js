@@ -20,6 +20,13 @@ export const getCartItemsViaCartId = (cartId) => ({
     }
 });
 
+export const deleteEverythingFromCartViaCartId = (cartId) => ({
+    type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_REQUEST,
+    payload: {
+        cartId
+    }
+});
+
 const CheckoutActions = {
     deleteEverythingHandler: DelegateAction(Types.DELETE_EVERYTHING),
 
