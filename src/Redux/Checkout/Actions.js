@@ -13,6 +13,13 @@ export const increaseProductQuantityInCart = (cartId, productId) => ({
     }
 });
 
+export const getCartItemsViaCartId = (cartId) => ({
+    type: Types.GET_CART_ITEMS_VIA_CART_ID_REQUEST,
+    payload: {
+        cartId
+    }
+});
+
 const CheckoutActions = {
     deleteEverythingHandler: DelegateAction(Types.DELETE_EVERYTHING),
 
