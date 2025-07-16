@@ -10,7 +10,10 @@ import ShoppingBagIcon from '../../../Icons/Checkout/ShoppingBagIcon';
 import LoginToAccount from '../../../Views/Checkout/LoginToAccount';
 import FinalPricesAndDiscount from '../../../Views/Checkout/FinalPricesAndDiscount';
 import LoadedShoppingBag from '../../../Views/Checkout/LoadedShoppingBag';
-import { getCartViaUserId } from '../../../Redux/Checkout/Actions';
+import {
+    getCartViaUserId,
+    getCartItemsViaCartId
+} from '../../../Redux/Checkout/Actions';
 
 const CheckoutCart = () => {
 
@@ -75,6 +78,7 @@ const CheckoutCart = () => {
 
     useEffect(() => {
         dispatch(getCartViaUserId());
+        dispatch(getCartItemsViaCartId( shoppingBagId ));
     },[]);
 
     return (
