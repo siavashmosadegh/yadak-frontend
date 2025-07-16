@@ -24,7 +24,7 @@ const PriceComponent = (props) => {
         >
             <span className="toman">تومان</span>
 
-            <span className="price">{price.toLocaleString()}</span>
+            <span className="price">{price?.toLocaleString()}</span>
         </Wrapper>
     );
 }
