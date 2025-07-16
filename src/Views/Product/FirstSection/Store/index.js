@@ -5,15 +5,32 @@ import UnavailableInStoreIcon from '../../../../Icons/ProductIcons/UnavailableIn
 import VerifiedIcon from '../../../../Icons/ProductIcons/VerifiedIcon';
 import CustomButton from '../../../../UI-Kit/CustomButton';
 import { Line, Wrapper } from './styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { increaseProductQuantityInCart } from '../../../../Redux/Checkout/Actions';
 
 const Store = (props) => {
+
+    const navigate = useNavigate();
 
     const {
         available,
         price
     } = props;
 
-    console.log(`Quantity: ${available[0].Quantity}`);
+    const {
+        isLoggedIn
+    } = useSelector((state) => state.Auth);
+
+    const {
+        shoppingBagId
+    } = useSelector((state) => state.Checkout);
+
+    const {
+        selectedProduct
+    } = useSelector((state) => state.Product);
+
+    const dispatch = useDispatch();
 
     return (
         <Wrapper>
@@ -68,7 +85,12 @@ const Store = (props) => {
                     border="none"
                     color="white"
                     fontSize="20px"
-                    fontWeight="bold"                  
+                    fontWeight="bold"
+                    onClick={() => {
+                        isLoggedIn === true
+                            ? dispatch(increaseProductQuantityInCart(shoppingBagId, selectedProduct?.ProductID))
+                            : navigate("/login", { state: { backURL: window.location.pathname } });
+                    }}
                 />
             </div>
         </Wrapper>
