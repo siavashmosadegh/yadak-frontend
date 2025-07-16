@@ -5,11 +5,11 @@ export const getCartViaUserId = () => ({
     type: Types.GET_CART_VIA_USER_ID_REQUEST
 });
 
-export const increaseProductQuantityInCart = (productId, quantity) => ({
+export const increaseProductQuantityInCart = (cartId, productId) => ({
     type: Types.INCREASE_PRODUCT_QUANTITY_IN_CART_REQUEST,
     payload: {
-        productId,
-        quantity
+        cartId,
+        productId
     }
 });
 
