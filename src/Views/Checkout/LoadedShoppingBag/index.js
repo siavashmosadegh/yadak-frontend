@@ -6,8 +6,8 @@ import {
     TrashIconContainer,
     Wrapper
 } from './styles';
-import { useDispatch } from 'react-redux';
-import CheckoutActions from '../../../Redux/Checkout/Actions';
+import { useDispatch , useSelector } from 'react-redux';
+import { deleteEverythingFromCartViaCartId } from '../../../Redux/Checkout/Actions';
 import CheckoutItem from '../CheckoutItem/index';
 
 const LoadedShoppingBag = (props) => {
@@ -18,6 +18,10 @@ const LoadedShoppingBag = (props) => {
 
     const dispatch = useDispatch();
 
+    const {
+        shoppingBagId
+    } = useSelector((state) => state.Checkout);
+
     return (
         <Wrapper>
             <Header
@@ -26,7 +30,7 @@ const LoadedShoppingBag = (props) => {
                 <span className="headerTitle">سبد خرید شما</span>
 
                 <DeleteEverythingButton
-                    onClick={() => dispatch(CheckoutActions.deleteEverythingHandler({}))}
+                    onClick={() => dispatch(deleteEverythingFromCartViaCartId( shoppingBagId ))}
                 >
                     <span>حذف همه چیز</span>
 
