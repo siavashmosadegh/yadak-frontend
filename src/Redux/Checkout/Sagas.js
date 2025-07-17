@@ -66,17 +66,42 @@ function* getCartItemsViaCartId (action) {
     } catch (error) {
         yield put({ type: Types.GET_CART_ITEMS_VIA_CART_ID_FAIL, error });
     }
-
 }
 
 function* watchGetCartItemsViaCartId() {
     yield takeEvery(Types.GET_CART_ITEMS_VIA_CART_ID_REQUEST, getCartItemsViaCartId);
 }
 
+function* deleteEverythingFromCartViaCartId(action) {
+    try {
+        const { cartId } = action.payload;
+
+        const result = yield call(() =>
+            fetch(`http://localhost:8080/api/v1/cart/delete-everything-via-cart-id`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ localStorage.getItem("token")
+                },
+                body: JSON.stringify({ cartId })
+            })
+            .then(res => res.json())
+        );
+        yield put({ type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_SUCCESS, payload: result });
+    } catch (error) {
+        yield put({ type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_FAIL, error });
+    }
+}
+
+function* watchDeleteEverythingFromCartViaCartId() {
+    yield takeEvery(Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_REQUEST, deleteEverythingFromCartViaCartId)
+}
+
 export default function* Sagas() {
     yield all([
         fork(watchGetCartViaUserId),
         fork(watchIncreaseProductQuantityInCart),
-        fork(watchGetCartItemsViaCartId)
+        fork(watchGetCartItemsViaCartId),
+        fork(watchDeleteEverythingFromCartViaCartId)
     ]);
 }
