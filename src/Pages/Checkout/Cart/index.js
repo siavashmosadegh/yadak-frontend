@@ -78,8 +78,10 @@ const CheckoutCart = () => {
 
     useEffect(() => {
         dispatch(getCartViaUserId());
-        dispatch(getCartItemsViaCartId( shoppingBagId ));
-    },[]);
+        if (shoppingBagId !== null) {
+            dispatch(getCartItemsViaCartId( shoppingBagId ));
+        }
+    },[shoppingBagId]);
 
     return (
         <Layout>
