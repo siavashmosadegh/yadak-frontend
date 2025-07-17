@@ -40,7 +40,7 @@ const LoadedShoppingBag = (props) => {
                 </DeleteEverythingButton>
             </Header>
             {
-                items.map( (item) => {
+                items?.map( (item) => {
                     return (
                         <CheckoutItem
                             key={item.id}
