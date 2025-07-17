@@ -28,16 +28,16 @@ const CheckoutCart = () => {
         isLoggedIn
     } = useSelector((state) => state.Auth);
 
-    useEffect(() => {
-        if ( shoppingBag.length === 0 ) {
+    // useEffect(() => {
+    //     if ( shoppingBag?.length === 0 ) {
 
-        } else {
+    //     } else {
 
-        }
-    },[shoppingBag.length]);
+    //     }
+    // },[shoppingBag?.length]);
 
     const checkoutEmptyContent = () => {
-        // if (shoppingBag.length == 0) {
+        // if (shoppingBag?.length == 0) {
             return (
                 <>
                     {
@@ -65,7 +65,7 @@ const CheckoutCart = () => {
         return (
             <>
                 <FinalPricesAndDiscount
-                    numberOfItems={shoppingBag.length}
+                    numberOfItems={shoppingBag?.length}
                     buttonTitle="ثبت سفارش"
                     currentPage="cart"
                 />
@@ -87,7 +87,7 @@ const CheckoutCart = () => {
         <Layout>
             <CheckoutWrapper>
                 {
-                    shoppingBag.length == 0
+                    shoppingBag?.length == 0
                         ?
                         checkoutEmptyContent()
                         :
