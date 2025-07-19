@@ -28,14 +28,6 @@ const CheckoutCart = () => {
         isLoggedIn
     } = useSelector((state) => state.Auth);
 
-    // useEffect(() => {
-    //     if ( shoppingBag?.length === 0 ) {
-
-    //     } else {
-
-    //     }
-    // },[shoppingBag?.length]);
-
     const checkoutEmptyContent = () => {
         if (shoppingBag?.length === 0) {
             return (
@@ -90,13 +82,12 @@ const CheckoutCart = () => {
         <Layout>
             <CheckoutWrapper>
                 {
-                    shoppingBag?.length == 0
+                    shoppingBag?.length === 0
                         ?
                         checkoutEmptyContent()
                         :
                         checkoutContent()
                 }
-                {/* {checkoutEmptyContent()}             */}
             </CheckoutWrapper>
         </Layout>
     );
