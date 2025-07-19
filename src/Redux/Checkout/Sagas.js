@@ -61,13 +61,13 @@ function* getCartItemsViaCartId(action) {
                 body: JSON.stringify({ cartId })
             });
 
-            if (res.status === 204) {
-                return [];
-            }
+            // if (res.status === 204) {
+            //     return [];
+            // }
 
-            if (!res.ok) {
-                throw new Error('Failed to fetch cart items');
-            }
+            // if (!res.ok) {
+            //     throw new Error('Failed to fetch cart items');
+            // }
 
             return yield res.json();
         });
