@@ -64,7 +64,6 @@ export default function Reducer (state = initState, action) {
         case Types.GET_CART_VIA_USER_ID_SUCCESS:
             return {
                 ...state,
-                //shoppingBag: action.payload.items,
                 shoppingBagId: action.payload.cartId
             }
         case Types.GET_CART_ITEMS_VIA_CART_ID_SUCCESS:
