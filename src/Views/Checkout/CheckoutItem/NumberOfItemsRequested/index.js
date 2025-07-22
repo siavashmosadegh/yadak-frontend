@@ -6,12 +6,27 @@ import {
     TrashIconContainer,
     Wrapper
 } from './styles';
+import {
+    useSelector,
+    useDispatch
+} from 'react-redux';
+import {
+    increaseProductQuantityInCart
+} from '../../../../Redux/Checkout/Actions';
 
 const NumberOfItemsRequested = (props) => {
 
+    const dispatch = useDispatch();
+
     const {
-        number
+        shoppingBagId
+    } = useSelector((state) => state.Checkout);
+
+    const {
+        number,
+        productId
     } = props;
+
     return (
         <Wrapper>
             <TrashIconContainer>
@@ -20,7 +35,9 @@ const NumberOfItemsRequested = (props) => {
 
             <span>{number}</span>
 
-            <PlusIconContainer>
+            <PlusIconContainer
+                onClick={() => dispatch(increaseProductQuantityInCart(shoppingBagId, productId))}
+            >
                 <PlusIcon />
             </PlusIconContainer>
         </Wrapper>

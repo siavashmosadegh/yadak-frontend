@@ -18,7 +18,8 @@ const CheckoutItem = (props) => {
 
     const {
         ProductName,
-        Price
+        Price,
+        ProductID
     } = item?.product;
 
     const {
@@ -61,11 +62,12 @@ const CheckoutItem = (props) => {
                     {
                         type === "inCheckout"
                             ?
-                            <NumberOfItemsRequested
-                                number={Quantity}
-                            />
+                                <NumberOfItemsRequested
+                                    number={Quantity}
+                                    productId={ProductID}
+                                />
                             :
-                            null
+                                null
                     }
                 </RightDiv>
             </div>
