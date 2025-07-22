@@ -140,11 +140,36 @@ function* watchDeleteEverythingFromCartViaCartId() {
     yield takeEvery(Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_REQUEST, deleteEverythingFromCartViaCartId)
 }
 
+function* decreaseProductQuantityInCart (action) {
+    try {
+        const { cartId, productId, cartItemId } = action.payload;
+        const result = yield call(() =>
+            fetch(`http://localhost:8080/api/v1/cart/decrease-product-quantity-in-cart`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer '+ localStorage.getItem("token")
+                },
+                body: JSON.stringify({ cartId, productId, cartItemId })
+            })
+            .then(res => res.json())
+        );
+        yield put({ type: Types.DECREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS, payload: result });
+    } catch (error) {
+        yield put({ type: Types.DECREASE_PRODUCT_QUANTITY_IN_CART_FAIL, error });
+    }
+}
+
+function* watchDecreaseProductQuantityInCart () {
+    yield takeEvery(Types.DECREASE_PRODUCT_QUANTITY_IN_CART_REQUEST, decreaseProductQuantityInCart)
+}
+
 export default function* Sagas() {
     yield all([
         fork(watchGetCartViaUserId),
         fork(watchIncreaseProductQuantityInCart),
         fork(watchGetCartItemsViaCartId),
-        fork(watchDeleteEverythingFromCartViaCartId)
+        fork(watchDeleteEverythingFromCartViaCartId),
+        fork(watchDecreaseProductQuantityInCart)
     ]);
 }
