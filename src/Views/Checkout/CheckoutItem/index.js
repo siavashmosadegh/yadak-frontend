@@ -16,13 +16,24 @@ const CheckoutItem = (props) => {
         type
     } = props;
 
+    const {
+        ProductName,
+        Price
+    } = item?.product;
+
+    const {
+        Quantity
+    } = item
+
+    console.log(item);
+
     return (
         <Wrapper
             type={type}
         >
             <div className="row">
                 <LeftDiv>
-                    <p className="title">{item.title}</p>
+                    <p className="title">{ProductName}</p>
 
                     <div className="verified">
                         <VerifiedIcon />
@@ -37,7 +48,7 @@ const CheckoutItem = (props) => {
             <div className="row">
                 <LeftDiv>
                     <PriceComponent
-                        price={item.price}
+                        price={Price}
                         width="auto"
                         height="auto"
                         tomanColor="#000000"
@@ -51,7 +62,7 @@ const CheckoutItem = (props) => {
                         type === "inCheckout"
                             ?
                             <NumberOfItemsRequested
-                                number={2}
+                                number={Quantity}
                             />
                             :
                             null
