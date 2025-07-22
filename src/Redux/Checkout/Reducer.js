@@ -69,7 +69,7 @@ export default function Reducer (state = initState, action) {
         case Types.GET_CART_ITEMS_VIA_CART_ID_SUCCESS:
             return {
                 ...state,
-                shoppingBag: action.payload.result
+                shoppingBag: action.payload
             }
         default:
             return state;
