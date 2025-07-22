@@ -11,6 +11,7 @@ import {
     useDispatch
 } from 'react-redux';
 import {
+    decreaseProductQuantityInCart,
     increaseProductQuantityInCart
 } from '../../../../Redux/Checkout/Actions';
 
@@ -24,12 +25,15 @@ const NumberOfItemsRequested = (props) => {
 
     const {
         number,
-        productId
+        productId,
+        cartItemId
     } = props;
 
     return (
         <Wrapper>
-            <TrashIconContainer>
+            <TrashIconContainer
+                onClick={() => dispatch(decreaseProductQuantityInCart(shoppingBagId, productId, cartItemId ))}
+            >
                 <TrashIcon />
             </TrashIconContainer>
 

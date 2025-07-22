@@ -23,7 +23,8 @@ const CheckoutItem = (props) => {
     } = item?.product;
 
     const {
-        Quantity
+        Quantity,
+        CartItemId
     } = item
 
     console.log(item);
@@ -65,6 +66,7 @@ const CheckoutItem = (props) => {
                                 <NumberOfItemsRequested
                                     number={Quantity}
                                     productId={ProductID}
+                                    cartItemId={CartItemId}
                                 />
                             :
                                 null
