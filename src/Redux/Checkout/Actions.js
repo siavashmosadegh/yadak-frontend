@@ -27,6 +27,15 @@ export const deleteEverythingFromCartViaCartId = (cartId) => ({
     }
 });
 
+export const decreaseProductQuantityInCart = (cartId, productId, cartItemId) = ({
+    type: Types.DECREASE_PRODUCT_QUANTITY_IN_CART_REQUEST,
+    payload: {
+        cartId,
+        productId,
+        cartItemId
+    }
+});
+
 const CheckoutActions = {
     showChangeEditAddressModalHandler: DelegateAction(Types.SHOW_CHANGE_EDIT_ADDRESS_MODAL),
     closeChangeEditAddressModalHandler: DelegateAction(Types.CLOSE_CHANGE_EDIT_ADDRESS_MODAL),
