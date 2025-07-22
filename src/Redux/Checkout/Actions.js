@@ -27,7 +27,7 @@ export const deleteEverythingFromCartViaCartId = (cartId) => ({
     }
 });
 
-export const decreaseProductQuantityInCart = (cartId, productId, cartItemId) = ({
+export const decreaseProductQuantityInCart = (cartId, productId, cartItemId) => ({
     type: Types.DECREASE_PRODUCT_QUANTITY_IN_CART_REQUEST,
     payload: {
         cartId,
