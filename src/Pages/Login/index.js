@@ -12,7 +12,8 @@ const Login = () => {
     console.log(localStorage.getItem("backURL"));
 
     const {
-        step
+        step,
+        error
     } = useSelector((state) => state.Auth);
 
     return (
@@ -35,6 +36,14 @@ const Login = () => {
                 {step === 'verified' && (
                     <Navigate to={localStorage.getItem("backURL")} />
                 )}
+
+                {
+                    error !== null || error !== undefined
+                        ?
+                        <p>{error}</p>
+                        :
+                        null
+                }
             </div>
         </Wrapper>
     );
