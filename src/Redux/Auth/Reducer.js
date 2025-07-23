@@ -40,14 +40,16 @@ export default function Reducer (state = initState, action) {
         case Types.LOGIN_REQUEST_OTP_SUCCESS:
             return {
                 ...state,
-                step: "verify"
+                step: "verify",
+                error: null
             };
         case Types.LOGIN_VERIFY_OTP_SUCCESS:
             return {
                 ...state,
                 step: "verified",
                 token: action.payload.token,
-                isLoggedIn: true
+                isLoggedIn: true,
+                error: null
             };
         case Types.LOGIN_VERIFY_OTP_FAILURE:
             return {
