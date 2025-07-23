@@ -61,23 +61,29 @@ function* loginVerifyOtpRequest(action) {
     const { mobile, otp } = action.payload || {};
 
     try {
-        const result = yield call(() =>
-            fetch('http://localhost:8080/api/v1/login/verify-otp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ mobile: mobile , otp: otp }),
-            })
-            .then(res => res.json())
-        );
+        const result = yield call(async () => {
+        const res = await fetch('http://localhost:8080/api/v1/login/verify-otp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ mobile, otp }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            throw new Error(data.message || 'Invalid OTP');
+        }
+
+            return data;
+        });
 
         yield put({ type: Types.LOGIN_VERIFY_OTP_SUCCESS, payload: result });
 
-        // save token in localStorage
         localStorage.setItem('token', result.token);
     } catch (error) {
-        yield put({ type: Types.LOGIN_VERIFY_OTP_FAILURE, error });
+        yield put({ type: Types.LOGIN_VERIFY_OTP_FAILURE, error: error.message });
     }
 }
 
