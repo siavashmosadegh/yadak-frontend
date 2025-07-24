@@ -1,6 +1,9 @@
 import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
 import Types from './Types';
-import { verifyOtp } from '../../API/authApi';
+import {
+    verifyOtp,
+    requestOtp
+} from '../../API/authApi';
 
 function* loginRequest(action) {
 
@@ -35,21 +38,18 @@ function* loginRequestOtpRequest(action) {
     const { mobile } = action.payload || {};
 
     try {
-        const result = yield call(() =>
-            fetch('http://localhost:8080/api/v1/login/request-otp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ mobile: mobile }),
-            })
-            .then(res => res.json())
-        );
-        console.log(result);
+
+        const result = yield call(requestOtp, { mobile });
+
         yield put({ type: Types.LOGIN_REQUEST_OTP_SUCCESS, payload: result });
 
     } catch (error) {
-        yield put({ type: Types.LOGIN_REQUEST_OTP_FAILURE, error });
+
+        yield put({
+            type: Types.LOGIN_REQUEST_OTP_FAILURE,
+            error: error.message || 'Failed to request OTP',
+        });
+
     }
 }
 
