@@ -1,27 +1,31 @@
 import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
 import Types from './Types';
 
+import {
+    getCartViaUserIdApi
+} from '../../API/cartApi';
+
 function* getCartViaUserId() {
     try {
-        const result = yield call(() =>
-            fetch('http://localhost:8080/api/v1/cart/get-cart-via-user-id', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+ localStorage.getItem("token")
-                }
-            })
-            .then(res => res.json())
-        );
+
+        const result = yield call(getCartViaUserIdApi); // returns axiosClient.get response
+
         yield put({ type: Types.GET_CART_VIA_USER_ID_SUCCESS, payload: result.result });
+
     } catch (error) {
-        yield put({ type: Types.GET_CART_VIA_USER_ID_FAIL, error });
+
+        yield put({
+            type: Types.GET_CART_VIA_USER_ID_FAIL,
+            error: error.response?.data?.message || 'Failed to fetch cart',
+        });
+
     }
 }
 
 function* watchGetCartViaUserId() {
     yield takeEvery(Types.GET_CART_VIA_USER_ID_REQUEST, getCartViaUserId);
 }
+
 
 function* increaseProductQuantityInCart(action) {
     try {
