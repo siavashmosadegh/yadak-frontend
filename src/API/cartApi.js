@@ -24,3 +24,9 @@ export const deleteEverythingFromCartViaCartIdApi = ({ cartId }) => {
         data: { cartId },
     });
 };
+
+export const getCartItemsViaCartIdApi = ({ cartId }) => {
+    return axiosClient.post('/cart/get-cart-items-via-cart-id', {
+        cartId
+    });
+};

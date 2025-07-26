@@ -5,8 +5,13 @@ import {
     getCartViaUserIdApi,
     increaseProductQuantityInCartApi,
     decreaseProductQuantityInCartApi,
-    deleteEverythingFromCartViaCartIdApi
+    deleteEverythingFromCartViaCartIdApi,
+    getCartItemsViaCartIdApi
 } from '../../API/cartApi';
+
+import {
+    getProductsByIdsApi
+} from '../../API/productApi';
 
 function* getCartViaUserId() {
     try {
@@ -52,57 +57,33 @@ function* watchIncreaseProductQuantityInCart() {
     yield takeEvery(Types.INCREASE_PRODUCT_QUANTITY_IN_CART_REQUEST, increaseProductQuantityInCart);
 }
 
-function* fetchCartItemsFromAPI(cartId) {
-    const res = yield fetch('http://localhost:8080/api/v1/cart/get-cart-items-via-cart-id', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('token'),
-        },
-        body: JSON.stringify({ cartId }),
-    });
-
-    return yield res.json();
-}
-
-function* fetchProductsByIdsAPI(productIds) {
-    const res = yield fetch('http://localhost:8080/api/v1/products/bulk', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ids: productIds }),
-    });
-
-    //console.log(`res.json.products: ${res.json().products[0].ProductID}`)
-
-    return yield res.json();
-}
-
-
 function* getCartItemsViaCartId(action) {
     try {
         const { cartId } = action.payload;
 
         // Step 1: Fetch raw cart items
-        const cartItems = yield call(fetchCartItemsFromAPI, cartId); // returns [{productId, quantity, ...}]
+        const cartItemsResponse = yield call(getCartItemsViaCartIdApi, { cartId });
+
+        const cartItems = cartItemsResponse.result;
 
         // Step 2: Extract product IDs
-        const productIds = cartItems.result.map(item => item.ProductID);
+        const productIds = cartItems.map(item => item.ProductID);
 
-        // Step 3: Call your new API to get product details
-        const products = yield call(fetchProductsByIdsAPI, productIds); // returns [{id, name, price, imageUrl}]
+        // Step 3: Fetch product details
+        const productsResponse = yield call(getProductsByIdsApi, { ids: productIds });
 
-        // Step 4: Merge product details into cart items
-        const enrichedCartItems = cartItems.result.map(item => {
-            const product = products.products.find(p => p.ProductID === item.ProductID);
+        const products = productsResponse.products;
+
+        // Step 4: Merge product details with cart items
+        const enrichedCartItems = cartItems.map(item => {
+            const product = products.find(p => p.ProductID === item.ProductID);
             return {
                 ...item,
                 product,
             };
         });
 
-        // Step 5: Dispatch success with enriched items
+        // Step 5: Dispatch success
         yield put({
             type: Types.GET_CART_ITEMS_VIA_CART_ID_SUCCESS,
             payload: enrichedCartItems,
@@ -111,7 +92,7 @@ function* getCartItemsViaCartId(action) {
     } catch (error) {
         yield put({
             type: Types.GET_CART_ITEMS_VIA_CART_ID_FAIL,
-            error: error.message || 'Failed to fetch cart',
+            error: error.response?.data?.message || error.message || 'Failed to fetch cart items',
         });
     }
 }
