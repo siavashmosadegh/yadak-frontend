@@ -47,7 +47,7 @@ function* loginRequestOtpRequest(action) {
 
         yield put({
             type: Types.LOGIN_REQUEST_OTP_FAILURE,
-            error: error.message || 'Failed to request OTP',
+            error: error.response.data.message || 'Failed to request OTP',
         });
 
     }
