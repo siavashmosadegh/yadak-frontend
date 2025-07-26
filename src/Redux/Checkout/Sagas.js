@@ -2,7 +2,8 @@ import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
 import Types from './Types';
 
 import {
-    getCartViaUserIdApi
+    getCartViaUserIdApi,
+    increaseProductQuantityInCartApi
 } from '../../API/cartApi';
 
 function* getCartViaUserId() {
@@ -26,30 +27,29 @@ function* watchGetCartViaUserId() {
     yield takeEvery(Types.GET_CART_VIA_USER_ID_REQUEST, getCartViaUserId);
 }
 
-
 function* increaseProductQuantityInCart(action) {
     try {
+
         const { cartId, productId } = action.payload;
-        const result = yield call(() =>
-            fetch(`http://localhost:8080/api/v1/cart/increase-product-quantity-in-cart`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+ localStorage.getItem("token")
-                },
-                body: JSON.stringify({ cartId, productId })
-            })
-            .then(res => res.json())
-        );
+
+        const result = yield call(increaseProductQuantityInCartApi, { cartId, productId });
+
         yield put({ type: Types.INCREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS, payload: result });
+
     } catch (error) {
-        yield put({ type: Types.INCREASE_PRODUCT_QUANTITY_IN_CART_FAIL, error });
+
+        yield put({
+            type: Types.INCREASE_PRODUCT_QUANTITY_IN_CART_FAIL,
+            error: error.response?.data?.message || 'Failed to increase product quantity',
+        });
+
     }
 }
 
 function* watchIncreaseProductQuantityInCart() {
     yield takeEvery(Types.INCREASE_PRODUCT_QUANTITY_IN_CART_REQUEST, increaseProductQuantityInCart);
 }
+
 
 function* fetchCartItemsFromAPI(cartId) {
     const res = yield fetch('http://localhost:8080/api/v1/cart/get-cart-items-via-cart-id', {
