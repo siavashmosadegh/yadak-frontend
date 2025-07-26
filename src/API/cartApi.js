@@ -19,3 +19,8 @@ export const decreaseProductQuantityInCartApi = ({ cartId, productId, cartItemId
     });
 };
 
+export const deleteEverythingFromCartViaCartIdApi = ({ cartId }) => {
+    return axiosClient.delete('/cart/delete-everything-via-cart-id', {
+        data: { cartId },
+    });
+};

@@ -4,7 +4,8 @@ import Types from './Types';
 import {
     getCartViaUserIdApi,
     increaseProductQuantityInCartApi,
-    decreaseProductQuantityInCartApi
+    decreaseProductQuantityInCartApi,
+    deleteEverythingFromCartViaCartIdApi
 } from '../../API/cartApi';
 
 function* getCartViaUserId() {
@@ -121,27 +122,28 @@ function* watchGetCartItemsViaCartId() {
 
 function* deleteEverythingFromCartViaCartId(action) {
     try {
+
         const { cartId } = action.payload;
 
-        const result = yield call(() =>
-            fetch(`http://localhost:8080/api/v1/cart/delete-everything-via-cart-id`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+ localStorage.getItem("token")
-                },
-                body: JSON.stringify({ cartId })
-            })
-            .then(res => res.json())
-        );
-        yield put({ type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_SUCCESS, payload: result });
+        const result = yield call(deleteEverythingFromCartViaCartIdApi, { cartId });
+
+        yield put({
+            type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_SUCCESS,
+            payload: result,
+        });
+
     } catch (error) {
-        yield put({ type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_FAIL, error });
+
+        yield put({
+            type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_FAIL,
+            error: error.response?.data?.message || 'Failed to delete cart items',
+        });
+
     }
 }
 
 function* watchDeleteEverythingFromCartViaCartId() {
-    yield takeEvery(Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_REQUEST, deleteEverythingFromCartViaCartId)
+    yield takeEvery(Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_REQUEST,deleteEverythingFromCartViaCartId);
 }
 
 function* decreaseProductQuantityInCart(action) {
