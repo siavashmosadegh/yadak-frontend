@@ -55,7 +55,12 @@ export default function Reducer (state = initState, action) {
             return {
                 ...state,
                 error: action.error
-            }
+            };
+        case Types.LOGIN_REQUEST_OTP_FAILURE:
+            return {
+                ...state,
+                error: action.error
+            };
         default:
             return state;
     }
