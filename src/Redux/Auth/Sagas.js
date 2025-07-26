@@ -73,7 +73,7 @@ function* loginVerifyOtpRequest(action) {
 
         yield put({
             type: Types.LOGIN_VERIFY_OTP_FAILURE,
-            error: error.message || 'OTP verification failed',
+            error: error.response.data.message || 'OTP verification failed',
         });
 
     }
