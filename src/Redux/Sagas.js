@@ -5,6 +5,7 @@ import SearchSagas from './Search/Sagas';
 import ProductSagas from './Product/Sagas';
 import AuthSagas from './Auth/Sagas';
 import CheckoutSagas from './Checkout/Sagas';
+import UserSagas from './User/Sagas';
 
 export default function* Sagas (getState) {
     yield all([
@@ -12,6 +13,7 @@ export default function* Sagas (getState) {
         SearchSagas(),
         ProductSagas(),
         AuthSagas(),
-        CheckoutSagas()
+        CheckoutSagas(),
+        UserSagas
     ]);
 }
