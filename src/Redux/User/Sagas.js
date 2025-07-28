@@ -32,7 +32,7 @@ function* getProfilePersonalInfoRequest() {
 
         const result = yield call(getProfilePersonalInfoRequestApi);
 
-        yield put({ type: Types.GET_PROFILE_PERSONAL_INFO_SUCCESS, payload: result.result });
+        yield put({ type: Types.GET_PROFILE_PERSONAL_INFO_SUCCESS, payload: result.user });
 
     } catch (error) {
 
