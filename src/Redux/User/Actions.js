@@ -5,8 +5,8 @@ const UserActions = {
     selectAddressHandler: DelegateAction(Types.SELECT_ADDRESS)
 }
 
-export const getProfilePersonalInfoNames = (firstName, lastName) => ({
-    type: Types.GET_PROFILE_PERSONAL_INFO_NAMES_REQUEST,
+export const updateProfilePersonalInfoNames = (firstName, lastName) => ({
+    type: Types.UPDATE_PROFILE_PERSONAL_INFO_NAMES_REQUEST,
     payload: {
         firstName,
         lastName
