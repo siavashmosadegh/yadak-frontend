@@ -14,6 +14,6 @@ export default function* Sagas (getState) {
         ProductSagas(),
         AuthSagas(),
         CheckoutSagas(),
-        UserSagas
+        UserSagas()
     ]);
 }
