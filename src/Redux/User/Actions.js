@@ -13,4 +13,8 @@ export const updateProfilePersonalInfoNames = (firstName, lastName) => ({
     }
 });
 
+export const getProfilePersonalInfoRequest = () => ({
+    type: Types.GET_PROFILE_PERSONAL_INFO_REQUEST
+});
+
 export default UserActions;
