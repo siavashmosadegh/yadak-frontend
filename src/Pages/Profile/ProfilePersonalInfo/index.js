@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Layout from '../../../Views/Layout';
 import ProfileLayout from '../../../Views/Profile/ProfileLayout';
 import {
@@ -9,8 +9,17 @@ import {
     ParagraphWrapper
 } from './styles';
 import EditIcon from '../../../Icons/Profile/EditIcon';
+import { getProfilePersonalInfoRequest } from '../../../Redux/User/Actions';
+import { useDispatch } from 'react-redux';
 
 const ProfilePersonalInfo = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getProfilePersonalInfoRequest());
+    });
+
     return (
         <Layout>
             <ProfileLayout>
