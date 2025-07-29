@@ -9,7 +9,8 @@ const initState = {
         {id: 1,title: "میدان رسالت / میدان رسالت / میدان رسالت / میدان رسالت / میدان رسالت /",zipCode: 1435685867,houseNumber: null}
     ],
     selectedAddress: null,
-    user: null
+    user: null,
+    loading: false
 }
 
 export default function Reducer (state = initState, action) {
@@ -19,9 +20,15 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 selectedAddress: action.data
             };
+        case Types.GET_PROFILE_PERSONAL_INFO_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
         case Types.GET_PROFILE_PERSONAL_INFO_SUCCESS:
             return {
                 ...state,
+                loading: false,
                 user: action.payload
             };
         default:
