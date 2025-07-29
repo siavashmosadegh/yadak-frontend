@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../../../Views/Layout';
 import ProfileLayout from '../../../Views/Profile/ProfileLayout';
 import {
@@ -15,8 +15,19 @@ import {
     useSelector
 } from 'react-redux';
 import Loader from '../../../UI-Kit/Loader/Loader';
+import UpdateNameFormModal from '../../../Views/Profile/Modals/UpdateNameFormModal';
 
 const ProfilePersonalInfo = () => {
+
+    const [showUpdateNameFormModal, setShowUpdateNameFormModal] = useState(false);
+
+    const openShowUpdateNameFormModal = () => {
+        setShowUpdateNameFormModal(true);
+    }
+
+    const closeShowUpdateNameFormModal = () => {
+        setShowUpdateNameFormModal(false);
+    }
 
     const dispatch = useDispatch();
 
@@ -46,7 +57,9 @@ const ProfilePersonalInfo = () => {
                                     </ParagraphWrapper>
 
                                     <IconAndContentWrapper>
-                                        <EditIconWrapper>
+                                        <EditIconWrapper
+                                            onClick={openShowUpdateNameFormModal}
+                                        >
                                             <EditIcon />
                                         </EditIconWrapper>
 
@@ -74,6 +87,14 @@ const ProfilePersonalInfo = () => {
                                     </IconAndContentWrapper>
                                 </PersonalInfoItem>
                             </div>
+                    }
+
+                    {
+                        showUpdateNameFormModal === true
+                            ?
+                            <UpdateNameFormModal />
+                            :
+                            null
                     }
                 </ProfilePersonalInfoWrapper>
             </ProfileLayout>
