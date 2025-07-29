@@ -42,7 +42,7 @@ const ProfilePersonalInfo = () => {
                                 <PersonalInfoItem>
 
                                     <ParagraphWrapper>
-                                        <p>نام و نام خانوادگی</p>
+                                        <p>نام و خانوادگی</p>
                                     </ParagraphWrapper>
 
                                     <IconAndContentWrapper>
@@ -50,7 +50,15 @@ const ProfilePersonalInfo = () => {
                                             <EditIcon />
                                         </EditIconWrapper>
 
-                                        <p style={{marginBottom: "30px"}}>سیاوش مصدق</p>
+                                        <p>
+                                            {
+                                                user !== null && user?.FirstName !== null && user?.LastName !== null
+                                                    ?
+                                                    <p>{user?.FirstName} {user?.LastName}</p>
+                                                    :
+                                                    <p>وارد نشده</p>
+                                            }
+                                        </p>
                                     </IconAndContentWrapper>
                                 </PersonalInfoItem>
 
