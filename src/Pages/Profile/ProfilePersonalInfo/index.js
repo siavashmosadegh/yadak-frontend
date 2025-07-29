@@ -10,7 +10,11 @@ import {
 } from './styles';
 import EditIcon from '../../../Icons/Profile/EditIcon';
 import { getProfilePersonalInfoRequest } from '../../../Redux/User/Actions';
-import { useDispatch } from 'react-redux';
+import {
+    useDispatch,
+    useSelector
+} from 'react-redux';
+import Loader from '../../../UI-Kit/Loader/Loader';
 
 const ProfilePersonalInfo = () => {
 
@@ -18,40 +22,51 @@ const ProfilePersonalInfo = () => {
 
     useEffect(() => {
         dispatch(getProfilePersonalInfoRequest());
-    });
+    },[]);
+
+    const {
+        user,
+        loading
+    } = useSelector((state) => state.User);
 
     return (
         <Layout>
             <ProfileLayout>
                 <ProfilePersonalInfoWrapper>
-                    <div className='row'>
-                        <PersonalInfoItem>
+                    {
+                        loading === true
+                            ?
+                            <Loader />
+                            :
+                            <div className='row'>
+                                <PersonalInfoItem>
 
-                            <ParagraphWrapper>
-                                <p>نام و نام خانوادگی</p>
-                            </ParagraphWrapper>
+                                    <ParagraphWrapper>
+                                        <p>نام و نام خانوادگی</p>
+                                    </ParagraphWrapper>
 
-                            <IconAndContentWrapper>
-                                <EditIconWrapper>
-                                    <EditIcon />
-                                </EditIconWrapper>
+                                    <IconAndContentWrapper>
+                                        <EditIconWrapper>
+                                            <EditIcon />
+                                        </EditIconWrapper>
 
-                                <p style={{marginBottom: "30px"}}>سیاوش مصدق</p>
-                            </IconAndContentWrapper>
-                        </PersonalInfoItem>
+                                        <p style={{marginBottom: "30px"}}>سیاوش مصدق</p>
+                                    </IconAndContentWrapper>
+                                </PersonalInfoItem>
 
-                        <PersonalInfoItem>
-                            <p>کد ملی</p>
+                                <PersonalInfoItem>
+                                    <p>کد ملی</p>
 
-                            <IconAndContentWrapper>
-                                <EditIconWrapper>
-                                    <EditIcon />
-                                </EditIconWrapper>
+                                    <IconAndContentWrapper>
+                                        <EditIconWrapper>
+                                            <EditIcon />
+                                        </EditIconWrapper>
 
-                                <p>۲۱۳۴۲۳۴۲۳۴</p>
-                            </IconAndContentWrapper>
-                        </PersonalInfoItem>
-                    </div>
+                                        <p>۲۱۳۴۲۳۴۲۳۴</p>
+                                    </IconAndContentWrapper>
+                                </PersonalInfoItem>
+                            </div>
+                    }
                 </ProfilePersonalInfoWrapper>
             </ProfileLayout>
         </Layout>
