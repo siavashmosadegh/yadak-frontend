@@ -31,6 +31,12 @@ export default function Reducer (state = initState, action) {
                 loading: false,
                 user: action.payload
             };
+        case Types.GET_PROFILE_PERSONAL_INFO_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
         default:
             return state;
     }
