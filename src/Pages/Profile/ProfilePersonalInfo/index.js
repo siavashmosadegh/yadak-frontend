@@ -92,7 +92,9 @@ const ProfilePersonalInfo = () => {
                     {
                         showUpdateNameFormModal === true
                             ?
-                            <UpdateNameFormModal />
+                            <UpdateNameFormModal
+                                closeModal={closeShowUpdateNameFormModal}
+                            />
                             :
                             null
                     }
