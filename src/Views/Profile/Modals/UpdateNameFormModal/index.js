@@ -1,4 +1,5 @@
 import CustomModal from '../../../../UI-Kit/CustomModal';
+import SubmitFirstnameAndLastnameForm from '../../Forms/SubmitFirstnameAndLastnameForm';
 import { Wrapper } from './styles';
 
 const UpdateNameFormModal = (props) => {
@@ -6,7 +7,7 @@ const UpdateNameFormModal = (props) => {
     return (
         <CustomModal
             width="400px"
-            height="250px"
+            height="450px"
             closeCustomModalHandler={() => props.closeModal()}
             headerTitle="بروز رسانی اسم"
             modalBackgroundColor="white"
@@ -14,7 +15,7 @@ const UpdateNameFormModal = (props) => {
             mediaQueryBreakpoint="600px"
         >
             <Wrapper>
-                فرم ابدیت اسم ها
+                <SubmitFirstnameAndLastnameForm />
             </Wrapper>
         </CustomModal>
     );
