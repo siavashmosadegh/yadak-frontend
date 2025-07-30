@@ -11,3 +11,10 @@ export const ProfileSubmitOpinionFormSchema = Yup.object().shape({
     ratingValue: Yup.number()
         .required('وارد کردن این فیلد الزامی است'),
 });
+
+export const SubmitFirstnameAndLastnameFormSchema = Yup.object().shape({
+    firstname: Yup.string()
+        .required('وارد کردن این فیلد الزامی است'),
+    lastname: Yup.string()
+        .required('وارد کردن این فیلد الزامی است')
+});
