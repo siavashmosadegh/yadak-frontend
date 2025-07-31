@@ -6,18 +6,21 @@ import {
     getProfilePersonalInfoRequestApi
 } from '../../API/userApi';
 
-function* updateProfilePersonalInfoNames() {
+function* updateProfilePersonalInfoNames(action) {
+
+    const { firstname, lastname } = action.payload || {};
+
     try {
 
-        const result = yield call(updateProfilePersonalInfoNamesApi); // returns axiosClient.get response
+        const result = yield call(updateProfilePersonalInfoNamesApi , {firstname, lastname}); // returns axiosClient.get response
 
-        yield put({ type: Types.UPDATE_PROFILE_PERSONAL_INFO_NAMES_SUCCESS, payload: result.result });
+        yield put({ type: Types.UPDATE_PROFILE_PERSONAL_INFO_NAMES_SUCCESS, payload: result?.updatedRecord[0] });
 
     } catch (error) {
 
         yield put({
             type: Types.UPDATE_PROFILE_PERSONAL_INFO_NAMES_FAILURE,
-            error: error.response?.data?.message || 'Failed to fetch cart',
+            error: error.response?.data?.message || 'Failed to fetch',
         });
 
     }
