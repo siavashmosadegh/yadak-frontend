@@ -7,8 +7,14 @@ import { Formik } from 'formik';
 import FormHandlers from '../../../../Util/FormHandlers';
 import CustomButton from '../../../../UI-Kit/CustomButton';
 import { SubmitFirstnameAndLastnameFormSchema } from '../../../../Validation/Profile/Schema';
+import { useDispatch } from 'react-redux';
+import { updateProfilePersonalInfoNames } from '../../../../Redux/User/Actions';
+
 
 const SubmitFirstnameAndLastnameForm = () => {
+
+    const dispatch = useDispatch();
+
     return (
         <FormContainer>
             <Formik
@@ -18,7 +24,7 @@ const SubmitFirstnameAndLastnameForm = () => {
                 }}
                 validationSchema={SubmitFirstnameAndLastnameFormSchema}
                 onSubmit={(values, action) => {
-                    console.log(values);
+                    dispatch(updateProfilePersonalInfoNames( values ));
                 }}
             >
                 {(formik) => (
