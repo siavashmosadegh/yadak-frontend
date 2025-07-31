@@ -1,7 +1,10 @@
 import axiosClient from './axiosClient';
 
-export const updateProfilePersonalInfoNamesApi = ({firstName, lastName}) => {
-    return axiosClient.post('profile/personal-info/update-name', {firstName, lastName});
+export const updateProfilePersonalInfoNamesApi = ({firstname, lastname}) => {
+    return axiosClient.post('profile/personal-info/update-name', {
+        firstName: firstname,
+        lastName: lastname
+    });
 };
 
 export const getProfilePersonalInfoRequestApi = () => {
