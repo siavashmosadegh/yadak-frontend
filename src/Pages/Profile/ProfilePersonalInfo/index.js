@@ -83,7 +83,15 @@ const ProfilePersonalInfo = () => {
                                             <EditIcon />
                                         </EditIconWrapper>
 
-                                        <p>۲۱۳۴۲۳۴۲۳۴</p>
+                                        <p>
+                                            {
+                                                user !== null && user?.NationalCode
+                                                    ?
+                                                    <p>{user?.NationalCode}</p>
+                                                    :
+                                                    <p>وارد نشده</p>
+                                            }
+                                        </p>
                                     </IconAndContentWrapper>
                                 </PersonalInfoItem>
                             </div>
