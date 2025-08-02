@@ -54,6 +54,23 @@ export default function Reducer (state = initState, action) {
                 loading: false,
                 error: action.error
             };
+        case Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                user: action.payload
+            };
+        case Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
         default:
             return state;
     }
