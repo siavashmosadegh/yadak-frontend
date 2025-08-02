@@ -3,7 +3,8 @@ import Types from './Types';
 
 import {
     updateProfilePersonalInfoNamesApi,
-    getProfilePersonalInfoRequestApi
+    getProfilePersonalInfoRequestApi,
+    updateProfilePersonalInfoNationalCodeApi
 } from '../../API/userApi';
 
 function* updateProfilePersonalInfoNames(action) {
@@ -54,9 +55,34 @@ function* watchGetProfilePersonalInfoRequest() {
     yield takeEvery(Types.GET_PROFILE_PERSONAL_INFO_REQUEST, getProfilePersonalInfoRequest);
 }
 
+function* updateProfilePersonalInfoNationalCode(action) {
+
+    const { nationalCode } = action.payload || {};
+
+    try {
+
+        const result = yield call(updateProfilePersonalInfoNationalCodeApi, {nationalCode} );
+
+        yield put({ type: Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_SUCCESS, payload: result });
+
+    } catch (error) {
+
+        yield put ({
+            type: Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_FAILURE,
+            error: error.response?.data?.message || 'failed to update national code',
+        });
+
+    }
+}
+
+function* watchUpdateProfilePersonalInfoNationalCode() {
+    yield takeEvery(Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_REQUEST, updateProfilePersonalInfoNationalCode)
+}
+
 export default function* Sagas() {
     yield all([
         fork(watchUpdateProfilePersonalInfoNames),
-        fork(watchGetProfilePersonalInfoRequest)
+        fork(watchGetProfilePersonalInfoRequest),
+        fork(watchUpdateProfilePersonalInfoNationalCode)
     ]);
 }
