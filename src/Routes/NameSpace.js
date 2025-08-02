@@ -8,6 +8,7 @@ export default {
   profileLists: '/profile/lists',
   profileOpinions: '/profile/opinions',
   profilePersonalInfo: '/profile/personal-info',
+  profileAddress: '/profile/address',
   logout: '/logout',
   search: '/search/*',
   checkoutCart: '/checkout/cart',
