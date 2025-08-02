@@ -63,7 +63,7 @@ function* updateProfilePersonalInfoNationalCode(action) {
 
         const result = yield call(updateProfilePersonalInfoNationalCodeApi, {nationalCode} );
 
-        yield put({ type: Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_SUCCESS, payload: result });
+        yield put({ type: Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_SUCCESS, payload: result?.result[0] });
 
     } catch (error) {
 
