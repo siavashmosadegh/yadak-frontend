@@ -16,6 +16,7 @@ import {
 } from 'react-redux';
 import Loader from '../../../UI-Kit/Loader/Loader';
 import UpdateNameFormModal from '../../../Views/Profile/Modals/UpdateNameFormModal';
+import UpdateNationalCodeFormModal from '../../../Views/Profile/Modals/UpdateNationalCodeFormModal';
 
 const ProfilePersonalInfo = () => {
 
@@ -27,6 +28,16 @@ const ProfilePersonalInfo = () => {
 
     const closeShowUpdateNameFormModal = () => {
         setShowUpdateNameFormModal(false);
+    }
+
+    const [showUpdateNationalCodeModal, setShowUpdateNationalCodeModal] = useState(false);
+
+    const openShowUpdateNationalCodeModal = () => {
+        setShowUpdateNationalCodeModal(true);
+    }
+
+    const closeShowUpdateNationalCodeModal = () => {
+        setShowUpdateNationalCodeModal(false);
     }
 
     const dispatch = useDispatch();
@@ -79,7 +90,9 @@ const ProfilePersonalInfo = () => {
                                     <p>کد ملی</p>
 
                                     <IconAndContentWrapper>
-                                        <EditIconWrapper>
+                                        <EditIconWrapper
+                                            onClick={openShowUpdateNationalCodeModal}
+                                        >
                                             <EditIcon />
                                         </EditIconWrapper>
 
@@ -102,6 +115,16 @@ const ProfilePersonalInfo = () => {
                             ?
                             <UpdateNameFormModal
                                 closeModal={closeShowUpdateNameFormModal}
+                            />
+                            :
+                            null
+                    }
+
+                    {
+                        showUpdateNationalCodeModal === true
+                            ?
+                            <UpdateNationalCodeFormModal
+                                closeModal={closeShowUpdateNationalCodeModal}
                             />
                             :
                             null
