@@ -14,4 +14,9 @@ export const getProfilePersonalInfoRequest = () => ({
     type: Types.GET_PROFILE_PERSONAL_INFO_REQUEST
 });
 
+export const updateProfilePersonalInfoNationalCode = (payload) => ({
+    type: Types.UPDATE_PROFILE_PERSONAL_INFO_NATIONAL_CODE_REQUEST,
+    payload
+});
+
 export default UserActions;
