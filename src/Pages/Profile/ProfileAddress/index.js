@@ -9,6 +9,8 @@ import {
 } from 'react-redux';
 import { getProfilePersonalInfoRequest } from '../../../Redux/User/Actions';
 import Loader from '../../../UI-Kit/Loader/Loader';
+import AddAddressModal from '../../../Views/Profile/Modals/AddAddressModal';
+import { useState } from 'react';
 
 const ProfileAddress = () => {
 
@@ -23,13 +25,25 @@ const ProfileAddress = () => {
         dispatch(getProfilePersonalInfoRequest())
     },[]);
 
+    const [showAddAddressModal, setShowAddAddressModal] = useState(false);
+
+    const openShowAddAddressModal = () => {
+        setShowAddAddressModal(true);
+    }
+
+    const closeShowAddAddressModal = () => {
+        setShowAddAddressModal(false);
+    }
+
     return (
         <Layout>
             <ProfileLayout>
                 <ProfileAddressWrapper>
                     <div className='row'>
                         <div className='addNewAddress'>
-                            <p>
+                            <p
+                                onClick={() => openShowAddAddressModal()}
+                            >
                                 افزودن آدرس جدید
                             </p>
                         </div>
@@ -60,6 +74,15 @@ const ProfileAddress = () => {
                         {/* <ProfileAddressItem /> */}
                     </div>
 
+                    {
+                        showAddAddressModal === true
+                            ?
+                            <AddAddressModal
+                                onClose={closeShowAddAddressModal}
+                            />
+                            :
+                            null
+                    }
                 </ProfileAddressWrapper>
             </ProfileLayout>
         </Layout>
