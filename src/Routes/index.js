@@ -23,6 +23,7 @@ import ProfilePersonalInfo from '../Pages/Profile/ProfilePersonalInfo';
 import OrderDetails from '../Pages/Profile/OrderDetails';
 import ProductCategory from '../Pages/ProductCategory';
 import CarBrand from '../Pages/CarBrand';
+import ProfileAddress from '../Pages/Profile/ProfileAddress';
 
 const RoutesList = () => {
     
@@ -106,7 +107,11 @@ const RoutesList = () => {
 
                 <Route path={routePaths.profileOrderDetails} element={<PrivateRoute/>}>
                     <Route path={routePaths.profileOrderDetails} element={<OrderDetails />}/>
-                </Route>                
+                </Route>
+
+                <Route path={routePaths.profileAddress} element={<PrivateRoute />}>
+                    <Route path={routePaths.profileAddress} element={<ProfileAddress />} />
+                </Route>
 
                 {/* <Route
                     exact
