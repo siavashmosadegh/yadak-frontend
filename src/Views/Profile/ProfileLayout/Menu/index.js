@@ -18,6 +18,7 @@ import PersonTwoIcon from '../../../../Icons/Header/PersonTwoIcon';
 import PersonThreeIcon from '../../../../Icons/Header/PersonThreeIcon';
 import EditIcon from '../../../../Icons/Profile/EditIcon';
 import { Link, useLocation } from 'react-router-dom';
+import AddressPinLocationIcon from '../../../../Icons/Profile/AddressPinLocationIcon';
 
 const Menu = () => {
 
@@ -29,7 +30,8 @@ const Menu = () => {
         {id: 2,title: "لیست ها",icon: <EmptyHeartIcon />,goTo: routePaths.profileLists},
         {id: 3,title: "دیدگاه ها",icon: <CommentIcon />,goTo: routePaths.profileOpinions},
         {id: 4,title: "اطلاعات حساب کاربری",icon: <PersonTwoIcon />,goTo: routePaths.profilePersonalInfo},
-        {id: 5,title: "خروج",icon: <ExitIcon />,goTo: routePaths.logout}
+        {id: 5,title: "آدرس",icon: <AddressPinLocationIcon />,goTo: routePaths.profileAddress},
+        {id: 6,title: "خروج",icon: <ExitIcon />,goTo: routePaths.logout}
     ]);
 
     const menuItemsContent = () => {
