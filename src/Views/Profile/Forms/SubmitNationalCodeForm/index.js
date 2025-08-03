@@ -4,6 +4,7 @@ import FormHandlers from "../../../../Util/FormHandlers";
 import { updateProfilePersonalInfoNationalCode } from "../../../../Redux/User/Actions";
 import { Form,FormContainer } from "./styles";
 import CustomButton from "../../../../UI-Kit/CustomButton";
+import { SubmitNationalCodeFormSchema } from "../../../../Validation/Profile/Schema";
 
 const SubmitNationalCodeForm = () => {
 
@@ -15,7 +16,7 @@ const SubmitNationalCodeForm = () => {
                 initialValues={{
                     nationalCode: ""
                 }}
-                //validationSchema={SubmitFirstnameAndLastnameFormSchema}
+                validationSchema={SubmitNationalCodeFormSchema}
                 onSubmit={(values, action) => {
                     dispatch(updateProfilePersonalInfoNationalCode( values ));
                 }}

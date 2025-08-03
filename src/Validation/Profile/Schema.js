@@ -18,3 +18,10 @@ export const SubmitFirstnameAndLastnameFormSchema = Yup.object().shape({
     lastname: Yup.string()
         .required('وارد کردن این فیلد الزامی است')
 });
+
+export const SubmitNationalCodeFormSchema = Yup.object().shape({
+    nationalCode: Yup.string()
+        .required('وارد کردن این فیلد الزامی است')
+        .min(10,'باید ۱۰ کاراکتر باشد')
+        .max(10,'باید ۱۰ کاراکتر باشد')
+})
