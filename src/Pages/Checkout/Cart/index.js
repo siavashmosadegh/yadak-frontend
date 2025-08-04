@@ -14,6 +14,7 @@ import {
     getCartViaUserId,
     getCartItemsViaCartId
 } from '../../../Redux/Checkout/Actions';
+import Loader from '../../../UI-Kit/Loader/Loader';
 
 const CheckoutCart = () => {
 
@@ -21,7 +22,8 @@ const CheckoutCart = () => {
 
     const {
         shoppingBag,
-        shoppingBagId
+        shoppingBagId,
+        loading
     } = useSelector((state) => state.Checkout);
 
     const {
@@ -82,12 +84,19 @@ const CheckoutCart = () => {
         <Layout>
             <CheckoutWrapper>
                 {
-                    shoppingBag?.length === 0
+                    loading === true
                         ?
-                        checkoutEmptyContent()
+                        <Loader />
                         :
-                        checkoutContent()
+                        shoppingBag?.length === 0
+                            ?
+                            checkoutEmptyContent()
+                            :
+                            checkoutContent()
+
                 }
+                {/* {
+                } */}
             </CheckoutWrapper>
         </Layout>
     );
