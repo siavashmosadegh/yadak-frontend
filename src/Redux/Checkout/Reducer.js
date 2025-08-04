@@ -32,7 +32,8 @@ const initState = {
     ],
     showChangeEditAddressModal: false,
     showConfirmSelectTimeAddressModal: false,
-    loading: false
+    loading: false,
+    error: null
 }
 
 export default function Reducer (state = initState, action) {
@@ -62,10 +63,22 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 showConfirmSelectTimeAddressModal: false
             };
+        case Types.GET_CART_VIA_USER_ID_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
         case Types.GET_CART_VIA_USER_ID_SUCCESS:
             return {
                 ...state,
+                loading: false,
                 shoppingBagId: action.payload.cartId
+            }
+        case Types.GET_CART_VIA_USER_ID_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
             }
         case Types.GET_CART_ITEMS_VIA_CART_ID_SUCCESS:
             return {
