@@ -23,7 +23,8 @@ const CheckoutCart = () => {
     const {
         shoppingBag,
         shoppingBagId,
-        loading
+        getCartLoading,
+        getCartItemsLoading
     } = useSelector((state) => state.Checkout);
 
     const {
@@ -84,7 +85,7 @@ const CheckoutCart = () => {
         <Layout>
             <CheckoutWrapper>
                 {
-                    loading === true
+                    getCartItemsLoading === true || getCartLoading === true
                         ?
                         <Loader />
                         :
