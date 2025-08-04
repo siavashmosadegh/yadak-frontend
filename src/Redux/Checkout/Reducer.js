@@ -31,7 +31,8 @@ const initState = {
         }
     ],
     showChangeEditAddressModal: false,
-    showConfirmSelectTimeAddressModal: false
+    showConfirmSelectTimeAddressModal: false,
+    loading: false
 }
 
 export default function Reducer (state = initState, action) {
