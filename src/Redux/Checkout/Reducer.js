@@ -32,8 +32,10 @@ const initState = {
     ],
     showChangeEditAddressModal: false,
     showConfirmSelectTimeAddressModal: false,
-    loading: false,
-    error: null
+    getCartLoading: false,
+    getCartError: null,
+    getCartItemsLoading: false,
+    getCartItemsError: null
 }
 
 export default function Reducer (state = initState, action) {
@@ -66,25 +68,37 @@ export default function Reducer (state = initState, action) {
         case Types.GET_CART_VIA_USER_ID_REQUEST:
             return {
                 ...state,
-                loading: true
+                getCartLoading: true
             };
         case Types.GET_CART_VIA_USER_ID_SUCCESS:
             return {
                 ...state,
-                loading: false,
+                getCartLoading: false,
                 shoppingBagId: action.payload.cartId
-            }
+            };
         case Types.GET_CART_VIA_USER_ID_FAIL:
             return {
                 ...state,
-                loading: false,
+                getCartLoading: false,
                 error: action.error
-            }
+            };
+        case Types.GET_CART_ITEMS_VIA_CART_ID_REQUEST:
+            return {
+                ...state,
+                getCartItemsLoading: true
+            };
         case Types.GET_CART_ITEMS_VIA_CART_ID_SUCCESS:
             return {
                 ...state,
-                shoppingBag: action.payload
-            }
+                shoppingBag: action.payload,
+                getCartItemsLoading: false
+            };
+        case Types.GET_CART_ITEMS_VIA_CART_ID_FAIL:
+            return {
+                ...state,
+                getCartItemsLoading: false,
+                error: action.error
+            };
         default:
             return state;
     }
