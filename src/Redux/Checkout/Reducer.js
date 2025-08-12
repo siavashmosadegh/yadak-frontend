@@ -35,7 +35,8 @@ const initState = {
     getCartLoading: false,
     getCartError: null,
     getCartItemsLoading: false,
-    getCartItemsError: null
+    getCartItemsError: null,
+    cartQuantityUpdateLoading: false,
 }
 
 export default function Reducer (state = initState, action) {
@@ -98,6 +99,38 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 getCartItemsLoading: false,
                 error: action.error
+            };
+        case Types.INCREASE_PRODUCT_QUANTITY_IN_CART_REQUEST:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: true
+            };
+        case Types.INCREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS:
+            return {
+                ...state,
+                shoppingBag: action.payload,
+                cartQuantityUpdateLoading: false
+            };
+        case Types.INCREASE_PRODUCT_QUANTITY_IN_CART_FAIL:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: false
+            };
+        case Types.DECREASE_PRODUCT_QUANTITY_IN_CART_REQUEST:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: true
+            };
+        case Types.DECREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS:
+            return {
+                ...state,
+                shoppingBag: action.payload,
+                cartQuantityUpdateLoading: false
+            };
+        case Types.DECREASE_PRODUCT_QUANTITY_IN_CART_FAIL:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: false
             };
         default:
             return state;

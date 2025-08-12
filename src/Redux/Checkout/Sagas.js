@@ -41,7 +41,7 @@ function* increaseProductQuantityInCart(action) {
 
         const result = yield call(increaseProductQuantityInCartApi, { cartId, productId });
 
-        yield put({ type: Types.INCREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS, payload: result });
+        yield put({ type: Types.INCREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS, payload: result.result });
 
     } catch (error) {
 
@@ -140,7 +140,7 @@ function* decreaseProductQuantityInCart(action) {
 
         yield put({
             type: Types.DECREASE_PRODUCT_QUANTITY_IN_CART_SUCCESS,
-            payload: result,
+            payload: result.result
         });
 
     } catch (error) {
