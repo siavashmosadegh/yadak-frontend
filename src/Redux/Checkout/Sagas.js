@@ -109,8 +109,7 @@ function* deleteEverythingFromCartViaCartId(action) {
         const result = yield call(deleteEverythingFromCartViaCartIdApi, { cartId });
 
         yield put({
-            type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_SUCCESS,
-            payload: result,
+            type: Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_SUCCESS
         });
 
     } catch (error) {

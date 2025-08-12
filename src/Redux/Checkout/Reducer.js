@@ -132,6 +132,23 @@ export default function Reducer (state = initState, action) {
                 ...state,
                 cartQuantityUpdateLoading: false
             };
+        case Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_REQUEST:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: true
+            };
+        case Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_SUCCESS:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: false,
+                shoppingBag: []
+            };
+        case Types.DELETE_EVERYTHING_FROM_CART_VIA_CART_ID_FAIL:
+            return {
+                ...state,
+                cartQuantityUpdateLoading: false,
+                error: action.error
+            };
         default:
             return state;
     }
