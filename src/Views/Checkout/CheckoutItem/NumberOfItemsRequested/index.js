@@ -1,4 +1,3 @@
-import React from 'react';
 import PlusIcon from '../../../../Icons/Checkout/PlusIcon';
 import TrashIcon from '../../../../Icons/Checkout/TrashIcon';
 import {
@@ -14,13 +13,15 @@ import {
     decreaseProductQuantityInCart,
     increaseProductQuantityInCart
 } from '../../../../Redux/Checkout/Actions';
+import Loader from '../../../../UI-Kit/Loader/Loader';
 
 const NumberOfItemsRequested = (props) => {
 
     const dispatch = useDispatch();
 
     const {
-        shoppingBagId
+        shoppingBagId,
+        cartQuantityUpdateLoading
     } = useSelector((state) => state.Checkout);
 
     const {
@@ -29,21 +30,35 @@ const NumberOfItemsRequested = (props) => {
         cartItemId
     } = props;
 
+
     return (
         <Wrapper>
-            <TrashIconContainer
-                onClick={() => dispatch(decreaseProductQuantityInCart(shoppingBagId, productId, cartItemId ))}
-            >
-                <TrashIcon />
-            </TrashIconContainer>
+            {
+                cartQuantityUpdateLoading === true
+                    ?
+                        <Loader
+                            width="35px"
+                            height="35px"
+                            componentSize="35px"
+                        />
+                    :
+                    <>
+                    
+                        <TrashIconContainer
+                            onClick={() => dispatch(decreaseProductQuantityInCart(shoppingBagId, productId, cartItemId ))}
+                        >
+                            <TrashIcon />
+                        </TrashIconContainer>
 
-            <span>{number}</span>
+                        <span>{number}</span>
 
-            <PlusIconContainer
-                onClick={() => dispatch(increaseProductQuantityInCart(shoppingBagId, productId))}
-            >
-                <PlusIcon />
-            </PlusIconContainer>
+                        <PlusIconContainer
+                            onClick={() => dispatch(increaseProductQuantityInCart(shoppingBagId, productId))}
+                        >
+                            <PlusIcon />
+                        </PlusIconContainer>
+                    </>
+            }
         </Wrapper>
     );
 }
