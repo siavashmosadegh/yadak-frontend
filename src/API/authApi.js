@@ -5,5 +5,5 @@ export const verifyOtp = ({ mobile, otp }) => {
 };
 
 export const requestOtp = ({ mobile }) => {
-    return axiosClient.post('/login/request-otp', { mobile });
+    return axiosClient.post('/auth/login/request-otp', { mobile });
 };
