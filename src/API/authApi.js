@@ -1,7 +1,7 @@
 import axiosClient from './axiosClient';
 
 export const verifyOtp = ({ mobile, otp }) => {
-    return axiosClient.post('/login/verify-otp', { mobile, otp });
+    return axiosClient.post('/auth/login/verify-otp', { mobile, otp });
 };
 
 export const requestOtp = ({ mobile }) => {
